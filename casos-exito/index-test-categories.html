@@ -177,7 +177,7 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
-      @media only screen and (max-width: 320px) {
+      @media only screen and (max-width: 376px) {
         .block.I18679 > .articles {
           grid-template-columns: repeat(1, 1fr);
         }
@@ -200,7 +200,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 1
                     </a>
                   </h1>
                   <a
@@ -240,7 +240,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 2
                     </a>
                   </h1>
                   <a
@@ -280,7 +280,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 3
                     </a>
                   </h1>
                   <a
@@ -320,7 +320,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 4
                     </a>
                   </h1>
                   <a
@@ -360,7 +360,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 5
                     </a>
                   </h1>
                   <a
@@ -400,7 +400,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 6
                     </a>
                   </h1>
                   <a
@@ -440,7 +440,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 7
                     </a>
                   </h1>
                   <a
@@ -480,7 +480,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 8
                     </a>
                   </h1>
                   <a
@@ -520,7 +520,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 9
                     </a>
                   </h1>
                   <a
@@ -560,7 +560,7 @@
                     <a
                       href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                     >
-                      Manzana
+                      Manzana 10
                     </a>
                   </h1>
                   <a
@@ -1528,6 +1528,9 @@
       buttonLoadMore.classList.add("button-gx--load-more");
       buttonLoadMore.innerText = "Load More Cases"; //default english
       buttonLoadMore.addEventListener("click", function () {
+        //get loadMoreButton offset top to do scroll later
+        var loadMoreButtonOffsetTop = offset(this).top;
+
         let showMore = 10;
         if (window.innerWidth <= 1200) {
           showMore = 12;
@@ -1552,11 +1555,17 @@
           block.style.height = totalHeight;
 
           storiesNotOverflowing = storiesNotOverflowing + showMore;
+
           if (storiesNotOverflowing == unhiddenStories) {
             /*All stories are visible*/
             buttonLoadMore.classList.add("button-gx--load-more--disabled");
           }
         }
+
+        window.scroll({
+          top: loadMoreButtonOffsetTop,
+          behavior: "smooth",
+        });
       });
       if (lang === "es") {
         buttonLoadMore.innerText = "Cargar Más  Casos";
@@ -1663,6 +1672,15 @@
       });
 
       resizeObserver.observe(block);
+
+      //Get element offset
+      function offset(el) {
+        var rect = el.getBoundingClientRect(),
+          scrollLeft =
+            window.pageXOffset || document.documentElement.scrollLeft,
+          scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+      }
     </script>
   </body>
 </html>
