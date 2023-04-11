@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Casos Exito</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bree+Serif%7cOpen+Sans%3a400%7cSource+Sans+Pro%3a400i%2c700i%2c300%2c400%2c700%7cRaleway%3a100%2c300%2c400%2c600%2c700%2c900%7cMontserrat%3a400i%2c500i%2c700i%2c100%2c300%2c400%2c500%2c600%2c700%2c800%2c900%7cSource+Serif+Pro%3a100i%2c400i%2c700i%2c100%2c400%2c500%2c700%7cRubik%3a300i%2c400i%2c500i%2c300%2c400%2c500%7cRoboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.genexus.com/css/es/173/20230316164237/master.css?font_face"
+    />
+    <link rel="stylesheet" href="page.css" />
+    <link
+      rel="stylesheet"
+      href="https://static.mailerlite.com/css/universal.css?v4"
+    />
     <style>
       .container {
         max-width: 1200px;
@@ -46,35 +59,53 @@
       .button-gx--load-more {
         margin-top: 80px;
       }
+      .button-gx--load-more--disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
       .hidden {
         display: none;
       }
       .block.I18679 {
         display: block;
         text-align: center;
+        overflow: hidden;
       }
       /*MAKE SQUARES FOR THE IMAGES*/
       .block.I18679 > .articles {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 15px;
-        padding: 15px;
-        overflow: hidden;
+        padding: 0 15px;
+        grid-auto-rows: 1fr;
       }
       .block.I18679 > .articles .article-container {
+        /* padding-bottom: 48px; */
       }
       .block.I18679 > .articles .article-container:after {
         display: none;
       }
       .block.I18679 > .articles .article-container article {
-        padding-top: 100%;
-        border: 1px solid #000;
         position: relative;
       }
-      .block.I18679 > .articles .article-container article.has-link {
+      .block.I18679 > .articles .article-container article .title {
+        margin-top: 8px;
+        margin-bottom: 0;
+      }
+      .block.I18679 > .articles .article-container article a {
+        text-align: left;
+      }
+      .block.I18679 > .articles .article-container article header.has-link {
         cursor: pointer;
       }
       .block.I18679 > .articles .article-container article header {
+        padding-top: 100%;
+        border: 1px solid #000;
+        position: relative;
+        display: block;
+        width: 100%;
+      }
+      .block.I18679 > .articles .article-container article header > a {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -84,10 +115,10 @@
         justify-content: center;
         align-items: center;
       }
-      .block.I18679 > .articles .article-container article header a {
+      .block.I18679 > .articles .article-container article header > a {
         font-size: 0;
       }
-      .block.I18679 > .articles .article-container article header a img {
+      .block.I18679 > .articles .article-container article header > a img {
         width: 100%;
         height: auto;
       }
@@ -101,7 +132,11 @@
         top: 0;
         box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 1) inset;
       }
-      .block.I18679 > .articles .article-container article.has-link:after {
+      .block.I18679
+        > .articles
+        .article-container
+        article
+        header.has-link:after {
         content: "";
         width: 100%;
         height: 100%;
@@ -116,8 +151,12 @@
       .block.I18679
         > .articles
         .article-container
-        article.has-link:hover:after {
+        article
+        header.has-link:hover:after {
         opacity: 1;
+      }
+      .I18679 .content-seemore-button {
+        display: block;
       }
 
       /*RESPONSIVE*/
@@ -142,14 +181,6 @@
         }
       }
     </style>
-    <link
-      rel="stylesheet"
-      href="https://www.genexus.com/css/es/173/20230316164237/master.css?font_face"
-    />
-    <link
-      rel="stylesheet"
-      href="https://www.genexus.com/css/es/734/20230405201150/page.css"
-    />
   </head>
   <body>
     <div class="container">
@@ -162,6 +193,51 @@
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Prueba
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item C28679-5664">
+                      <span class="text">Prueba</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/isel"
+                    >
+                      Instituto Superior de Engenharia de Lisboa (ISEL)
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/isel"
                   >
@@ -179,11 +255,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/isel"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/animales-sin-hogar"
+                    >
+                      Animales sin Hogar
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/animales-sin-hogar"
                   >
@@ -201,11 +293,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/animales-sin-hogar"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Redalco
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
                   >
@@ -223,11 +331,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/klendar"
+                    >
+                      klendar
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/klendar"
                   >
@@ -245,11 +369,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/klendar"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/policlin"
+                    >
+                      Policlin
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/policlin"
                   >
@@ -270,11 +410,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/policlin"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/tiktok"
+                    >
+                      TikTok
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/tiktok"
                   >
@@ -292,11 +448,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/tiktok"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/vuce"
+                    >
+                      VUCE GXtest
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/vuce"
                   >
@@ -322,11 +494,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/vuce"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/liga-mx"
+                    >
+                      Liga BBVA Bancomer
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/liga-mx"
                   >
@@ -344,11 +532,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/liga-mx"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/crrc"
+                    >
+                      CRRC
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/crrc"
                   >
@@ -366,11 +570,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/crrc"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/business-link-red-social-empresarial-con-chatbots-en-ai-para-consultorias-fiscales-y-tributarias"
+                    >
+                      BusinessLink
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/business-link-red-social-empresarial-con-chatbots-en-ai-para-consultorias-fiscales-y-tributarias"
                   >
@@ -388,11 +608,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/business-link-red-social-empresarial-con-chatbots-en-ai-para-consultorias-fiscales-y-tributarias"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/roggio"
+                    >
+                      Roggio
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/roggio"
                   >
@@ -412,11 +648,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/roggio"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/agesic"
+                    >
+                      Agesic
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/agesic"
                   >
@@ -440,11 +692,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/agesic"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/nihon-housing-jp"
+                    >
+                      Nihon Housing
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/nihon-housing-jp"
                   >
@@ -457,11 +725,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/nihon-housing-jp"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pagnifique"
+                    >
+                      Pagnifique link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pagnifique"
                   >
@@ -479,11 +763,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pagnifique"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sonora-covid-19"
+                    >
+                      Sonora
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sonora-covid-19"
                   >
@@ -507,11 +807,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sonora-covid-19"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/resona-holding"
+                    >
+                      Resona Holding
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/resona-holding"
                   >
@@ -532,11 +848,28 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/resona-holding"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sistema-nacional-de-monitoreo-para-la-sostenibilidad-de-los-cultivos"
+                    >
+                      MGAP-Sistema Nacional de Monitoreo para la Sostenibilidad
+                      de los Cultivos
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sistema-nacional-de-monitoreo-para-la-sostenibilidad-de-los-cultivos"
                   >
@@ -554,11 +887,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sistema-nacional-de-monitoreo-para-la-sostenibilidad-de-los-cultivos"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sedu-sistema-para-docentes-e-intsituciones-educativas"
+                    >
+                      SEDU
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sedu-sistema-para-docentes-e-intsituciones-educativas"
                   >
@@ -576,11 +925,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sedu-sistema-para-docentes-e-intsituciones-educativas"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/san-mobile-acelera-el-proceso-de-certificacion-de-sap-con-genexus"
+                    >
+                      San Mobile
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/san-mobile-acelera-el-proceso-de-certificacion-de-sap-con-genexus"
                   >
@@ -598,11 +963,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/san-mobile-acelera-el-proceso-de-certificacion-de-sap-con-genexus"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/bantotal-es"
+                    >
+                      Bantotal
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/bantotal-es"
                   >
@@ -615,11 +996,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/bantotal-es"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/de-la-mano-de-k2b-y-genexus-el-banco-central-de-paraguay-se-transforma-en-un-banco-mas-conectado-y-dinamico"
+                    >
+                      Banco Central de Paraguay
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/de-la-mano-de-k2b-y-genexus-el-banco-central-de-paraguay-se-transforma-en-un-banco-mas-conectado-y-dinamico"
                   >
@@ -643,11 +1040,28 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/de-la-mano-de-k2b-y-genexus-el-banco-central-de-paraguay-se-transforma-en-un-banco-mas-conectado-y-dinamico"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/alemania-cuenta-con-gribsapp-driver-para-repartos-de-grandes-panificadoras"
+                    >
+                      Alemania cuenta con gribsAPP® Driver para repartos de
+                      grandes panificadoras
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/alemania-cuenta-con-gribsapp-driver-para-repartos-de-grandes-panificadoras"
                   >
@@ -665,11 +1079,28 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/alemania-cuenta-con-gribsapp-driver-para-repartos-de-grandes-panificadoras"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ciasc-desarrolla-la-comisaria-virtual-de-la-mujer-con-genexus-para-la-policia-civil-santa-catarina"
+                    >
+                      CIASC desarrolla la Comisaría Virtual de la Mujer con
+                      GeneXus-link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ciasc-desarrolla-la-comisaria-virtual-de-la-mujer-con-genexus-para-la-policia-civil-santa-catarina"
                   >
@@ -687,32 +1118,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ciasc-desarrolla-la-comisaria-virtual-de-la-mujer-con-genexus-para-la-policia-civil-santa-catarina"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
-                  <img
-                    src="https://www.genexus.com/media/images/logo-secretaria-de-saude-de-blumenau.png?timestamp=20201029122946"
-                    class="image"
-                    width="150"
-                    height="61"
-                    alt=""
-                  />
-                  <ul class="category-list">
-                    <li class="category-item C18679-5668">
-                      <span class="text">BPM</span>
-                    </li>
-                    <li class="category-item C18679-5670">
-                      <span class="text">Gobierno y Sector Público</span>
-                    </li>
-                  </ul>
-                </header>
-              </article>
-            </li>
-            <li class="article-container">
-              <article class="i-collapsible-detail">
-                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ayuntamiento-de-blumenau-automatiza-servicios-con-tecnologia-genexus"
+                    >
+                      Ayuntamiento de Blumenau-link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ayuntamiento-de-blumenau-automatiza-servicios-con-tecnologia-genexus"
                   >
@@ -733,11 +1159,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ayuntamiento-de-blumenau-automatiza-servicios-con-tecnologia-genexus"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/montes-del-plata"
+                    >
+                      Montes del Plata
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/montes-del-plata"
                   >
@@ -758,11 +1200,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/montes-del-plata"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/la-comer"
+                    >
+                      La Comer
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/la-comer"
                   >
@@ -780,11 +1238,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/la-comer"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://genexus.blog/es_ES/genexus/3-ventajas-que-mas-seguro-mexico-encontro-en-genexus-para-sus-sistemas/"
+                    >
+                      MAS seguros
+                    </a>
+                  </h1>
                   <a
                     href="https://genexus.blog/es_ES/genexus/3-ventajas-que-mas-seguro-mexico-encontro-en-genexus-para-sus-sistemas/"
                   >
@@ -802,11 +1276,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://genexus.blog/es_ES/genexus/3-ventajas-que-mas-seguro-mexico-encontro-en-genexus-para-sus-sistemas/"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://genexus.blog/es_ES/genexus/la-app-que-interactuo-con-el-festival-vina-del-mar/"
+                    >
+                      Viña del Mar
+                    </a>
+                  </h1>
                   <a
                     href="https://genexus.blog/es_ES/genexus/la-app-que-interactuo-con-el-festival-vina-del-mar/"
                   >
@@ -819,11 +1309,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://genexus.blog/es_ES/genexus/la-app-que-interactuo-con-el-festival-vina-del-mar/"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://genexus.blog/es_ES/digital-transformation/plataforma-kpi-sigprod-mayor-productividad-y-cero-accidentes-en-empresas-mineras-chilenas/"
+                    >
+                      El propósito inversiones
+                    </a>
+                  </h1>
                   <a
                     href="https://genexus.blog/es_ES/digital-transformation/plataforma-kpi-sigprod-mayor-productividad-y-cero-accidentes-en-empresas-mineras-chilenas/"
                   >
@@ -841,11 +1347,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://genexus.blog/es_ES/digital-transformation/plataforma-kpi-sigprod-mayor-productividad-y-cero-accidentes-en-empresas-mineras-chilenas/"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://genexus.blog/es_ES/genexus/4-razones-destacadas-para-usar-la-plataforma-low-code-genexus-durante-20-anos-por-la-ceo-de-maddenco-usa/"
+                    >
+                      MaddenCo
+                    </a>
+                  </h1>
                   <a
                     href="https://genexus.blog/es_ES/genexus/4-razones-destacadas-para-usar-la-plataforma-low-code-genexus-durante-20-anos-por-la-ceo-de-maddenco-usa/"
                   >
@@ -858,11 +1380,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://genexus.blog/es_ES/genexus/4-razones-destacadas-para-usar-la-plataforma-low-code-genexus-durante-20-anos-por-la-ceo-de-maddenco-usa/"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/wec"
+                    >
+                      WEC
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/wec"
                   >
@@ -880,11 +1418,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/wec"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/gerdau"
+                    >
+                      Gerdau
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/gerdau"
                   >
@@ -905,11 +1459,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/pdf/gerdau"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-global-chile"
+                    >
+                      Grupo Global Chile - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-global-chile"
                   >
@@ -922,11 +1492,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-global-chile"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/kmais-club"
+                    >
+                      Kmais Clube - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/kmais-club"
                   >
@@ -944,11 +1530,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/kmais-club"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sil-sistemas"
+                    >
+                      Sil Sitemas - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sil-sistemas"
                   >
@@ -966,11 +1568,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sil-sistemas"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/promocity"
+                    >
+                      Promocity
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/promocity"
                   >
@@ -988,11 +1606,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/promocity"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/inforware-mercado-libre"
+                    >
+                      Inforware Mercado libre - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/inforware-mercado-libre"
                   >
@@ -1010,11 +1644,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/inforware-mercado-libre"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/congeladora-horticola"
+                    >
+                      Congeladora Hortícola - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/congeladora-horticola"
                   >
@@ -1032,11 +1682,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/congeladora-horticola"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/mercado-libre"
+                    >
+                      Mercado Libre - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/mercado-libre"
                   >
@@ -1054,11 +1720,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/mercado-libre"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/colore-textil"
+                    >
+                      Colore Textil - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/colore-textil"
                   >
@@ -1076,11 +1758,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/colore-textil"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ancap"
+                    >
+                      ANCAP - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ancap"
                   >
@@ -1100,11 +1798,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ancap"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/heel"
+                    >
+                      Heel - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/heel"
                   >
@@ -1122,11 +1836,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/heel"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redtickets"
+                    >
+                      RedTickets - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/redtickets"
                   >
@@ -1144,11 +1874,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redtickets"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/city-express"
+                    >
+                      City Express - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/city-express"
                   >
@@ -1166,11 +1912,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/city-express"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-atlas"
+                    >
+                      Grupo Atlas - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-atlas"
                   >
@@ -1183,11 +1945,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-atlas"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/autorizame"
+                    >
+                      AutorízaME -link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/autorizame"
                   >
@@ -1208,11 +1986,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/autorizame"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/concepto"
+                    >
+                      Concepto - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/concepto"
                   >
@@ -1230,11 +2024,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/concepto"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/gismarine"
+                    >
+                      GISMarine - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/gismarine"
                   >
@@ -1252,11 +2062,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/gismarine"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/dhl"
+                    >
+                      DHL
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/dhl"
                   >
@@ -1269,11 +2095,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/dhl"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/museo-libre-colombia"
+                    >
+                      Museo Libre de Colombia - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/museo-libre-colombia"
                   >
@@ -1291,11 +2133,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/museo-libre-colombia"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/casinos-del-estado"
+                    >
+                      Casinos del Estado - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/casinos-del-estado"
                   >
@@ -1313,11 +2171,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/casinos-del-estado"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/cimsc"
+                    >
+                      CIMSC - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/cimsc"
                   >
@@ -1335,11 +2209,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/cimsc"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/condusef"
+                    >
+                      CONDUSEF - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/condusef"
                   >
@@ -1360,11 +2250,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/condusef"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ypf"
+                    >
+                      YPF - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ypf"
                   >
@@ -1382,11 +2288,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ypf"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/boticario"
+                    >
+                      Boticario - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/boticario"
                   >
@@ -1398,12 +2320,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5666">
+                      <span class="text">Salud</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/boticario"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/fey"
+                    >
+                      Fey - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/fey"
                   >
@@ -1415,12 +2358,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5667">
+                      <span class="text">Automotriz y Manufacturera</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/fey"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/alertablu"
+                    >
+                      AlertaBlu- link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/alertablu"
                   >
@@ -1432,12 +2396,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5670">
+                      <span class="text">Gobierno y Sector Público</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/alertablu"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ferrucci"
+                    >
+                      Ferrucci - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ferrucci"
                   >
@@ -1449,12 +2434,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5667">
+                      <span class="text">Automotriz y Manufacturera</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ferrucci"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sentinel-peru"
+                    >
+                      Sentinel - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sentinel-peru"
                   >
@@ -1466,12 +2472,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-2672">
+                      <span class="text">Finanzas</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sentinel-peru"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/frigorifico-riosulense"
+                    >
+                      Frigorífico Riosulense - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/frigorifico-riosulense"
                   >
@@ -1483,12 +2510,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/frigorifico-riosulense"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/forza-aerea-brasil"
+                    >
+                      Forza aérea Brasil - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/forza-aerea-brasil"
                   >
@@ -1500,12 +2548,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5670">
+                      <span class="text">Gobierno y Sector Público</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/forza-aerea-brasil"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-riquelme-paraguay"
+                    >
+                      Grupo Riquelme Paraguay - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-riquelme-paraguay"
                   >
@@ -1517,12 +2586,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-riquelme-paraguay"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-coliman"
+                    >
+                      Grupo Coliman - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-coliman"
                   >
@@ -1534,12 +2624,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/grupo-coliman"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/riogas"
+                    >
+                      Riogas - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/riogas"
                   >
@@ -1551,12 +2662,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/riogas"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/univali"
+                    >
+                      Univali - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/univali"
                   >
@@ -1568,12 +2700,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5671">
+                      <span class="text">Educación</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/univali"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/datalab"
+                    >
+                      Datalab - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/datalab"
                   >
@@ -1585,12 +2738,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-2672">
+                      <span class="text">Finanzas</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/datalab"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/tv-azteca"
+                    >
+                      TV Azteca - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/tv-azteca"
                   >
@@ -1602,12 +2776,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/tv-azteca"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ucm"
+                    >
+                      UCM - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ucm"
                   >
@@ -1619,12 +2814,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5666">
+                      <span class="text">Salud</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ucm"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/coppel"
+                    >
+                      Coppel - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/coppel"
                   >
@@ -1636,12 +2852,33 @@
                       alt=""
                     />
                   </a>
+                  <ul class="category-list">
+                    <li class="category-item C18679-5664">
+                      <span class="text">Transformación Digital</span>
+                    </li>
+                  </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/coppel"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/decisao-brasil"
+                    >
+                      Decisão Sistemas - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/decisao-brasil"
                   >
@@ -1654,11 +2891,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/decisao-brasil"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/multillantas-nieto"
+                    >
+                      Multillantas link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/multillantas-nieto"
                   >
@@ -1671,11 +2924,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/multillantas-nieto"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/unifarma"
+                    >
+                      Unifarma - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/unifarma"
                   >
@@ -1688,11 +2957,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/unifarma"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/chopo-mobile"
+                    >
+                      Chopo - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/chopo-mobile"
                   >
@@ -1705,11 +2990,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/chopo-mobile"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/conaprole"
+                    >
+                      Conaprole - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/conaprole"
                   >
@@ -1722,11 +3023,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/conaprole"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/sie-s-a"
+                    >
+                      SIE - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/sie-s-a"
                   >
@@ -1739,11 +3056,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/sie-s-a"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/satcom"
+                    >
+                      SatCom - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/satcom"
                   >
@@ -1756,11 +3089,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/satcom"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/lolimsa"
+                    >
+                      Lolimsa - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/lolimsa"
                   >
@@ -1773,11 +3122,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/lolimsa"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/tekhne"
+                    >
+                      Tekhne - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/tekhne"
                   >
@@ -1790,11 +3155,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/tekhne"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/confluencia-fto"
+                    >
+                      Confluencia - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/confluencia-fto"
                   >
@@ -1807,11 +3188,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/confluencia-fto"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/furukawa"
+                    >
+                      Furukawa - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/furukawa"
                   >
@@ -1824,11 +3221,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/furukawa"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/dgi"
+                    >
+                      DGI -link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/dgi"
                   >
@@ -1841,11 +3254,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/dgi"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/atlas"
+                    >
+                      Atlas - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/atlas"
                   >
@@ -1858,11 +3287,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/atlas"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/senave"
+                    >
+                      Senave - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/senave"
                   >
@@ -1875,11 +3320,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/senave"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/madame-hibou"
+                    >
+                      Madame Hibou - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/madame-hibou"
                   >
@@ -1892,11 +3353,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/madame-hibou"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/topitop-peru"
+                    >
+                      TopiTop - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/topitop-peru"
                   >
@@ -1909,11 +3386,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/topitop-peru"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/emi"
+                    >
+                      EMI - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/emi"
                   >
@@ -1926,11 +3419,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/emi"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/banco-de-corrientes"
+                    >
+                      Banco de Corrientes - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/banco-de-corrientes"
                   >
@@ -1943,11 +3452,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/banco-de-corrientes"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/universal-textil"
+                    >
+                      Universal textil - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/universal-textil"
                   >
@@ -1960,11 +3485,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/universal-textil"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/condusef-app"
+                    >
+                      Condusef-app - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/condusef-app"
                   >
@@ -1985,11 +3526,27 @@
                     </li>
                   </ul>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/condusef-app"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/gausmobile"
+                    >
+                      GAUSmobile - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/gausmobile"
                   >
@@ -2002,11 +3559,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/gausmobile"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/turbus-chile"
+                    >
+                      TurBus - link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/turbus-chile"
                   >
@@ -2019,11 +3592,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/turbus-chile"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/somos-software"
+                    >
+                      Somos Software - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/somos-software"
                   >
@@ -2036,11 +3625,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/somos-software"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/centrosur-ecuador"
+                    >
+                      CEntroSur - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/centrosur-ecuador"
                   >
@@ -2053,11 +3658,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/centrosur-ecuador"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/iadt"
+                    >
+                      IADT - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/iadt"
                   >
@@ -2070,11 +3691,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/iadt"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/mitsubishi"
+                    >
+                      Mitsubishi - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/mitsubishi"
                   >
@@ -2087,11 +3724,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/mitsubishi"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/infomodulus"
+                    >
+                      InfoModulus - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/infomodulus"
                   >
@@ -2104,11 +3757,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/infomodulus"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/catarinense"
+                    >
+                      Catarinense - Link
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/catarinense"
                   >
@@ -2121,11 +3790,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/catarinense"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/kpmg"
+                    >
+                      KPMG
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/kpmg"
                   >
@@ -2138,11 +3823,27 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/kpmg"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/ferrovalle"
+                    >
+                      FERROVALLE
+                    </a>
+                  </h1>
                   <a
                     href="https://www.genexus.com/es/institucional/historias-de-exito/ferrovalle"
                   >
@@ -2155,6 +3856,15 @@
                     />
                   </a>
                 </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/ferrovalle"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
               </article>
             </li>
           </ul>
@@ -2163,6 +3873,12 @@
     </div>
 
     <script>
+      /****************** VARIABLES ******************/
+      let storiesNotOverflowing = 0;
+      let unhiddenStories = 0;
+      let storyHeight = 0;
+      let storiesPerRow = 0;
+      let gridGap = 0;
       /****************** BUTTONS FOR CATEGORIES ******************/
       const lang = document.querySelector("html").getAttribute("lang");
 
@@ -2234,7 +3950,6 @@
                 if (stories.length) {
                   stories.forEach((categoryItemEl) => {
                     if (buttonCatId === "all") {
-                      console.log(categoryItemEl);
                       categoryItemEl.classList.remove("hidden");
                     } else {
                       let categoryItem =
@@ -2252,8 +3967,11 @@
                     }
                   });
                 }
-
                 limitVisibleStories();
+                /*enable 'load more stories' button*/
+                buttonLoadMore.classList.remove(
+                  "button-gx--load-more--disabled"
+                );
               });
               if (i === 0) {
                 button.classList.add("button-gx--active");
@@ -2267,58 +3985,135 @@
       /****************** ADD A LINK TO THE SQUARES ******************/
       stories.forEach((story) => {
         const storyA = story.querySelector("a");
-        const storyArticle = story.querySelector("article");
+        const storyHeader = story.querySelector("article header");
         if (storyA) {
           const storyLink = storyA.getAttribute("href");
-          storyArticle.addEventListener("click", function () {
+          storyHeader.addEventListener("click", function () {
             window.location.href = `${storyLink}`;
           });
-          storyArticle.classList.add("has-link");
+          storyHeader.classList.add("has-link");
         }
       });
 
       /****************** LOAD MORE STORIES BUTTON ******************/
-      let button = document.createElement("button");
-      button.classList.add("button-gx");
-      button.classList.add("button-gx--load-more");
-      button.innerText = "Load More Cases"; //default english
-      button.addEventListener("click", function () {});
+      let buttonLoadMore = document.createElement("button");
+      buttonLoadMore.classList.add("button-gx");
+      buttonLoadMore.classList.add("button-gx--load-more");
+      buttonLoadMore.innerText = "Load More Cases"; //default english
+      buttonLoadMore.addEventListener("click", function () {
+        let showMore = 10;
+        if (window.innerWidth <= 1200) {
+          showMore = 12;
+        }
+        if (window.innerWidth <= 768) {
+          showMore = 9;
+        }
+        if (window.innerWidth <= 540) {
+          showMore = 6;
+        }
+
+        const difference = unhiddenStories - storiesNotOverflowing;
+        if (difference > 0) {
+          if (difference < showMore) {
+            showMore = difference;
+          }
+          /*There are still stories to show*/
+          const currentHeight = Number(block.style.height.replace("px", ""));
+          const additionalHeight =
+            (showMore / storiesPerRow) * (storyHeight + gridGap);
+          const totalHeight = currentHeight + additionalHeight + "px";
+          block.style.height = totalHeight;
+
+          storiesNotOverflowing = storiesNotOverflowing + showMore;
+          if (storiesNotOverflowing == unhiddenStories) {
+            /*All stories are visible*/
+            buttonLoadMore.classList.add("button-gx--load-more--disabled");
+          }
+        }
+      });
       if (lang === "es") {
-        button.innerText = "Cargar Más  Casos";
+        buttonLoadMore.innerText = "Cargar Más  Casos";
       } else if (lang === "pt") {
-        button.innerText = "Carregar Mais Casos";
+        buttonLoadMore.innerText = "Carregar Mais Casos";
       }
       if (block) {
-        block.appendChild(button);
+        block.after(buttonLoadMore);
       }
 
-      const maxNumberOfVisibleStories = 50;
       function limitVisibleStories() {
+        let maxNumberOfVisibleStories = 15;
+        if (window.innerWidth <= 1200) {
+          maxNumberOfVisibleStories = 16;
+        }
+        if (window.innerWidth <= 768) {
+          maxNumberOfVisibleStories = 12;
+        }
+        if (window.innerWidth <= 540) {
+          maxNumberOfVisibleStories = 8;
+        }
+
         if (block) {
           /*Story Height*/
-          const storyHeight =
-            block.querySelector(".article-containe").clientHeight;
+          storyHeight = block.querySelector(
+            ".article-container:not(.hidden)"
+          ).clientHeight;
           /*Grid Gap*/
-          const gridGap = window.getComputedStyle(
-            block.querySelector(".articles")
-          ).gridGap;
+          gridGap = parseInt(
+            window
+              .getComputedStyle(block.querySelector(".articles"))
+              .gridGap.split(" ")[0]
+              .replace("px", "")
+          );
           /*Visible Stories*/
           const visibleStories = block.querySelectorAll(
             ".article-container:not(.hidden)"
           );
+          unhiddenStories = visibleStories.length;
+
           /*Stories Per Row*/
-          const storiesPerRow = window
+          storiesPerRow = window
             .getComputedStyle(block.querySelector(".articles"))
             .gridTemplateColumns.split(" ").length;
+          /*Number of rows*/
+          const numberOfRows = Math.ceil(
+            maxNumberOfVisibleStories / storiesPerRow
+          );
+          storiesNotOverflowing = storiesPerRow * numberOfRows;
           /*Evaluate*/
-          console.log(visibleStories.length);
           if (visibleStories.length > maxNumberOfVisibleStories) {
+            const height =
+              numberOfRows * (storyHeight + gridGap) - (gridGap + 5);
+            block.style.height = height + "px";
           } else {
-            block.querySelector(".articles").setAttribute("height", "100px");
+            block.style.height = "auto";
           }
         }
       }
-      limitVisibleStories();
+
+      /****************** PUT STORY TITLE OUTSIDE THE HEADER ******************/
+      function insertAfter(newNode, existingNode) {
+        existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+      }
+      stories.forEach((story) => {
+        const header = story.querySelector("header");
+        const title = story.querySelector(".title");
+        header.after(title);
+      });
+
+      /****************** RESIZE OBSERVER ******************/
+      let prevWidth = 0;
+      const resizeObserver = new ResizeObserver((entries) => {
+        /*width changing*/
+        for (const entry of entries) {
+          const width = entry.borderBoxSize?.[0].inlineSize;
+          if (typeof width === "number" && width !== prevWidth) {
+            prevWidth = width;
+            limitVisibleStories();
+          }
+        }
+      });
+
+      resizeObserver.observe(block);
     </script>
   </body>
 </html>
