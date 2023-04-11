@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casos Exito</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bree+Serif%7cOpen+Sans%3a400%7cSource+Sans+Pro%3a400i%2c700i%2c300%2c400%2c700%7cRaleway%3a100%2c300%2c400%2c600%2c700%2c900%7cMontserrat%3a400i%2c500i%2c700i%2c100%2c300%2c400%2c500%2c600%2c700%2c800%2c900%7cSource+Serif+Pro%3a100i%2c400i%2c700i%2c100%2c400%2c500%2c700%7cRubik%3a300i%2c400i%2c500i%2c300%2c400%2c500%7cRoboto"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.genexus.com/css/es/173/20230316164237/master.css?font_face"
+    />
+    <link rel="stylesheet" href="page.css" />
+    <link
+      rel="stylesheet"
+      href="https://static.mailerlite.com/css/universal.css?v4"
+    />
+    <style>
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .categories-buttons-container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        gap: 24px;
+        margin-bottom: 84px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .button-gx {
+        background-color: #fff;
+        color: black;
+        border: 0;
+        border-radius: 100px;
+        padding: 12px 30px;
+        cursor: pointer;
+        border: 1px solid black;
+        font-weight: 500;
+        font-family: rubik, arial, sans-serif;
+      }
+      .button-gx:hover {
+        background-color: rgb(217, 217, 217);
+      }
+      .button-gx.button-gx--active {
+        background-color: #e02b58;
+        border-color: #e02b58;
+        color: white;
+      }
+      .button-gx.button-gx--active:hover {
+        background-color: rgb(210, 40, 93);
+        border-color: rgb(210, 40, 93);
+        color: white;
+      }
+      .button-gx--load-more {
+        margin-top: 80px;
+      }
+      .button-gx--load-more--disabled {
+        pointer-events: none;
+        opacity: 0.5;
+        /* display: none; */
+      }
+      .hidden {
+        display: none;
+      }
+      .block.I18679 {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+      }
+      /*MAKE SQUARES FOR THE IMAGES*/
+      .block.I18679 > .articles {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        padding: 0 15px;
+        grid-auto-rows: 1fr;
+      }
+      .block.I18679 > .articles .article-container {
+        /* padding-bottom: 48px; */
+      }
+      .block.I18679 > .articles .article-container:after {
+        display: none;
+      }
+      .block.I18679 > .articles .article-container article {
+        position: relative;
+        padding-bottom: 18px;
+      }
+      .block.I18679 > .articles .article-container article .title {
+        margin-top: 8px;
+        margin-bottom: 0;
+      }
+      .block.I18679 > .articles .article-container article a {
+        text-align: left;
+      }
+      .block.I18679 > .articles .article-container article header.has-link {
+        cursor: pointer;
+      }
+      .block.I18679 > .articles .article-container article header {
+        padding-top: 100%;
+        border: 1px solid #000;
+        position: relative;
+        display: block;
+        width: 100%;
+      }
+      .block.I18679 > .articles .article-container article header > a {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 80%;
+        max-width: 120px;
+        justify-content: center;
+        align-items: center;
+      }
+      .block.I18679 > .articles .article-container article header > a {
+        font-size: 0;
+      }
+      .block.I18679 > .articles .article-container article header > a img {
+        width: 100%;
+        height: auto;
+      }
+      .block.I18679 > .articles .article-container article header a:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 1) inset;
+      }
+      .block.I18679
+        > .articles
+        .article-container
+        article
+        header.has-link:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        z-index: 10;
+        transition: 0.1s opacity;
+      }
+      .block.I18679
+        > .articles
+        .article-container
+        article
+        header.has-link:hover:after {
+        opacity: 1;
+      }
+      .I18679 .content-seemore-button {
+        display: block;
+      }
+
+      /*RESPONSIVE*/
+      @media only screen and (max-width: 1200px) {
+        .block.I18679 > .articles {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        .block.I18679 > .articles {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media only screen and (max-width: 540px) {
+        .block.I18679 > .articles {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media only screen and (max-width: 320px) {
+        .block.I18679 > .articles {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="categories-buttons-container">
+        <!-- populated dinamically with javascript -->
+      </div>
+      <div class="viewport">
+        <div class="block I18679">
+          <ul class="articles">
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Pera
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Pera">
+                      <span class="text">Pera</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Zanahoria
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item Zanahoria">
+                      <span class="text">Zanahoria</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /****************** VARIABLES ******************/
+      let storiesNotOverflowing = 0;
+      let unhiddenStories = 0;
+      let storyHeight = 0;
+      let storiesPerRow = 0;
+      let gridGap = 0;
+      /****************** BUTTONS FOR CATEGORIES ******************/
+      const lang = document.querySelector("html").getAttribute("lang");
+
+      /*Categories Array*/
+      let catArray = [];
+      let stories = undefined;
+
+      const buttonsCategoriesContainer = document.querySelector(
+        ".categories-buttons-container"
+      );
+
+      /*Collect all stories categories*/
+      const block = document.querySelector(".I18679");
+      if (block) {
+        stories = block.querySelectorAll(".article-container");
+        stories.forEach((story) => {
+          const categoryItem = story.querySelector(".category-item");
+          let categoryItemId = undefined;
+          if (categoryItem) {
+            categoryItemId = categoryItem.classList[1];
+            categoryDisplayName =
+              categoryItem.querySelector(".text").textContent;
+            if (categoryItemId) {
+              catArray.push({
+                categoryDisplayName: categoryDisplayName,
+                categoryId: categoryItemId,
+              });
+            }
+          }
+        });
+        if (catArray.length) {
+          //Add 'All' categories first.
+          let allCategoriesDisplayName = "All +"; //english by default
+          if (lang !== "en") {
+            allCategoriesDisplayName = "Todos +";
+          }
+          catArray.unshift({
+            categoryDisplayName: allCategoriesDisplayName,
+            categoryId: "all",
+          });
+          //remove duplicates
+          const filteredArray = catArray.filter(
+            (obj, index) =>
+              catArray.findIndex(
+                (cat) =>
+                  cat.categoryItemId === obj.categoryItemId &&
+                  cat.categoryDisplayName === obj.categoryDisplayName
+              ) === index
+          );
+
+          function clearHiddenStories() {
+            stories.forEach((categoryItemEl) => {
+              categoryItemEl.classList.remove("hidden");
+            });
+          }
+
+          if (buttonsCategoriesContainer) {
+            filteredArray.forEach((cat, i) => {
+              const button = document.createElement("button");
+              button.classList.add("button-gx");
+              button.setAttribute("data-category-id", cat.categoryId);
+              button.innerText = cat.categoryDisplayName;
+              button.addEventListener("click", function () {
+                clearHiddenStories();
+                const buttonCatId = this.getAttribute("data-category-id");
+                //remove previous active button
+                const actualActiveButton = document.querySelector(
+                  ".button-gx.button-gx--active"
+                );
+                if (actualActiveButton) {
+                  actualActiveButton.classList.remove("button-gx--active");
+                }
+                //add new button the active class
+                this.classList.add("button-gx--active");
+                //filter the stories
+                if (stories.length) {
+                  stories.forEach((categoryItemEl) => {
+                    if (buttonCatId === "all") {
+                      categoryItemEl.classList.remove("hidden");
+                    } else {
+                      let categoryItem =
+                        categoryItemEl.querySelector(".category-item");
+                      if (categoryItem) {
+                        categoryItemId = categoryItem.classList[1];
+                        if (categoryItemId) {
+                          if (buttonCatId === categoryItemId) {
+                            return;
+                          } else {
+                            categoryItemEl.classList.add("hidden");
+                          }
+                        }
+                      }
+                    }
+                  });
+                }
+                limitVisibleStories();
+                /*enable 'load more stories' button*/
+                // buttonLoadMore.classList.remove(
+                //   "button-gx--load-more--disabled"
+                // );
+              });
+              if (i === 0) {
+                button.classList.add("button-gx--active");
+              }
+              buttonsCategoriesContainer.appendChild(button);
+            });
+          }
+        }
+      }
+
+      /****************** ADD A LINK TO THE SQUARES ******************/
+      stories.forEach((story) => {
+        const storyA = story.querySelector("a");
+        const storyHeader = story.querySelector("article header");
+        if (storyA) {
+          const storyLink = storyA.getAttribute("href");
+          storyHeader.addEventListener("click", function () {
+            window.location.href = `${storyLink}`;
+          });
+          storyHeader.classList.add("has-link");
+        }
+      });
+
+      /****************** LOAD MORE STORIES BUTTON ******************/
+      let buttonLoadMore = document.createElement("button");
+      buttonLoadMore.classList.add("button-gx");
+      buttonLoadMore.classList.add("button-gx--load-more");
+      buttonLoadMore.innerText = "Load More Cases"; //default english
+      buttonLoadMore.addEventListener("click", function () {
+        let showMore = 10;
+        if (window.innerWidth <= 1200) {
+          showMore = 12;
+        }
+        if (window.innerWidth <= 768) {
+          showMore = 9;
+        }
+        if (window.innerWidth <= 540) {
+          showMore = 6;
+        }
+
+        const difference = unhiddenStories - storiesNotOverflowing;
+        if (difference > 0) {
+          if (difference < showMore) {
+            showMore = difference;
+          }
+          /*There are still stories to show*/
+          const currentHeight = Number(block.style.height.replace("px", ""));
+          const additionalHeight =
+            (showMore / storiesPerRow) * (storyHeight + gridGap);
+          const totalHeight = currentHeight + additionalHeight + "px";
+          block.style.height = totalHeight;
+
+          storiesNotOverflowing = storiesNotOverflowing + showMore;
+          if (storiesNotOverflowing == unhiddenStories) {
+            /*All stories are visible*/
+            buttonLoadMore.classList.add("button-gx--load-more--disabled");
+          }
+        }
+      });
+      if (lang === "es") {
+        buttonLoadMore.innerText = "Cargar Más  Casos";
+      } else if (lang === "pt") {
+        buttonLoadMore.innerText = "Carregar Mais Casos";
+      }
+      if (block) {
+        block.after(buttonLoadMore);
+      }
+      /*Disable button if number of stories is lower or equal to the max number of stories visible*/
+
+      /****************** LIMIT VISIBLE STORIES ******************/
+      function limitVisibleStories() {
+        // console.log("limit visible stories");
+        let maxNumberOfVisibleStories = 15;
+        if (window.innerWidth <= 1200) {
+          maxNumberOfVisibleStories = 16;
+        }
+        if (window.innerWidth <= 768) {
+          maxNumberOfVisibleStories = 12;
+        }
+        if (window.innerWidth <= 540) {
+          maxNumberOfVisibleStories = 8;
+        }
+
+        if (block) {
+          /*Story Height*/
+          storyHeight = block.querySelector(
+            ".article-container:not(.hidden)"
+          ).clientHeight;
+          /*Grid Gap*/
+          gridGap = parseInt(
+            window
+              .getComputedStyle(block.querySelector(".articles"))
+              .gridGap.split(" ")[0]
+              .replace("px", "")
+          );
+          /*Visible Stories*/
+          const visibleStories = block.querySelectorAll(
+            ".article-container:not(.hidden)"
+          );
+          unhiddenStories = visibleStories.length;
+
+          /*Stories Per Row*/
+          storiesPerRow = window
+            .getComputedStyle(block.querySelector(".articles"))
+            .gridTemplateColumns.split(" ").length;
+          /*Number of rows*/
+          // console.log("maxNumberOfVisibleStories", maxNumberOfVisibleStories);
+          // console.log("unhiddenStories", unhiddenStories);
+          // console.log("storiesPerRow", storiesPerRow);
+          // console.log("==================================");
+          // const numberOfRows = Math.ceil(
+          //   (maxNumberOfVisibleStories - unhiddenStories) / storiesPerRow
+          // );
+          const numberOfRows = Math.ceil(
+            maxNumberOfVisibleStories / storiesPerRow
+          );
+          storiesNotOverflowing = storiesPerRow * numberOfRows;
+
+          /*Evaluate*/
+          if (visibleStories.length > maxNumberOfVisibleStories) {
+            const height =
+              numberOfRows * (storyHeight + gridGap) - (gridGap + 5);
+            block.style.height = height + "px";
+          } else {
+            block.style.height = "auto";
+          }
+        }
+        // console.log("storiesNotOverflowing", storiesNotOverflowing);
+        // console.log("maxNumberOfVisibleStories", maxNumberOfVisibleStories);
+        // console.log("unhiddenStories", unhiddenStories);
+        // console.log("==================================");
+
+        if (storiesNotOverflowing <= unhiddenStories) {
+          /*All stories are visible*/
+          buttonLoadMore.classList.remove("button-gx--load-more--disabled");
+        } else {
+          buttonLoadMore.classList.add("button-gx--load-more--disabled");
+        }
+      }
+
+      /****************** PUT STORY TITLE OUTSIDE THE HEADER ******************/
+      function insertAfter(newNode, existingNode) {
+        existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+      }
+      stories.forEach((story) => {
+        const header = story.querySelector("header");
+        const title = story.querySelector(".title");
+        header.after(title);
+      });
+
+      /****************** RESIZE OBSERVER ******************/
+      let prevWidth = 0;
+      const resizeObserver = new ResizeObserver((entries) => {
+        /*width changing*/
+        for (const entry of entries) {
+          const width = entry.borderBoxSize?.[0].inlineSize;
+          if (typeof width === "number" && width !== prevWidth) {
+            prevWidth = width;
+            limitVisibleStories();
+          }
+        }
+      });
+
+      resizeObserver.observe(block);
+    </script>
+  </body>
+</html>
