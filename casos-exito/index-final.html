@@ -19,6 +19,9 @@
       href="https://static.mailerlite.com/css/universal.css?v4"
     />
     <style>
+      .I18680 > .viewport {
+        flex-direction: column;
+      }
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -229,9 +232,9 @@
   </head>
   <body>
     <div class="container">
-      <div class="categories-buttons-container">
-        <!-- populated dinamically with javascript -->
-      </div>
+      <!-- <div class="categories-buttons-container">
+        
+      </div> -->
       <div class="viewport">
         <div class="block I18679">
           <ul class="articles">
@@ -3918,6 +3921,11 @@
     </div>
 
     <script>
+      const block = document.querySelector(".I18679");
+      /****************** CATEGORIES BUTTONS CONTAINER ******************/
+      const categoriesButtonsContainer = document.createElement("div");
+      categoriesButtonsContainer.classList.add("categories-buttons-container");
+      block.before(categoriesButtonsContainer);
       /****************** VARIABLES ******************/
       let storiesNotOverflowing = 0;
       let unhiddenStories = 0;
@@ -3936,7 +3944,6 @@
       );
 
       /*Collect all stories categories*/
-      const block = document.querySelector(".I18679");
       if (block) {
         stories = block.querySelectorAll(".article-container");
         stories.forEach((story) => {
@@ -3974,59 +3981,57 @@
               ) === index
           );
 
-          if (buttonsCategoriesContainer) {
-            filteredArray.forEach((cat, i) => {
-              const buttonWrapper = document.createElement("div");
-              const button = document.createElement("button");
-              buttonWrapper.classList.add("button-gx__wrapper");
-              button.classList.add("button-gx");
-              button.setAttribute("data-category-id", cat.categoryId);
-              button.innerText = cat.categoryDisplayName;
-              button.addEventListener("click", function () {
-                const buttonCatId = this.getAttribute("data-category-id");
-                //remove previous active button
-                const actualActiveButton = document.querySelector(
-                  ".button-gx.button-gx--active"
-                );
-                if (actualActiveButton) {
-                  actualActiveButton.classList.remove("button-gx--active");
-                }
-                //add new button the active class
-                this.classList.add("button-gx--active");
-                //filter the stories
-                if (stories.length) {
-                  stories.forEach((categoryItemEl) => {
-                    if (buttonCatId === "all") {
-                      categoryItemEl.classList.remove("hidden");
-                    } else {
-                      let categoryItem =
-                        categoryItemEl.querySelector(".category-item");
-                      if (categoryItem) {
-                        categoryItemId = categoryItem.classList[1];
-                        if (categoryItemId) {
-                          if (buttonCatId === categoryItemId) {
-                            return;
-                          } else {
-                            categoryItemEl.classList.add("hidden");
-                          }
+          filteredArray.forEach((cat, i) => {
+            const buttonWrapper = document.createElement("div");
+            const button = document.createElement("button");
+            buttonWrapper.classList.add("button-gx__wrapper");
+            button.classList.add("button-gx");
+            button.setAttribute("data-category-id", cat.categoryId);
+            button.innerText = cat.categoryDisplayName;
+            button.addEventListener("click", function () {
+              const buttonCatId = this.getAttribute("data-category-id");
+              //remove previous active button
+              const actualActiveButton = document.querySelector(
+                ".button-gx.button-gx--active"
+              );
+              if (actualActiveButton) {
+                actualActiveButton.classList.remove("button-gx--active");
+              }
+              //add new button the active class
+              this.classList.add("button-gx--active");
+              //filter the stories
+              if (stories.length) {
+                stories.forEach((categoryItemEl) => {
+                  if (buttonCatId === "all") {
+                    categoryItemEl.classList.remove("hidden");
+                  } else {
+                    let categoryItem =
+                      categoryItemEl.querySelector(".category-item");
+                    if (categoryItem) {
+                      categoryItemId = categoryItem.classList[1];
+                      if (categoryItemId) {
+                        if (buttonCatId === categoryItemId) {
+                          return;
+                        } else {
+                          categoryItemEl.classList.add("hidden");
                         }
                       }
                     }
-                  });
-                }
-                limitVisibleStories();
-                /*enable 'load more stories' button*/
-                buttonLoadMore.classList.remove(
-                  "button-gx--load-more--disabled"
-                );
-              });
-              if (i === 0) {
-                button.classList.add("button-gx--active");
+                  }
+                });
               }
-              buttonWrapper.appendChild(button);
-              buttonsCategoriesContainer.appendChild(buttonWrapper);
+              limitVisibleStories();
+              /*enable 'load more stories' button*/
+              buttonLoadMore.classList.remove("button-gx--load-more--disabled");
             });
-          }
+            if (i === 0) {
+              button.classList.add("button-gx--active");
+            }
+            buttonWrapper.appendChild(button);
+            buttonsCategoriesContainer.appendChild(buttonWrapper);
+            console.log(block);
+            block.before(buttonsCategoriesContainer);
+          });
         }
       }
 
