@@ -31,24 +31,57 @@
         margin-bottom: 84px;
         justify-content: center;
         flex-wrap: wrap;
+        padding: 0 16px;
+      }
+      /*scrollbar*/
+      .categories-buttons-container::-webkit-scrollbar {
+        width: 10px; /* Width of the scrollbar */
+        height: 3px; /* Height of the scrollbar */
+        background-color: rgb(
+          250,
+          50,
+          99
+        ); /* Background color of the scrollbar */
+      }
+      /* Style for the scrollbar thumb */
+      .categories-buttons-container::-webkit-scrollbar-thumb {
+        background-color: rgb(250, 50, 99); /* Color of the scrollbar thumb */
+        border-radius: 3px;
+      }
+
+      /* Style for the scrollbar track */
+      .categories-buttons-container::-webkit-scrollbar-track {
+        background-color: #f0f0f0; /* Color of the scrollbar track */
+      }
+
+      /* Make the scrollbar always visible */
+      .categories-buttons-container::-webkit-scrollbar-thumb:vertical {
+        opacity: 1; /* Set opacity to 1 for vertical scrollbar */
+      }
+
+      .categories-buttons-container::-webkit-scrollbar-thumb:horizontal {
+        opacity: 1; /* Set opacity to 1 for horizontal scrollbar */
       }
       .button-gx {
         background-color: #fff;
         color: black;
         border: 0;
         border-radius: 100px;
-        padding: 12px 30px;
+        padding: 17px 30px;
         cursor: pointer;
         border: 1px solid black;
         font-weight: 500;
         font-family: rubik, arial, sans-serif;
       }
+      .button-gx__wrapper {
+        text-align: center;
+      }
       .button-gx:hover {
         background-color: rgb(217, 217, 217);
       }
       .button-gx.button-gx--active {
-        background-color: #e02b58;
-        border-color: #e02b58;
+        background-color: rgb(250, 50, 99);
+        border-color: rgb(250, 50, 99);
         color: white;
       }
       .button-gx.button-gx--active:hover {
@@ -173,6 +206,18 @@
       @media only screen and (max-width: 540px) {
         .block.I18679 > .articles {
           grid-template-columns: repeat(2, 1fr);
+        }
+        .categories-buttons-container {
+          flex-wrap: nowrap;
+          max-width: 100%;
+          overflow-x: scroll;
+          justify-content: flex-start;
+          padding: 8px 16px 16px 8px;
+          margin-bottom: 32px;
+          margin-top: 16px;
+        }
+        .categories-buttons-container .button-gx__wrapper {
+          flex-shrink: 0;
         }
       }
       @media only screen and (max-width: 320px) {
@@ -3931,7 +3976,9 @@
 
           if (buttonsCategoriesContainer) {
             filteredArray.forEach((cat, i) => {
+              const buttonWrapper = document.createElement("div");
               const button = document.createElement("button");
+              buttonWrapper.classList.add("button-gx__wrapper");
               button.classList.add("button-gx");
               button.setAttribute("data-category-id", cat.categoryId);
               button.innerText = cat.categoryDisplayName;
@@ -3976,7 +4023,8 @@
               if (i === 0) {
                 button.classList.add("button-gx--active");
               }
-              buttonsCategoriesContainer.appendChild(button);
+              buttonWrapper.appendChild(button);
+              buttonsCategoriesContainer.appendChild(buttonWrapper);
             });
           }
         }
