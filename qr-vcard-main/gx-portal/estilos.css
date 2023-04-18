@@ -1,0 +1,104 @@
+.title {
+  font-family: Graphik, sans-serif;
+  font-size: 26px !important;
+  font-weight: 600 !important;
+}
+.qr-header {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  background-color: rgb(245, 247, 246);
+  margin-top: -90px;
+}
+p {
+  font-family: Rubik, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+}
+.menu {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.menu p {
+  border: 1px solid black;
+  padding: 4px 16px;
+  cursor: pointer;
+  border-bottom: 4px solid;
+}
+.menu p.active {
+  background-color: rgb(255 234 239);
+  border-color: rgb(250, 50, 99);
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 60px;
+  max-width: 520px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.qr-generator {
+}
+.qr-generator button {
+  background-color: rgb(250, 50, 99);
+  color: white;
+  border: 0;
+  font-family: "Rubik Medium", sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  height: 45.3px;
+  padding: 0 30px;
+  border-radius: 40px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.qr-generator button:hover {
+  transform: scale(1.025);
+}
+.qr-generator button.white {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.input-container input {
+  padding: 15px 16px 15px 16px;
+  background-color: transparent;
+  border: 1px solid black;
+  font-family: "Rubik Regular", sans-serif;
+  font-size: 18px;
+  border-radius: 2px;
+}
+.input-container input:focus {
+  outline-color: rgb(250, 50, 99);
+}
+.input-container label {
+  margin-bottom: 8px;
+  font-family: "Rubik Regular", sans-serif;
+  font-size: 14px;
+  color: black;
+  line-height: 1.4em;
+}
+.qr-image-container {
+  width: 170px;
+  height: 170px;
+  border: 1px solid black;
+  margin-bottom: 60px;
+  margin-top: 30px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#message {
+  border: 1px solid rgb(250, 50, 99);
+  color: rgb(250, 50, 99);
+  padding: 16px;
+}
+.hidden {
+  display: none;
+}

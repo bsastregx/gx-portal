@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Vcard</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="QrCode.min.js" type="application/javascript"></script>
+  </head>
+  <body>
+    <header class="qr-header">
+      <div class="container">
+        <h1 class="title">QR Generator for VCard or URL.</h1>
+        <p>
+          Fill in the fields and press the button to generate a QR code that
+          allows you to share a contact's data, or a URL.
+        </p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="menu">
+        <p class="active" id="qr-vcard">QR for Vcard</p>
+        <p id="qr-url">QR for URL</p>
+      </div>
+
+      <!-- URL QR -->
+      <form class="qr-generator hidden" id="qr-generator-url">
+        <div class="input-container">
+          <label for="nombre">URL *</label>
+          <input
+            type="url"
+            id="url"
+            required
+            placeholder="https://www.genexus.com"
+          />
+        </div>
+
+        <button id="generate-qr-url">Generate QR and download</button>
+
+        <div id="qr-image-container-url" class="qr-image-container"></div>
+      </form>
+
+      <!-- VCard QR -->
+      <form class="qr-generator" id="qr-generator-vcard">
+        <div class="input-container">
+          <label for="nombre">Name *</label>
+          <input type="text" id="nombre" required placeholder="Manuel" />
+        </div>
+
+        <div class="input-container">
+          <label for="apellido">Surname *</label>
+          <input type="text" id="apellido" required placeholder="Moreira" />
+        </div>
+
+        <div class="input-container">
+          <label for="empresa">Company *</label>
+          <input type="text" id="empresa" required placeholder="GeneXus" />
+        </div>
+
+        <div class="input-container">
+          <label for="email">Compnay URL</label>
+          <input type="text" id="url-vcard" placeholder="www.genexus.com" />
+        </div>
+
+        <div class="input-container">
+          <label for="cargo">Position *</label>
+          <input
+            type="text"
+            id="cargo"
+            required
+            placeholder="Sales Development Representative"
+          />
+        </div>
+
+        <div class="input-container">
+          <label for="telefono">Phone</label>
+          <input type="tel" id="telefono" placeholder="+59800000000" />
+        </div>
+
+        <div class="input-container">
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="mmoreira@genexus.com"
+          />
+        </div>
+
+        <button id="generate-qr-vcard">Generate QR and download</button>
+        <button id="clear-data" class="white" type="button">
+          Clear fields
+        </button>
+
+        <p id="message" class="hidden">
+          Please complete all the required fields to generate the QR code.
+        </p>
+
+        <div id="qr-image-container-vcard" class="qr-image-container"></div>
+      </form>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>

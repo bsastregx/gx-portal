@@ -1,0 +1,24 @@
+<!-- ... -->
+<script src="../dist/QrCode.js" type="application/javascript"></script>
+<div id="qr_vcard"></div>
+
+<script>
+  var testCard = {
+    version: "3.0",
+    lastName: "Moreira",
+    middleName: "",
+    firstName: "Manuel",
+    organization: "GeneXus",
+    workPhone: "3125551212444",
+    title: "Sales Development Representative",
+    workEmail: "mmoreira@genexus.com",
+    workUrl: "www.genexus.com",
+  };
+
+  document.getElementById("qr_vcard").innerHTML = qrCode.createVCardQr(
+    testCard,
+    { typeNumber: 15, cellSize: 1 }
+  );
+</script>
+
+<!-- ... -->

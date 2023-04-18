@@ -1,0 +1,31 @@
+{
+  "name": "qr-code-and-vcard",
+  "description": "",
+  "license": "MIT",
+  "version": "0.9.1",
+  "author": "Konstantin Nizhinskiy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konstantin-nizhinskiy/qr-code-and-vcard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/konstantin-nizhinskiy/qr-code-and-vcard/issues"
+  },
+  "files": [
+    "dist",
+    "History.md",
+    "LICENSE-MIT"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-banner": "^0.5.0",
+    "grunt-contrib-concat": "~0.4",
+    "grunt-contrib-nodeunit": "~0.3",
+    "grunt-contrib-uglify": "~0.4",
+    "grunt-tasks": "^1.0.0",
+    "time-grunt": "~0.3"
+  },
+  "dependencies": {
+
+  }
+}
