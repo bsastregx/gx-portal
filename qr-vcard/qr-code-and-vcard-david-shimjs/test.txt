@@ -1,0 +1,7 @@
+Caso Extremo:
+"BEGIN:VCARD\nVERSION:3.0\nFN:Manuel Moreira Manuel Moreira Manuel Moreira\nTEL;TYPE=cell:+123456789012345678901234567890\nTITLE:V.P. Research and Development V.P. Research and Development\nORG:GeneXus GeneXus GeneXus GeneXus\nURL;type=WORK:http://www.genexusgenexusgenexusgenexus.com\nEMAIL:mmoreirammoreirammoreira@genexusgenexus.com\nEND:VCARD";
+
+Caso Manuel Moreira:
+"BEGIN:VCARD\nVERSION:3.0\nFN:Manuel Moreira\nTEL;TYPE=cell:+59898026047\nTITLE:Sales Development Representative\nORG:GeneXus\nURL;type=WORK:http://www.genexus.com\nEMAIL:mmoreira@genexus.com\nEND:VCARD";
+
+https://davidshimjs.github.io/qrcodejs/
