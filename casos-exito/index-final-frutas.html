@@ -1664,7 +1664,8 @@
       buttonLoadMore.classList.add("button-gx--load-more");
       buttonLoadMore.innerText = "Load More Cases"; //default english
       buttonLoadMore.addEventListener("click", function () {
-        //flag load
+        //get loadMoreButton offset top to do scroll later
+        var loadMoreButtonOffsetTop = offset(this).top;
         let showMore = 15;
         if (window.innerWidth <= 1200) {
           showMore = 12;
@@ -1677,7 +1678,6 @@
         }
 
         const storiesOverflowing = unhiddenStories - storiesNotOverflowing;
-        const difference = console.log(storiesOverflowing);
         let rowsToDisplay = 0;
         if (storiesOverflowing > 0) {
           if (storiesOverflowing < showMore) {
@@ -1686,29 +1686,28 @@
             rowsToDisplay = Math.ceil(showMore / storiesPerRow);
           }
 
-          console.log("rowsToDisplay", rowsToDisplay);
-
           /*There are still stories to show*/
           const currentHeight = Number(block.style.height.replace("px", ""));
           const additionalHeight = rowsToDisplay * (storyHeight + gridGap);
           const totalHeight = currentHeight + additionalHeight + "px";
           block.style.height = totalHeight;
 
-          console.log("storiesOverflowing", storiesOverflowing);
-          console.log("storiesNotOverflowing", storiesNotOverflowing);
-          console.log("unhiddenStories", unhiddenStories);
           if (storiesOverflowing >= showMore) {
             storiesNotOverflowing = storiesNotOverflowing + showMore;
           } else {
             storiesNotOverflowing = storiesNotOverflowing + storiesOverflowing;
           }
-          console.log(storiesNotOverflowing);
-          console.log("===================");
+
           if (storiesNotOverflowing === unhiddenStories) {
             /*All stories are visible*/
             buttonLoadMore.classList.add("button-gx--load-more--disabled");
           }
         }
+
+        window.scroll({
+          top: loadMoreButtonOffsetTop,
+          behavior: "smooth",
+        });
       });
       if (lang === "es") {
         buttonLoadMore.innerText = "Cargar Más  Casos";
@@ -1720,9 +1719,7 @@
       }
 
       function limitVisibleStories() {
-        //flag limit
         maxNumberOfVisibleStories = 20;
-        //maxNumberOfVisibleStories = 100;
         if (window.innerWidth <= 1200) {
           maxNumberOfVisibleStories = 16;
         }
@@ -1737,8 +1734,6 @@
           //this is the first load
           storiesNotOverflowing = maxNumberOfVisibleStories;
         }
-
-        console.log("storiesNotOverflowing", storiesNotOverflowing);
 
         if (block) {
           /*Story Height*/
@@ -1767,11 +1762,11 @@
             .gridTemplateColumns.split(" ").length;
           /*Number of rows*/
           numberOfVisibleRows = Math.ceil(
-            maxNumberOfVisibleStories / storiesPerRow
+            storiesNotOverflowing / storiesPerRow
           );
-          storiesNotOverflowing = storiesPerRow * numberOfVisibleRows;
+          //storiesNotOverflowing = storiesPerRow * numberOfVisibleRows;
           /*Evaluate*/
-          if (visibleStoriesLength > maxNumberOfVisibleStories) {
+          if (visibleStoriesLength > storiesNotOverflowing) {
             const height =
               numberOfVisibleRows * (storyHeight + gridGap) - (gridGap + 5);
             block.style.height = height + "px";
@@ -1779,7 +1774,7 @@
             block.style.height = "auto";
           }
 
-          if (maxNumberOfVisibleStories >= visibleStoriesLength) {
+          if (storiesNotOverflowing >= visibleStoriesLength) {
             buttonLoadMore.classList.add("button-gx--load-more--disabled");
           }
         }
@@ -1809,6 +1804,15 @@
       });
 
       resizeObserver.observe(block);
+
+      //Get element offset
+      function offset(el) {
+        var rect = el.getBoundingClientRect(),
+          scrollLeft =
+            window.pageXOffset || document.documentElement.scrollLeft,
+          scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+      }
     </script>
   </body>
 </html>

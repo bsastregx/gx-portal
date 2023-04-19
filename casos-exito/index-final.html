@@ -3933,11 +3933,14 @@
       categoriesButtonsContainer.classList.add("categories-buttons-container");
       block.before(categoriesButtonsContainer);
       /****************** VARIABLES ******************/
-      let storiesNotOverflowing = 0;
+      let storiesNotOverflowing = undefined;
       let unhiddenStories = 0;
       let storyHeight = 0;
       let storiesPerRow = 0;
+      let numberOfVisibleRows = 0;
       let gridGap = 0;
+      let maxNumberOfVisibleStories = 0;
+      let visibleStoriesLength = 0;
       /****************** BUTTONS FOR CATEGORIES ******************/
       const lang = document.querySelector("html").getAttribute("lang");
 
@@ -4017,7 +4020,7 @@
                       categoryItemId = categoryItem.classList[1];
                       if (categoryItemId) {
                         if (buttonCatId === categoryItemId) {
-                          return;
+                          categoryItemEl.classList.remove("hidden");
                         } else {
                           categoryItemEl.classList.add("hidden");
                         }
@@ -4028,14 +4031,19 @@
               }
               limitVisibleStories();
               /*enable 'load more stories' button*/
-              buttonLoadMore.classList.remove("button-gx--load-more--disabled");
+              if (maxNumberOfVisibleStories >= visibleStoriesLength) {
+                buttonLoadMore.classList.add("button-gx--load-more--disabled");
+              } else {
+                buttonLoadMore.classList.remove(
+                  "button-gx--load-more--disabled"
+                );
+              }
             });
             if (i === 0) {
               button.classList.add("button-gx--active");
             }
             buttonWrapper.appendChild(button);
             buttonsCategoriesContainer.appendChild(buttonWrapper);
-            console.log(block);
             block.before(buttonsCategoriesContainer);
           });
         }
@@ -4060,7 +4068,9 @@
       buttonLoadMore.classList.add("button-gx--load-more");
       buttonLoadMore.innerText = "Load More Cases"; //default english
       buttonLoadMore.addEventListener("click", function () {
-        let showMore = 10;
+        //get loadMoreButton offset top to do scroll later
+        var loadMoreButtonOffsetTop = offset(this).top;
+        let showMore = 15;
         if (window.innerWidth <= 1200) {
           showMore = 12;
         }
@@ -4071,24 +4081,37 @@
           showMore = 6;
         }
 
-        const difference = unhiddenStories - storiesNotOverflowing;
-        if (difference > 0) {
-          if (difference < showMore) {
-            showMore = difference;
+        const storiesOverflowing = unhiddenStories - storiesNotOverflowing;
+        let rowsToDisplay = 0;
+        if (storiesOverflowing > 0) {
+          if (storiesOverflowing < showMore) {
+            rowsToDisplay = Math.ceil(storiesOverflowing / storiesPerRow);
+          } else {
+            rowsToDisplay = Math.ceil(showMore / storiesPerRow);
           }
+
           /*There are still stories to show*/
           const currentHeight = Number(block.style.height.replace("px", ""));
-          const additionalHeight =
-            (showMore / storiesPerRow) * (storyHeight + gridGap);
+          const additionalHeight = rowsToDisplay * (storyHeight + gridGap);
           const totalHeight = currentHeight + additionalHeight + "px";
           block.style.height = totalHeight;
 
-          storiesNotOverflowing = storiesNotOverflowing + showMore;
-          if (storiesNotOverflowing == unhiddenStories) {
+          if (storiesOverflowing >= showMore) {
+            storiesNotOverflowing = storiesNotOverflowing + showMore;
+          } else {
+            storiesNotOverflowing = storiesNotOverflowing + storiesOverflowing;
+          }
+
+          if (storiesNotOverflowing === unhiddenStories) {
             /*All stories are visible*/
             buttonLoadMore.classList.add("button-gx--load-more--disabled");
           }
         }
+
+        window.scroll({
+          top: loadMoreButtonOffsetTop,
+          behavior: "smooth",
+        });
       });
       if (lang === "es") {
         buttonLoadMore.innerText = "Cargar Más  Casos";
@@ -4100,7 +4123,7 @@
       }
 
       function limitVisibleStories() {
-        let maxNumberOfVisibleStories = 15;
+        maxNumberOfVisibleStories = 20;
         if (window.innerWidth <= 1200) {
           maxNumberOfVisibleStories = 16;
         }
@@ -4111,11 +4134,16 @@
           maxNumberOfVisibleStories = 8;
         }
 
+        if (storiesNotOverflowing === undefined) {
+          //this is the first load
+          storiesNotOverflowing = maxNumberOfVisibleStories;
+        }
+
         if (block) {
           /*Story Height*/
-          storyHeight = block.querySelector(
-            ".article-container:not(.hidden)"
-          ).clientHeight;
+          storyHeight = block
+            .querySelector(".article-container:not(.hidden)")
+            .getBoundingClientRect().height;
           /*Grid Gap*/
           gridGap = parseInt(
             window
@@ -4127,24 +4155,31 @@
           const visibleStories = block.querySelectorAll(
             ".article-container:not(.hidden)"
           );
-          unhiddenStories = visibleStories.length;
+          visibleStoriesLength = visibleStories.length;
+          unhiddenStories = block.querySelectorAll(
+            ".article-container:not(.hidden)"
+          ).length;
 
           /*Stories Per Row*/
           storiesPerRow = window
             .getComputedStyle(block.querySelector(".articles"))
             .gridTemplateColumns.split(" ").length;
           /*Number of rows*/
-          const numberOfRows = Math.ceil(
-            maxNumberOfVisibleStories / storiesPerRow
+          numberOfVisibleRows = Math.ceil(
+            storiesNotOverflowing / storiesPerRow
           );
-          storiesNotOverflowing = storiesPerRow * numberOfRows;
+          //storiesNotOverflowing = storiesPerRow * numberOfVisibleRows;
           /*Evaluate*/
-          if (visibleStories.length > maxNumberOfVisibleStories) {
+          if (visibleStoriesLength > storiesNotOverflowing) {
             const height =
-              numberOfRows * (storyHeight + gridGap) - (gridGap + 5);
+              numberOfVisibleRows * (storyHeight + gridGap) - (gridGap + 5);
             block.style.height = height + "px";
           } else {
             block.style.height = "auto";
+          }
+
+          if (storiesNotOverflowing >= visibleStoriesLength) {
+            buttonLoadMore.classList.add("button-gx--load-more--disabled");
           }
         }
       }
@@ -4173,6 +4208,15 @@
       });
 
       resizeObserver.observe(block);
+
+      //Get element offset
+      function offset(el) {
+        var rect = el.getBoundingClientRect(),
+          scrollLeft =
+            window.pageXOffset || document.documentElement.scrollLeft,
+          scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+      }
     </script>
   </body>
 </html>
