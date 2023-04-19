@@ -1537,6 +1537,7 @@
       let gridGap = 0;
       let maxNumberOfVisibleStories = 0;
       let visibleStoriesLength = 0;
+      let firstLoadCategory = true;
       /****************** BUTTONS FOR CATEGORIES ******************/
       const lang = document.querySelector("html").getAttribute("lang");
 
@@ -1594,6 +1595,7 @@
             button.setAttribute("data-category-id", cat.categoryId);
             button.innerText = cat.categoryDisplayName;
             button.addEventListener("click", function () {
+              firstLoadCategory = true;
               const buttonCatId = this.getAttribute("data-category-id");
               //remove previous active button
               const actualActiveButton = document.querySelector(
@@ -1736,12 +1738,16 @@
         );
         visibleStoriesLength = visibleStories.length;
 
-        //this is the first load
-        if (visibleStoriesLength > maxNumberOfVisibleStories) {
-          storiesNotOverflowing = maxNumberOfVisibleStories;
-        } else {
-          storiesNotOverflowing = visibleStoriesLength;
+        if (firstLoadCategory) {
+          if (visibleStoriesLength > maxNumberOfVisibleStories) {
+            storiesNotOverflowing = maxNumberOfVisibleStories;
+          } else {
+            storiesNotOverflowing = visibleStoriesLength;
+          }
         }
+        firstLoadCategory = false;
+
+        console.log("storiesNotOverflowing", storiesNotOverflowing);
 
         if (block) {
           /*Story Height*/
