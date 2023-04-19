@@ -643,6 +643,84 @@
                 </a>
               </article>
             </li>
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana 11
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
+            <!-- item -->
+            <li class="article-container">
+              <article class="i-collapsible-detail">
+                <header>
+                  <h1 class="title">
+                    <a
+                      href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                    >
+                      Manzana 12
+                    </a>
+                  </h1>
+                  <a
+                    href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                  >
+                    <img
+                      src="https://www.genexus.com/media/images/logo-radelco-color.png?timestamp=20220905144222"
+                      class="image"
+                      width="150"
+                      height="61"
+                      alt=""
+                    />
+                  </a>
+                  <ul class="category-list">
+                    <li class="category-item manzana">
+                      <span class="text">Manzana</span>
+                    </li>
+                  </ul>
+                </header>
+
+                <a
+                  href="https://www.genexus.com/es/institucional/historias-de-exito/redalco"
+                >
+                  <div class="content-seemore-button">
+                    <span class="icon"></span>
+                    <span class="text">Leer historia</span>
+                  </div>
+                </a>
+              </article>
+            </li>
             <li class="article-container">
               <article class="i-collapsible-detail">
                 <header>
@@ -1455,6 +1533,7 @@
       let unhiddenStories = 0;
       let storyHeight = 0;
       let storiesPerRow = 0;
+      let numberOfVisibleRows = 0;
       let gridGap = 0;
       let maxNumberOfVisibleStories = 0;
       let visibleStoriesLength = 0;
@@ -1585,6 +1664,7 @@
       buttonLoadMore.classList.add("button-gx--load-more");
       buttonLoadMore.innerText = "Load More Cases"; //default english
       buttonLoadMore.addEventListener("click", function () {
+        //flag load
         let showMore = 10;
         if (window.innerWidth <= 1200) {
           showMore = 12;
@@ -1596,29 +1676,38 @@
           showMore = 6;
         }
 
-        console.log("storiesNotOverflowing before", storiesNotOverflowing);
-        const difference = unhiddenStories - storiesNotOverflowing;
-        let additionalRows = 0;
-        if (difference > 0) {
-          if (difference < showMore) {
-            additionalRows = Math.ceil(difference / storiesPerRow);
+        const storiesOverflowing = unhiddenStories - storiesNotOverflowing;
+        const difference = console.log(storiesOverflowing);
+        let rowsToDisplay = 0;
+        if (storiesOverflowing > 0) {
+          if (storiesOverflowing < showMore) {
+            rowsToDisplay = Math.ceil(storiesOverflowing / storiesPerRow);
           } else {
-            additionalRows = Math.ceil(showMore / storiesPerRow);
+            rowsToDisplay = Math.ceil(showMore / storiesPerRow);
           }
+
+          console.log("rowsToDisplay", rowsToDisplay);
 
           /*There are still stories to show*/
           const currentHeight = Number(block.style.height.replace("px", ""));
-          const additionalHeight = additionalRows * (storyHeight + gridGap);
+          const additionalHeight = rowsToDisplay * (storyHeight + gridGap);
           const totalHeight = currentHeight + additionalHeight + "px";
           block.style.height = totalHeight;
 
-          console.log("difference", difference);
+          console.log("storiesOverflowing", storiesOverflowing);
           console.log("storiesNotOverflowing", storiesNotOverflowing);
           console.log("unhiddenStories", unhiddenStories);
-        }
-        if (storiesNotOverflowing == unhiddenStories) {
-          /*All stories are visible*/
-          buttonLoadMore.classList.add("button-gx--load-more--disabled");
+          if (storiesOverflowing >= showMore) {
+            storiesNotOverflowing = storiesNotOverflowing + showMore;
+          } else {
+            storiesNotOverflowing = storiesNotOverflowing + storiesOverflowing;
+          }
+          console.log(storiesNotOverflowing);
+          console.log("===================");
+          if (storiesNotOverflowing === unhiddenStories) {
+            /*All stories are visible*/
+            buttonLoadMore.classList.add("button-gx--load-more--disabled");
+          }
         }
       });
       if (lang === "es") {
@@ -1636,7 +1725,8 @@
           ".article-container:not(.hidden)"
         ).clientHeight;
 
-        maxNumberOfVisibleStories = 5;
+        //flag limit
+        maxNumberOfVisibleStories = 10;
         //maxNumberOfVisibleStories = 100;
         if (window.innerWidth <= 1200) {
           maxNumberOfVisibleStories = 16;
@@ -1674,7 +1764,7 @@
             .getComputedStyle(block.querySelector(".articles"))
             .gridTemplateColumns.split(" ").length;
           /*Number of rows*/
-          const numberOfVisibleRows = Math.ceil(
+          numberOfVisibleRows = Math.ceil(
             maxNumberOfVisibleStories / storiesPerRow
           );
           storiesNotOverflowing = storiesPerRow * numberOfVisibleRows;
