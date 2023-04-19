@@ -1529,7 +1529,7 @@
       categoriesButtonsContainer.classList.add("categories-buttons-container");
       block.before(categoriesButtonsContainer);
       /****************** VARIABLES ******************/
-      let storiesNotOverflowing = 0;
+      let storiesNotOverflowing = undefined;
       let unhiddenStories = 0;
       let storyHeight = 0;
       let storiesPerRow = 0;
@@ -1733,12 +1733,18 @@
           maxNumberOfVisibleStories = 8;
         }
 
+        if (storiesNotOverflowing === undefined) {
+          //this is the first load
+          storiesNotOverflowing = maxNumberOfVisibleStories;
+        }
+
+        console.log("storiesNotOverflowing", storiesNotOverflowing);
+
         if (block) {
           /*Story Height*/
           storyHeight = block
             .querySelector(".article-container:not(.hidden)")
             .getBoundingClientRect().height;
-          console.log("storyHeight", storyHeight);
           /*Grid Gap*/
           gridGap = parseInt(
             window
