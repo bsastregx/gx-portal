@@ -1730,9 +1730,17 @@
           maxNumberOfVisibleStories = 8;
         }
 
-        if (storiesNotOverflowing === undefined) {
-          //this is the first load
+        /*Visible Stories*/
+        const visibleStories = block.querySelectorAll(
+          ".article-container:not(.hidden)"
+        );
+        visibleStoriesLength = visibleStories.length;
+
+        //this is the first load
+        if (visibleStoriesLength > maxNumberOfVisibleStories) {
           storiesNotOverflowing = maxNumberOfVisibleStories;
+        } else {
+          storiesNotOverflowing = visibleStoriesLength;
         }
 
         if (block) {
@@ -1747,11 +1755,6 @@
               .gridGap.split(" ")[0]
               .replace("px", "")
           );
-          /*Visible Stories*/
-          const visibleStories = block.querySelectorAll(
-            ".article-container:not(.hidden)"
-          );
-          visibleStoriesLength = visibleStories.length;
           unhiddenStories = block.querySelectorAll(
             ".article-container:not(.hidden)"
           ).length;
