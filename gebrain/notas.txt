@@ -1,3 +1,8 @@
 SASS    
 1. Instalar Sass : https://sass-lang.com/install
-2. Compilar Sass: En la ruta del proyecto: sass --watch ./assets/css/root.scss ./assets/css/styles.css
+
+2. Compilar Sass: En la ruta del proyecto:
+    sass --watch ./assets/css/root.scss ./assets/css/styles.css
+    
+3. Compilar Sass minificado: En la ruta del proyecto:
+    sass --watch ./assets/css/root.scss ./assets/css/styles.css --style=minified

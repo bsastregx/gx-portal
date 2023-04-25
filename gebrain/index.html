@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-58GJGMH");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -16,10 +30,19 @@
     <meta name="author" content="GeneXus" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Brain for your Enterprise AI Applications</title>
-    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-58GJGMH"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header class="header">
       <div class="container">
         <div class="row justfy-space-between">
@@ -28,7 +51,9 @@
             src="./assets/img/GEBrain-logo.svg"
             alt="GEBrain Logo"
           />
-          <a href="#" class="button button--primary">Try GE Brain</a>
+          <a href="#ai-revolution" class="button button--primary"
+            >Try GE Brain</a
+          >
         </div>
       </div>
     </header>
@@ -123,7 +148,7 @@
               </div>
               <div class="solutions__solution-image-container">
                 <img
-                  src="./assets/img/GEBrain-solution-observavility.svg"
+                  src="./assets/img/GEBrain-solution-observability.svg"
                   alt="GEBrain Solution: Observavility"
                 />
               </div>
@@ -150,8 +175,8 @@
               </div>
               <div class="solutions__solution-image-container">
                 <img
-                  src="./assets/img/GEBrain-solution-observavility.svg"
-                  alt="GEBrain Solution: Observavility"
+                  src="./assets/img/GEBrain-solution-maintainability-future-proofing.svg"
+                  alt="GEBrain Solution: Maintainability, Future Proofing"
                 />
               </div>
             </li>
@@ -172,8 +197,8 @@
               </div>
               <div class="solutions__solution-image-container">
                 <img
-                  src="./assets/img/GEBrain-solution-observavility.svg"
-                  alt="GEBrain Solution: Observavility"
+                  src="./assets/img/GEBrain-solution-security.svg"
+                  alt="GEBrain Solution: Security"
                 />
               </div>
             </li>
@@ -193,8 +218,8 @@
               </div>
               <div class="solutions__solution-image-container">
                 <img
-                  src="./assets/img/GEBrain-solution-observavility.svg"
-                  alt="GEBrain Solution: Observavility"
+                  src="./assets/img/GEBrain-solution-scalability.svg"
+                  alt="GEBrain Solution: Scalability"
                 />
               </div>
             </li>
@@ -217,8 +242,8 @@
               </div>
               <div class="solutions__solution-image-container">
                 <img
-                  src="./assets/img/GEBrain-solution-observavility.svg"
-                  alt="GEBrain Solution: Observavility"
+                  src="./assets/img/GEBrain-solution-built-in-patterns.svg"
+                  alt="GEBrain Solution: Built In Patterns"
                 />
               </div>
             </li>
@@ -228,8 +253,72 @@
     </section>
 
     <!--Section "problems solved"-->
-    <section class="section no-pt" id="problems-solved">
-      <div class="container"></div>
+    <section class="section" id="ai-revolution">
+      <div class="container">
+        <div class="row">
+          <div class="col col--left">
+            <h2 class="h3">
+              Join the AI<br />
+              Revolution
+            </h2>
+            <p>Register to try GE Brain.</p>
+          </div>
+          <div class="col col--right">
+            <script
+              type="text/javascript"
+              src="//js.hsforms.net/forms/embed/v2.js"
+            ></script>
+            <script>
+              hbspt.forms.create({
+                region: "na1",
+                portalId: "6302527",
+                formId: "9952b5ee-aa8f-4f87-b2aa-bf361fbcd890",
+              });
+            </script>
+          </div>
+        </div>
+      </div>
     </section>
+    <footer class="footer">
+      <small>© GE Brain. All rights reserved.</small>
+    </footer>
+    <!-- Back to top button -->
+    <a id="back-to-top" class="d-none">
+      <img src="./assets/img/go-to-top.svg" alt="go to top icon" />
+    </a>
+    <script>
+      /************************
+      SCROLL TO TOP BUTTON
+      ************************/
+      const backToTop = document.querySelector("#back-to-top");
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+      // Listen for the "scroll" event on the window object
+      window.addEventListener("scroll", () => {
+        // Get the current scroll position
+        const scrollPosition = window.scrollY;
+
+        // Get the height of the entire document, including any hidden content
+        const documentHeight = document.documentElement.scrollHeight;
+
+        // Get the height of the browser window
+        const windowHeight = window.innerHeight;
+
+        // Calculate the difference between the scroll position and the bottom of the document
+        const scrollBottom = documentHeight - (scrollPosition + windowHeight);
+
+        // If the user has scrolled to the bottom of the document, do something
+        if (scrollBottom <= 500) {
+          //You've reached the bottom of the page
+          backToTop.classList.remove("d-none");
+        } else {
+          backToTop.classList.add("d-none");
+        }
+      });
+    </script>
   </body>
 </html>

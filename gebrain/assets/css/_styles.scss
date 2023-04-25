@@ -54,7 +54,10 @@ VARIABLES
   --skyblueMedium: #335884;
   --darkBlue: #030e1f;
   --gridBlockBackgroundColor: #f0f2f8;
-  --gridBlockBorderColor: #caced7;
+  --gridBlockBorderColor: #060708;
+  --errorColor: #fa3263;
+  --focusColor: #0a69da;
+
   //fonts
   --fontHeadings: "Graphik Semibold", "arial", "sans-serif";
   --fontTextRegular: "Rubik Regular", "arial", "sans-serif";
@@ -64,6 +67,7 @@ VARIABLES
   --fontSizeL: 36px;
   --fontSizeM: 20px;
   --fontSizeS: 17px;
+  --fontSizeXS: 14px;
   --lineHeightRegular: 1.2em;
   --lineHeightSpaced: 1.65em;
   //spacing
@@ -77,6 +81,9 @@ VARIABLES
 /******************
 GENERAL
 ******************/
+html {
+  scroll-behavior: smooth;
+}
 body,
 .looks-like-p {
   font-family: var(--fontTextLight);
@@ -86,24 +93,26 @@ body,
 p {
   line-height: var(--lineHeightSpaced);
 }
+.hs-button,
 .button {
   border-radius: 100px;
   padding: 12px 30px 12px 30px;
   font-family: "Rubik Medium";
   text-decoration: none;
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--skyblueLight);
+  font-size: var(--fontSizeM);
+  border: none;
 
-  &--primary {
-    color: var(--white);
-    background-color: var(--skyblueLight);
-
-    &:hover {
-      background-color: var(--skyblue);
-    }
-    &:active {
-      background-color: var(--skyblueMedium);
-    }
+  &:hover {
+    background-color: var(--skyblue);
+  }
+  &:active {
+    background-color: var(--skyblueMedium);
   }
 }
+
 .section {
   padding: var(--sectionPadding) 0;
 }
@@ -112,6 +121,11 @@ p {
   max-width: 800px;
   margin: 0 auto;
   justify-content: center;
+}
+:focus-visible {
+  outline-offset: 3px;
+  outline-width: 3px;
+  outline-color: var(--focusColor);
 }
 
 /******************
@@ -270,9 +284,9 @@ SECTION "nexus"
   }
 }
 
-/******************
+/************************
 SECTION "problems solved"
-******************/
+************************/
 #problems-solved {
 }
 .solutions {
@@ -287,6 +301,7 @@ SECTION "problems solved"
     align-items: center;
 
     &-content {
+      width: 50%;
     }
     &-title {
       margin-bottom: var(--spaceM);
@@ -294,10 +309,143 @@ SECTION "problems solved"
     &-description {
     }
     &-image-container {
+      width: 50%;
+      img {
+        width: 100%;
+      }
     }
 
     &:nth-child(even) {
       flex-direction: row-reverse;
     }
+  }
+}
+
+/************************
+SECTION "problems solved"
+************************/
+#ai-revolution {
+  background-color: var(--darkBlue);
+  color: var(--white);
+
+  .col {
+    width: 50%;
+    box-sizing: border-box;
+
+    &--left {
+      padding-right: var(--spaceM);
+    }
+    &--right {
+    }
+  }
+}
+
+/************************
+HUBSPOT
+************************/
+.hs-input {
+  width: 100%;
+  font-size: var(--fontSizeM);
+  padding: 12px;
+  box-sizing: border-box;
+  margin-bottom: var(--spaceS);
+}
+.hs-form {
+  label {
+    display: block;
+    margin-bottom: 16px;
+  }
+  a {
+    color: var(--white);
+  }
+}
+.hs-error-msgs {
+  font-size: var(--fontSizeS);
+  position: relative;
+  top: -8px;
+  color: var(--errorColor);
+}
+.legal-consent-container {
+  .hs-form-booleancheckbox-display {
+    input {
+      width: 20px;
+      height: 20px;
+      margin-right: 16px;
+      margin-bottom: 0;
+      display: inline;
+      float: none !important;
+      position: relative;
+      top: 5px;
+    }
+    > span {
+      margin-left: 0 !important;
+      display: inline !important;
+    }
+  }
+  label {
+    display: block;
+    font-size: var(--fontSizeS);
+  }
+}
+.hs-button {
+  margin-top: var(--spaceM);
+}
+
+/************************
+FOOTER
+************************/
+.footer {
+  background-color: var(--white);
+  color: var(--black);
+  padding: var(--spaceM);
+  text-align: center;
+  font-size: var(--fontSizeXS);
+  font-family: var(--fontTextMedium);
+}
+
+/************************
+CUSTOM SCROLLBAR
+************************/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/************************
+BACK TO TOP BUTTON
+************************/
+#back-to-top {
+  cursor: pointer;
+  $buttonWidth: 36px;
+  width: $buttonWidth;
+  height: $buttonWidth;
+  background-color: var(--white);
+  position: fixed;
+  right: 36px;
+  bottom: 36px;
+  border-radius: calc($buttonWidth / 2);
+  opacity: 1;
+  transition: 0.5s opacity;
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+  img {
+    width: 101%;
+  }
+  &.d-none {
+    opacity: 0;
+    pointer-events: none;
   }
 }
