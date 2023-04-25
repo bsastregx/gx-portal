@@ -77,7 +77,8 @@ VARIABLES
 /******************
 GENERAL
 ******************/
-body {
+body,
+.looks-like-p {
   font-family: var(--fontTextLight);
   font-size: var(--fontSizeM);
   color: var(--black);
@@ -106,6 +107,12 @@ p {
 .section {
   padding: var(--sectionPadding) 0;
 }
+.row--centered {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+}
 
 /******************
 HEADINGS
@@ -128,6 +135,10 @@ h2,
 .h2 {
   font-size: var(--fontSizeL);
 }
+h3,
+.h3 {
+  font-size: var(--fontSizeL);
+}
 
 /******************
 HEADER
@@ -143,7 +154,7 @@ HEADER
 }
 
 /******************
-SECTION ge-brain
+SECTION "ge-brain"
 ******************/
 #ge-brain {
   background-color: var(--darkBlue);
@@ -174,18 +185,13 @@ SECTION ge-brain
 }
 
 /******************
-SECTION nexus
+SECTION "nexus"
 ******************/
 #nexus {
-  .row--1 {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
   .grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: auto 1fr; /* set the first row to auto height */
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     gap: var(--spaceM);
@@ -260,6 +266,38 @@ SECTION nexus
       &--13 {
         grid-area: 6 / 4 / 7 / 6;
       }
+    }
+  }
+}
+
+/******************
+SECTION "problems solved"
+******************/
+#problems-solved {
+}
+.solutions {
+  margin-top: var(--spaceXL);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceXL);
+
+  &__solution {
+    display: flex;
+    gap: var(--spaceXL);
+    align-items: center;
+
+    &-content {
+    }
+    &-title {
+      margin-bottom: var(--spaceM);
+    }
+    &-description {
+    }
+    &-image-container {
+    }
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
     }
   }
 }

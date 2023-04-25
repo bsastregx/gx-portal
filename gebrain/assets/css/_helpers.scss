@@ -1,9 +1,15 @@
 .justfy-space-between {
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 .justfy-space-around {
-  justify-content: space-around;
+  justify-content: space-around !important;
 }
 .align-items-center {
-  align-items: center;
+  align-items: center !important;
+}
+.no-pt {
+  padding-top: 0 !important;
+}
+.no-pb {
+  padding-bottom: 0 !important;
 }
