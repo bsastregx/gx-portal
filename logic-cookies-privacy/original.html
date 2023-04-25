@@ -1,0 +1,88 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<style type="text/css">
+  @media (max-width: 640px) {
+    .I78275,
+    .I81039,
+    .I84448 {
+      position: fixed !important;
+      right: 1rem !important;
+      top: 2rem !important;
+    }
+  }
+
+  .please-hide {
+    display: none;
+  }
+
+  .I75284 {
+    position: absolute !important;
+    cursor: pointer;
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    // GeneXus powered by Globant
+
+    console.log("funtion for globant cookie");
+
+    if (localStorage.getItem("cookie-powered-by-globant") === "true") {
+      console.log("Cookie cookie-powered-by-globant previously accepted");
+
+      setTimeout(function () {
+        $(".I78275, .I81039, .I84448")
+          .parent()
+          .parent()
+          .parent()
+          .addClass("please-hide");
+      }, 1000);
+
+      localStorage.setItem("cookie-powered-by-globant", "true");
+    }
+
+    $(".I78275, .I81039, .I84448").on("click", function () {
+      console.log("cookie-powered-by-globant accepted");
+      $(".I78275, .I81039, .I84448")
+        .parent()
+        .parent()
+        .parent()
+        .addClass("please-hide");
+      localStorage.setItem("cookie-powered-by-globant", "true");
+    });
+
+    // Cookies
+
+    if (localStorage.getItem("accept-cookies") === "true") {
+      console.log("Cookies previously accepted");
+
+      setTimeout(function () {
+        $(".I75283")
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .addClass("please-hide");
+      }, 1000);
+
+      localStorage.setItem("accept-cookies", "true");
+    }
+
+    $(".I75283").on("click", function () {
+      console.log("Cookies accepted");
+
+      $(".I75283")
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .addClass("please-hide");
+
+      localStorage.setItem("accept-cookies", "true");
+    });
+  });
+</script>

@@ -1,0 +1,103 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<style type="text/css">
+  /*
+  Notes:
+  "GeneXus Powered by Globant": .I84440
+  "Privacy policy": .I22241 
+  "GeneXus Powered by Globant close image": .I84448
+
+  Hide by default. Then, if not found in local storage, show.
+  */
+
+  .I84440,
+  .I22241 {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .I78275,
+    .I81039,
+    .I84448 {
+      position: fixed !important;
+      right: 1rem !important;
+      top: 2rem !important;
+    }
+  }
+  .please-hide {
+    display: none;
+  }
+  .please-show {
+    display: flex;
+  }
+  .I75284 {
+    position: absolute !important;
+    cursor: pointer;
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    // GeneXus powered by Globant
+    const delay = 1000;
+
+    if (!localStorage.getItem("cookie-powered-by-globant")) {
+      // Cookie cookie-powered-by-globant not accepted yet
+      // Show "GeneXus Powered by Globant"
+
+      setTimeout(function () {
+        $(".I78275, .I81039, .I84448")
+          .parent()
+          .parent()
+          .parent()
+          .addClass("please-hide");
+      }, delay);
+
+      localStorage.setItem("cookie-powered-by-globant", "true");
+    }
+
+    $(".I78275, .I81039, .I84448").on("click", function () {
+      console.log("cookie-powered-by-globant accepted");
+      $(".I78275, .I81039, .I84448")
+        .parent()
+        .parent()
+        .parent()
+        .addClass("please-hide");
+      localStorage.setItem("cookie-powered-by-globant", "true");
+    });
+
+    // Cookies
+
+    if (localStorage.getItem("accept-cookies") === "true") {
+      console.log("Cookies previously accepted");
+
+      setTimeout(function () {
+        $(".I75283")
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .addClass("please-hide");
+      }, delay);
+
+      localStorage.setItem("accept-cookies", "true");
+    }
+
+    $(".I75283").on("click", function () {
+      console.log("Cookies accepted");
+
+      $(".I75283")
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .parent()
+        .addClass("please-hide");
+
+      localStorage.setItem("accept-cookies", "true");
+    });
+  });
+</script>
