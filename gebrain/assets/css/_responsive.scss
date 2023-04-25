@@ -1,0 +1,140 @@
+@media only screen and (max-width: 1399px) {
+}
+@media only screen and (max-width: 1199px) {
+}
+@media only screen and (max-width: 991px) {
+  .container--wider--991 {
+    max-width: 900px;
+    box-sizing: border-box;
+  }
+  #nexus {
+    .grid {
+      gap: var(--spaceS);
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .header {
+    padding: 20px 0;
+  }
+  h1,
+  .h1 {
+    font-size: calc(var(--fontSizeXl) * 0.7);
+  }
+  h2,
+  .h2 {
+    font-size: calc(var(--fontSizeL) * 0.7);
+  }
+  .section {
+    padding: calc(var(--sectionPadding) * 0.5) 0;
+  }
+  #nexus {
+    .grid {
+      /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+      gap: var(--spaceS);
+      .block {
+        padding: var(--spaceXs);
+
+        &--2 {
+          grid-area: 1 / 6 / 12 / 7;
+        }
+        &--3 {
+          grid-area: 11 / 1 / 11 / 6;
+        }
+        &--4 {
+          grid-area: 2 / 1 / 11 / 2;
+        }
+        &--5 {
+          display: flex;
+          flex-direction: column;
+        }
+        &--6 {
+          grid-area: 3 / 2 / 4 / 6;
+        }
+        &--7 {
+          grid-area: 4 / 2 / 4 / 6;
+        }
+        &--8 {
+          grid-area: 5 / 2 / 5 / 6;
+        }
+        &--9 {
+          grid-area: 6 / 2 / 6 / 6;
+        }
+        &--10 {
+          grid-area: 7 / 2 / 7 / 6;
+        }
+        &--11 {
+          grid-area: 8 / 2 / 8 / 6;
+        }
+        &--12 {
+          grid-area: 9 / 2 / 9 / 6;
+        }
+        &--13 {
+          grid-area: 10 / 2 / 10 / 6;
+        }
+      }
+
+      &__children {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 577px) {
+  .header__logo {
+    width: 120px;
+  }
+  #nexus {
+    .grid {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: var(--spaceXs);
+      .block {
+        &--1 {
+          order: 1;
+        }
+        &--5 {
+          order: 2;
+        }
+        &--4 {
+          order: 3;
+        }
+        &--6 {
+          order: 4;
+        }
+        &--7 {
+          order: 5;
+        }
+        &--8 {
+          order: 6;
+        }
+        &--9 {
+          order: 7;
+        }
+        &--10 {
+          order: 8;
+        }
+        &--11 {
+          order: 9;
+        }
+        &--12 {
+          order: 10;
+        }
+        &--13 {
+          order: 11;
+        }
+        &--3 {
+          order: 12;
+        }
+        &--2 {
+          order: 13;
+        }
+      }
+
+      &__children {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

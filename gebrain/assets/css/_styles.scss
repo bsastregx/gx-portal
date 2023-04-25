@@ -6,6 +6,7 @@
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-right: auto;
   margin-left: auto;
+  box-sizing: border-box;
 }
 .row {
   --bs-gutter-x: 1.5rem;
@@ -13,8 +14,6 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
 }
 @media (min-width: 576px) {
   .container {
@@ -87,8 +86,11 @@ html {
 body,
 .looks-like-p {
   font-family: var(--fontTextLight);
-  font-size: var(--fontSizeM);
+  font-size: var(--fontSizeS);
   color: var(--black);
+}
+.bigger-text {
+  font-size: var(--fontSizeM);
 }
 p {
   line-height: var(--lineHeightSpaced);
@@ -102,7 +104,7 @@ p {
   cursor: pointer;
   color: var(--white);
   background-color: var(--skyblueLight);
-  font-size: var(--fontSizeM);
+  font-size: var(--fontSizeS);
   border: none;
 
   &:hover {
@@ -205,7 +207,7 @@ SECTION "nexus"
   .grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto 1fr; /* set the first row to auto height */
+    //grid-template-rows: auto 1fr; /* set the first row to auto height */
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     gap: var(--spaceM);
@@ -238,6 +240,13 @@ SECTION "nexus"
         background-color: var(--white);
         border: none;
       }
+
+      &--white {
+        background-color: transparent;
+        border: none;
+      }
+
+      /* grid-row-start / grid-column-start / grid-row-end / grid-column-end */
 
       &--1 {
         grid-area: 1 / 1 / 2 / 6;
