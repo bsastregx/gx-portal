@@ -5,4 +5,4 @@ SASS
     sass --watch ./assets/css/root.scss ./assets/css/styles.css
     
 3. Compilar Sass minificado: En la ruta del proyecto:
-    sass --watch ./assets/css/root.scss ./assets/css/styles.css --style=minified
+    sass --watch ./assets/css/root.scss ./assets/css/styles.css --style compressed

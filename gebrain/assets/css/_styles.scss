@@ -73,6 +73,7 @@ VARIABLES
   --spaceXs: 16px;
   --spaceS: 24px;
   --spaceM: 32px;
+  --spaceL: 64px;
   --spaceXL: 128px;
   --sectionPadding: var(--spaceXL);
 }
@@ -381,23 +382,28 @@ HUBSPOT
       height: 20px;
       margin-right: 16px;
       margin-bottom: 0;
-      display: inline;
+      margin-top: 0;
       float: none !important;
-      position: relative;
-      top: 5px;
+      flex-shrink: 0;
     }
     > span {
       margin-left: 0 !important;
-      display: inline !important;
+      line-height: var(--lineHeightSpaced);
     }
   }
+
   label {
-    display: block;
+    display: flex;
     font-size: var(--fontSizeS);
+    align-items: center;
   }
 }
 .hs-button {
   margin-top: var(--spaceM);
+
+  &:focus-within {
+    outline-color: var(--white);
+  }
 }
 
 /************************
