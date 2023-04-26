@@ -134,6 +134,19 @@
     width: 120px;
   }
   #nexus {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    p {
+      text-align: left;
+    }
+    h3,
+    .h3 {
+      font-size: calc(var(--fontSizeXl) * 0.5);
+    }
     .grid {
       display: flex;
       flex-direction: column;
