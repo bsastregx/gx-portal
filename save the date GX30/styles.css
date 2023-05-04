@@ -58,12 +58,12 @@
   font-weight: 300;
   margin: 0;
 }
-#gx30 .wrapper-save-the-date-gx30 {
+#gx30.wrapper-save-the-date-gx30 {
   font-family: "Graphik", "Helvetica", "arial", sans-serif;
   font-weight: 300;
   background-color: var(--neutrals-dark--900);
   color: var(--white);
-  padding: 160px 0;
+  padding: 260px 0;
 }
 #gx30 p {
   line-height: 1.5em;
@@ -202,6 +202,9 @@
   #gx30 .title {
     font-size: 40px;
   }
+  #gx30.wrapper-save-the-date-gx30 {
+    padding: 110px 0;
+  }
 }
 @media screen and (max-width: 768px) {
   #gx30 .container {
@@ -219,7 +222,7 @@
     max-width: 100%;
     padding-top: 30px;
   }
-  #gx30 .wrapper-save-the-date-gx30 {
+  #gx30.wrapper-save-the-date-gx30 {
     padding: 60px 0;
   }
   #gx30 .figure--1 {
