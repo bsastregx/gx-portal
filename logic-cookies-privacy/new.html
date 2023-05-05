@@ -2,101 +2,60 @@
 <style type="text/css">
   /*
   Notes:
-  "GeneXus Powered by Globant": .I84440
-  "Privacy policy": .I22241 
+  "GeneXus Powered by Globant": .I84682
   "GeneXus Powered by Globant close image": .I84448
-
-  Hide by default. Then, if not found in local storage, show.
+  ---
+  "Privacy policy": .I22233 
+  "Privay policy close image": .I75284
   */
 
-  .I84440,
-  .I22241 {
+  .I84682,
+  .I22233 {
+    /*Hide by default. Then, if not found in local storage, show.*/
     display: none;
   }
 
   @media (max-width: 640px) {
-    .I78275,
-    .I81039,
     .I84448 {
       position: fixed !important;
       right: 1rem !important;
       top: 2rem !important;
     }
   }
-  .please-hide {
-    display: none;
-  }
   .please-show {
     display: flex;
   }
-  .I75284 {
-    position: absolute !important;
-    cursor: pointer;
-  }
 </style>
-<script>
-  $(document).ready(function () {
-    // GeneXus powered by Globant
-    const delay = 1000;
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const poweredByGlobant = document.querySelector(".I84682");
+    const poweredByGlobantClose = document.querySelector(".I84448");
+    /*---*/
+    const privacyPolicy = document.querySelector(".I22233");
+    const privacyPolicyClose = document.querySelector(".I75284");
+
+    /* 1. "GeneXus Powered by Globant" */
     if (!localStorage.getItem("cookie-powered-by-globant")) {
       // Cookie cookie-powered-by-globant not accepted yet
       // Show "GeneXus Powered by Globant"
-
-      setTimeout(function () {
-        $(".I78275, .I81039, .I84448")
-          .parent()
-          .parent()
-          .parent()
-          .addClass("please-hide");
-      }, delay);
-
-      localStorage.setItem("cookie-powered-by-globant", "true");
+      poweredByGlobant.classList.add("please-show");
     }
-
-    $(".I78275, .I81039, .I84448").on("click", function () {
-      console.log("cookie-powered-by-globant accepted");
-      $(".I78275, .I81039, .I84448")
-        .parent()
-        .parent()
-        .parent()
-        .addClass("please-hide");
+    /*"Close GeneXus Powered by Globant"*/
+    poweredByGlobantClose.addEventListener("click", () => {
+      poweredByGlobant.classList.remove("please-show");
       localStorage.setItem("cookie-powered-by-globant", "true");
     });
 
-    // Cookies
-
-    if (localStorage.getItem("accept-cookies") === "true") {
-      console.log("Cookies previously accepted");
-
-      setTimeout(function () {
-        $(".I75283")
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .parent()
-          .addClass("please-hide");
-      }, delay);
-
-      localStorage.setItem("accept-cookies", "true");
+    /* 2. "Privacy policy" */
+    if (!localStorage.getItem("accept-cookies")) {
+      // Privacy policy not accepted yet
+      // Show "Privacy policy"
+      privacyPolicy.classList.add("please-show");
     }
-
-    $(".I75283").on("click", function () {
-      console.log("Cookies accepted");
-
-      $(".I75283")
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .parent()
-        .addClass("please-hide");
-
+    /*"Close Privacy policy"*/
+    privacyPolicyClose.addEventListener("click", () => {
+      privacyPolicy.classList.remove("please-show");
       localStorage.setItem("accept-cookies", "true");
     });
   });
