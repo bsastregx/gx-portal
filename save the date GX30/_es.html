@@ -21,198 +21,21 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
     />
-    <style>
-      :root {
-        --neutrals-dark--900: #1b1f23;
-        --skyblue: #4576f4;
-        --cyan: #3adade;
-        --white: #fff;
-        --black: #000;
-        --gap: 32px;
-        --gradient-1: #b8fff8;
-        --gradient-2: #3e94f9;
-        --button-color: #37414e;
-        --button-color--hover: #47505c;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-      }
-      .col {
-        width: 50%;
-        padding: 0 var(--gap);
-        box-sizing: border-box;
-      }
-      .col--right {
-        position: absolute;
-        right: 0;
-        padding-right: 0;
-        max-width: 510px;
-      }
-      .title {
-        margin: 0;
-        font-weight: 600;
-        font-size: 52px;
-        background: -webkit-linear-gradient(
-          var(--gradient-1),
-          var(--gradient-2)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .pre-title {
-        font-weight: 300;
-        font-size: 26px;
-        font-weight: 300;
-        margin: 0;
-      }
-      .wrapper-save-the-date-gx30 {
-        font-family: "Graphik", "Helvetica", "arial", sans-serif;
-        font-weight: 300;
-        background-color: var(--neutrals-dark--900);
-        color: var(--white);
-        padding: 160px 0;
-      }
-      p {
-        line-height: 1.5em;
-      }
-      a {
-        text-decoration: underline;
-        color: inherit;
-      }
-      .button {
-        text-decoration: none;
-        background-color: var(--button-color);
-        font-family: "Rubik", "Graphik", "Helvetica", "arial", sans-serif;
-        font-weight: 500;
-        padding: 12px 36px;
-        border-radius: 30px;
-        transition: 0.15s background-color;
-        align-items: center;
-        display: inline-flex;
-        gap: 10px;
-        margin-top: 16px;
-      }
-      .button:hover {
-        background-color: var(--button-color--hover);
-      }
-      /*figures*/
-      .figure {
-        display: inline-block;
-        box-sizing: border-box;
-        padding: 25px 60px;
-        font-weight: 400;
-        margin: 0;
-      }
-      .figure-wrapper {
-        display: flex;
-        align-items: start;
-      }
-      .figure--1 {
-        background-color: var(--cyan);
-        width: 78px;
-        height: 68px;
-      }
-      .figure--2 {
-        background-color: var(--skyblue);
-      }
-      .figure--3 {
-        background-color: var(--white);
-        color: var(--black);
-      }
-      .figure--4 {
-        background-color: var(--cyan);
-        color: var(--black);
-        padding: 55px 90px;
-      }
-      .figure--5 {
-        background-color: var(--skyblue);
-      }
-      .figure--6 {
-        width: 220px;
-        height: 70px;
-        background-color: var(--skyblue);
-        margin-right: 100px;
-      }
-      /*helper classes*/
-      .justify-end {
-        justify-content: end;
-      }
-      .no-padding {
-        padding: 0;
-      }
-      /*speakers*/
-      .speakers {
-        list-style-type: none;
-        margin-top: 36px;
-        background-color: var(--button-color);
-        height: 130px;
-        max-width: 300px;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        margin-left: auto;
-        box-sizing: border-box;
-      }
-      .speaker {
-        opacity: 1;
-        transition: all 0.2s;
-        width: 100%;
-        height: 100%;
-      }
-      .speaker--opacity-0 {
-        opacity: 0;
-      }
-      .speaker--hidden {
-        display: none;
-      }
-      .speaker__link {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-        text-decoration: none;
-        width: 100%;
-        height: 100%;
-        padding-left: 24px;
-      }
-      .speaker__link:hover {
-        color: var(--cyan);
-      }
-      .speaker__picture {
-        width: 90px;
-        height: 90px;
-        border-radius: 45px;
-        overflow: hidden;
-      }
-      .speaker__name {
-        font-weight: 500;
-        margin-bottom: 4px;
-      }
-      .speaker__company {
-        font-size: 12px;
-      }
-      .speaker__info {
-        display: flex;
-        flex-direction: column;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="wrapper-save-the-date-gx30">
+    <div id="gx30" class="wrapper-save-the-date-gx30">
       <div class="container container--save-the-date-gx30">
         <main class="col col--left">
           <h2 class="pre-title">Save the Date</h2>
           <h1 class="title">GX30 GeneXus Meeting What's Next?</h1>
           <p>
-            Vuelve el Encuentro GeneXus, el evento de negocios, innovación y
-            tecnología más importante de América Latina.
+            Vuelve el <strong>Encuentro GeneXus</strong>, el evento de negocios,
+            innovación y tecnología más importante de América Latina.
           </p>
           <p>
             <strong>
-              Evento Presencial. Del 28 al 30 de noviembre, 2023. <br />
+              Evento Presencial. Del 28 al 30 de Noviembre, 2023. <br />
               <a href="https://goo.gl/maps/xBVw1kG9GwKq8UQ5A" target="_blank"
                 >Radisson Montevideo</a
               >
@@ -223,10 +46,12 @@
             role="button"
             target="_blank"
             class="button"
-            ><img src="./imagenes/calendar.svg" />Agregar en calendario</a
+            ><img
+              src="https://www.genexus.com/media/images/calendar-1.svg"
+            />Agregar en calendario</a
           >
         </main>
-        <div class="col col--right">
+        <aside class="col col--right">
           <div class="figure-wrapper justify-end">
             <p class="figure figure--1 no-padding"></p>
           </div>
@@ -249,7 +74,7 @@
               >
                 <img
                   class="speaker__picture"
-                  src="./imagenes/nicolas.png"
+                  src="https://www.genexus.com/media/images/nicolas-1.png"
                   alt="Speaker Nicolás Jodal"
                 />
                 <div class="speaker__info">
@@ -266,7 +91,7 @@
               >
                 <img
                   class="speaker__picture"
-                  src="./imagenes/breogan.png"
+                  src="https://www.genexus.com/media/images/breogan-4.png"
                   alt="speaker Breogán Gonda"
                 />
                 <div class="speaker__info">
@@ -283,7 +108,7 @@
               >
                 <img
                   class="speaker__picture"
-                  src="./imagenes/sylvia.png"
+                  src="https://www.genexus.com/media/images/sylvia.png"
                   alt="Speaker Sylvia Chebi"
                 />
                 <div class="speaker__info">
@@ -300,7 +125,7 @@
               >
                 <img
                   class="speaker__picture"
-                  src="./imagenes/daniel.jpg"
+                  src="https://www.genexus.com/media/images/daniel.jpg"
                   alt="Speaker Daniel Fernandez"
                 />
                 <div class="speaker__info">
@@ -310,7 +135,21 @@
               </a>
             </li>
           </ul>
-        </div>
+        </aside>
+      </div>
+    </div>
+    <!--Mailerlite form-->
+    <div id="mailerlite-form">
+      <div class="container">
+        <div
+          class="ml-form-embed"
+          data-account="2974798:a4y7z2q4a3"
+          data-form="5919883:l9x9f5"
+        ></div>
+        <p class="after-form-p">
+          Mientras esperas la fecha, ¿por qué no consultas el último
+          <a target="_blank" href="#">Encuentro GeneXus?</a>
+        </p>
       </div>
     </div>
     <script src="scripts.js"></script>
