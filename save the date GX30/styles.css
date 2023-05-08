@@ -217,6 +217,11 @@
 /***********************
   RESPONSIVE
   ***********************/
+@media screen and (max-width: 1440px) {
+  #gx30.wrapper-save-the-date-gx30 {
+    padding-bottom: 180px;
+  }
+}
 @media screen and (max-width: 992px) {
   #gx30 .title {
     font-size: 40px;
@@ -255,7 +260,7 @@
   }
   /*Mailterlite*/
   #mailerlite-form {
-    padding: 60px 0;
+    padding: 60px 24px;
   }
   #mailerlite-form .ml-form-embedContent {
     text-align: left;
