@@ -23,5 +23,5 @@ function swapSpeaker(currentSpeakerIndex) {
         swapSpeaker(currentSpeakerIndex + 1);
       }
     }, 250);
-  }, 2500);
+  }, 4000);
 }
