@@ -80,47 +80,69 @@
 .hidden {
   display: none;
 }
-.block.I18679 {
+.block.block--collection {
   display: block;
-  text-align: center;
   overflow: hidden;
   width: 100%;
 }
 /*MAKE SQUARES FOR THE IMAGES*/
-.block.I18679 > .articles {
+.block.block--collection > .articles {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   padding: 0 15px;
   grid-auto-rows: 1fr;
 }
-.block.I18679 > .articles .article-container {
+.block.block--collection-sstories > .articles {
+  grid-template-columns: repeat(5, 1fr);
+}
+.block.block--collection-sstories > .articles .article-container {
   /* padding-bottom: 48px; */
 }
-.block.I18679 > .articles .article-container:after {
+.block.block--collection-sstories > .articles .article-container:after {
   display: none;
 }
-.block.I18679 > .articles .article-container article {
+.block.block--collection > .articles .article-container article {
   position: relative;
+  width: auto !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
-.block.I18679 > .articles .article-container article .title {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  .title {
   margin-top: 8px;
   margin-bottom: 0;
 }
-.block.I18679 > .articles .article-container article a {
+.block.block--collection-sstories > .articles .article-container article a {
   text-align: left;
 }
-.block.I18679 > .articles .article-container article header.has-link {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header.has-link {
   cursor: pointer;
 }
-.block.I18679 > .articles .article-container article header {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header {
   padding-top: 100%;
   border: 1px solid #000;
   position: relative;
   display: block;
   width: 100%;
 }
-.block.I18679 > .articles .article-container article header > a {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header
+  > a {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -130,14 +152,24 @@
   justify-content: center;
   align-items: center;
 }
-.block.I18679 > .articles .article-container article header > a {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header
+  > a {
   font-size: 0;
 }
-.block.I18679 > .articles .article-container article header > a img {
+.block.block--collection > .articles .article-container article header > a img {
   width: 100%;
   height: auto;
 }
-.block.I18679 > .articles .article-container article header a:after {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header
+  a:after {
   content: "";
   width: 100%;
   height: 100%;
@@ -147,7 +179,11 @@
   top: 0;
   box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 1) inset;
 }
-.block.I18679 > .articles .article-container article header.has-link:after {
+.block.block--collection-sstories
+  > .articles
+  .article-container
+  article
+  header.has-link:after {
   content: "";
   width: 100%;
   height: 100%;
@@ -159,26 +195,34 @@
   z-index: 10;
   transition: 0.1s opacity;
 }
-.block.I18679
+.block.block--collection-sstories
   > .articles
   .article-container
   article
   header.has-link:hover:after {
   opacity: 1;
 }
-.I18679 .content-seemore-button {
+.block--collection .content-seemore-button {
   display: block;
+  justify-content: start;
+  padding-right: 0;
 }
 
 /*RESPONSIVE*/
 @media only screen and (max-width: 1200px) {
-  .block.I18679 > .articles {
+  .block.block--collection > .articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .block.block--collection-sstories > .articles {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media only screen and (max-width: 768px) {
-  .block.I18679 > .articles {
+  .block.block--collection-sstories > .articles {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .block.block--collection > .articles {
+    grid-template-columns: repeat(2, 1fr);
   }
   .categories-buttons-container {
     margin-top: 32px;
@@ -190,7 +234,7 @@
   }
 }
 @media only screen and (max-width: 540px) {
-  .block.I18679 > .articles {
+  .block.block--collection > .articles {
     grid-template-columns: repeat(2, 1fr);
   }
   .categories-buttons-container {
@@ -211,7 +255,7 @@
   }
 }
 @media only screen and (max-width: 320px) {
-  .block.I18679 > .articles {
+  .block.block--collection > .articles {
     grid-template-columns: repeat(1, 1fr);
   }
 }
