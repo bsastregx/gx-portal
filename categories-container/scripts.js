@@ -159,15 +159,16 @@ window.addEventListener("load", () => {
   buttonLoadMore.addEventListener("click", function () {
     //get loadMoreButton offset top to do scroll later
     var loadMoreButtonOffsetTop = offset(this).top;
-    let showMore = 15;
+
+    let showMore = storiesPerRow * 3;
     if (window.innerWidth <= 1200) {
-      showMore = 12;
+      showMore = storiesPerRow * 3;
     }
     if (window.innerWidth <= 768) {
-      showMore = 9;
+      showMore = storiesPerRow * 5;
     }
     if (window.innerWidth <= 540) {
-      showMore = 6;
+      showMore = storiesPerRow * 3;
     }
 
     const storiesOverflowing = unhiddenStories - storiesNotOverflowing;
@@ -184,6 +185,9 @@ window.addEventListener("load", () => {
       const additionalHeight = rowsToDisplay * (storyHeight + gridGap);
       const totalHeight = currentHeight + additionalHeight + "px";
       block.style.height = totalHeight;
+
+      console.log("additionalHeight", additionalHeight);
+      console.log("totalHeight", totalHeight);
 
       if (storiesOverflowing >= showMore) {
         storiesNotOverflowing = storiesNotOverflowing + showMore;
@@ -237,8 +241,6 @@ window.addEventListener("load", () => {
       }
     }
     firstLoadCategory = false;
-
-    console.log("storiesNotOverflowing", storiesNotOverflowing);
 
     if (block) {
       /*Story Height*/

@@ -1,4 +1,10 @@
-.I18680 > .viewport {
+/*
+.I18680 -> success stories : https://www.genexus.com/es/institucional/historias-de-exito
+.I119095 -> webinars : https://gxpadmin.genexus.com/preview/www.genexus.com/es/comunidad/webinars
+*/
+
+.I18680 > .viewport,
+.I119095 > .viewport {
   flex-direction: column;
   align-items: center;
 }
