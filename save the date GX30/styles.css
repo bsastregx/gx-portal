@@ -202,6 +202,9 @@
 #mailerlite-form {
   padding: 120px 0;
 }
+.ml-form-embedBody {
+  padding-top: 0 !important;
+}
 .after-form-p {
   color: var(--gray);
   text-align: center;
