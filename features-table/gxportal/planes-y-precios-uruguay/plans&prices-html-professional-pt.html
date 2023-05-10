@@ -16,42 +16,37 @@
       <div class="plan plan--dinamic-price">
         <div class="plan__container">
           <h3 class="plan__title">
-            For Startups <span class="plan__price--sticky">R$ 864 </span>
+            For Startups <span class="plan__price--sticky">R$ 910 </span>
           </h3>
 
-          <div class="plan__price__value">
-            <span class="plan__price">R$ 864</span>
-          </div>
-
-          <div class="plan_cp">
-            <span class="plan__price"
-              ><span class="plan__taxes">+ IVA</span>
-              <span class="plan__periodicity">/m&ecirc;s</span>
-            </span>
-          </div>
-          <span class="plan__payment-period"
-            >Primeiro ano,<br />
-            pagamento mensal
+          <span class="plan__price">
+            <div class="plan__price__value">R$ 910</div>
+            <div class="plan_cp">
+              <span class="plan__taxes">+ IVA</span>
+              <span class="plan__periodicity">/mes </span>
+            </div></span
+          >
+          <span class="plan__payment-period">
+            Primeiro ano, pagamento mensal
           </span>
         </div>
       </div>
 
-      <div class="plan">
+      <div class="plan plan--dinamic-price">
         <div class="plan__container">
           <h3 class="plan__title">
-            For ISV <span class="plan__price--sticky">R$ 1.555 </span>
+            For Startups <span class="plan__price--sticky">R$ 1.640 </span>
           </h3>
 
-          <div><span class="plan__price">R$ 1.555</span></div>
-
-          <div class="plan_cp">
-            <span class="plan__price"
-              ><span class="plan__taxes">+ IVA</span>
-              <span class="plan__periodicity">/m&ecirc;s</span>
-            </span>
-          </div>
-          <span class="plan__payment-period"
-            >Plano anual de pagamento mensal
+          <span class="plan__price">
+            <div class="plan__price__value">R$ 1.640</div>
+            <div class="plan_cp">
+              <span class="plan__taxes">+ IVA</span>
+              <span class="plan__periodicity">/mes </span>
+            </div></span
+          >
+          <span class="plan__payment-period">
+            Plano anual de pagamento mensal
           </span>
         </div>
       </div>
@@ -62,8 +57,7 @@
             For Enterprise
             <span class="plan__price--sticky"> &Agrave; medida </span>
           </h3>
-
-          <div><span class="plan__price">&Agrave; medida</span></div>
+          <span class="plan__price"> <div>&Agrave; medida</div></span>
         </div>
       </div>
     </div>
@@ -1602,43 +1596,42 @@
 <div
   class="container container-plans-mobile container-plans-mobile--professional"
 >
+  <!-- GENEXUS FOR STARUPS (MOBILE) -->
   <article class="plan-card plan-card--professional">
     <h3 class="plan-card__title">GeneXus For Startups</h3>
-
     <p class="plan-card__description">
-      Projetado para novos neg&oacute;cios<br />
+      Projetado para novos negócios<br />
       com equipes pequenas e grandes ideias.
     </p>
-
     <div>
       <div class="plan-price-container">
-        <div><span class="plan__price">R$ 864</span></div>
-
-        <div class="plan_cp">
-          <span class="plan__price"
-            ><span class="plan__taxes">+ IVA</span>
-            <span class="plan__periodicity">/m&ecirc;s</span>
-          </span>
-        </div>
+        <span class="plan__price">
+          <div>R$ 910</div>
+          <div class="plan_cp">
+            <span class="plan__taxes">+ IVA</span>
+            <span class="plan__periodicity">/mês</span>
+          </div>
+        </span>
       </div>
-      <span class="plan__payment-period">Primeiro ano, pagamento mensal </span>
+      <span class="plan__payment-period"> Primeiro ano, pagamento mensal </span>
     </div>
-
     <p class="toggle-plan-features collapsed">
-      <span class="text text--collapsed">+ Mostrar recursos do plano </span>
+      <span class="text text--collapsed"> + Mostrar recursos do plano </span>
       <span class="text text--uncollapsed"> - Ocultar recursos do plano </span>
     </p>
-
     <div
       class="plan-card__table-container plan-card__table-container--professional collapsed"
     >
-      <div class="tip">Toque em qualquer item para comparar planos.</div>
-
+      <div class="tip">
+        <i class="fa-solid fa-code-compare"></i>
+        Toque em qualquer item para comparar planos.
+      </div>
+      <!-- Tecnologia -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Tecnologia</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -1655,7 +1648,7 @@
               <div class="td-container">PWA Gerador (Angular)</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -1667,9 +1660,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1679,7 +1672,7 @@
               <div class="td-container">Gerador ChatBot</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -1687,17 +1680,17 @@
               <div class="td-container">
                 All Databases <span class="more-info__i">i</span>
               </div>
-              <small class="more-info__info"
-                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+              <small class="more-info__info">
+                SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
                 HANA
               </small>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1707,17 +1700,18 @@
               <div class="td-container">Geradores Cobol/RPG</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Desenvolvimento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Desenvolvimento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -1728,9 +1722,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1742,9 +1736,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1756,25 +1750,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Seguran&ccedil;a (GeneXus Access Manager)
-              </div>
+              <div class="td-container">Segurança (GeneXus Access Manager)</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1786,9 +1778,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1796,11 +1788,12 @@
         </tbody>
       </table>
 
+      <!-- Integração -->
       <table class="plan-card__table">
         <thead>
           <tr>
-            <th class="feature">Integra&ccedil;&atilde;o</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="feature">Integração</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -1811,9 +1804,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1825,9 +1818,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1839,25 +1832,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Integra&ccedil;&atilde;o para SAP Business One
-              </div>
+              <div class="td-container">Integração para SAP Business One</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1867,7 +1858,7 @@
               <div class="td-container">Conector para SAP ERP</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -1877,9 +1868,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1891,9 +1882,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1905,9 +1896,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1915,11 +1906,12 @@
         </tbody>
       </table>
 
+      <!-- Design System -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Design System</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -1930,9 +1922,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1944,9 +1936,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1958,9 +1950,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1972,9 +1964,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -1984,7 +1976,7 @@
               <div class="td-container">SAP Fiori Pattern</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -1994,9 +1986,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2034,11 +2026,12 @@
         </tbody>
       </table>
 
+      <!-- Ciclo de Vida de Desenvolvimento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Ciclo de Vida de Desenvolvimento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2049,9 +2042,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2073,9 +2066,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2087,9 +2080,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2101,9 +2094,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2121,7 +2114,7 @@
           <tr>
             <td>
               <div class="td-container">
-                Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+                Suporte de integração contínua - Jenkins
               </div>
             </td>
             <td>
@@ -2133,20 +2126,21 @@
         </tbody>
       </table>
 
+      <!-- O negócio -->
       <table class="plan-card__table">
         <thead>
           <tr>
-            <th class="feature">O neg&oacute;cio</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="feature">O negócio</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">Su&iacute;te BPM</div>
+              <div class="td-container">Suíte BPM</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -2154,48 +2148,47 @@
               <div class="td-container">Suite de Reporting</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Capacidade -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Capacidade</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
               <div class="td-container">
-                Aplicativos Web e M&oacute;veis Ilimitados
+                Aplicativos Web e Móveis Ilimitados
               </div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Usu&aacute;rios Ilimitados por Aplicativo
-              </div>
+              <div class="td-container">Usuários Ilimitados por Aplicativo</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2207,40 +2200,39 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+              <div class="td-container">Tempo de execução</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Treinamento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Treinamento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">
-                Sess&atilde;o de kick-off t&eacute;cnico
-              </div>
+              <div class="td-container">Sessão de kick-off técnico</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -2248,7 +2240,7 @@
               <div class="td-container">In-house training course</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -2258,44 +2250,43 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
-              </div>
+              <div class="td-container">Certificação GeneXus Júnior</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Suporte -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Suporte</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">F&oacute;rum de suporte</div>
+              <div class="td-container">Fórum de suporte</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2305,7 +2296,7 @@
               <div class="td-container">Suporte assistido</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -2313,17 +2304,18 @@
               <div class="td-container">Suporte Premium</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Parceria -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Parceria</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2332,62 +2324,62 @@
               <div class="td-container">Acesso a GeneXus Alliance</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
-
       <p class="hide-plan-features">- Ocultar recursos do plano</p>
     </div>
-
     <div class="plan-card__footer">
       <a
-        class="button button--primary"
         href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-startup"
         type="button"
+        class="button button--primary"
         >Escolher Plano</a
       >
     </div>
   </article>
+  <!-- /GENEXUS FOR STARUPS (MOBILE) -->
 
+  <!-- GENEXUS FOR ISV (MOBILE) -->
   <article class="plan-card plan-card--professional">
     <h3 class="plan-card__title">GeneXus For ISV</h3>
-
     <p class="plan-card__description">
-      Um produto para Software Houses que fornecem servi&ccedil;os e criam
-      aplicativos multiplataforma para seus clientes.
+      Um produto para Software Houses que fornecem serviços e criam aplicativos
+      multiplataforma para seus clientes.
     </p>
-
     <div>
       <div class="plan-price-container">
-        <div><span class="plan__price">R$ 1.555</span></div>
-
-        <div class="plan_cp">
-          <span class="plan__price"
-            ><span class="plan__taxes">+ IVA</span>
-            <span class="plan__periodicity">/m&ecirc;s</span>
-          </span>
-        </div>
+        <span class="plan__price">
+          <div>R$ 1.640</div>
+          <div class="plan_cp">
+            <span class="plan__taxes">+ IVA</span>
+            <span class="plan__periodicity">/mês</span>
+          </div>
+        </span>
       </div>
-      <span class="plan__payment-period">Plano anual de pagamento mensal </span>
+      <span class="plan__payment-period">
+        Plano anual de pagamento mensal
+      </span>
     </div>
-
     <p class="toggle-plan-features collapsed">
-      <span class="text text--collapsed">+ Mostrar recursos do plano </span>
+      <span class="text text--collapsed"> + Mostrar recursos do plano </span>
       <span class="text text--uncollapsed"> - Ocultar recursos do plano </span>
     </p>
-
     <div
       class="plan-card__table-container plan-card__table-container--professional collapsed"
     >
-      <div class="tip">Toque em qualquer item para comparar planos.</div>
-
+      <div class="tip">
+        <i class="fa-solid fa-code-compare"></i>
+        Toque em qualquer item para comparar planos.
+      </div>
+      <!-- Tecnologia -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Tecnologia</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2398,9 +2390,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2412,9 +2404,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2428,9 +2420,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2442,9 +2434,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2454,17 +2446,17 @@
               <div class="td-container">
                 All Databases <span class="more-info__i">i</span>
               </div>
-              <small class="more-info__info"
-                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+              <small class="more-info__info">
+                SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
                 HANA
               </small>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2474,17 +2466,18 @@
               <div class="td-container">Geradores Cobol/RPG</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Desenvolvimento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Desenvolvimento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2495,9 +2488,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2509,9 +2502,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2523,25 +2516,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Seguran&ccedil;a (GeneXus Access Manager)
-              </div>
+              <div class="td-container">Segurança (GeneXus Access Manager)</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2553,9 +2544,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2563,11 +2554,12 @@
         </tbody>
       </table>
 
+      <!-- Integração -->
       <table class="plan-card__table">
         <thead>
           <tr>
-            <th class="feature">Integra&ccedil;&atilde;o</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="feature">Integração</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2578,9 +2570,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2592,9 +2584,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2606,25 +2598,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Integra&ccedil;&atilde;o para SAP Business One
-              </div>
+              <div class="td-container">Integração para SAP Business One</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2646,9 +2636,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2660,9 +2650,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2674,9 +2664,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2684,11 +2674,12 @@
         </tbody>
       </table>
 
+      <!-- Design System -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Design System</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2699,9 +2690,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2713,9 +2704,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2727,9 +2718,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2741,9 +2732,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2765,9 +2756,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2805,11 +2796,12 @@
         </tbody>
       </table>
 
+      <!-- Ciclo de Vida de Desenvolvimento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Ciclo de Vida de Desenvolvimento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -2820,9 +2812,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2844,9 +2836,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2858,9 +2850,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2872,9 +2864,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2892,7 +2884,7 @@
           <tr>
             <td>
               <div class="td-container">
-                Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+                Suporte de integração contínua - Jenkins
               </div>
             </td>
             <td>
@@ -2904,26 +2896,27 @@
         </tbody>
       </table>
 
+      <!-- O negócio -->
       <table class="plan-card__table">
         <thead>
           <tr>
-            <th class="feature">O neg&oacute;cio</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="feature">O negócio</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">Su&iacute;te BPM</div>
+              <div class="td-container">Suíte BPM</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
-                (5 usu&aacute;rios)
+                (5 usuários)
               </div>
             </td>
           </tr>
@@ -2934,53 +2927,52 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
-                (5 usu&aacute;rios)
+                (5 usuários)
               </div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Capacidade -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Capacidade</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
               <div class="td-container">
-                Aplicativos Web e M&oacute;veis Ilimitados
+                Aplicativos Web e Móveis Ilimitados
               </div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Usu&aacute;rios Ilimitados por Aplicativo
-              </div>
+              <div class="td-container">Usuários Ilimitados por Aplicativo</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -2992,40 +2984,39 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+              <div class="td-container">Tempo de execução</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Treinamento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Treinamento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">
-                Sess&atilde;o de kick-off t&eacute;cnico
-              </div>
+              <div class="td-container">Sessão de kick-off técnico</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -3033,7 +3024,7 @@
               <div class="td-container">In-house training course</div>
             </td>
             <td>
-              <div class="td-container">&nbsp;</div>
+              <div class="td-container"></div>
             </td>
           </tr>
           <tr>
@@ -3043,51 +3034,50 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
-              </div>
+              <div class="td-container">Certificação GeneXus Júnior</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
-                (1 usu&aacute;rio)
+                (1 usuário)
               </div>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <!-- Suporte -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Suporte</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>
-              <div class="td-container">F&oacute;rum de suporte</div>
+              <div class="td-container">Fórum de suporte</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3099,9 +3089,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
                 (12 issues / ano)
               </div>
@@ -3120,11 +3110,12 @@
         </tbody>
       </table>
 
+      <!-- Parceria -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Parceria</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -3140,47 +3131,48 @@
           </tr>
         </tbody>
       </table>
-
       <p class="hide-plan-features">- Ocultar recursos do plano</p>
     </div>
-
     <div class="plan-card__footer">
       <a
-        class="button button--primary"
         href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-isv"
         type="button"
+        class="button button--primary"
         >Escolher Plano</a
       >
     </div>
   </article>
+  <!-- /GENEXUS FOR ISV (MOBILE) -->
 
+  <!-- GENEXUS FOR ENTERPRISE (MOBILE) -->
   <article class="plan-card plan-card--professional">
     <h3 class="plan-card__title">GeneXus For Enterprise</h3>
-
     <p class="plan-card__description">
-      Plano para empresas exigentes que buscam a excel&ecirc;ncia e a
-      produtividade no desenvolvimento de software.
+      Plano para empresas exigentes que buscam a excelência e a produtividade no
+      desenvolvimento de software.
     </p>
-
     <div class="plan-price-container">
-      <div><span class="plan__price">&Agrave; medida</span></div>
+      <span class="plan__price">
+        <div>À medida</div>
+      </span>
     </div>
-
     <p class="toggle-plan-features collapsed">
-      <span class="text text--collapsed">+ Mostrar recursos do plano </span>
+      <span class="text text--collapsed"> + Mostrar recursos do plano </span>
       <span class="text text--uncollapsed"> - Ocultar recursos do plano </span>
     </p>
-
     <div
       class="plan-card__table-container plan-card__table-container--professional collapsed"
     >
-      <div class="tip">Toque em qualquer item para comparar planos.</div>
-
+      <div class="tip">
+        <i class="fa-solid fa-code-compare"></i>
+        Toque em qualquer item para comparar planos.
+      </div>
+      <!-- Tecnologia -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Tecnologia</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -3191,9 +3183,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3205,9 +3197,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3221,9 +3213,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3235,9 +3227,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3247,17 +3239,17 @@
               <div class="td-container">
                 All Databases <span class="more-info__i">i</span>
               </div>
-              <small class="more-info__info"
-                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+              <small class="more-info__info">
+                SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
                 HANA
               </small>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3275,11 +3267,12 @@
         </tbody>
       </table>
 
+      <!-- Desenvolvimento -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Desenvolvimento</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -3290,9 +3283,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3304,9 +3297,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3318,25 +3311,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Seguran&ccedil;a (GeneXus Access Manager)
-              </div>
+              <div class="td-container">Segurança (GeneXus Access Manager)</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3348,9 +3339,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3358,11 +3349,12 @@
         </tbody>
       </table>
 
+      <!-- Integração -->
       <table class="plan-card__table">
         <thead>
           <tr>
-            <th class="feature">Integra&ccedil;&atilde;o</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="feature">Integração</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -3373,9 +3365,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3387,9 +3379,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3401,25 +3393,23 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
           </tr>
           <tr>
             <td>
-              <div class="td-container">
-                Integra&ccedil;&atilde;o para SAP Business One
-              </div>
+              <div class="td-container">Integração para SAP Business One</div>
             </td>
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3441,9 +3431,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3455,9 +3445,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3469,9 +3459,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3479,11 +3469,12 @@
         </tbody>
       </table>
 
+      <!-- Design System -->
       <table class="plan-card__table">
         <thead>
           <tr>
             <th class="feature">Design System</th>
-            <th class="check-col">&nbsp;</th>
+            <th class="check-col"></th>
           </tr>
         </thead>
         <tbody>
@@ -3494,9 +3485,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3508,9 +3499,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3522,9 +3513,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3536,9 +3527,9 @@
             <td>
               <div class="td-container">
                 <img
-                  alt="check"
-                  class="check"
                   src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
                 />
               </div>
             </td>
@@ -3553,8 +3544,396 @@
               </div>
             </td>
           </tr>
+          <tr>
+            <td>
+              <div class="td-container">Design System Object</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">K2B Tools Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">WW+ Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">IGNIA Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
+
+      <!-- Ciclo de Vida de Desenvolvimento -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Ciclo de Vida de Desenvolvimento</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Unit Testing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Automated Testing Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy to the cloud</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy Local / On-premise</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Versionamento</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Collaboration Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Suporte de integração contínua - Jenkins
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- O negócio -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">O negócio</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Suíte BPM</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span> (Ilimitado)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suite de Reporting</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span> (Ilimitado)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Capacidade -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Capacidade</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Aplicativos Web e Móveis Ilimitados
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Usuários Ilimitados por Aplicativo</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Aplicativos 100% nativos</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Tempo de execução</div>
+            </td>
+            <td>
+              <div class="td-container"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Treinamento -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Treinamento</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Sessão de kick-off técnico</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">In-house training course</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Online training courses</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Certificação GeneXus Júnior</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+                (5 usuários)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Suporte -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Suporte</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Fórum de suporte</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte assistido</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                  class="check"
+                  alt="check"
+                />
+                (Ilimitado)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte Premium</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Parceria -->
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Parceria</th>
+            <th class="check-col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Access to GeneXus Alliance</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hide-plan-features">- Ocultar recursos do plano</p>
+    </div>
+    <div class="plan-card__footer">
+      <a
+        href="https://www.genexus.com/pt/produtos/genexus/genexus-enterprise#contact-gisela"
+        type="button"
+        class="button button--secondary"
+        >Fale Conosco</a
+      >
     </div>
   </article>
+  <!-- /GENEXUS FOR ENTERPRISE (MOBILE) -->
 </div>
