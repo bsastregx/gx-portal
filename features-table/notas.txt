@@ -1,0 +1,48 @@
+imagen check :
+https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225
+
+imagen arrow down:
+https://www.genexus.com/media/images/arrow-down.svg?timestamp=20220519193850
+
+imagen arrow up:
+https://www.genexus.com/media/images/arrow-up.svg?timestamp=20220519193958
+
+#contact-gisela
+
+- Cambiar la ubicacion de la flecha que sube, segun referencia de Dribble.
+
+============================================================================
+
+Pagina uruguay
+
+- gwds__plans-css-js--professional
+
+- plans&prices-html-professional
+- plans&prices-html-beginners
+- plans&prices-css-tables-mobile
+- plans&prices-css-tables-desktop
+- plans&prices-js
+
+USA Professional
+
+I70246 -> I74793
+I70247 -> I74681
+
+I68476 -> I74572
+I68551 -> I74684
+
+I70386 -> I74796
+I70415 -> I74954
+
+============================================================================
+
+USA Students
+
+I72828 -> I75093
+I72829 -> I75092
+
+I68476 -> I74572
+I68551 -> I74684
+
+I72830 -> I75094
+I72832 -> I75110
