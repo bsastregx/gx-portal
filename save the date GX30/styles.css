@@ -122,7 +122,7 @@
 #gx30 .figure--4 {
   background-color: var(--cyan);
   color: var(--black);
-  padding: 55px;
+  padding: 45px;
 }
 #gx30 .figure--5 {
   background-color: var(--skyblue);
@@ -230,7 +230,7 @@
     padding: 110px 0;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #gx30 .container {
     flex-direction: column;
     padding: 0;
@@ -272,7 +272,31 @@
   }
 }
 @media screen and (max-width: 480px) {
+  #gx30 .figure--1 {
+    display: none;
+  }
   #gx30 .button {
     padding: 12px 24px;
+  }
+  #gx30 .figure-wrapper {
+    flex-direction: column;
+  }
+  #gx30 .figure {
+    padding: 20px;
+  }
+  #gx30 .figure,
+  #gx30 .speakers {
+    max-width: 100%;
+  }
+  #gx30.wrapper-save-the-date-gx30 {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .col--left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
