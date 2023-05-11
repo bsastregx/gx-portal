@@ -1,18 +1,16 @@
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
 <style type="text/css">
   /*
   Notes:
-  "GeneXus Powered by Globant": .I84682
-  "GeneXus Powered by Globant close image": .I84448
+  'GeneXus Powered by Globant close image': .I84449
   ---
-  "Privacy policy": .I22233 
-  "Privay policy close image": .I75284
+  'Privay policy close image': .I75283
   */
 
-  .I84682,
-  .I22233 {
-    /*Hide by default. Then, if not found in local storage, show.*/
-    display: none;
+  .I84449 {
+    cursor: pointer;
+  }
+  .I84449:hover {
+    opacity: 0.8;
   }
 
   @media (max-width: 640px) {
@@ -23,40 +21,49 @@
     }
   }
   .please-show {
-    display: flex;
+    display: flex !important;
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const poweredByGlobant = document.querySelector(".I84682");
-    const poweredByGlobantClose = document.querySelector(".I84448");
-    /*---*/
-    const privacyPolicy = document.querySelector(".I22233");
-    const privacyPolicyClose = document.querySelector(".I75284");
+    /*********************************
+    1. 'GENEXUS POWERED BY GLOBANT'
+    *********************************/
+    const poweredByGlobantClose = document.querySelector(".I84449");
+    const pbgParentRegion = poweredByGlobantClose.closest("section.region");
+    const pbgGrandParentRegion =
+      pbgParentRegion.parentNode.closest("section.region");
 
-    /* 1. "GeneXus Powered by Globant" */
-    if (!localStorage.getItem("cookie-powered-by-globant")) {
+    if (localStorage.getItem("cookie-powered-by-globant") === null) {
       // Cookie cookie-powered-by-globant not accepted yet
-      // Show "GeneXus Powered by Globant"
-      poweredByGlobant.classList.add("please-show");
+      // Show 'GeneXus Powered by Globant'
+      pbgGrandParentRegion.classList.add("please-show");
     }
-    /*"Close GeneXus Powered by Globant"*/
+    /*'Close GeneXus Powered by Globant'*/
     poweredByGlobantClose.addEventListener("click", () => {
-      poweredByGlobant.classList.remove("please-show");
-      localStorage.setItem("cookie-powered-by-globant", "true");
+      console.log("clicked");
+      pbgGrandParentRegion.classList.remove("please-show");
+      localStorage.setItem("cookie-powered-by-globant", "");
     });
 
-    /* 2. "Privacy policy" */
-    if (!localStorage.getItem("accept-cookies")) {
+    /*********************************
+    2. 'PRIVACY POLICY'
+    *********************************/
+    const privacyPolicyClose = document.querySelector(".I75283");
+    const ppParentRegion = privacyPolicyClose.closest("section.region");
+    const ppGrandParentRegion =
+      ppParentRegion.parentNode.closest("section.region");
+
+    if (localStorage.getItem("accept-cookies") === null) {
       // Privacy policy not accepted yet
-      // Show "Privacy policy"
-      privacyPolicy.classList.add("please-show");
+      // Show 'Privacy policy'
+      ppGrandParentRegion.classList.add("please-show");
     }
-    /*"Close Privacy policy"*/
+    /*'Close Privacy policy'*/
     privacyPolicyClose.addEventListener("click", () => {
-      privacyPolicy.classList.remove("please-show");
-      localStorage.setItem("accept-cookies", "true");
+      ppGrandParentRegion.classList.remove("please-show");
+      localStorage.setItem("accept-cookies", "");
     });
   });
 </script>
