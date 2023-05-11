@@ -5,6 +5,12 @@
 .I119379 {
   width: 100%;
 }
+
+.I119379 .content-seemore-button {
+  display: block;
+  justify-content: start;
+  padding-right: 0;
+}
 .I119379 > .articles {
   display: flex;
   scroll-snap-type: x mandatory;

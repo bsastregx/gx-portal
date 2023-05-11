@@ -95,11 +95,12 @@
 .block.block--collection > .articles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: 50px 15px;
   padding: 0 15px;
   grid-auto-rows: 1fr;
 }
 .block.block--collection-sstories > .articles {
+  gap: 15px;
   grid-template-columns: repeat(5, 1fr);
 }
 .block.block--collection-sstories > .articles .article-container {
@@ -238,11 +239,6 @@
   .button-gx--load-more {
     margin-top: 64px;
   }
-}
-@media only screen and (max-width: 540px) {
-  .block.block--collection > .articles {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .categories-buttons-container {
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -250,7 +246,7 @@
     padding: 8px 16px 16px 8px;
     margin-bottom: 32px;
     margin-top: 16px;
-    left: -23.6px;
+    left: -1.625rem;
     position: relative;
     width: 100vw;
     max-width: 100vw;
@@ -259,9 +255,21 @@
   .categories-buttons-container .button-gx__wrapper {
     flex-shrink: 0;
   }
+  .block.block--collection > .articles {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .block.block--collection > .articles {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .block.block--collection-sstories > .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media only screen and (max-width: 320px) {
-  .block.block--collection > .articles {
+  .block.block--collection-sstories > .articles {
     grid-template-columns: repeat(1, 1fr);
   }
 }
