@@ -17,11 +17,11 @@
   margin: 0 auto;
   display: flex;
   gap: 24px;
-  margin-bottom: 84px;
+  margin-bottom: 80px;
   justify-content: center;
   flex-wrap: wrap;
   padding: 0 16px;
-  margin-top: 54px;
+  margin-top: 80px;
 }
 /*scrollbar*/
 .categories-buttons-container::-webkit-scrollbar {
@@ -96,7 +96,7 @@
 .block.block--collection > .articles {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px 15px;
+  gap: 50px 24px;
   padding: 0 15px;
   grid-auto-rows: 1fr;
 }

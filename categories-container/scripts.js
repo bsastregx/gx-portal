@@ -244,9 +244,11 @@ window.addEventListener("load", () => {
 
     if (block) {
       /*Story Height*/
-      storyHeight = block
-        .querySelector(".article-container:not(.hidden)")
-        .getBoundingClientRect().height;
+      storyHeight = Math.ceil(
+        block
+          .querySelector(".article-container:not(.hidden)")
+          .getBoundingClientRect().height
+      );
       /*Grid Gap*/
       gridGap = parseInt(
         window
@@ -267,8 +269,9 @@ window.addEventListener("load", () => {
       //storiesNotOverflowing = storiesPerRow * numberOfVisibleRows;
       /*Evaluate*/
       if (visibleStoriesLength > storiesNotOverflowing) {
-        const height =
-          numberOfVisibleRows * (storyHeight + gridGap) - (gridGap + 5);
+        const height = Math.ceil(
+          numberOfVisibleRows * (storyHeight + gridGap) - gridGap
+        );
         block.style.height = height + "px";
       } else {
         block.style.height = "auto";
