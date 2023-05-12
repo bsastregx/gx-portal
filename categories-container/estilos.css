@@ -53,18 +53,19 @@
   color: black;
   border: 0;
   border-radius: 100px;
-  padding: 17px 30px;
+  padding: 11px 26px;
   cursor: pointer;
   border: 1px solid black;
   font-weight: 500;
   font-family: rubik, arial, sans-serif;
-  font-size: 17px;
+  font-size: 14px;
 }
 .button-gx__wrapper {
   text-align: center;
 }
 .button-gx:hover {
-  background-color: rgb(217, 217, 217);
+  color: #d2285d;
+  border-color: #d2285d;
 }
 .button-gx.button-gx--active {
   background-color: rgb(250, 50, 99);
