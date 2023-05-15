@@ -110,6 +110,9 @@
 .block.block--collection-sstories > .articles .article-container:after {
   display: none;
 }
+.block.block--collection > .articles.visible .article-container {
+  visibility: visible !important;
+}
 .block.block--collection > .articles .article-container article {
   position: relative;
   width: auto !important;
@@ -190,25 +193,36 @@
 .block.block--collection-sstories
   > .articles
   .article-container
+  article:hover
+  header.has-link {
+  border-color: #d2285d;
+}
+.block.block--collection > .articles .article-container article:hover .title,
+.block.block--collection > .articles .article-container article:hover .text {
+  color: #d2285d;
+}
+.block.block--collection
+  > .articles
+  .article-container
+  article:hover
+  .category-list
+  .text {
+  border-color: #d2285d;
+}
+.block.block--collection-sstories
+  > .articles
+  .article-container
   article
   header.has-link:after {
   content: "";
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
   position: absolute;
   left: 0;
   top: 0;
   opacity: 0;
   z-index: 10;
   transition: 0.1s opacity;
-}
-.block.block--collection-sstories
-  > .articles
-  .article-container
-  article
-  header.has-link:hover:after {
-  opacity: 1;
 }
 .block--collection .content-seemore-button {
   display: block;

@@ -44,6 +44,8 @@ window.addEventListener("load", () => {
 
   /*Collect all stories categories*/
   if (block) {
+    const articles = block.querySelector(".articles");
+    articles.classList.add("visible");
     stories = block.querySelectorAll(".article-container");
     stories.forEach((story) => {
       const categoryItem = story.querySelector(".category-item");
