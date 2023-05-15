@@ -17,6 +17,14 @@
   overflow-x: auto;
   padding-bottom: 1rem;
 }
+.I119379
+  > .articles
+  .article-container
+  article:hover
+  .content-seemore-button
+  .text {
+  color: #d2285d;
+}
 
 /* Scrollbar styles */
 .I119379 > .articles::-webkit-scrollbar {

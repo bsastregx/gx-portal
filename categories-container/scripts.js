@@ -157,7 +157,7 @@ window.addEventListener("load", () => {
   let buttonLoadMore = document.createElement("button");
   buttonLoadMore.classList.add("button-gx");
   buttonLoadMore.classList.add("button-gx--load-more");
-  buttonLoadMore.innerText = "Load More Cases"; //default english
+  buttonLoadMore.innerText = "Load more"; //default english
   buttonLoadMore.addEventListener("click", function () {
     //get loadMoreButton offset top to do scroll later
     var loadMoreButtonOffsetTop = offset(this).top;
@@ -209,9 +209,9 @@ window.addEventListener("load", () => {
     });
   });
   if (lang === "es") {
-    buttonLoadMore.innerText = "Cargar Más  Casos";
+    buttonLoadMore.innerText = "Cargar más";
   } else if (lang === "pt") {
-    buttonLoadMore.innerText = "Carregar Mais Casos";
+    buttonLoadMore.innerText = "Carregar mais";
   }
   if (block) {
     block.after(buttonLoadMore);

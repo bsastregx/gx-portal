@@ -15,8 +15,6 @@ html.popup-visible.popup-ios .popup-mask,
 html.uc-popup-visible.uc-popup-ios .uc-popup-mask {
   -webkit-overflow-scrolling: touch;
 }
-html {
-}
 .I18658 {
   display: flex;
   flex-direction: column;
