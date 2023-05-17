@@ -9,9 +9,13 @@ window.addEventListener("load", () => {
     if (block) {
       //add custom class for css styles
       block.classList.add("block--collection");
-      //add custom class for success stories only (they have special styles that do not apply to other collections)
+      //add custom class for success stories (they have special styles that do not apply to other collections)
       if (blocks[i] === ".I18679") {
         block.classList.add("block--collection-sstories");
+      }
+      //add custom class for webinars (they have special styles that do not apply to other collections)
+      else if (blocks[i] === ".I119094") {
+        block.classList.add("block--collection-webinars");
       }
       break;
     }
