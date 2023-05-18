@@ -164,7 +164,9 @@ window.addEventListener("load", () => {
   buttonLoadMore.innerText = "Load more"; //default english
   buttonLoadMore.addEventListener("click", function () {
     //get loadMoreButton offset top to do scroll later
-    var loadMoreButtonOffsetTop = offset(this).top;
+    const headerHeight = 200;
+    var loadMoreButtonOffsetTop = offset(this).top - headerHeight;
+    console.log("offset(this).top", offset(this).top);
 
     let showMore = storiesPerRow * 3;
     if (window.innerWidth <= 1200) {
