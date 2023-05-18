@@ -1,0 +1,27 @@
+/*
+.stencil.I119795 -> webinars : https://www.genexus.com/es/comunidad/webinars
+*/
+
+.stencil.I119795 .articles {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+}
+.stencil.I119795 .content-seemore-button {
+  justify-content: start;
+}
+/* Scrollbar styles */
+.stencil.I119795 .articles::-webkit-scrollbar {
+  width: 0.5em;
+  height: 6px;
+}
+.stencil.I119795 .articles::-webkit-scrollbar-track {
+  background-color: #eeeeee;
+}
+.stencil.I119795 .articles::-webkit-scrollbar-thumb {
+  border-radius: 5rem;
+  /*  background-color: rgb(250, 50, 99);*/
+  background-color: #111;
+
+  transition: background-color 0.5s ease;
+}
