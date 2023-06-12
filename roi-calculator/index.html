@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROI Calculator - Genexus</title>
+    <link rel="stylesheet" href="./sass/styles.css" />
+    <script defer src="scripts/main-page-scripts.js"></script>
+    <!-- Start of HubSpot Embed Code -->
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js.hs-scripts.com/6302527.js"
+    ></script>
+    <!-- End of HubSpot Embed Code -->
+  </head>
+  <body>
+    <section class="container" id="steps">
+      <div class="row">
+        <div class="col">
+          <span class="step-indicator first step-indicator--active"></span>
+          <span class="step-indicator second"></span>
+          <span id="step-title">Step 1</span>
+          <span id="step-subtitle">Select variables</span>
+        </div>
+      </div>
+    </section>
+    <main class="container main-container roi-calculator" id="step-1">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <main id="main-form">
+            <!-- Average #Full-time developers per app -->
+            <div class="form-element range-slider">
+              <form class="range" id="average-full-time-delelopers-per-app">
+                <div class="label-value-wrapper">
+                  <label for="">Average #Full-time Developers per App</label>
+                  <div class="form-group range__value">
+                    <span></span><label>Dev</label>
+                  </div>
+                  <!--/form-group-->
+                </div>
+
+                <div class="form-group range__slider">
+                  <input
+                    class="range-input"
+                    type="range"
+                    step="1"
+                    data-current="1"
+                    min="1"
+                    max="30"
+                  />
+                </div>
+                <!--/form-group-->
+                <div class="ranges">
+                  <span class="min">1</span>
+                  <span class="max">+30</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- Average Developer Salary (Total Cost by Year) -->
+            <div class="form-element range-slider">
+              <form class="range" id="average-developer-salary">
+                <div class="label-value-wrapper">
+                  <label for=""
+                    >Average Developer Salary (Total Cost by Year)</label
+                  >
+                  <div class="form-group range__value">
+                    <span></span><label>K</label>
+                  </div>
+                  <!--/form-group-->
+                </div>
+                <div class="form-group range__slider">
+                  <input
+                    class="range-input"
+                    type="range"
+                    step="5"
+                    data-current="10"
+                    min="10"
+                    max="250"
+                  />
+                </div>
+                <!--/form-group-->
+                <div class="ranges">
+                  <span class="min">USD +10K</span>
+                  <span class="max">USD 250K</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- App Type/Complexity -->
+            <div class="form-element select">
+              <label for="">App Type / Complexity</label>
+              <div class="custom-select">
+                <select id="app-type-complexity">
+                  <option value="simple" data-factor="0.25">
+                    Simple (CRUD, Reports, Easy Functions)
+                  </option>
+                  <option value="simple" data-factor="0.25">
+                    Simple (CRUD, Reports, Easy Functions)
+                  </option>
+                  <option value="medium" data-factor="0.2">
+                    Medium (All SIMPLE + Complex Data & Heavy Calculations +
+                    Complex Reports)
+                  </option>
+                  <option value="complex" data-factor="0.1666666667">
+                    Complex (All MEDIUM + Complex Integrations + AI + Specific
+                    Performance and / or Security Requirements)
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- App Tech Environment -->
+            <div class="form-element select">
+              <label for="">App Tech Environment</label>
+              <div class="custom-select">
+                <select id="app-tech-environment">
+                  <option value="simple" data-factor="0.25">
+                    Simple (One of a Kind: Either Java or .NET/NetCore, Single
+                    DBMS)
+                  </option>
+                  <option value="simple" data-factor="0.25">
+                    Simple (One of a Kind: Either Java or .NET/NetCore, Single
+                    DBMS)
+                  </option>
+                  <option value="medium" data-factor="0.2">
+                    Medium (All SIMPLE + Web and Mobile Integration)
+                  </option>
+                  <option value="complex" data-factor="0.1666666667">
+                    Complex (All MEDIUM + Specific Integration and/or
+                    Performance and / or Security Requirements)
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- How long to build a software solution -->
+            <div class="form-element range-slider">
+              <form class="range" id="how-long-to-build-a-software-solution">
+                <div class="label-value-wrapper">
+                  <label for=""
+                    >How Long Does it Take Your Team to Build a Software
+                    Solution?</label
+                  >
+                  <div class="form-group range__value">
+                    <span></span><label>Months</label>
+                  </div>
+                  <!--/form-group-->
+                </div>
+                <div class="form-group range__slider">
+                  <input
+                    class="range-input"
+                    type="range"
+                    step="1"
+                    data-current="1"
+                    min="1"
+                    max="36"
+                  />
+                </div>
+                <!--/form-group-->
+                <div class="ranges">
+                  <span class="min">1 Month</span>
+                  <span class="max">36+ Months</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- How many custom apps are you able to build in 12 months -->
+            <div class="form-element range-slider">
+              <form class="range" id="how-many-custom-apps-in-12-months">
+                <div class="label-value-wrapper">
+                  <label for=""
+                    >How Many Custom Apps Are You Able to Build in 12
+                    Months</label
+                  >
+                  <div class="form-group range__value">
+                    <span></span><label>Apps</label>
+                  </div>
+                </div>
+                <div class="form-group range__slider">
+                  <input
+                    class="range-input"
+                    type="range"
+                    step="1"
+                    data-current="1"
+                    min="1"
+                    max="20"
+                  />
+                </div>
+                <div class="ranges">
+                  <span class="min">1</span>
+                  <span class="max">+20</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- On average, how much money do you expect an app to save and/or generate for your company in a month -->
+            <div class="form-element range-slider">
+              <form class="range" id="money-to-save-in-a-month">
+                <div class="label-value-wrapper">
+                  <label for=""
+                    >On Average, How Much Money Do You Expect an App to Save and
+                    / or Generate For Your Company in a Month</label
+                  >
+                  <div class="form-group range__value">
+                    <span></span><label>K</label>
+                  </div>
+                  <!--/form-group-->
+                </div>
+                <div class="form-group range__slider">
+                  <input
+                    class="range-input"
+                    type="range"
+                    step="5"
+                    data-current="5"
+                    min="5"
+                    max="1000"
+                  />
+                </div>
+                <!--/form-group-->
+                <div class="ranges">
+                  <span class="min">USD 5K</span>
+                  <span class="max">USD +1000K</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- App Maintenance / Evolution Workload -->
+            <div class="form-element select">
+              <label for="">App Maintenance / Evolution Workload</label>
+              <div class="custom-select">
+                <select id="app-maintenance-evolution-workload">
+                  <option value="low" data-factor="0.1">
+                    Low (Few adjustments / Bugs per Year)
+                  </option>
+                  <option value="low" data-factor="0.1">
+                    Low (Few adjustments / Bugs per Year)
+                  </option>
+                  <option value="medium" data-factor="0.25">
+                    Medium (Some Adjustments / Bugs per Quarter)
+                  </option>
+                  <option value="high" data-factor="0.3333333333">
+                    High (Many Adjustments / Bugs per Month)
+                  </option>
+                </select>
+              </div>
+            </div>
+          </main>
+        </div>
+        <div class="col-12 col-md-6">
+          <aside class="savings">
+            <div class="savings__row">
+              <div class="savings__saving" id="time-to-market">
+                <p class="savings_saving_description">Time to Market</p>
+                <p class="savings_saving_value">
+                  <span class="value">0</span>% Faster
+                </p>
+              </div>
+              <div class="savings__saving" id="cost-reduction">
+                <p class="savings_saving_description">Cost Reduction</p>
+                <p class="savings_saving_value">
+                  USD <span class="value">0</span>
+                </p>
+              </div>
+            </div>
+            <div class="savings__row">
+              <div class="savings__saving" id="apps-per-year">
+                <p class="savings_saving_description">Apps per Year</p>
+                <p class="savings_saving_value">
+                  <span class="value">0</span> Apps
+                </p>
+              </div>
+              <div class="savings__saving" id="maintenance-savings">
+                <p class="savings_saving_description">Maintenance Savings</p>
+                <p class="savings_saving_value">
+                  USD <span class="value">0</span>
+                </p>
+              </div>
+            </div>
+            <div class="savings__row">
+              <div class="wrapper" id="total-added-value-by-genexus">
+                <div class="total-value__border main-page"></div>
+                <div class="total-value">
+                  <div class="flex">
+                    <div>USD <span class="value">0</span></div>
+                    <p class="savings__total__description">
+                      Total Added Value by GeneXus Over Traditional
+                      Development<br />(5 Year App Lifecycle)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+      <div>
+        <button class="roi-button button--enabled" id="request-full-report-btn">
+          Request full report
+        </button>
+      </div>
+    </main>
+    <section class="container display-none opacity-0" id="step-2">
+      <!-- <section class="container" id="step-2"> -->
+      <form id="ROI-calculator_Client-data">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputFirstName">First Name *</label>
+              <input type="text" id="inputFirstName" required />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputLastName">Last Name *</label>
+              <input type="text" id="inputLastName" required />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputEmail">Your Business Email *</label>
+              <input type="email" id="inputEmail" required />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputCompany">Company *</label>
+              <input type="text" id="inputCompany" required />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputRole">Role *</label>
+              <input type="text" id="inputRole" required />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-element">
+              <label for="inputPhone">Phone</label>
+              <input type="text" id="inputPhone" />
+            </div>
+          </div>
+        </div>
+        <div id="roi-data">
+          <span id="step-subtitle">ROI data</span>
+          <hr />
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAverageFullTimeDevelopersPerApp"
+                  >Average full time developers per app</label
+                >
+                <input
+                  type="text"
+                  id="inputAverageFullTimeDevelopersPerApp"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAvegareDeveloperSalary"
+                  >Average Developer Salary (Total Cost by Year)</label
+                >
+                <input type="text" id="inputAvegareDeveloperSalary" required />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAppTypeComplexity">App Type/Complexity</label>
+                <input type="text" id="inputAppTypeComplexity" required />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAppTechEnvironment"
+                  >App Tech Environment</label
+                >
+                <input type="text" id="inputAppTechEnvironment" required />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputHowLongToBuildASoftwareSolution"
+                  >How long to build a software solution</label
+                >
+                <input
+                  type="text"
+                  id="inputHowLongToBuildASoftwareSolution"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputCustomAppsIn12Months"
+                  >How many custom apps are you able to build in 12
+                  months</label
+                >
+                <input type="text" id="inputCustomAppsIn12Months" required />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputMoneyToExpectAnAppToSaveInAMonth"
+                  >On average, how much money do you expect an app to save
+                  and/or generate for your company in a month</label
+                >
+                <input
+                  type="text"
+                  id="inputMoneyToExpectAnAppToSaveInAMonth"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAppMaintenanceEvolutionWorkload"
+                  >App Maintenance / Evolution Workload</label
+                >
+                <input
+                  type="text"
+                  id="inputAppMaintenanceEvolutionWorkload"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputTimeToMarket">Time to market</label>
+                <input type="text" id="inputTimeToMarket" required />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputCostReduction">Cost reduction</label>
+                <input type="text" id="inputCostReduction" required />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputAppsPerYear">Apps per year</label>
+                <input type="text" id="inputAppsPerYear" required />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputMaintenanceSavings">Maintenance savings</label>
+                <input type="text" id="inputMaintenanceSavings" required />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="form-element">
+                <label for="inputTotalAddedValueByGenexus"
+                  >Total added value by Genexus</label
+                >
+                <input
+                  type="text"
+                  id="inputTotalAddedValueByGenexus"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /close #roi-data-->
+      </form>
+      <button
+        class="roi-button button--enabled button--secondary"
+        id="back-to-roi-calculator"
+      >
+        Back
+      </button>
+      <button
+        class="roi-button button--enabled"
+        id="view-full-report-btn"
+        type="submit"
+        form="ROI-calculator_Client-data"
+        value="Submit"
+      >
+        View full report
+      </button>
+    </section>
+  </body>
+</html>
