@@ -1,0 +1,82 @@
+:root {
+  /*ATOMIC TOKENS*/
+  /*colors*/
+  --gx-saia-color-purple--dark: #180f34;
+  --gx-saia-color-purple--medium: #985ae5;
+  --gx-saia-color-gray--light: #f9f9f9;
+  --gx-saia-color-black: #1f272b;
+  --gx-saia-color-white: #fff;
+  /*fonts */
+  --gx-saia-font-family-headings: Rubik, Helvetica, Arial, sans-serif;
+  --gx-saia-font-family-texts: Graphik;
+  --gx-saia-font-weight-headings: 600;
+  --gx-saia-font-weight-texts: 300;
+  --gx-saia-line-height--regular: 1.4em;
+  --gx-saia-line-height--tight: 1.2em;
+  --gx-saia-line-height--spaced: 1.6em;
+  /*spacing*/
+  --gx-saia-space-xs: 8px;
+  --gx-saia-space-s: 16px;
+  --gx-saia-space-m: 32px;
+  --gx-saia-space-l: 64px;
+  --gx-saia-space-xl: 128px;
+  /*radius*/
+  --gx-saia-radius--xs: 4px;
+  --gx-saia-radius--s: 8px;
+  --gx-saia-radius--m: 16px;
+  --gx-saia-radius--l: 32px;
+
+  /*SEMANTIC TOKENS*/
+  --gx-saia-color-text: var(--gx-saia-color-black);
+  --gx-saia-color-section-bg: var(--gx-saia-color-white);
+  --gx-saia-section-padding--v: var(--gx-saia-space-xl);
+  --gx-saia-container-padding--h: var(--gx-saia-space-s);
+}
+
+/********************
+GENERAL
+********************/
+body {
+  color: var(--gx-saia-color-black);
+  font-family: var(--gx-saia-font-family-texts);
+}
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--gx-saia-container-padding--h);
+}
+.section {
+  padding: var(--gx-saia-section-padding--v) 0;
+  color: ;
+}
+.section--center {
+  text-align: center;
+}
+/********************
+RESPONSIVE
+********************/
+/*Extra extra large (default)*/
+/*Extra large*/
+@media only screen and (max-width: 1199px) {
+  .container {
+    max-width: 960px;
+  }
+}
+/*Large*/
+@media only screen and (max-width: 991px) {
+  .container {
+    max-width: 720px;
+  }
+}
+/*Medium*/
+@media only screen and (max-width: 767px) {
+  .container {
+    max-width: 540px;
+  }
+}
+/*Small*/
+@media only screen and (max-width: 575px) {
+  .container {
+    max-width: 100%;
+  }
+}
