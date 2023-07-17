@@ -1,0 +1,53 @@
+:root {
+  --gray: #6e7277;
+}
+
+/*Mailterlite*/
+#mailerlite-form {
+  padding: 120px 0;
+}
+#gx30 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 24px;
+}
+.ml-form-embedBody {
+  padding-top: 0 !important;
+}
+.after-form-p {
+  color: var(--gray);
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: "Graphik", "Helvetica", "arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.6em;
+}
+.after-form-p a {
+  color: inherit;
+}
+#gx30 p {
+  line-height: 1.5em;
+}
+#gx30 a {
+  text-decoration: underline;
+  color: inherit;
+}
+/***********************
+  RESPONSIVE
+  ***********************/
+@media screen and (max-width: 767px) {
+  /*Mailterlite*/
+  #mailerlite-form {
+    padding: 60px 24px;
+  }
+  #mailerlite-form .ml-form-embedContent {
+    text-align: left;
+  }
+  #mailerlite-form .ml-form-embedContent strong {
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+}
