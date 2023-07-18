@@ -2,25 +2,22 @@
   .hide {
     display: none !important;
   }
-  @media only screen and (max-width: 1199px) {
+  @include max-width(desktop) {
     .hide--xl {
       display: none !important;
     }
   }
-  /*Large*/
-  @media only screen and (max-width: 991px) {
+  @include max-width(small-desktop) {
     .hide--l {
       display: none !important;
     }
   }
-  /*Medium*/
-  @media only screen and (max-width: 767px) {
+  @include max-width(tablet) {
     .hide--m {
       display: none !important;
     }
   }
-  /*Small*/
-  @media only screen and (max-width: 575px) {
+  @include max-width(mobile) {
     .hide--s {
       display: none !important;
     }
@@ -34,33 +31,53 @@
   .text-bigger {
     font-size: var(--gx-saia-font-size-m);
   }
+  .text-center {
+    text-align: center;
+  }
+  .no-line-height {
+    line-height: 0;
+  }
   .cols {
     display: flex;
-    gap: var(--gx-saia-space-l);
-    &__left {
+    $colsGap: var(--gx-saia-space-l);
+    $cols: 2;
+    gap: $colsGap;
+    > * {
       -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
-      max-width: 50%;
+      -ms-flex: 0 0 calc(50% - $colsGap / $cols);
+      flex: 0 0 calc(50% - $colsGap / $cols);
+      max-width: calc(50% - $colsGap / $cols);
     }
-    &__right {
-      -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
-      max-width: 50%;
+    @include max-width(small-desktop) {
+      flex-direction: column;
+      > * {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
     }
-    &--left-shorter {
+    &--asymmetric {
       .cols__left {
         -webkit-box-flex: 0;
-        -ms-flex: 0 0 40%;
-        flex: 0 0 40%;
-        max-width: 40%;
+        -ms-flex: 0 0 calc(40% - $colsGap / $cols);
+        flex: 0 0 calc(40% - $colsGap / $cols);
+        max-width: calc(40% - $colsGap / $cols);
       }
       .cols__right {
         -webkit-box-flex: 0;
-        -ms-flex: 0 0 60%;
-        flex: 0 0 60%;
-        max-width: 60%;
+        -ms-flex: 0 0 calc(60% - $colsGap / $cols);
+        flex: 0 0 calc(60% - $colsGap / $cols);
+        max-width: calc(60% - $colsGap / $cols);
+      }
+      @include max-width(desktop) {
+        flex-direction: column;
+        > * {
+          -webkit-box-flex: 0 !important;
+          -ms-flex: 0 0 100% !important;
+          flex: 0 0 100% !important;
+          max-width: 100% !important;
+        }
       }
     }
   }
@@ -88,6 +105,13 @@
       }
       .item4 {
         grid-area: 2 / 2 / 3 / 3;
+      }
+      @include max-width(tablet) {
+        display: flex;
+        flex-direction: column;
+      }
+      @include max-width(mobile) {
+        grid-gap: var(--gx-saia-space-s);
       }
     }
   }

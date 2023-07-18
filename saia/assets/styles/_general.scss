@@ -14,8 +14,8 @@ body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: var(--gx-saia-color-purple--200);
-  outline: 1px solid var(--gx-saia-color-purple--900);
+  background-color: var(--gx-saia-color-scrollbar);
+  border-radius: 10px;
 }
 #saia {
   /*TITLES*/
@@ -52,27 +52,6 @@ body::-webkit-scrollbar-thumb {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 var(--gx-saia-container-padding--h);
-  }
-  /*SECTION*/
-  .section {
-    background-color: var(--gx-saia-color-white);
-    color: var(--gx-saia-color-text);
-    padding: var(--gx-saia-section-padding--v) 0;
-
-    &--purple {
-      &-200 {
-        --gx-saia-color-text: var(--gx-saia-color-over-purple);
-        background-color: var(--gx-saia-color-purple--200);
-      }
-      &-300 {
-        --gx-saia-color-text: var(--gx-saia-color-over-purple);
-        background-color: var(--gx-saia-color-purple--300);
-      }
-      &-900 {
-        --gx-saia-color-text: var(--gx-saia-color-over-purple);
-        background-color: var(--gx-saia-color-purple--900);
-      }
-    }
   }
   /*BUTTON*/
   .button {
@@ -123,28 +102,28 @@ body::-webkit-scrollbar-thumb {
     }
   }
 
+  /*IMAGES*/
+  img {
+    max-width: 100%;
+  }
+
   /*RESPONSIVE*/
-  /*Extra extra large (default)*/
-  /*Extra large*/
-  @media only screen and (max-width: 1199px) {
+  @include max-width(desktop) {
     .container {
       max-width: 960px;
     }
   }
-  /*Large*/
-  @media only screen and (max-width: 991px) {
+  @include max-width(small-desktop) {
     .container {
       max-width: 720px;
     }
   }
-  /*Medium*/
-  @media only screen and (max-width: 767px) {
+  @include max-width(tablet) {
     .container {
       max-width: 540px;
     }
   }
-  /*Small*/
-  @media only screen and (max-width: 575px) {
+  @include max-width(mobile) {
     .container {
       max-width: 100%;
     }

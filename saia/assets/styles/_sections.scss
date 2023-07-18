@@ -1,14 +1,67 @@
 #saia {
-  /*CORE STRENGTH*/
-  #core-strength {
-    .col {
-      &--left {
+  /*SECTION*/
+  .section {
+    background-color: var(--gx-saia-color-white);
+    color: var(--gx-saia-color-text);
+    padding: var(--gx-saia-section-padding--v) 0;
+    /*purple*/
+    &--purple {
+      &-200 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--200);
       }
-      &--left {
+      &-300 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--300);
+      }
+      &-900 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--900);
       }
     }
+    &--gray {
+      &-100 {
+        --gx-saia-color-text: var(--gx-saia-color-over-black);
+        background-color: var(--gx-saia-color-gray--100);
+      }
+    }
+    &--no-padding {
+      padding: 0;
+    }
+  }
+
+  /*CORE STRENGTH*/
+  #core-strength {
     .card {
-      min-height: 200px;
+      min-height: 240px;
+    }
+  }
+
+  /*EMPOWER USERS*/
+  #empower-users {
+    .main-title {
+      background: linear-gradient(
+        90deg,
+        var(--gx-saia-color-purple--900) 3.49%,
+        var(--gx-saia-color-purple--300) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: 500px;
+    }
+    .cols__left {
+      padding: 160px 0;
+      align-items: center;
+    }
+    .cols__right {
+      display: flex;
+      align-items: end;
+    }
+    @include max-width(desktop) {
+      .cols__left {
+        padding: 120px 0;
+        align-items: center;
+      }
     }
   }
 }

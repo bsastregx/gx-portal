@@ -160,15 +160,11 @@
     }
 
     /*RESPONSIVE*/
-    /*Extra extra large (default)*/
-    /*Extra large*/
-    @media only screen and (max-width: 1199px) {
+    @include max-width(desktop) {
     }
-    /*Large*/
-    @media only screen and (max-width: 991px) {
+    @include max-width(small-desktop) {
     }
-    /*Medium*/
-    @media only screen and (max-width: 767px) {
+    @include max-width(tablet) {
       &__container {
         gap: 0;
       }
@@ -202,15 +198,14 @@
         }
       }
     }
-    /*Small*/
-    @media only screen and (max-width: 575px) {
+    @include max-width(mobile) {
       padding: var(--gx-saia-space-s) 0;
       &__logo {
         width: 105px;
       }
     }
-    /*Large and above*/
-    @media only screen and (min-width: 768px) {
+    /*tablet and above*/
+    @include max-width(tablet, $min: true) {
       &__list {
         margin-top: 0 !important;
       }
