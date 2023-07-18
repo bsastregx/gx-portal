@@ -1,12 +1,14 @@
 :root {
   /*ATOMIC TOKENS*/
   /*colors*/
-  --gx-saia-color-purple--yellow: #e1ae42;
+  --gx-saia-color-yellow: #e1ae42;
+  --gx-saia-color-pink: #e15d8f;
   --gx-saia-color-purple--200: #985ae5;
   --gx-saia-color-purple--300: #8e55d6;
   --gx-saia-color-purple--900: #180f34;
   --gx-saia-color-gray--100: #f9f9f9;
   --gx-saia-color-gray--200: #e7e9f0;
+  --gx-saia-color-gray--400: #b0b1b4;
   --gx-saia-color-black: #1f272b;
   --gx-saia-color-white: #fff;
   --gx-saia-color-overlay: rgba(0, 0, 0, 0.07);
@@ -21,6 +23,7 @@
   --gx-saia-font-size-xxl: 52px;
   --gx-saia-font-size-xxxl: 64px;
   --gx-saia-font-weight-headings: 600;
+  --gx-saia-font-weight-medium: 500;
   --gx-saia-font-weight-texts: 300;
   --gx-saia-line-height--tight: 1.2em;
   --gx-saia-line-height--regular: 1.4em;
@@ -46,8 +49,9 @@
   --gx-saia-section-padding--v: var(--gx-saia-space-xl);
   --gx-saia-container-padding--h: var(--gx-saia-space-m);
   --gx-saia-color-over-purple: var(--gx-saia-color-white);
-  --gx-saia-color-focus: var(--gx-saia-color-purple--yellow);
-  --gx-saia-focus-width: var(--gx-saia-space-xxs);
+  --gx-saia-color-focus: var(--gx-saia-color-yellow);
+  --gx-saia-color-error: var(--gx-saia-color-pink);
+  --gx-saia-focus-width: 3px;
   --gx-saia-color-scrollbar: var(--gx-saia-color-purple--300);
   --gx-saia-color-selection-text: var(--gx-saia-color-white);
   --gx-saia-color-selection-bg: var(--gx-saia-color-black);

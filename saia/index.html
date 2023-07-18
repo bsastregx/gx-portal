@@ -28,6 +28,23 @@
   </head>
   <body>
     <div id="saia" class="saia-hidden">
+      <noscript>
+        <style>
+          #saia.saia-hidden {
+            opacity: 1;
+          }
+          .show-if-js-enabled {
+            display: none !important;
+          }
+          .header__nav {
+            display: block !important;
+          }
+          .header__nav .header__list {
+            opacity: 1 !important;
+            margin-top: var(--gx-saia-space-m) !important;
+          }
+        </style>
+      </noscript>
       <!--HEADER-->
       <header class="header section section--purple-900">
         <div class="container header__container">
@@ -36,7 +53,12 @@
             src="./assets/images/saia-logo-dark.svg"
             alt="saia logo"
           />
-          <button type="button" class="header__burger" id="header-burger">
+          <button
+            type="button"
+            class="header__burger show-if-js-enabled"
+            id="header-burger"
+            aria-label="toggle menu"
+          >
             <span class="header__burger-line"></span>
             <span class="header__burger-line"></span>
             <span class="header__burger-line"></span>
@@ -59,7 +81,10 @@
                 <span class="header__list-line"></span>
               </li>
             </ul>
-            <button class="button hide--m">Ask for a demo</button>
+            <noscript>              
+              <a class="button hide--m go-to-form show-if-js-enabled" href="#get-in-touch">Ask for a demo</a>
+            </noscript>
+            <button class="button hide--m go-to-form show-if-js-enabled">Ask for a demo</a>
           </nav>
         </div>
         <div class="container">
@@ -70,7 +95,10 @@
               and cost effective way to easily compose Ai-Assistants, acting as
               a backbone to protect data privacy
             </p>
-            <button class="button">Get in touch</button>
+            <noscript>              
+              <a class="button go-to-form" href="#get-in-touch">Get in touch</a>
+            </noscript>
+            <button class="button go-to-form  show-if-js-enabled">Get in touch</button>
           </div>
         </div>
       </header>
@@ -135,7 +163,7 @@
           <div class="cols">
             <div class="cols__left saia-wrapper text-center">
               <h2 class="h3 main-title">
-                Empower users to solve their needs with natural language
+                Empower users <br>to solve their needs with natural language
               </h2>
               <p>
                 Unlock the creation of robust AI-Assistants that can integrate
@@ -171,7 +199,7 @@
         <section id="customer-experience">
           <div class="container">
             <div class="saia-wrapper saia-wrapper--max-width text-center">
-              <h3 class="h3">Create a superb customer experience</h3>
+              <h3 class="h3">Create a superb <br> customer experience</h3>
               <p class="text-strong">
                 Integrate an AI assistant into customer service, trained on your
                 policies and processes, enabling seamless customer-initiated
@@ -181,9 +209,9 @@
               <div>
                 <span class="step step--start"></span>
                 <img
-                  src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-superb-experience.svg"
+                  src="./assets/images/saia-superb-experience.svg"
                   alt="chat with ai assistant"
+                  loading="lazy"
                 />
                 <span class="step step--end"></span>
                 <span class="dot"></span>
@@ -206,7 +234,7 @@
                 <span class="step step--start"></span>
                 <img
                   src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-step-placeholder.svg"
+                  loading="lazy"
                   alt="a gray rectangle"
                 />
                 <span class="step step--end"></span>
@@ -230,7 +258,7 @@
                 <span class="step step--start"></span>
                 <img
                   src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-step-placeholder.svg"
+                  loading="lazy"
                   alt="a gray rectangle"
                 />
                 <span class="step step--end"></span>
@@ -254,8 +282,8 @@
               <div>
                 <span class="step step--start"></span>
                 <img
-                  src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-chat-documents.svg"
+                  src="./assets/images/saia-chat-documents.svg"
+                  loading="lazy"
                   alt="chatting with ai about a document"
                 />
                 <span class="step step--end"></span>
@@ -278,7 +306,7 @@
                 <span class="step step--start"></span>
                 <img
                   src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-step-placeholder.svg"
+                  loading="lazy"
                   alt="a gray rectangle"
                 />
                 <span class="step step--end"></span>
@@ -303,14 +331,14 @@
                 <span class="step step--start"></span>
                 <img
                   src="./assets/images/saia-step-placeholder.svg"
-                  data-src="./assets/images/saia-step-placeholder.svg"
+                  loading="lazy"
                   alt="a gray rectangle"
                 />
                 <span class="step step--end"></span>
               </div>
             </div>
           </div>
-          <span id="back-to-top">
+          <span id="back-to-top" class="show-if-js-enabled">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="1em"
@@ -325,41 +353,66 @@
         </section>
       </main>
 
+      <!--GET IN TOUCH-->
+      <section class="section section--purple-900" id="get-in-touch">
+        <div class="container">
+          <noscript>
+            <p class="form-not-displayed">
+              We have tried to display a form here, but you have JavaScript disabled, and it is necessary to show the form.
+            </p>
+          </noscript>
+          <div class="cols cols--asymmetric show-if-js-enabled">
+            <div class="cols__left">
+              <h2 class="h3 title">Leap into AI with us</h2>
+            </div>
+            <div class="cols__right">
+              <script
+              charset="utf-8"
+              type="text/javascript"
+              src="//js.hsforms.net/forms/embed/v2.js"
+            ></script>
+            <script>
+              hbspt.forms.create({
+                region: "na1",
+                portalId: "6302527",
+                formId: "11bd0ca6-4df0-4be5-8d6e-bf8478127d0c",
+              });
+            </script>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer class="main-footer section section--purple-900">
         <div class="container">
-          <div class="main-footer__left">
-            <img
-              class="main-footer__logo"
-              src="./assets/images/saia-logo-dark.svg"
-              alt="saia logo"
-            />
-          </div>
-          <div class="main-footer__right">
-            <small>
-              © GeneXus. All rights reserved.
-              <a href="https://www.genexus.com/">GeneXus</a> Powered by
-              <a href="https://www.globant.com/" target="_blank"
-                >Globant</a
-              ></small
-            >
+          <hr>
+          <div class="main-footer__wrapper">
+            <div class="main-footer__left">
+              <img
+                class="main-footer__logo"
+                src="./assets/images/saia-logo-dark.svg"
+                alt="saia logo"
+              />
+            </div>
+            <div class="main-footer__right">
+              <small>
+                © GeneXus. All rights reserved.
+                <a href="https://www.genexus.com/">GeneXus</a> Powered by
+                <a href="https://www.globant.com/" target="_blank"
+                  >Globant</a
+                ></small
+              >
+            </div>
           </div>
         </div>
       </footer>
-
-      <div class="hide">
-        <script
-          charset="utf-8"
-          type="text/javascript"
-          src="//js.hsforms.net/forms/embed/v2.js"
-        ></script>
-        <script>
-          hbspt.forms.create({
-            region: "na1",
-            portalId: "6302527",
-            formId: "11bd0ca6-4df0-4be5-8d6e-bf8478127d0c",
-          });
-        </script>
       </div>
     </div>
+    <script>
+      function passFocus() {
+  // Move focus to the input element
+  document.querySelector("form input").focus();
+}
+    </script>
   </body>
 </html>

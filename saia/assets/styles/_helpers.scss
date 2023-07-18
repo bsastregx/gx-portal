@@ -46,8 +46,8 @@
     align-items: center;
   }
   .text-strong {
-    font-weight: var(--gx-saia-font-weight-headings);
-    font-size: var(--gx-saia-font-size-l);
+    font-weight: var(--gx-saia-font-weight-medium);
+    font-size: var(--gx-saia-font-size-m);
     font-family: var(--gx-saia-font-family-headings);
     line-height: var(--gx-saia-line-height--comfortable);
     @include max-width(tablet) {

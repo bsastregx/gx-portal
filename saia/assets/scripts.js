@@ -34,7 +34,7 @@ const contentLoaded = () => {
   });
 
   /* 3. ANIMATE STEPS */
-  const lazyImages = [];
+  const observableImages = [];
   let lastSection;
   const steps = document.querySelectorAll("#steps section");
   if (steps?.length) {
@@ -42,7 +42,7 @@ const contentLoaded = () => {
       const img = step.querySelector("img");
       if (img) {
         img.classList.add("animate", "animate--hidden");
-        lazyImages.push(img);
+        observableImages.push(img);
       }
       if (i === steps.length - 1) {
         lastSection = step;
@@ -51,7 +51,7 @@ const contentLoaded = () => {
   }
 
   /* 4. IO */
-  io(lazyImages);
+  io(observableImages);
 
   /* 5. DETECT MOUSEENTER OR TOUCHSTART ON LAST SECTION */
   /*It might happen that the image of the last section's intersection observer condition is not met (the center of the image has to reach the center of the viewport). By adding a mouseenter/touchstart event to the last section, we provide a fallback method to load and display the image.*/
@@ -70,39 +70,63 @@ const contentLoaded = () => {
 
   /* 6. GO TO TOP */
   const backToTop = document.getElementById("back-to-top");
-  console.log(backToTop);
   backToTop?.addEventListener("click", function () {
-    console.log("back to top");
     window.scrollTo(0, 0);
+  });
+
+  /* 7. TRUNCATE SELECT OPTIONS TO PREVENT OVERFLOW / SAVE REFERENCE TO FIRST FORM ITEM TO USE LATER*/
+  let firstFormItem;
+  window.addEventListener("message", function (event) {
+    if (
+      event.data.type === "hsFormCallback" &&
+      event.data.eventName === "onFormReady"
+    ) {
+      firstFormItem = document.querySelector(
+        ".hbspt-form .hs-form-field .hs-input"
+      );
+      const countryOptions = document.querySelectorAll(
+        ".hs_country select option"
+      );
+      countryOptions.forEach((country) => {
+        const text = country.textContent;
+        const textLength = text.length;
+        const limit = 25;
+        textLength > limit
+          ? (country.textContent = `${text.slice(0, limit)}...`)
+          : null;
+      });
+    }
+  });
+
+  /* 8. SET FOCUS ON THE FIRST FORM ITEM*/
+  const formAnchors = document.querySelectorAll(".go-to-form");
+  formAnchors?.forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const firstInput = document.querySelector(".hbspt-form input");
+      firstInput.focus();
+    });
   });
 };
 
-const io = (lazyImages) => {
+const io = (observableImages) => {
   const options = {
-    rootMargin: "0px 0px -50% 0px",
-    threshold: 0.5, // half of item height
+    rootMargin: "0px 0px -35% 0px",
+    threshold: 0.35, // half of item height
   };
 
   /** Then we set up a intersection observer watching over those images and whenever any of those becomes visible on the view then replace the placeholder image with actual one, remove the non-loaded class and then unobserve for that element **/
-  let lazyImageObserver = new IntersectionObserver(function (
-    entries,
-    observer
-  ) {
+  let Observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(function (entry) {
-      let lazyImage = entry.target;
-      lazyImage.addEventListener("load", function (e) {
-        lazyImage.classList.remove("animate--hidden");
-      });
-      if (entry.isIntersecting && lazyImage.dataset.src) {
-        lazyImage.src = lazyImage.dataset.src;
-        lazyImageObserver.unobserve(lazyImage);
+      let image = entry.target;
+      if (entry.isIntersecting) {
+        image.classList.remove("animate--hidden");
+        Observer.unobserve(image);
       }
     });
-  },
-  options);
+  }, options);
   /** Now observe all the non-loaded images using the observer we have setup above **/
-  lazyImages.forEach(function (lazyImage) {
-    lazyImageObserver.observe(lazyImage);
+  observableImages.forEach(function (image) {
+    Observer.observe(image);
   });
 };
 

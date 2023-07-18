@@ -1,5 +1,6 @@
 /*BREAKPOINTS*/
 $desktopMax: 1199px;
+$desktopMin: 1200px;
 $smallDesktopMax: 991px;
 $tabletMax: 767px;
 $tabletMin: 768px;
@@ -7,8 +8,14 @@ $mobileMax: 575px;
 
 @mixin max-width($breakpoint, $min: false) {
   @if ($breakpoint == desktop) {
-    @media (max-width: $desktopMax) {
-      @content;
+    @if $min {
+      @media (min-width: $desktopMin) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $desktopMax) {
+        @content;
+      }
     }
   } @else if ($breakpoint == small-desktop) {
     @media (max-width: $smallDesktopMax) {
@@ -30,5 +37,32 @@ $mobileMax: 575px;
     }
   } @else {
     @error "UNKNOWN MEDIA BREAKPOINT #{$breakpoint}";
+  }
+}
+
+@mixin button() {
+  border: none;
+  max-width: 250px;
+  min-width: 150px;
+  height: 50px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: var(--gx-saia-font-family-texts);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-white);
+  padding: var(--gx-saia-space-s) var(--gx-saia-space-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  text-decoration: none;
+  font-weight: var(--gx-saia-font-weight-medium);
+  &:hover {
+    background-color: var(--gx-saia-color-purple--300);
   }
 }
