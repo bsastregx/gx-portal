@@ -22,15 +22,58 @@
       href="https://gxpadmin.genexus.com/preview/www.genexus.com/css/en/173/20230714162240/master.css?font_face"
     />
     <!--/Fonts -->
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="./assets/scripts.js" defer></script>
   </head>
   <body>
-    <section class="section">
-      <div class="container">hola</div>
-    </section>
-    <header class="header">
-      <nav></nav>
+    <header class="header section section--purple-dark">
+      <nav class="container header__nav header__nav--hidden" id="header-nav">
+        <ul class="header__list">
+          <li class="header__list-item">
+            <img
+              class="header__logo"
+              src="./assets/images/saia-logo-dark.svg"
+              alt="saia logo"
+            />
+          </li>
+          <li class="header__list-item header__list-item--reverse">
+            <a class="header__list-link" href="#benefits">Benefits</a>
+            <span class="header__list-line"></span>
+          </li>
+          <li class="header__list-item header__list-item--reverse">
+            <a class="header__list-link" href="#about-us">About us</a>
+            <span class="header__list-line"></span>
+          </li>
+          <li class="header__list-item header__list-item--reverse">
+            <a class="header__list-link" href="#how-it-works">How it works</a>
+            <span class="header__list-line"></span>
+          </li>
+        </ul>
+        <div class="header__aside">
+          <button>Ask for a demo</button>
+          <button type="button" class="burguer naked" id="burger">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </nav>
     </header>
+    <!-- <div>
+      <script
+        charset="utf-8"
+        type="text/javascript"
+        src="//js.hsforms.net/forms/embed/v2.js"
+      ></script>
+      <script>
+        hbspt.forms.create({
+          region: "na1",
+          portalId: "6302527",
+          formId: "11bd0ca6-4df0-4be5-8d6e-bf8478127d0c",
+        });
+      </script>
+    </div> -->
   </body>
 </html>
