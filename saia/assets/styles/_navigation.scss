@@ -1,5 +1,5 @@
 .header {
-  padding-top: var(--gx-saia-space-m);
+  padding: var(--gx-saia-space-m) 0;
   &__container {
     display: flex;
     align-items: center;
@@ -15,7 +15,9 @@
     &.active {
       grid-template-rows: 1fr;
       .header__list {
-        opacity: 1;
+        animation-fill-mode: forwards;
+        animation-name: navToggle;
+        animation-duration: 300ms;
       }
     }
   }
@@ -128,6 +130,26 @@
       }
     }
   }
+
+  @keyframes navToggle {
+    0% {
+      opacity: 0;
+      margin-top: 0;
+    }
+    33% {
+      opacity: 0;
+      margin-top: var(--gx-saia-space-m);
+    }
+    66% {
+      opacity: 0.5;
+      margin-top: var(--gx-saia-space-m);
+    }
+    100% {
+      opacity: 1;
+      margin-top: var(--gx-saia-space-m);
+    }
+  }
+
   /*RESPONSIVE*/
   /*Extra extra large (default)*/
   /*Extra large*/
@@ -138,6 +160,9 @@
   }
   /*Medium*/
   @media only screen and (max-width: 767px) {
+    &__container {
+      gap: 0;
+    }
     &__nav {
       display: grid;
       grid-template-rows: 0fr;
@@ -157,12 +182,22 @@
       opacity: 1;
       visibility: visible;
     }
+    &__list {
+      opacity: 0;
+      margin-top: 0;
+    }
   }
   /*Small*/
   @media only screen and (max-width: 575px) {
     padding-top: var(--gx-saia-space-s);
     &__logo {
       width: 105px;
+    }
+  }
+  /*Large and above*/
+  @media only screen and (min-width: 768px) {
+    &__list {
+      margin-top: 0 !important;
     }
   }
 }
