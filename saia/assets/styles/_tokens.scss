@@ -43,3 +43,27 @@
   --gx-saia-color-over-purple: var(--gx-saia-color-white);
   --gx-saia-color-focus: var(--gx-saia-color-purple--yellow);
 }
+
+/*RESPONSIVE*/
+/*Extra extra large (default)*/
+/*Extra large*/
+@media only screen and (max-width: 1199px) {
+}
+/*Large*/
+@media only screen and (max-width: 991px) {
+}
+/*Medium*/
+@media only screen and (max-width: 767px) {
+  :root {
+    --gx-saia-font-size-base: 17px;
+    --gx-saia-font-size-s: 14px;
+    --gx-saia-font-size-m: 20px;
+    --gx-saia-font-size-l: 26px;
+    --gx-saia-font-size-xl: 46px;
+    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xxxl: 64px;
+  }
+}
+/*Small*/
+@media only screen and (max-width: 575px) {
+}

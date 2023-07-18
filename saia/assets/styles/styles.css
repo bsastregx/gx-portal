@@ -178,6 +178,23 @@ table {
   --gx-saia-color-focus: var(--gx-saia-color-purple--yellow);
 }
 
+/*RESPONSIVE*/
+/*Extra extra large (default)*/
+/*Extra large*/
+/*Large*/
+/*Medium*/
+@media only screen and (max-width: 767px) {
+  :root {
+    --gx-saia-font-size-base: 17px;
+    --gx-saia-font-size-s: 14px;
+    --gx-saia-font-size-m: 20px;
+    --gx-saia-font-size-l: 26px;
+    --gx-saia-font-size-xl: 46px;
+    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xxxl: 64px;
+  }
+}
+/*Small*/
 .hide {
   display: none !important;
 }
@@ -310,13 +327,13 @@ h3,
 /*SELECTION COLOR*/
 ::-moz-selection {
   /* Code for Firefox */
-  background-color: var(--gx-saia-color-purple--900);
-  color: var(--gx-saia-color-focus);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-black);
 }
 
 ::selection {
-  background-color: var(--gx-saia-color-purple--900);
-  color: var(--gx-saia-color-focus);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-black);
 }
 
 /*RESPONSIVE*/
@@ -466,6 +483,13 @@ h3,
 .header__burger.active .header__burger-line:nth-child(3) {
   transform: rotate(-45deg);
 }
+.header .saia-wrapper {
+  max-width: 640px;
+  margin: 120px 0 128px 0;
+}
+.header .saia-wrapper .button {
+  margin-top: var(--gx-saia-space-s);
+}
 @keyframes navToggle {
   0% {
     opacity: 0;
@@ -511,10 +535,16 @@ h3,
     opacity: 0;
     margin-top: 0;
   }
+  .header .saia-wrapper {
+    margin: 60px 0 60px 0;
+  }
+  .header .saia-wrapper .button {
+    margin-top: var(--gx-saia-space-s);
+  }
 }
 @media only screen and (max-width: 575px) {
   .header {
-    padding-top: var(--gx-saia-space-s);
+    padding: var(--gx-saia-space-s) 0;
   }
   .header__logo {
     width: 105px;

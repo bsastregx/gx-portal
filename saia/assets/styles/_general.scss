@@ -87,13 +87,13 @@ h3,
 /*SELECTION COLOR*/
 ::-moz-selection {
   /* Code for Firefox */
-  background-color: var(--gx-saia-color-purple--900);
-  color: var(--gx-saia-color-focus);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-black);
 }
 
 ::selection {
-  background-color: var(--gx-saia-color-purple--900);
-  color: var(--gx-saia-color-focus);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-black);
 }
 
 /*RESPONSIVE*/
