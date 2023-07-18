@@ -1,124 +1,126 @@
 body {
-  font-size: var(--gx-saia-font-size-base);
-  color: var(--gx-saia-color-black);
-  font-family: var(--gx-saia-font-family-texts);
-  line-height: var(--gx-saia-line-height--spaced);
-  font-weight: var(--gx-saia-font-weight-texts);
+  font-size: var(--gx-saia-font-size-base) !important;
+  color: var(--gx-saia-color-black) !important;
+  font-family: var(--gx-saia-font-family-texts) !important;
+  line-height: var(--gx-saia-line-height--spaced) !important;
+  font-weight: var(--gx-saia-font-weight-texts) !important;
 }
-/*TITLES*/
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h5 {
-  font-family: var(--gx-saia-font-family-headings);
-  font-weight: var(--gx-saia-font-weight-headings);
-  line-height: var(--gx-saia-line-height--tight);
-}
-h1,
-.h1 {
-  font-size: var(--gx-saia-font-size-xxxl);
-}
-h2,
-.h2 {
-  font-size: var(--gx-saia-font-size-xxl);
-}
-h3,
-.h3 {
-  font-size: var(--gx-saia-font-size-xl);
-}
-/*CONTAINER*/
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 var(--gx-saia-container-padding--h);
-}
-/*SECTION*/
-.section {
-  background-color: var(--gx-saia-color-white);
-  color: var(--gx-saia-color-text);
-  padding: var(--gx-saia-section-padding--v) 0;
+#saia {
+  /*TITLES*/
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h5 {
+    font-family: var(--gx-saia-font-family-headings);
+    font-weight: var(--gx-saia-font-weight-headings);
+    line-height: var(--gx-saia-line-height--tight);
+  }
+  h1,
+  .h1 {
+    font-size: var(--gx-saia-font-size-xxxl);
+  }
+  h2,
+  .h2 {
+    font-size: var(--gx-saia-font-size-xxl);
+  }
+  h3,
+  .h3 {
+    font-size: var(--gx-saia-font-size-xl);
+  }
+  /*CONTAINER*/
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--gx-saia-container-padding--h);
+  }
+  /*SECTION*/
+  .section {
+    background-color: var(--gx-saia-color-white);
+    color: var(--gx-saia-color-text);
+    padding: var(--gx-saia-section-padding--v) 0;
 
-  &--purple {
-    &-200 {
-      --gx-saia-color-text: var(--gx-saia-color-over-purple);
-      background-color: var(--gx-saia-color-purple--200);
+    &--purple {
+      &-200 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--200);
+      }
+      &-300 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--300);
+      }
+      &-900 {
+        --gx-saia-color-text: var(--gx-saia-color-over-purple);
+        background-color: var(--gx-saia-color-purple--900);
+      }
     }
-    &-300 {
-      --gx-saia-color-text: var(--gx-saia-color-over-purple);
+  }
+  /*BUTTON*/
+  .button {
+    border: none;
+    max-width: 250px;
+    min-width: 150px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: var(--gx-saia-font-family-headings);
+    background-color: var(--gx-saia-color-purple--200);
+    color: var(--gx-saia-color-white);
+    padding: var(--gx-saia-space-s) var(--gx-saia-space-m);
+    display: flex;
+    align-items: center;
+    &:hover {
       background-color: var(--gx-saia-color-purple--300);
     }
-    &-900 {
-      --gx-saia-color-text: var(--gx-saia-color-over-purple);
-      background-color: var(--gx-saia-color-purple--900);
+  }
+  /*SELECTION COLOR*/
+  ::-moz-selection {
+    /* Code for Firefox */
+    background-color: var(--gx-saia-color-purple--200);
+    color: var(--gx-saia-color-black);
+  }
+
+  ::selection {
+    background-color: var(--gx-saia-color-purple--200);
+    color: var(--gx-saia-color-black);
+  }
+
+  /*RESPONSIVE*/
+  /*Extra extra large (default)*/
+  /*Extra large*/
+  @media only screen and (max-width: 1199px) {
+    .container {
+      max-width: 960px;
     }
   }
-}
-/*BUTTON*/
-.button {
-  border: none;
-  max-width: 250px;
-  min-width: 150px;
-  height: 50px;
-  box-sizing: border-box;
-  border-radius: 50px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  font-size: inherit;
-  font-family: var(--gx-saia-font-family-headings);
-  background-color: var(--gx-saia-color-purple--200);
-  color: var(--gx-saia-color-white);
-  padding: var(--gx-saia-space-s) var(--gx-saia-space-m);
-  display: flex;
-  align-items: center;
-  &:hover {
-    background-color: var(--gx-saia-color-purple--300);
+  /*Large*/
+  @media only screen and (max-width: 991px) {
+    .container {
+      max-width: 720px;
+    }
   }
-}
-/*SELECTION COLOR*/
-::-moz-selection {
-  /* Code for Firefox */
-  background-color: var(--gx-saia-color-purple--200);
-  color: var(--gx-saia-color-black);
-}
-
-::selection {
-  background-color: var(--gx-saia-color-purple--200);
-  color: var(--gx-saia-color-black);
-}
-
-/*RESPONSIVE*/
-/*Extra extra large (default)*/
-/*Extra large*/
-@media only screen and (max-width: 1199px) {
-  .container {
-    max-width: 960px;
+  /*Medium*/
+  @media only screen and (max-width: 767px) {
+    .container {
+      max-width: 540px;
+    }
   }
-}
-/*Large*/
-@media only screen and (max-width: 991px) {
-  .container {
-    max-width: 720px;
-  }
-}
-/*Medium*/
-@media only screen and (max-width: 767px) {
-  .container {
-    max-width: 540px;
-  }
-}
-/*Small*/
-@media only screen and (max-width: 575px) {
-  .container {
-    max-width: 100%;
+  /*Small*/
+  @media only screen and (max-width: 575px) {
+    .container {
+      max-width: 100%;
+    }
   }
 }
