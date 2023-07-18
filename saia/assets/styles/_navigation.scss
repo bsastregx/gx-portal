@@ -35,6 +35,7 @@
         align-items: center;
         position: relative;
         overflow: hidden;
+        padding: var(--gx-saia-focus-width);
         &--hovered {
           .header__list-line {
             transform: translateX(0%);
@@ -55,7 +56,8 @@
         }
       }
       &-line {
-        transform: translateX(-105%);
+        $focusOutlineWidth: var(--gx-saia-focus-width);
+        transform: translateX(calc(-100% - #{$focusOutlineWidth} - 2px));
         display: block;
         width: 100%;
         height: 1px;
@@ -67,6 +69,9 @@
       &-link {
         text-decoration: none;
         color: inherit;
+        &:focus + .header__list-line {
+          display: none;
+        }
       }
     }
     /*BURGER*/

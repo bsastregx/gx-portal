@@ -5,6 +5,9 @@ body {
   line-height: var(--gx-saia-line-height--spaced) !important;
   font-weight: var(--gx-saia-font-weight-texts) !important;
 }
+a {
+  color: inherit;
+}
 /**SCROLLBAR/
   /* width */
 body::-webkit-scrollbar {
@@ -76,12 +79,12 @@ body::-webkit-scrollbar-thumb {
   /*SELECTION COLOR*/
   ::-moz-selection {
     /* Code for Firefox */
-    background-color: var(--gx-saia-color-purple--200);
-    color: var(--gx-saia-color-black);
+    background-color: var(--gx-saia-color-selection-bg);
+    color: var(--gx-saia-color-selection-text);
   }
   ::selection {
-    background-color: var(--gx-saia-color-purple--200);
-    color: var(--gx-saia-color-black);
+    background-color: var(--gx-saia-color-selection-bg);
+    color: var(--gx-saia-color-selection-text);
   }
 
   /*CARD*/
@@ -103,6 +106,14 @@ body::-webkit-scrollbar-thumb {
   /*IMAGES*/
   img {
     max-width: 100%;
+  }
+
+  /*OTHER*/
+  small {
+    font-size: calc(var(--gx-saia-font-size-base) * 0.75);
+  }
+  *:focus {
+    outline: var(--gx-saia-focus-width) solid var(--gx-saia-color-focus);
   }
 
   /*RESPONSIVE*/

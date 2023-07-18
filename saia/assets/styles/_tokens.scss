@@ -27,6 +27,7 @@
   --gx-saia-line-height--comfortable: 1.45em;
   --gx-saia-line-height--spaced: 1.6em;
   /*spacing*/
+  --gx-saia-space-xxs: 4px;
   --gx-saia-space-xs: 8px;
   --gx-saia-space-s: 16px;
   --gx-saia-space-m: 32px;
@@ -46,7 +47,10 @@
   --gx-saia-container-padding--h: var(--gx-saia-space-m);
   --gx-saia-color-over-purple: var(--gx-saia-color-white);
   --gx-saia-color-focus: var(--gx-saia-color-purple--yellow);
+  --gx-saia-focus-width: var(--gx-saia-space-xxs);
   --gx-saia-color-scrollbar: var(--gx-saia-color-purple--300);
+  --gx-saia-color-selection-text: var(--gx-saia-color-white);
+  --gx-saia-color-selection-bg: var(--gx-saia-color-black);
 }
 
 /*RESPONSIVE*/

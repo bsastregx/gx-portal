@@ -17,6 +17,8 @@
       &-900 {
         --gx-saia-color-text: var(--gx-saia-color-over-purple);
         background-color: var(--gx-saia-color-purple--900);
+        --gx-saia-color-selection-bg: var(--gx-saia-color-white);
+        --gx-saia-color-selection-text: var(--gx-saia-color-black);
       }
     }
     &--gray {
@@ -87,6 +89,21 @@
   #core-strength {
     .card {
       min-height: 240px;
+    }
+  }
+
+  /*CORE STRENGTH*/
+  .main-footer {
+    padding: var(--gx-saia-font-size-m) var(--gx-saia-font-size-m) 96px
+      var(--gx-saia-font-size-m);
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 100%;
+    }
+    &__logo {
+      max-width: 120px;
     }
   }
 
