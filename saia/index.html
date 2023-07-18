@@ -27,7 +27,7 @@
     <script src="./assets/scripts.js" defer></script>
   </head>
   <body>
-    <div id="saia">
+    <div id="saia" class="saia-hidden">
       <!--HEADER-->
       <header class="header section section--purple-900">
         <div class="container header__container">
@@ -76,7 +76,7 @@
       </header>
 
       <!--THE CORE STRENGTH-->
-      <section class="section section--purple-200" id="core-strength">
+      <section class="section section--purple-200" id="benefits">
         <div class="container">
           <div class="cols cols--asymmetric">
             <div class="cols__left">
@@ -129,7 +129,7 @@
       <!--EMPOWER USERS-->
       <section
         class="section section--gray-100 section--no-padding"
-        id="empower-users"
+        id="about-us"
       >
         <div class="container">
           <div class="cols">
@@ -145,162 +145,185 @@
               </p>
             </div>
             <div class="cols__right no-line-height">
-              <img src="./assets/images/saia-empower-users.svg" alt="" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--AI-ASSISTANTS-->
-      <section id="ai-assistants" class="section pb-0">
-        <div class="container text-center">
-          <h2 class="h2">
-            Implement AI-Assistants tailored to your specific needs and areas of
-            expertise
-          </h2>
-          <span class="step step--complete"></span>
-          <span class="dot"></span>
-        </div>
-      </section>
-
-      <!--CUSTOMER EXPERIENCE-->
-      <section id="customer-experience">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Create a superb customer experience</h3>
-            <p class="text-strong">
-              Integrate an AI assistant into customer service, trained on your
-              policies and processes, enabling seamless customer-initiated
-              refund or product return requests through conversational channels.
-            </p>
-            <div>
-              <span class="step step--start"></span>
               <img
-                src="./assets/images/saia-superb-experience.svg"
-                alt="chat with ai assistant"
+                src="./assets/images/saia-empower-users.svg"
+                alt="chatting with ai assistant on a mobile phone"
               />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
             </div>
           </div>
         </div>
       </section>
 
-      <!--CHAT SYSTEMS-->
-      <section id="chat-systems">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Chat with your systems</h3>
-            <p class="text-strong">
-              You could add a conversational interface to your SAP Inventory
-              Management System to quickly get insights of inventory levels,
-              shortages or identify a bottleneck in your supply chain.
-            </p>
-            <div>
-              <span class="step step--start"></span>
-              <img
-                src="./assets/images/saia-rectangle.svg"
-                alt="a gray rectangle"
-              />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
-            </div>
+      <main id="steps">
+        <!--AI-ASSISTANTS-->
+        <section id="how-it-works" class="section pb-0">
+          <div class="container text-center">
+            <h2 class="h2">
+              Implement AI-Assistants tailored to your specific needs and areas
+              of expertise
+            </h2>
+            <span class="step step--complete"></span>
+            <span class="dot"></span>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!--ANALYZE INFORMATION-->
-      <section id="analyze-information">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Analyze tons of complex information</h3>
-            <p class="text-strong">
-              Based on your historical sales data, the market forecasts and
-              economic factors, you could simplify demand forecasting and
-              automatically create purchase orders.
-            </p>
-            <div>
-              <span class="step step--start"></span>
-              <img
-                src="./assets/images/saia-rectangle.svg"
-                alt="a gray rectangle"
-              />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
+        <!--CUSTOMER EXPERIENCE-->
+        <section id="customer-experience">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Create a superb customer experience</h3>
+              <p class="text-strong">
+                Integrate an AI assistant into customer service, trained on your
+                policies and processes, enabling seamless customer-initiated
+                refund or product return requests through conversational
+                channels.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-superb-experience.svg"
+                  alt="chat with ai assistant"
+                />
+                <span class="step step--end"></span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!--CHAT DOCUMENTS-->
-      <section id="chat-documents">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Chat with your documents</h3>
-            <p class="text-strong">
-              Your legal department could use it for contract review and
-              analysis by identifying key clauses, summarizing contracts,
-              highlighting potential risks, and providing recommendations for
-              necessary actions or precautions.
-            </p>
-            <div>
-              <span class="step step--start"></span>
-              <img
-                src="./assets/images/saia-chat-documents.svg"
-                alt="chatting with ai about a document"
-              />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
+        <!--CHAT SYSTEMS-->
+        <section id="chat-systems">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Chat with your systems</h3>
+              <p class="text-strong">
+                You could add a conversational interface to your SAP Inventory
+                Management System to quickly get insights of inventory levels,
+                shortages or identify a bottleneck in your supply chain.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-step-placeholder.svg"
+                  alt="a gray rectangle"
+                />
+                <span class="step step--end"></span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!--CLASSIFY INFORMATION-->
-      <section id="classify-information">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Classify or edit information</h3>
-            <p class="text-strong">
-              The compliance team can leverage an AI assistant to automate the
-              generation of audit reports through analysis of pertinent data.
-            </p>
-            <div>
-              <span class="step step--start"></span>
-              <img
-                src="./assets/images/saia-rectangle.svg"
-                alt="a gray rectangle"
-              />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
+        <!--ANALYZE INFORMATION-->
+        <section id="analyze-information">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Analyze tons of complex information</h3>
+              <p class="text-strong">
+                Based on your historical sales data, the market forecasts and
+                economic factors, you could simplify demand forecasting and
+                automatically create purchase orders.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-step-placeholder.svg"
+                  alt="a gray rectangle"
+                />
+                <span class="step step--end"></span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!--CREATE OR TRANSLATE-->
-      <section id="create-translate">
-        <div class="container">
-          <div class="saia-wrapper saia-wrapper--max-width text-center">
-            <h3 class="h3">Create and translate contents</h3>
-            <p class="text-strong">
-              You could use your AI Assistant to create all the technical
-              documentation for your new product in different languages, for
-              instance a car or a new drug, just by entering unstructured
-              information and defining the parameters.
-            </p>
-            <div>
-              <span class="step step--start"></span>
-              <img
-                src="./assets/images/saia-rectangle.svg"
-                alt="a gray rectangle"
-              />
-              <span class="step step--end"></span>
-              <span class="dot"></span>
+        <!--CHAT DOCUMENTS-->
+        <section id="chat-documents">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Chat with your documents</h3>
+              <p class="text-strong">
+                Your legal department could use it for contract review and
+                analysis by identifying key clauses, summarizing contracts,
+                highlighting potential risks, and providing recommendations for
+                necessary actions or precautions.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-chat-documents.svg"
+                  alt="chatting with ai about a document"
+                />
+                <span class="step step--end"></span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!--CLASSIFY INFORMATION-->
+        <section id="classify-information">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Classify or edit information</h3>
+              <p class="text-strong">
+                The compliance team can leverage an AI assistant to automate the
+                generation of audit reports through analysis of pertinent data.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-step-placeholder.svg"
+                  alt="a gray rectangle"
+                />
+                <span class="step step--end"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--CREATE OR TRANSLATE-->
+        <section id="create-translate">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3 class="h3">Create and translate contents</h3>
+              <p class="text-strong">
+                You could use your AI Assistant to create all the technical
+                documentation for your new product in different languages, for
+                instance a car or a new drug, just by entering unstructured
+                information and defining the parameters.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="./assets/images/saia-step-placeholder.svg"
+                  data-src="./assets/images/saia-step-placeholder.svg"
+                  alt="a gray rectangle"
+                />
+                <span class="step step--end"></span>
+              </div>
+            </div>
+          </div>
+          <span id="back-to-top">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 384 512"
+            >
+              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"
+              />
+            </svg>
+          </span>
+        </section>
+      </main>
 
       <footer class="main-footer section section--purple-900">
         <div class="container">

@@ -1,9 +1,19 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: var(--gx-saia-font-size-base) !important;
   color: var(--gx-saia-color-black) !important;
   font-family: var(--gx-saia-font-family-texts) !important;
   line-height: var(--gx-saia-line-height--spaced) !important;
   font-weight: var(--gx-saia-font-weight-texts) !important;
+}
+#saia {
+  transition: 350ms opacity;
+  opacity: 1;
+  &.saia-hidden {
+    opacity: 0;
+  }
 }
 a {
   color: inherit;
@@ -79,10 +89,12 @@ body::-webkit-scrollbar-thumb {
   /*SELECTION COLOR*/
   ::-moz-selection {
     /* Code for Firefox */
+    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
     background-color: var(--gx-saia-color-selection-bg);
     color: var(--gx-saia-color-selection-text);
   }
   ::selection {
+    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
     background-color: var(--gx-saia-color-selection-bg);
     color: var(--gx-saia-color-selection-text);
   }
@@ -110,7 +122,9 @@ body::-webkit-scrollbar-thumb {
 
   /*OTHER*/
   small {
+    display: inline-block;
     font-size: calc(var(--gx-saia-font-size-base) * 0.75);
+    line-height: var(--gx-saia-line-height--spaced);
   }
   *:focus {
     outline: var(--gx-saia-focus-width) solid var(--gx-saia-color-focus);

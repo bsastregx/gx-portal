@@ -82,11 +82,13 @@
       height: calc($size * 0.75);
       background-color: var(--gx-saia-color-white);
       box-shadow: var(--gx-saia-shadow);
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
     }
   }
 
   /*CORE STRENGTH*/
-  #core-strength {
+  #benefits {
     .card {
       min-height: 240px;
     }
@@ -105,10 +107,20 @@
     &__logo {
       max-width: 120px;
     }
+    @include max-width(tablet) {
+      &__logo {
+        max-width: 80px;
+      }
+      padding: var(--gx-saia-font-size-s) 0;
+      .container {
+        flex-direction: column;
+        align-items: baseline;
+      }
+    }
   }
 
   /*EMPOWER USERS*/
-  #empower-users {
+  #about-us {
     .main-title {
       background: linear-gradient(
         90deg,
@@ -144,6 +156,32 @@
       }
       .cols__left {
         padding: var(--gx-saia-section-padding--v) 0 0 0;
+      }
+    }
+  }
+
+  /*CREATE OR TRANSLATE*/
+  #create-translate {
+    position: relative;
+    $offset: var(--gx-saia-space-s);
+    #back-to-top {
+      cursor: pointer;
+      position: absolute;
+      right: $offset;
+      bottom: $offset;
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      width: var(--gx-saia-space-m);
+      height: var(--gx-saia-space-m);
+      background-color: var(--gx-saia-color-purple--200);
+      color: var(--gx-saia-color-white);
+      transform: scale(1, 1);
+      transition: 100ms transform;
+      &:hover {
+        transform: scale(1.25, 1.25);
       }
     }
   }
