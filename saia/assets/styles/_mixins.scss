@@ -1,0 +1,7 @@
+@mixin saia-gradient() {
+  background: linear-gradient(
+    90deg,
+    var(--gx-saia-color-purple--900) 3.49%,
+    var(--gx-saia-color-purple--300) 100%
+  );
+}

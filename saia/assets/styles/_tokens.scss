@@ -1,0 +1,45 @@
+:root {
+  /*ATOMIC TOKENS*/
+  /*colors*/
+  --gx-saia-color-purple--yellow: #e1ae42;
+  --gx-saia-color-purple--200: #985ae5;
+  --gx-saia-color-purple--300: #8e55d6;
+  --gx-saia-color-purple--900: #180f34;
+  --gx-saia-color-gray--light: #f9f9f9;
+  --gx-saia-color-black: #1f272b;
+  --gx-saia-color-white: #fff;
+  --gx-saia-color-overlay: rgba(0, 0, 0, 0.07);
+  /*font family*/
+  --gx-saia-font-family-texts: Rubik, Helvetica, Arial, sans-serif;
+  --gx-saia-font-family-headings: Graphik;
+  --gx-saia-font-size-base: 17px;
+  --gx-saia-font-size-s: 14px;
+  --gx-saia-font-size-m: 20px;
+  --gx-saia-font-size-l: 26px;
+  --gx-saia-font-size-xl: 46px;
+  --gx-saia-font-size-xxl: 52px;
+  --gx-saia-font-size-xxxl: 64px;
+  --gx-saia-font-weight-headings: 600;
+  --gx-saia-font-weight-texts: 300;
+  --gx-saia-line-height--tight: 1.2em;
+  --gx-saia-line-height--regular: 1.4em;
+  --gx-saia-line-height--spaced: 1.6em;
+  /*spacing*/
+  --gx-saia-space-xs: 8px;
+  --gx-saia-space-s: 16px;
+  --gx-saia-space-m: 32px;
+  --gx-saia-space-l: 64px;
+  --gx-saia-space-xl: 128px;
+  /*radius*/
+  --gx-saia-radius--xs: 4px;
+  --gx-saia-radius--s: 8px;
+  --gx-saia-radius--m: 16px;
+  --gx-saia-radius--l: 32px;
+
+  /*SEMANTIC TOKENS*/
+  --gx-saia-color-text: var(--gx-saia-color-black);
+  --gx-saia-section-padding--v: var(--gx-saia-space-xl);
+  --gx-saia-container-padding--h: var(--gx-saia-space-s);
+  --gx-saia-color-over-purple: var(--gx-saia-color-white);
+  --gx-saia-color-focus: var(--gx-saia-color-purple--yellow);
+}

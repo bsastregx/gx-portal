@@ -20,19 +20,13 @@ const contentLoaded = () => {
 
   /* 2. BURGER MENU */
   // Initialize All Required DOM Element
-  const burgerMenu = document.getElementById("burger");
-  const navbarMenu = document.getElementById("menu");
+  const headerBurger = document.getElementById("header-burger");
+  const headerNav = document.getElementById("header-nav");
 
   // Initialize Responsive Navbar Menu
-  burgerMenu?.addEventListener("click", () => {
-    burgerMenu.classList.toggle("active");
-    navbarMenu.classList.toggle("active");
-
-    if (navbarMenu.classList.contains("active")) {
-      navbarMenu.style.maxHeight = navbarMenu.scrollHeight + "px";
-    } else {
-      navbarMenu.removeAttribute("style");
-    }
+  headerBurger?.addEventListener("click", () => {
+    headerBurger?.classList.toggle("active");
+    headerNav?.classList.toggle("active");
   });
 };
 
