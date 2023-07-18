@@ -35,15 +35,12 @@ body::-webkit-scrollbar-thumb {
     font-weight: var(--gx-saia-font-weight-headings);
     line-height: var(--gx-saia-line-height--tight);
   }
-  h1,
   .h1 {
     font-size: var(--gx-saia-font-size-xxxl);
   }
-  h2,
   .h2 {
     font-size: var(--gx-saia-font-size-xxl);
   }
-  h3,
   .h3 {
     font-size: var(--gx-saia-font-size-xl);
   }
@@ -99,6 +96,7 @@ body::-webkit-scrollbar-thumb {
     }
     &__title {
       font-size: var(--gx-saia-font-size-l);
+      line-height: var(--gx-saia-line-height--comfortable);
     }
   }
 
@@ -126,6 +124,9 @@ body::-webkit-scrollbar-thumb {
   @include max-width(mobile) {
     .container {
       max-width: 100%;
+    }
+    .card {
+      padding: var(--gx-saia-space-s);
     }
   }
 }

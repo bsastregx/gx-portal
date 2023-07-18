@@ -63,5 +63,18 @@
         align-items: center;
       }
     }
+    @include max-width(small-desktop) {
+      .cols__left {
+        padding: 80px 0 40px 0;
+      }
+    }
+    @include max-width(mobile) {
+      .main-title {
+        max-width: 300px;
+      }
+      .cols__left {
+        padding: var(--gx-saia-section-padding--v) 0 0 0;
+      }
+    }
   }
 }

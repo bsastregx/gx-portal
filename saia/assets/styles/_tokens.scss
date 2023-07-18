@@ -23,6 +23,7 @@
   --gx-saia-font-weight-texts: 300;
   --gx-saia-line-height--tight: 1.2em;
   --gx-saia-line-height--regular: 1.4em;
+  --gx-saia-line-height--comfortable: 1.45em;
   --gx-saia-line-height--spaced: 1.6em;
   /*spacing*/
   --gx-saia-space-xs: 8px;
@@ -49,13 +50,17 @@
 
 @include max-width(tablet) {
   :root {
-    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xxxl: 52px;
+    --gx-saia-font-size-xxl: 46px;
+    --gx-saia-font-size-xl: 36px;
     --gx-saia-section-padding--v: var(--gx-saia-space-l);
   }
 }
 @include max-width(mobile) {
   :root {
     --gx-saia-container-padding--h: var(--gx-saia-space-s);
-    --gx-saia-font-size-xxl: 26px;
+    --gx-saia-font-size-xxxl: 46px;
+    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xl: 26px;
   }
 }

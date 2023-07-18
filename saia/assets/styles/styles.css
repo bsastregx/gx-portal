@@ -159,6 +159,7 @@ table {
   --gx-saia-font-weight-texts: 300;
   --gx-saia-line-height--tight: 1.2em;
   --gx-saia-line-height--regular: 1.4em;
+  --gx-saia-line-height--comfortable: 1.45em;
   --gx-saia-line-height--spaced: 1.6em;
   /*spacing*/
   --gx-saia-space-xs: 8px;
@@ -183,14 +184,18 @@ table {
 /*RESPONSIVE*/
 @media (max-width: 767px) {
   :root {
-    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xxxl: 52px;
+    --gx-saia-font-size-xxl: 46px;
+    --gx-saia-font-size-xl: 36px;
     --gx-saia-section-padding--v: var(--gx-saia-space-l);
   }
 }
 @media (max-width: 575px) {
   :root {
     --gx-saia-container-padding--h: var(--gx-saia-space-s);
-    --gx-saia-font-size-xxl: 26px;
+    --gx-saia-font-size-xxxl: 46px;
+    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xl: 26px;
   }
 }
 #saia .hide {
@@ -361,15 +366,12 @@ body::-webkit-scrollbar-thumb {
   font-weight: var(--gx-saia-font-weight-headings);
   line-height: var(--gx-saia-line-height--tight);
 }
-#saia h1,
 #saia .h1 {
   font-size: var(--gx-saia-font-size-xxxl);
 }
-#saia h2,
 #saia .h2 {
   font-size: var(--gx-saia-font-size-xxl);
 }
-#saia h3,
 #saia .h3 {
   font-size: var(--gx-saia-font-size-xl);
 }
@@ -421,6 +423,7 @@ body::-webkit-scrollbar-thumb {
 }
 #saia .card__title {
   font-size: var(--gx-saia-font-size-l);
+  line-height: var(--gx-saia-line-height--comfortable);
 }
 #saia img {
   max-width: 100%;
@@ -443,6 +446,9 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 575px) {
   #saia .container {
     max-width: 100%;
+  }
+  #saia .card {
+    padding: var(--gx-saia-space-s);
   }
 }
 
@@ -497,6 +503,19 @@ body::-webkit-scrollbar-thumb {
   #saia #empower-users .cols__left {
     padding: 120px 0;
     align-items: center;
+  }
+}
+@media (max-width: 991px) {
+  #saia #empower-users .cols__left {
+    padding: 80px 0 40px 0;
+  }
+}
+@media (max-width: 575px) {
+  #saia #empower-users .main-title {
+    max-width: 300px;
+  }
+  #saia #empower-users .cols__left {
+    padding: var(--gx-saia-section-padding--v) 0 0 0;
   }
 }
 
