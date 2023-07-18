@@ -5,6 +5,18 @@ body {
   line-height: var(--gx-saia-line-height--spaced) !important;
   font-weight: var(--gx-saia-font-weight-texts) !important;
 }
+/**SCROLLBAR/
+  /* width */
+body::-webkit-scrollbar {
+  width: 1em;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--gx-saia-color-purple--200);
+  outline: 1px solid var(--gx-saia-color-purple--900);
+}
 #saia {
   /*TITLES*/
   h1,
@@ -91,10 +103,24 @@ body {
     background-color: var(--gx-saia-color-purple--200);
     color: var(--gx-saia-color-black);
   }
-
   ::selection {
     background-color: var(--gx-saia-color-purple--200);
     color: var(--gx-saia-color-black);
+  }
+
+  /*CARD*/
+  .card {
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    border-radius: var(--gx-saia-radius--m);
+    padding: var(--gx-saia-space-m);
+    color: var(--gx-saia-color-black);
+    &--purple-300 {
+      background-color: var(--gx-saia-color-purple--300);
+    }
+    &__title {
+      font-size: var(--gx-saia-font-size-l);
+    }
   }
 
   /*RESPONSIVE*/

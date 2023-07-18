@@ -232,6 +232,60 @@ table {
 #saia .text-bigger {
   font-size: var(--gx-saia-font-size-m);
 }
+#saia .cols {
+  display: flex;
+  gap: var(--gx-saia-space-l);
+}
+#saia .cols__left {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+#saia .cols__right {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+#saia .cols--left-shorter .cols__left {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40%;
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+#saia .cols--left-shorter .cols__right {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 60%;
+  flex: 0 0 60%;
+  max-width: 60%;
+}
+#saia .text-color-light {
+  color: var(--gx-saia-color-white);
+}
+#saia .text-color-dark {
+  color: var(--gx-saia-color-black);
+}
+#saia .grid {
+  display: grid;
+  grid-gap: var(--gx-saia-space-m);
+}
+#saia .grid--2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+#saia .grid--2x2 .item1 {
+  grid-area: 1/1/2/2;
+}
+#saia .grid--2x2 .item2 {
+  grid-area: 1/2/2/3;
+}
+#saia .grid--2x2 .item3 {
+  grid-area: 2/1/3/2;
+}
+#saia .grid--2x2 .item4 {
+  grid-area: 2/2/3/3;
+}
 
 body {
   font-size: var(--gx-saia-font-size-base) !important;
@@ -241,12 +295,28 @@ body {
   font-weight: var(--gx-saia-font-weight-texts) !important;
 }
 
+/**SCROLLBAR/
+  /* width */
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--gx-saia-color-purple--200);
+  outline: 1px solid var(--gx-saia-color-purple--900);
+}
+
 #saia {
   /*TITLES*/
   /*CONTAINER*/
   /*SECTION*/
   /*BUTTON*/
   /*SELECTION COLOR*/
+  /*CARD*/
   /*RESPONSIVE*/
   /*Extra extra large (default)*/
   /*Extra large*/
@@ -335,6 +405,19 @@ body {
   background-color: var(--gx-saia-color-purple--200);
   color: var(--gx-saia-color-black);
 }
+#saia .card {
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  border-radius: var(--gx-saia-radius--m);
+  padding: var(--gx-saia-space-m);
+  color: var(--gx-saia-color-black);
+}
+#saia .card--purple-300 {
+  background-color: var(--gx-saia-color-purple--300);
+}
+#saia .card__title {
+  font-size: var(--gx-saia-font-size-l);
+}
 @media only screen and (max-width: 1199px) {
   #saia .container {
     max-width: 960px;
@@ -354,6 +437,13 @@ body {
   #saia .container {
     max-width: 100%;
   }
+}
+
+#saia {
+  /*CORE STRENGTH*/
+}
+#saia #core-strength .card {
+  min-height: 200px;
 }
 
 #saia .header {
