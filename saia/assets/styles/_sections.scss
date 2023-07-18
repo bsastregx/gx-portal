@@ -30,6 +30,59 @@
     }
   }
 
+  /*CONNECTIONS/DOTS*/
+  $stepMargin: var(--gx-saia-space-m);
+  .step {
+    display: block;
+    $lineWidth: 4px;
+    $lineHeight: 100px;
+    $lineColor: rgb(225, 227, 230);
+    $lineColorGradient: rgba(225, 227, 230, 1) 0%,
+      rgba(225, 227, 230, 0.5024166870117188) 75%, rgba(225, 227, 230, 0) 100%;
+    width: $lineWidth;
+    height: $lineHeight;
+    margin: 0 auto;
+    background-color: $lineColor;
+    &--start {
+      border-top-right-radius: 2px;
+      border-top-left-radius: 2px;
+      margin-top: var(--gx-saia-space-s);
+      background: $lineColor;
+      background: linear-gradient(180deg, $lineColorGradient);
+    }
+    &--end {
+      background: $lineColor;
+      background: linear-gradient(360deg, $lineColorGradient);
+    }
+    &--complete {
+      margin-top: $stepMargin;
+      height: calc($lineHeight * 2);
+      background: $lineColor;
+    }
+  }
+  .dot {
+    $size: var(--gx-saia-font-size-xxxl);
+    display: block;
+    margin: 0 auto;
+    width: $size;
+    height: $size;
+    background-color: var(--gx-saia-color-gray--200);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $stepMargin;
+    &::after {
+      border-radius: 100%;
+      content: "";
+      display: block;
+      width: calc($size * 0.75);
+      height: calc($size * 0.75);
+      background-color: var(--gx-saia-color-white);
+      box-shadow: var(--gx-saia-shadow);
+    }
+  }
+
   /*CORE STRENGTH*/
   #core-strength {
     .card {

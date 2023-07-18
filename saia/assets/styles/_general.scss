@@ -87,7 +87,7 @@ body::-webkit-scrollbar-thumb {
   /*CARD*/
   .card {
     box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    box-shadow: var(--gx-saia-shadow);
     border-radius: var(--gx-saia-radius--m);
     padding: var(--gx-saia-space-m);
     color: var(--gx-saia-color-black);

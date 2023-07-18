@@ -6,12 +6,13 @@
   --gx-saia-color-purple--300: #8e55d6;
   --gx-saia-color-purple--900: #180f34;
   --gx-saia-color-gray--100: #f9f9f9;
+  --gx-saia-color-gray--200: #e7e9f0;
   --gx-saia-color-black: #1f272b;
   --gx-saia-color-white: #fff;
   --gx-saia-color-overlay: rgba(0, 0, 0, 0.07);
   /*font family*/
   --gx-saia-font-family-texts: Rubik, Helvetica, Arial, sans-serif;
-  --gx-saia-font-family-headings: Graphik;
+  --gx-saia-font-family-headings: Graphik, Helvetica, Arial, sans-serif;
   --gx-saia-font-size-base: 17px;
   --gx-saia-font-size-s: 14px;
   --gx-saia-font-size-m: 20px;
@@ -36,6 +37,8 @@
   --gx-saia-radius--s: 8px;
   --gx-saia-radius--m: 16px;
   --gx-saia-radius--l: 32px;
+  /*shadow*/
+  --gx-saia-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 
   /*SEMANTIC TOKENS*/
   --gx-saia-color-text: var(--gx-saia-color-black);
