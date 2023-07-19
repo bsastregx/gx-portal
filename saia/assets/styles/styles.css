@@ -534,7 +534,6 @@ a {
   /*CORE STRENGTH*/
   /*CORE STRENGTH*/
   /*EMPOWER USERS*/
-  /*CREATE AND TRANSLATE*/
   /*GET IN TOUCH*/
 }
 #saia .section {
@@ -654,6 +653,29 @@ a {
     min-height: 0;
   }
 }
+#saia .main-footer .main-footer__wrapper {
+  /*Back to top arrow*/
+  position: relative;
+}
+#saia .main-footer .main-footer__wrapper #back-to-top {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: calc((var(--gx-saia-space-m) + var(--gx-saia-space-s)) * -1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: var(--gx-saia-space-m);
+  height: var(--gx-saia-space-m);
+  background-color: var(--gx-saia-color-purple--200);
+  color: var(--gx-saia-color-white);
+  transform: scale(1, 1);
+  transition: 100ms transform;
+}
+#saia .main-footer .main-footer__wrapper #back-to-top:hover {
+  transform: scale(1.25, 1.25);
+}
 #saia #about-us .main-title {
   background: linear-gradient(90deg, var(--gx-saia-color-purple--900) 3.49%, var(--gx-saia-color-purple--300) 100%);
   -webkit-background-clip: text;
@@ -667,6 +689,7 @@ a {
 #saia #about-us .cols__right {
   display: flex;
   align-items: end;
+  justify-content: center;
 }
 @media (max-width: 1199px) {
   #saia #about-us .cols__left {
@@ -686,29 +709,6 @@ a {
   #saia #about-us .cols__left {
     padding: var(--gx-saia-section-padding--v) 0 0 0;
   }
-}
-#saia #create-translate {
-  position: relative;
-}
-#saia #create-translate #back-to-top {
-  cursor: pointer;
-  position: absolute;
-  right: var(--gx-saia-space-s);
-  bottom: var(--gx-saia-space-s);
-  display: block;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  width: var(--gx-saia-space-m);
-  height: var(--gx-saia-space-m);
-  background-color: var(--gx-saia-color-purple--200);
-  color: var(--gx-saia-color-white);
-  transform: scale(1, 1);
-  transition: 100ms transform;
-}
-#saia #create-translate #back-to-top:hover {
-  transform: scale(1.25, 1.25);
 }
 #saia #get-in-touch .form-not-displayed {
   text-align: center;

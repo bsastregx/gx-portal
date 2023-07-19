@@ -1,4 +1,7 @@
+let freezeAnimatedImages = false;
 const contentLoaded = () => {
+  /*VARIABLES*/
+
   /*SHOW PAGE*/
   const saia = document.getElementById("saia");
   saia?.classList.remove("saia-hidden");
@@ -55,17 +58,15 @@ const contentLoaded = () => {
 
   /* 5. DETECT MOUSEENTER OR TOUCHSTART ON LAST SECTION */
   /*It might happen that the image of the last section's intersection observer condition is not met (the center of the image has to reach the center of the viewport). By adding a mouseenter/touchstart event to the last section, we provide a fallback method to load and display the image.*/
-  const lazyLoadLastSectionImage = () => {
-    const lazyImage = lastSection.querySelector("img");
-    if (lazyImage.dataset.src) {
-      setTimeout(() => {
-        lazyImage.src = lazyImage.dataset.src;
-      }, 250);
-    }
+  const showLastSectionImage = () => {
+    const image = lastSection.querySelector("img");
+    setTimeout(() => {
+      image.classList.remove("animate--hidden");
+    }, 250);
   };
   if (lastSection) {
-    lastSection.addEventListener("mouseenter", lazyLoadLastSectionImage);
-    lastSection.addEventListener("touchstart", lazyLoadLastSectionImage);
+    lastSection.addEventListener("mouseenter", showLastSectionImage);
+    lastSection.addEventListener("touchstart", showLastSectionImage);
   }
 
   /* 6. GO TO TOP */
@@ -75,7 +76,6 @@ const contentLoaded = () => {
   });
 
   /* 7. TRUNCATE SELECT OPTIONS TO PREVENT OVERFLOW / SAVE REFERENCE TO FIRST FORM ITEM TO USE LATER*/
-  let firstFormItem;
   window.addEventListener("message", function (event) {
     if (
       event.data.type === "hsFormCallback" &&
@@ -102,8 +102,11 @@ const contentLoaded = () => {
   const formAnchors = document.querySelectorAll(".go-to-form");
   formAnchors?.forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
+      /*We want to freeze the animation of images, because we are going to go from the top of the page, to the bottom, very quickly. There is no purpose of showing the animated images in this scenario. The idea is to show the animated images when the user is scrolling with the mouse, or with the keyboard.*/
+      freezeAnimatedImages = true;
       const firstInput = document.querySelector(".hbspt-form input");
-      firstInput.focus();
+      firstInput.scrollIntoView();
+      //firstInput.focus();
     });
   });
 };
@@ -118,7 +121,8 @@ const io = (observableImages) => {
   let Observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(function (entry) {
       let image = entry.target;
-      if (entry.isIntersecting) {
+      console.log(freezeAnimatedImages);
+      if (entry.isIntersecting && !freezeAnimatedImages) {
         image.classList.remove("animate--hidden");
         Observer.unobserve(image);
       }
