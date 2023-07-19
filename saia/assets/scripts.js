@@ -1,7 +1,4 @@
-let freezeAnimatedImages = false;
 const contentLoaded = () => {
-  /*VARIABLES*/
-
   /*SHOW PAGE*/
   const saia = document.getElementById("saia");
   saia?.classList.remove("saia-hidden");
@@ -102,12 +99,16 @@ const contentLoaded = () => {
   const formAnchors = document.querySelectorAll(".go-to-form");
   formAnchors?.forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
-      /*We want to freeze the animation of images, because we are going to go from the top of the page, to the bottom, very quickly. There is no purpose of showing the animated images in this scenario. The idea is to show the animated images when the user is scrolling with the mouse, or with the keyboard.*/
-      freezeAnimatedImages = true;
       const firstInput = document.querySelector(".hbspt-form input");
-      firstInput.scrollIntoView();
-      //firstInput.focus();
+      firstInput?.focus();
     });
+  });
+
+  /* 9. DISABLE LAZY LOADING TO FIX SCROLLING ISSUES */
+  /*Disable Lazy loading because it is interfering with the auto-scroll. Keep lazy loading on html for non-javascript users.*/
+  const lazyLoadedImages = document.querySelectorAll('img[loading="lazy"]');
+  lazyLoadedImages.forEach((img) => {
+    img.setAttribute("loading", "eager");
   });
 };
 
@@ -121,8 +122,7 @@ const io = (observableImages) => {
   let Observer = new IntersectionObserver(function (entries, observer) {
     entries.forEach(function (entry) {
       let image = entry.target;
-      console.log(freezeAnimatedImages);
-      if (entry.isIntersecting && !freezeAnimatedImages) {
+      if (entry.isIntersecting) {
         image.classList.remove("animate--hidden");
         Observer.unobserve(image);
       }

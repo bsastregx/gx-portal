@@ -373,6 +373,7 @@ body {
 }
 
 #saia {
+  overflow-x: hidden;
   transition: 350ms opacity;
   opacity: 1;
 }
@@ -728,8 +729,10 @@ a {
 }
 
 #saia .header {
+  position: relative;
   padding: var(--gx-saia-space-m) 0;
   /*BURGER*/
+  /*CURVED LINES*/
   /*RESPONSIVE*/
   /*tablet and above*/
 }
@@ -853,6 +856,67 @@ a {
 }
 #saia .header .saia-wrapper .button {
   margin-top: var(--gx-saia-space-s);
+}
+#saia .header .curved-lines {
+  height: 390px;
+  width: 560px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  -webkit-mask-image: url(../images/saia-curved-lines.svg);
+  mask-image: url(../images/saia-curved-lines.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+}
+#saia .header .curved-lines:after {
+  content: "";
+  display: block;
+  width: 150%;
+  height: 200%;
+  position: absolute;
+  transform: rotate(0deg);
+  background-image: linear-gradient(35deg, hsl(267, 67%, 73%) 0%, hsl(267, 65%, 70%) 20%, hsl(267, 64%, 67%) 29%, hsl(267, 63%, 64%) 36%, hsl(267, 62%, 62%) 43%, hsl(267, 61%, 59%) 50%, hsl(264, 44%, 49%) 57%, hsl(262, 44%, 40%) 64%, hsl(259, 46%, 30%) 71%, hsl(257, 49%, 22%) 80%, hsl(255, 55%, 13%) 100%);
+  left: auto;
+  top: -150px;
+  right: -160px;
+  position: absolute;
+  animation-name: curvedLinesGradient;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@media (max-width: 1199px) {
+  #saia .header .curved-lines {
+    height: 270px;
+    width: 430px;
+  }
+  #saia .header .curved-lines:after {
+    width: 160%;
+    height: 280%;
+  }
+}
+@media (max-width: 991px) {
+  #saia .header .curved-lines {
+    height: 210px;
+    width: 327px;
+  }
+  #saia .header .curved-lines:after {
+    width: 160%;
+    height: 280%;
+  }
+}
+@media (max-width: 767px) {
+  #saia .header .curved-lines {
+    display: none;
+  }
+}
+@keyframes curvedLinesGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes navToggle {
   0% {

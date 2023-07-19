@@ -1,11 +1,8 @@
 @include max-width(desktop) {
-
 }
 @include max-width(small-desktop) {
 }
 @include max-width(tablet) {
-  
 }
 @include max-width(mobile) {
-  
 }

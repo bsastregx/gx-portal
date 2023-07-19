@@ -9,6 +9,7 @@ body {
   font-weight: var(--gx-saia-font-weight-texts) !important;
 }
 #saia {
+  overflow-x: hidden;
   transition: 350ms opacity;
   opacity: 1;
   &.saia-hidden {

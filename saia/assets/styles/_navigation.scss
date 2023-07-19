@@ -1,5 +1,6 @@
 #saia {
   .header {
+    position: relative;
     padding: var(--gx-saia-space-m) 0;
     &__container {
       display: flex;
@@ -142,6 +143,78 @@
       margin: 120px 0 128px 0;
       .button {
         margin-top: var(--gx-saia-space-s);
+      }
+    }
+
+    /*CURVED LINES*/
+    .curved-lines {
+      height: 390px;
+      width: 560px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      -webkit-mask-image: url(../images/saia-curved-lines.svg);
+      mask-image: url(../images/saia-curved-lines.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 150%;
+        height: 200%;
+        position: absolute;
+        transform: rotate(0deg);
+        background-image: linear-gradient(
+          35deg,
+          hsl(267deg 67% 73%) 0%,
+          hsl(267deg 65% 70%) 20%,
+          hsl(267deg 64% 67%) 29%,
+          hsl(267deg 63% 64%) 36%,
+          hsl(267deg 62% 62%) 43%,
+          hsl(267deg 61% 59%) 50%,
+          hsl(264deg 44% 49%) 57%,
+          hsl(262deg 44% 40%) 64%,
+          hsl(259deg 46% 30%) 71%,
+          hsl(257deg 49% 22%) 80%,
+          hsl(255deg 55% 13%) 100%
+        );
+        left: auto;
+        top: -150px;
+        right: -160px;
+        position: absolute;
+        animation-name: curvedLinesGradient;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      @include max-width(desktop) {
+        height: 270px;
+        width: 430px;
+        &:after {
+          width: 160%;
+          height: 280%;
+        }
+      }
+      @include max-width(small-desktop) {
+        height: 210px;
+        width: 327px;
+        &:after {
+          width: 160%;
+          height: 280%;
+        }
+      }
+      @include max-width(tablet) {
+        display: none;
+      }
+    }
+
+    @keyframes curvedLinesGradient {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
       }
     }
 
