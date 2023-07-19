@@ -732,7 +732,6 @@ a {
   position: relative;
   padding: var(--gx-saia-space-m) 0;
   /*BURGER*/
-  /*CURVED LINES*/
   /*RESPONSIVE*/
   /*tablet and above*/
 }
@@ -863,11 +862,6 @@ a {
   position: absolute;
   right: 0;
   bottom: 0;
-  -webkit-mask-image: url(./images/saia-curved-lines.svg);
-  mask-image: url(./images/saia-curved-lines.svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
 }
 #saia .header .curved-lines:after {
   content: "";
@@ -1155,6 +1149,11 @@ a {
 }
 #saia .hbspt-form .hs-button:hover {
   background-color: var(--gx-saia-color-purple--300);
+}
+
+nav.region,
+footer.region {
+  display: none !important;
 }
 
 /*# sourceMappingURL=styles.css.map */

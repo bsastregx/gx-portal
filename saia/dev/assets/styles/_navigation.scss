@@ -145,19 +145,17 @@
         margin-top: var(--gx-saia-space-s);
       }
     }
-
-    /*CURVED LINES*/
     .curved-lines {
       height: 390px;
       width: 560px;
       position: absolute;
       right: 0;
       bottom: 0;
-      -webkit-mask-image: url(./images/saia-curved-lines.svg);
-      mask-image: url(./images/saia-curved-lines.svg);
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-size: cover;
+      // -webkit-mask-image: url(https://www.genexus.com//media/images/saia-curved-lines.svg);
+      // mask-image: url(https://www.genexus.com//media/images/saia-curved-lines.svg);
+      // -webkit-mask-repeat: no-repeat;
+      // mask-repeat: no-repeat;
+      // -webkit-mask-size: cover;
 
       &:after {
         content: "";
