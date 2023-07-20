@@ -15,6 +15,18 @@ body {
   &.saia-hidden {
     opacity: 0;
   }
+  /*SELECTION COLOR*/
+  ::-moz-selection {
+    /* Code for Firefox */
+    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
+    background-color: var(--gx-saia-color-selection-bg);
+    color: var(--gx-saia-color-selection-text);
+  }
+  ::selection {
+    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
+    background-color: var(--gx-saia-color-selection-bg);
+    color: var(--gx-saia-color-selection-text);
+  }
 }
 a {
   color: inherit;
@@ -67,18 +79,6 @@ a {
   /*BUTTON*/
   .button {
     @include button();
-  }
-  /*SELECTION COLOR*/
-  ::-moz-selection {
-    /* Code for Firefox */
-    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
-    background-color: var(--gx-saia-color-selection-bg);
-    color: var(--gx-saia-color-selection-text);
-  }
-  ::selection {
-    -webkit-text-fill-color: var(--gx-saia-color-selection-text);
-    background-color: var(--gx-saia-color-selection-bg);
-    color: var(--gx-saia-color-selection-text);
   }
 
   /*CARD*/

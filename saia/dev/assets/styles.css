@@ -376,9 +376,21 @@ body {
   overflow-x: hidden;
   transition: 350ms opacity;
   opacity: 1;
+  /*SELECTION COLOR*/
 }
 #saia.saia-hidden {
   opacity: 0;
+}
+#saia ::-moz-selection {
+  /* Code for Firefox */
+  -webkit-text-fill-color: var(--gx-saia-color-selection-text);
+  background-color: var(--gx-saia-color-selection-bg);
+  color: var(--gx-saia-color-selection-text);
+}
+#saia ::selection {
+  -webkit-text-fill-color: var(--gx-saia-color-selection-text);
+  background-color: var(--gx-saia-color-selection-bg);
+  color: var(--gx-saia-color-selection-text);
 }
 
 a {
@@ -404,7 +416,6 @@ a {
   /*TITLES*/
   /*CONTAINER*/
   /*BUTTON*/
-  /*SELECTION COLOR*/
   /*CARD*/
   /*IMAGES*/
   /*OTHER*/
@@ -465,17 +476,6 @@ a {
 }
 #saia .button:hover {
   background-color: var(--gx-saia-color-purple--300);
-}
-#saia ::-moz-selection {
-  /* Code for Firefox */
-  -webkit-text-fill-color: var(--gx-saia-color-selection-text);
-  background-color: var(--gx-saia-color-selection-bg);
-  color: var(--gx-saia-color-selection-text);
-}
-#saia ::selection {
-  -webkit-text-fill-color: var(--gx-saia-color-selection-text);
-  background-color: var(--gx-saia-color-selection-bg);
-  color: var(--gx-saia-color-selection-text);
 }
 #saia .card {
   box-sizing: border-box;
@@ -676,6 +676,12 @@ a {
 }
 #saia .main-footer .main-footer__wrapper #back-to-top:hover {
   transform: scale(1.25, 1.25);
+}
+@media (max-width: 575px) {
+  #saia .main-footer .main-footer__wrapper {
+    flex-direction: column;
+    gap: var(--gx-saia-space-xs);
+  }
 }
 #saia #about-us .main-title {
   background: linear-gradient(90deg, var(--gx-saia-color-purple--900) 3.49%, var(--gx-saia-color-purple--300) 100%);

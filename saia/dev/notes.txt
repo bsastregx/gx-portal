@@ -1,1 +1,12 @@
 sass --watch ./assets/styles/styles.scss ./assets/styles/styles.css
+
+- arreglar blanco imagenes svg en mobile por dark theme *
+- menu fijo *
+- revisar footer en mobile *
+- Thank you for your interest bajar a 17. y color: #eebeff
+- Alinear el menu en mobile 
+- Ajustar lineas conectoras, que sean mas cortas en mobile (solo la primera)
+- padding top del menu cambiarlo a m
+- mover boton de Send a la izquierda
+- poner border al menu de lado a lado
+- borde de lado a lado en el footer
