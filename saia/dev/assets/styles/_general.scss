@@ -112,6 +112,8 @@ a {
     outline: var(--gx-saia-focus-width) solid var(--gx-saia-color-focus);
   }
   hr {
+    border: 0;
+    border-bottom: var(--gx-saia-line);
     margin: 0;
   }
 
