@@ -85,6 +85,9 @@
       width: 140px;
     }
     &__list {
+      @include max-width(desktop) {
+        gap: var(--gx-saia-space-s);
+      }
       display: flex;
       align-items: center;
       gap: var(--gx-saia-space-m);

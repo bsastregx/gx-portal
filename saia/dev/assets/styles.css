@@ -831,6 +831,11 @@ a {
   gap: var(--gx-saia-space-m);
   transition: opacity 200ms;
 }
+@media (max-width: 1199px) {
+  #saia .header__list {
+    gap: var(--gx-saia-space-s);
+  }
+}
 #saia .header__list-item {
   display: flex;
   align-items: center;
