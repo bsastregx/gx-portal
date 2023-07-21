@@ -55,57 +55,73 @@
           }
         </style>
       </noscript>
+
       <!--HEADER-->
       <header class="header section section--purple-900">
         <div class="header__wrapper">
-     
             <div class="container header__container">
-              <img
-              class="header__logo"
-              src="http://www.genexus.com/media/images/saia-logo-dark.svg"
-              alt="saia logo"
-            />
-            <button
-              type="button"
-              class="header__burger show-if-js-enabled"
-              id="header-burger"
-              aria-label="toggle menu"
-            >
-              <span class="header__burger-line"></span>
-              <span class="header__burger-line"></span>
-              <span class="header__burger-line"></span>
-              <span class="header__burger-line"></span>
-            </button>
-            <nav class="header__nav" id="header-nav">
-              <ul class="header__list">
-                <li class="header__list-item header__list-item--reverse">
-                  <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#benefits">Benefits</a>
-                  <span class="header__list-line"></span>
-                </li>
-                <li class="header__list-item header__list-item--reverse">
-                  <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#about-us">About us</a>
-                  <span class="header__list-line"></span>
-                </li>
-                <li class="header__list-item header__list-item--reverse">
-                  <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#how-it-works"
-                    >How it works</a
-                  >
-                  <span class="header__list-line"></span>
-                </li>
-              </ul>
-              <noscript>              
-                <a class="button hide--m go-to-form show-if-js-enabled" href="#get-in-touch">Ask for a demo</a>
-              </noscript>
-              <button class="button hide--m go-to-form show-if-js-enabled">Ask for a demo</a>
-            </nav>
+
+              <!--header left-->
+              <div class="header__left">
+                <img
+                  class="header__logo"
+                  src="http://www.genexus.com/media/images/saia-logo-dark.svg"
+                  alt="saia logo"
+                />
+                <ul class="header__langs" id="header-langs" data-current-lang="en" style="display:none">
+                  <li class="lang" data-lang="es">ES</li>
+                  <li class="lang" data-lang="en">EN</li>
+                </ul>
+              </div>
+
+              <!--header center-->
+              <div class="header__center">
+                <nav class="header__nav" id="header-nav">
+                  <ul class="header__list">
+                    <li class="header__list-item header__list-item--reverse">
+                      <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#benefits" data-es="Beneficios" data-en="Benefits">Benefits</a>
+                      <span class="header__list-line"></span>
+                    </li>
+                    <li class="header__list-item header__list-item--reverse">
+                      <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#about-us" data-es="" data-en="About us">About us</a>
+                      <span class="header__list-line"></span>
+                    </li>
+                    <li class="header__list-item header__list-item--reverse">
+                      <a class="header__list-link" href="https://www.genexus.com/en/products/saia/#how-it-works" data-es="" data-en=""
+                        >How it works</a
+                      >
+                      <span class="header__list-line"></span>
+                    </li>
+                  </ul>
+
+                </nav>
+              </div>
+
+              <!--header right-->
+              <div class="header__right">
+                <button
+                  type="button"
+                  class="header__burger show-if-js-enabled"
+                  id="header-burger"
+                  aria-label="toggle menu"
+                >
+                  <span class="header__burger-line"></span>
+                  <span class="header__burger-line"></span>
+                  <span class="header__burger-line"></span>
+                  <span class="header__burger-line"></span>
+                </button>
+                <noscript>              
+                  <a class="button hide--small-desktop go-to-form show-if-js-enabled" href="#get-in-touch">Ask for a demo</a>
+                </noscript>
+                <button class="button hide--small-desktop go-to-form show-if-js-enabled">Ask for a demo</a>
+              </div>
             </div>
-          
           <hr class="header__wrapper-hr">
         </div>
   
         <div class="container">
           <div class="saia-wrapper">
-            <h1 class="h2">Fuel your AI Motion</h1>
+            <h1 class="h2" data-en="Fuel your AI Motion" data-es="Alimenta tu Movimiento de IA">Fuel your AI Motion</h1>
             <p class="text-bigger">
               We are the spine that connects companies with LLMs in a monitored
               and cost effective way to easily compose Ai-Assistants, acting as

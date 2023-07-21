@@ -114,6 +114,33 @@ const contentLoaded = () => {
   /*HANDLE SCROLL*/
   handleScroll();
   window.addEventListener("scroll", handleScroll);
+
+  /*TRANSLATIONS*/
+  const translatableElements = document.querySelectorAll("[data-en]");
+  const langSwitcher = document.getElementById("header-langs");
+  langSwitcher.addEventListener("click", function () {
+    const currentLang = langSwitcher.getAttribute("data-current-lang");
+    let newLang = undefined;
+    if (currentLang === "es") {
+      newLang = "en";
+    } else if (currentLang === "en") {
+      newLang = "es";
+    }
+    langSwitcher.setAttribute("data-current-lang", newLang);
+
+    switchLang(newLang);
+  });
+  const switchLang = (newLang) => {
+    translatableElements?.forEach((el) => {
+      const en = el.getAttribute("data-en");
+      const es = el.getAttribute("data-es");
+      if (newLang === "es" && es) {
+        el.textContent = es;
+      } else if (newLang === "en" && en) {
+        el.textContent = en;
+      }
+    });
+  };
 };
 
 /*IO*/

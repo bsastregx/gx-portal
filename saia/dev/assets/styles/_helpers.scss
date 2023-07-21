@@ -3,22 +3,22 @@
     display: none !important;
   }
   @include max-width(desktop) {
-    .hide--xl {
+    .hide--desktop {
       display: none !important;
     }
   }
   @include max-width(small-desktop) {
-    .hide--l {
+    .hide--small-desktop {
       display: none !important;
     }
   }
   @include max-width(tablet) {
-    .hide--m {
+    .hide--tablet {
       display: none !important;
     }
   }
   @include max-width(mobile) {
-    .hide--s {
+    .hide--mobile {
       display: none !important;
     }
   }

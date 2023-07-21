@@ -24,6 +24,48 @@
         padding-top: var(--gx-saia-space-s);
         padding-bottom: var(--gx-saia-space-s);
       }
+      @include max-width(mobile) {
+        padding-top: var(--gx-saia-space-s);
+        padding-bottom: var(--gx-saia-space-s);
+      }
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: var(--gx-saia-space-m);
+      order: 1;
+    }
+    &__center {
+      order: 2;
+    }
+    &__right {
+      order: 3;
+    }
+    &__langs {
+      padding: var(--gx-saia-space-xs);
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: var(--gx-saia-space-s);
+
+      .lang {
+        opacity: 1;
+        transition: 200ms opacity;
+        &--selected {
+          opacity: 1;
+        }
+      }
+      $unselectedLangOpacity: 0.5;
+      &[data-current-lang="en"] {
+        *[data-lang="es"] {
+          opacity: $unselectedLangOpacity;
+        }
+      }
+      &[data-current-lang="es"] {
+        *[data-lang="en"] {
+          opacity: $unselectedLangOpacity;
+        }
+      }
     }
     &__nav {
       flex-grow: 1;
@@ -258,8 +300,6 @@
     @include max-width(desktop) {
     }
     @include max-width(small-desktop) {
-    }
-    @include max-width(tablet) {
       --navbar-height: 100px;
       &__container {
         gap: 0;
@@ -278,6 +318,16 @@
           align-items: start;
         }
       }
+      &__left {
+        order: 1;
+      }
+      &__center {
+        order: 3;
+        width: 100%;
+      }
+      &__right {
+        order: 2;
+      }
       &__burger {
         display: block;
         opacity: 1;
@@ -294,6 +344,8 @@
         }
       }
     }
+    @include max-width(tablet) {
+    }
     @include max-width(mobile) {
       --navbar-height: 90px;
       &__logo {
@@ -301,7 +353,7 @@
       }
     }
     /*tablet and above*/
-    @include max-width(tablet, $min: true) {
+    @include max-width(small-desktop, $min: true) {
       &__list {
         margin-top: 0 !important;
       }

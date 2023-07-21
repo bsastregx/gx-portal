@@ -213,22 +213,22 @@ table {
   display: none !important;
 }
 @media (max-width: 1199px) {
-  #saia .hide--xl {
+  #saia .hide--desktop {
     display: none !important;
   }
 }
 @media (max-width: 991px) {
-  #saia .hide--l {
+  #saia .hide--small-desktop {
     display: none !important;
   }
 }
 @media (max-width: 767px) {
-  #saia .hide--m {
+  #saia .hide--tablet {
     display: none !important;
   }
 }
 @media (max-width: 575px) {
-  #saia .hide--s {
+  #saia .hide--mobile {
     display: none !important;
   }
 }
@@ -767,6 +767,44 @@ a {
   padding-top: var(--gx-saia-space-s);
   padding-bottom: var(--gx-saia-space-s);
 }
+@media (max-width: 575px) {
+  #saia .header__container {
+    padding-top: var(--gx-saia-space-s);
+    padding-bottom: var(--gx-saia-space-s);
+  }
+}
+#saia .header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--gx-saia-space-m);
+  order: 1;
+}
+#saia .header__center {
+  order: 2;
+}
+#saia .header__right {
+  order: 3;
+}
+#saia .header__langs {
+  padding: var(--gx-saia-space-xs);
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--gx-saia-space-s);
+}
+#saia .header__langs .lang {
+  opacity: 1;
+  transition: 200ms opacity;
+}
+#saia .header__langs .lang--selected {
+  opacity: 1;
+}
+#saia .header__langs[data-current-lang=en] *[data-lang=es] {
+  opacity: 0.5;
+}
+#saia .header__langs[data-current-lang=es] *[data-lang=en] {
+  opacity: 0.5;
+}
 #saia .header__nav {
   flex-grow: 1;
   display: flex;
@@ -960,7 +998,7 @@ a {
     margin-top: var(--gx-saia-space-m);
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   #saia .header {
     --navbar-height: 100px;
   }
@@ -980,6 +1018,16 @@ a {
     opacity: 0;
     gap: var(--gx-saia-space-xs);
     align-items: start;
+  }
+  #saia .header__left {
+    order: 1;
+  }
+  #saia .header__center {
+    order: 3;
+    width: 100%;
+  }
+  #saia .header__right {
+    order: 2;
   }
   #saia .header__burger {
     display: block;
@@ -1005,7 +1053,7 @@ a {
     width: 105px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #saia .header__list {
     margin-top: 0 !important;
   }

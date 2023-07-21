@@ -2,6 +2,7 @@
 $desktopMax: 1199px;
 $desktopMin: 1200px;
 $smallDesktopMax: 991px;
+$smallDesktopMin: 992px;
 $tabletMax: 767px;
 $tabletMin: 768px;
 $mobileMax: 575px;
@@ -18,8 +19,14 @@ $mobileMax: 575px;
       }
     }
   } @else if ($breakpoint == small-desktop) {
-    @media (max-width: $smallDesktopMax) {
-      @content;
+    @if $min {
+      @media (min-width: $smallDesktopMin) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $smallDesktopMax) {
+        @content;
+      }
     }
   } @else if ($breakpoint == tablet) {
     @if $min {
