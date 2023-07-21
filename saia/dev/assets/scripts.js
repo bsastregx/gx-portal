@@ -141,6 +141,21 @@ const contentLoaded = () => {
       }
     });
   };
+
+  /*show langs switcher*/
+  const listenToKeydownOnDocument = (e) => {
+    const key = e.key.toLowerCase();
+    typed = (typed + key).replaceAll(" ", "");
+    console.log(typed);
+    if (typed.includes(password)) {
+      const langSwitcher = document.getElementById("header-langs");
+      langSwitcher.style.display = "flex";
+      document.removeEventListener("keydown", listenToKeydownOnDocument);
+    }
+  };
+  const password = "idiomas";
+  let typed = "";
+  document.addEventListener("keydown", listenToKeydownOnDocument);
 };
 
 /*IO*/
