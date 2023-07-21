@@ -110,8 +110,13 @@ const contentLoaded = () => {
   lazyLoadedImages.forEach((img) => {
     img.setAttribute("loading", "eager");
   });
+
+  /*HANDLE SCROLL*/
+  handleScroll();
+  window.addEventListener("scroll", handleScroll);
 };
 
+/*IO*/
 const io = (observableImages) => {
   const options = {
     rootMargin: "0px 0px -35% 0px",
@@ -133,6 +138,17 @@ const io = (observableImages) => {
     Observer.observe(image);
   });
 };
+
+/*HANDLE SCROLL*/
+function handleScroll() {
+  /*Make header shorter*/
+  const headerContainer = document.querySelector("#saia .header__container");
+  if (window.scrollY <= 500) {
+    headerContainer.classList.remove("header__container--thinner");
+  } else {
+    headerContainer.classList.add("header__container--thinner");
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   contentLoaded();

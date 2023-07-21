@@ -1,13 +1,29 @@
 #saia {
   .header {
+    --navbar-height: 115px;
     position: relative;
-    padding: var(--gx-saia-space-m) 0;
+    padding: calc(var(--gx-saia-space-m) + var(--navbar-height)) 0
+      var(--gx-saia-space-m) 0;
+    &__wrapper {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background-color: var(--gx-saia-color-purple--900);
+      z-index: 10;
+    }
     &__container {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--gx-saia-space-m);
       flex-wrap: wrap;
+      padding-top: var(--gx-saia-space-m);
+      padding-bottom: var(--gx-saia-space-m);
+      transition: 200ms padding;
+      &--thinner {
+        padding-top: var(--gx-saia-space-s);
+        padding-bottom: var(--gx-saia-space-s);
+      }
     }
     &__nav {
       flex-grow: 1;
@@ -75,6 +91,7 @@
         }
       }
     }
+
     /*BURGER*/
     &__burger {
       position: relative;
@@ -145,6 +162,7 @@
         margin-top: var(--gx-saia-space-s);
       }
     }
+
     .curved-lines {
       height: 390px;
       width: 560px;
@@ -186,6 +204,7 @@
         animation-duration: 4s;
         animation-iteration-count: infinite;
       }
+
       @include max-width(desktop) {
         height: 270px;
         width: 430px;
@@ -241,6 +260,7 @@
     @include max-width(small-desktop) {
     }
     @include max-width(tablet) {
+      --navbar-height: 100px;
       &__container {
         gap: 0;
       }
@@ -275,7 +295,7 @@
       }
     }
     @include max-width(mobile) {
-      padding: var(--gx-saia-space-s) 0;
+      --navbar-height: 90px;
       &__logo {
         width: 105px;
       }
