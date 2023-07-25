@@ -1,10 +1,10 @@
 #saia {
   .header {
-    --navbar-height: 115px;
     position: relative;
-    padding: calc(var(--gx-saia-space-m) + var(--navbar-height)) 0
-      var(--gx-saia-space-m) 0;
-    &__wrapper {
+    padding-top: calc(
+      var(--gx-saia-section-padding--v) + var(--saia-navbar-height)
+    );
+    &__navbar {
       position: fixed;
       width: 100%;
       top: 0;
@@ -23,6 +23,15 @@
       &--thinner {
         padding-top: var(--gx-saia-space-s);
         padding-bottom: var(--gx-saia-space-s);
+        .header__right {
+          display: block;
+        }
+      }
+      @include max-width(small-desktop) {
+        &--thinner {
+          padding-top: 24px;
+          padding-bottom: 24px;
+        }
       }
       @include max-width(mobile) {
         padding-top: var(--gx-saia-space-s);
@@ -39,7 +48,11 @@
       order: 2;
     }
     &__right {
+      display: none;
       order: 3;
+      @include max-width(small-desktop) {
+        display: block;
+      }
     }
     &__langs {
       padding: var(--gx-saia-space-xs);
@@ -202,7 +215,6 @@
 
     .saia-wrapper {
       max-width: 640px;
-      margin: 120px 0 128px 0;
       .button {
         margin-top: var(--gx-saia-space-s);
       }
@@ -303,7 +315,6 @@
     @include max-width(desktop) {
     }
     @include max-width(small-desktop) {
-      --navbar-height: 100px;
       &__container {
         gap: 0;
       }
@@ -341,7 +352,6 @@
         margin-top: 0;
       }
       .saia-wrapper {
-        margin: 60px 0 60px 0;
         .button {
           margin-top: var(--gx-saia-space-s);
         }
@@ -350,7 +360,6 @@
     @include max-width(tablet) {
     }
     @include max-width(mobile) {
-      --navbar-height: 90px;
       &__logo {
         width: 105px;
       }

@@ -1,4 +1,11 @@
+let headerBurger;
+let headerNav;
+
 const contentLoaded = () => {
+  /*REFERENCES TO ELEMENTS*/
+  headerBurger = document.getElementById("header-burger");
+  headerNav = document.getElementById("header-nav");
+
   /*SHOW PAGE*/
   const saia = document.getElementById("saia");
   saia?.classList.remove("saia-hidden");
@@ -23,10 +30,6 @@ const contentLoaded = () => {
   });
 
   /* 2. BURGER MENU */
-  // Initialize All Required DOM Element
-  const headerBurger = document.getElementById("header-burger");
-  const headerNav = document.getElementById("header-nav");
-
   // Initialize Responsive Navbar Menu
   headerBurger?.addEventListener("click", () => {
     headerBurger?.classList.toggle("active");
@@ -111,11 +114,11 @@ const contentLoaded = () => {
     img.setAttribute("loading", "eager");
   });
 
-  /*HANDLE SCROLL*/
+  /* 10. HANDLE SCROLL*/
   handleScroll();
   window.addEventListener("scroll", handleScroll);
 
-  /*TRANSLATIONS*/
+  /* 11. TRANSLATIONS*/
   const translatableElements = document.querySelectorAll("[data-en]");
   const langSwitcher = document.getElementById("header-langs");
   langSwitcher.addEventListener("click", function () {
@@ -141,7 +144,6 @@ const contentLoaded = () => {
       }
     });
   };
-
   /*show langs switcher*/
   const listenToKeydownOnDocument = (e) => {
     const key = e.key.toLowerCase();
@@ -156,6 +158,15 @@ const contentLoaded = () => {
   const password = "idiomas";
   let typed = "";
   document.addEventListener("keydown", listenToKeydownOnDocument);
+
+  /* 12. CLOSE HEADER CONTAINER AFTER CLICKING A LINK*/
+  const headerLinks = document.querySelectorAll("#header-navbar a");
+  headerLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      headerBurger?.classList.remove("active");
+      headerNav?.classList.remove("active");
+    });
+  });
 };
 
 /*IO*/
@@ -190,8 +201,21 @@ function handleScroll() {
   } else {
     headerContainer.classList.add("header__container--thinner");
   }
+  recalculateHeaderNavbarHeight();
+  /*Close Navbar*/
+  headerBurger?.classList.remove("active");
+  headerNav?.classList.remove("active");
 }
+
+/*Recalculate navbar height*/
+const recalculateHeaderNavbarHeight = () => {
+  const headerNavbar = document.getElementById("header-navbar");
+  const headerNavbarHeight = headerNavbar?.clientHeight;
+  const html = document.querySelector("html");
+  html.style.setProperty("--saia-navbar-height", headerNavbarHeight + "px");
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   contentLoaded();
 });
+window.onresize = recalculateHeaderNavbarHeight;

@@ -1,17 +1,17 @@
 #saia {
   #get-in-touch {
     .cols__right {
-      @include max-width(desktop, $min: true) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
       .submitted-message {
-        font-size: var(--gx-saia-font-size-l);
+        color: var(--gx-saia-color-pink--subtle);
+        text-align: center;
       }
     }
   }
   .hbspt-form {
+    flex: 1;
     /*grid*/
     form {
       display: grid;
@@ -68,7 +68,7 @@
     .hs-input {
       width: 100%;
       box-sizing: border-box;
-      background-color: transparent;
+      background-color: transparent !important;
       color: inherit;
       font-size: inherit;
       border: 1px solid var(--gx-saia-color-text);
