@@ -1,0 +1,82 @@
+:root {
+  --saia-navbar-min-height: 114px;
+  /*ATOMIC TOKENS*/
+  /*colors*/
+  --gx-saia-color-yellow: #e1ae42;
+  --gx-saia-color-pink: #e15d8f;
+  --gx-saia-color-pink--subtle: #eebeff;
+  --gx-saia-color-purple--200: #985ae5;
+  --gx-saia-color-purple--300: #8e55d6;
+  --gx-saia-color-purple--900: #180f34;
+  --gx-saia-color-gray--100: #f9f9f9;
+  --gx-saia-color-gray--200: #e7e9f0;
+  --gx-saia-color-gray--400: #b0b1b4;
+  --gx-saia-color-black: #1f272b;
+  --gx-saia-color-white: #fff;
+  --gx-saia-color-overlay: rgba(0, 0, 0, 0.07);
+  /*font family*/
+  --gx-saia-font-family-texts: Rubik, Helvetica, Arial, sans-serif;
+  --gx-saia-font-family-headings: Graphik, Helvetica, Arial, sans-serif;
+  --gx-saia-font-size-base: 17px;
+  --gx-saia-font-size-s: 14px;
+  --gx-saia-font-size-m: 20px;
+  --gx-saia-font-size-l: 26px;
+  --gx-saia-font-size-xl: 46px;
+  --gx-saia-font-size-xxl: 52px;
+  --gx-saia-font-size-xxxl: 64px;
+  --gx-saia-font-weight-headings: 600;
+  --gx-saia-font-weight-medium: 500;
+  --gx-saia-font-weight-texts: 300;
+  --gx-saia-line-height--tight: 1.2em;
+  --gx-saia-line-height--regular: 1.4em;
+  --gx-saia-line-height--comfortable: 1.45em;
+  --gx-saia-line-height--spaced: 1.6em;
+  /*spacing*/
+  --gx-saia-space-xxs: 4px;
+  --gx-saia-space-xs: 8px;
+  --gx-saia-space-s: 16px;
+  --gx-saia-space-m: 32px;
+  --gx-saia-space-l: 64px;
+  --gx-saia-space-xl: 128px;
+  /*radius*/
+  --gx-saia-radius--xs: 4px;
+  --gx-saia-radius--s: 8px;
+  --gx-saia-radius--m: 16px;
+  --gx-saia-radius--l: 32px;
+  /*shadow*/
+  --gx-saia-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+  /*SEMANTIC TOKENS*/
+  --gx-saia-color-text: var(--gx-saia-color-black);
+  --gx-saia-section-padding--v: var(--gx-saia-space-xl);
+  --gx-saia-container-padding--h: var(--gx-saia-space-m);
+  --gx-saia-color-over-purple: var(--gx-saia-color-white);
+  --gx-saia-color-focus: var(--gx-saia-color-yellow);
+  --gx-saia-color-error: var(--gx-saia-color-pink);
+  --gx-saia-focus-width: 3px;
+  --gx-saia-color-scrollbar: var(--gx-saia-color-purple--300);
+  --gx-saia-color-scrollbar--hover: var(--gx-saia-color-purple--200);
+  --gx-saia-color-selection-text: var(--gx-saia-color-white);
+  --gx-saia-color-selection-bg: var(--gx-saia-color-black);
+  --gx-saia-line: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+/*RESPONSIVE*/
+
+@include max-width(tablet) {
+  :root {
+    --saia-navbar-min-height: 80px;
+    --gx-saia-font-size-xxxl: 52px;
+    --gx-saia-font-size-xxl: 46px;
+    --gx-saia-font-size-xl: 36px;
+    --gx-saia-section-padding--v: var(--gx-saia-space-l);
+  }
+}
+@include max-width(mobile) {
+  :root {
+    --gx-saia-container-padding--h: var(--gx-saia-space-s);
+    --gx-saia-font-size-xxxl: 46px;
+    --gx-saia-font-size-xxl: 36px;
+    --gx-saia-font-size-xl: 26px;
+  }
+}

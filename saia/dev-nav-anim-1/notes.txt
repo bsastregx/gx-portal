@@ -1,0 +1,1 @@
+sass --watch ./assets/styles/styles.scss ./assets/styles/saia-styles.css
