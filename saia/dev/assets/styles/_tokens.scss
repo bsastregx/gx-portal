@@ -1,5 +1,5 @@
 :root {
-  --saia-navbar-height: 0;
+  --saia-navbar-min-height: 114px;
   /*ATOMIC TOKENS*/
   /*colors*/
   --gx-saia-color-yellow: #e1ae42;
@@ -55,15 +55,17 @@
   --gx-saia-color-error: var(--gx-saia-color-pink);
   --gx-saia-focus-width: 3px;
   --gx-saia-color-scrollbar: var(--gx-saia-color-purple--300);
+  --gx-saia-color-scrollbar--hover: var(--gx-saia-color-purple--200);
   --gx-saia-color-selection-text: var(--gx-saia-color-white);
   --gx-saia-color-selection-bg: var(--gx-saia-color-black);
-  --gx-saia-line: 0.3px solid var(--gx-saia-color-white);
+  --gx-saia-line: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 /*RESPONSIVE*/
 
 @include max-width(tablet) {
   :root {
+    --saia-navbar-min-height: 80px;
     --gx-saia-font-size-xxxl: 52px;
     --gx-saia-font-size-xxl: 46px;
     --gx-saia-font-size-xl: 36px;

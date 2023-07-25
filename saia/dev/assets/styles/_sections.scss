@@ -1,7 +1,7 @@
 #saia {
   /*SECTION*/
   .section {
-    scroll-margin-top: var(--saia-navbar-height);
+    scroll-margin-top: var(--saia-navbar-min-height);
     background-color: var(--gx-saia-color-white);
     color: var(--gx-saia-color-text);
     padding: var(--gx-saia-section-padding--v) 0;
@@ -113,7 +113,7 @@
     border-top: var(--gx-saia-line);
     &__wrapper {
       box-sizing: border-box;
-      min-height: 82px;
+      min-height: var(--saia-navbar-min-height);
       padding: var(--gx-saia-space-s) 0;
       display: flex;
       align-items: center;

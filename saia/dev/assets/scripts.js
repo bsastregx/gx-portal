@@ -201,21 +201,12 @@ function handleScroll() {
   } else {
     headerContainer.classList.add("header__container--thinner");
   }
-  recalculateHeaderNavbarHeight();
   /*Close Navbar*/
   headerBurger?.classList.remove("active");
   headerNav?.classList.remove("active");
 }
 
-/*Recalculate navbar height*/
-const recalculateHeaderNavbarHeight = () => {
-  const headerNavbar = document.getElementById("header-navbar");
-  const headerNavbarHeight = headerNavbar?.clientHeight;
-  const html = document.querySelector("html");
-  html.style.setProperty("--saia-navbar-height", headerNavbarHeight + "px");
-};
-
 document.addEventListener("DOMContentLoaded", () => {
   contentLoaded();
 });
-window.onresize = recalculateHeaderNavbarHeight;
+//window.onresize = recalculateHeaderNavbarHeight;
