@@ -623,7 +623,7 @@ a {
   }
 }
 #saia .main-footer {
-  border-top: 1px solid var(--gx-saia-color-white);
+  border-top: var(--gx-saia-line);
   /*Back to top arrow*/
   position: relative;
 }
@@ -1244,4 +1244,4 @@ footer.region {
   display: none !important;
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=saia-styles.css.map */

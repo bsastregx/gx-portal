@@ -110,7 +110,7 @@
 
   /*CORE STRENGTH*/
   .main-footer {
-    border-top: 1px solid var(--gx-saia-color-white);
+    border-top: var(--gx-saia-line);
     &__wrapper {
       box-sizing: border-box;
       min-height: 82px;
