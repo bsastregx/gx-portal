@@ -803,7 +803,7 @@ a {
   border-bottom: var(--gx-saia-line);
   transition: var(--header-transition-duration) min-height;
 }
-#saia .header__outer-container--hidden-items .header__center,
+#saia .header__outer-container--hidden-items .header__center:not(.active),
 #saia .header__outer-container--hidden-items .header__right {
   visibility: hidden;
 }

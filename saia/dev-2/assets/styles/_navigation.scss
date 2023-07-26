@@ -68,7 +68,7 @@
       border-bottom: var(--gx-saia-line);
       transition: var(--header-transition-duration) min-height;
       &--hidden-items {
-        .header__center,
+        .header__center:not(.active),
         .header__right {
           visibility: hidden;
         }

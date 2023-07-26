@@ -3,6 +3,7 @@ let header;
 let headerOuterContainer;
 let headerInnerContainer;
 let headerNavbarHiddenMaxWidth;
+let headerCenter;
 let headerNav;
 let headerBurger;
 let headerItemAnimationDuration;
@@ -15,6 +16,7 @@ const contentLoaded = () => {
   header = document.querySelector("#saia .header");
   headerOuterContainer = document.getElementById("header-outer-container");
   headerInnerContainer = document.getElementById("header-inner-container");
+  headerCenter = document.querySelector(".header__center");
   headerNav = document.getElementById("header-nav");
   headerBurger = document.getElementById("header-burger");
   headerNavbarHiddenMaxWidth = getComputedStyle(
@@ -61,6 +63,7 @@ const contentLoaded = () => {
   headerBurger?.addEventListener("click", () => {
     headerBurger?.classList.toggle("active");
     headerNav?.classList.toggle("active");
+    headerCenter?.classList.toggle("active");
   });
 
   /* 3. ANIMATE STEPS */
@@ -231,6 +234,10 @@ const resizeObserver = new ResizeObserver((entries) => {
       "header__outer-container--hidden-items"
     );
   };
+  const headerIsThinner = header.classList.contains("header--thinner");
+  const timeOutDelay = !headerIsThinner
+    ? headerItemAnimationDurationNumber * 2
+    : headerItemAnimationDurationNumber;
   for (const entry of entries) {
     const width = window.innerWidth;
     if (width <= headerNavbarHiddenMaxWidthNumber) {
@@ -243,10 +250,7 @@ const resizeObserver = new ResizeObserver((entries) => {
       );
     } else {
       headerResizeTimeouts.push(
-        setTimeout(
-          showHeaderNavbarHiddenItems,
-          headerItemAnimationDurationNumber
-        )
+        setTimeout(showHeaderNavbarHiddenItems, timeOutDelay)
       );
     }
   }
