@@ -1,9 +1,29 @@
 #saia {
   .header {
-    --header-children-min-height: 45px;
+    /*VARIABLES*/
+    --header-children-min-height: 55px;
     --header-container-margin-top: calc(
       (var(--saia-navbar-min-height) - var(--header-children-min-height)) / 2
     );
+    --header-list-margin-top: var(--gx-saia-space-s);
+    --header-item-animation-duration: 1s;
+    --header-item-animation-delay: var(--header-item-animation-duration);
+
+    /*animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;*/
+    $animationHeaderItemShow: headerItemShow
+      var(--header-item-animation-duration) ease
+      var(--header-item-animation-delay) 1 forwards;
+    $headerCenterAnimateRight: headerCenterAnimateRight
+      var(--header-item-animation-duration) ease 1 forwards;
+    $headerCenterAnimateCenter: headerCenterAnimateCenter
+      var(--header-item-animation-duration) ease 1 forwards;
+    $headerRightAnimateShow: headerRightAnimateShow
+      var(--header-item-animation-duration) ease 1 forwards;
+    $headerRightAnimateHide: headerRightAnimateHide
+      var(--header-item-animation-duration) ease 1 forwards;
+
+    /* /VARIABLES*/
+
     padding-top: calc(
       var(--gx-saia-section-padding--v) + var(--saia-navbar-min-height)
     );
@@ -33,8 +53,6 @@
         }
       }
       @include max-width(small-desktop) {
-        &--thinner {
-        }
         &__center {
           min-height: 0;
         }
@@ -45,11 +63,19 @@
         .header__center {
           position: absolute;
           right: var(--gx-saia-container-padding--h);
+          opacity: 0;
+          animation: $animationHeaderItemShow, $headerCenterAnimateRight;
+        }
+        .header__right {
+          opacity: 0;
+          animation: $headerRightAnimateHide;
         }
         &--thinner {
           .header__center {
-            right: 50%;
-            transform: translateX(50%);
+            animation: $animationHeaderItemShow, $headerCenterAnimateCenter;
+          }
+          .header__right {
+            animation: $headerRightAnimateShow;
           }
         }
       }
@@ -67,13 +93,11 @@
     }
     &__center {
       order: 2;
-      //transition: 250ms all;
       @include max-width(small-desktop) {
         min-height: 0;
       }
     }
     &__right {
-      display: none;
       order: 3;
       @include max-width(small-desktop) {
         display: flex;
@@ -308,6 +332,8 @@
       }
     }
 
+    /*ANIMATIONS*/
+
     @keyframes curvedLinesGradient {
       from {
         transform: rotate(0deg);
@@ -324,17 +350,86 @@
       }
       33% {
         opacity: 0;
-        margin: var(--gx-saia-space-s) 0 var(--header-container-margin-top) 0;
+        margin: var(--header-list-margin-top) 0
+          var(--header-container-margin-top) 0;
       }
       66% {
         opacity: 0.5;
-        margin: var(--gx-saia-space-s) 0 var(--header-container-margin-top) 0;
+        margin: var(--header-list-margin-top) 0
+          var(--header-container-margin-top) 0;
       }
       100% {
         opacity: 1;
-        margin: var(--gx-saia-space-s) 0 var(--header-container-margin-top) 0;
+        margin: var(--header-list-margin-top) 0
+          var(--header-container-margin-top) 0;
       }
     }
+
+    @keyframes headerItemShow {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes headerCenterAnimateRight {
+      0% {
+        right: 50%;
+        transform: translateX(50%);
+      }
+      50% {
+        right: 50%;
+        transform: translateX(50%);
+      }
+      100% {
+        right: var(--gx-saia-container-padding--h);
+        transform: translateX(0);
+      }
+    }
+    @keyframes headerCenterAnimateCenter {
+      0% {
+        right: var(--gx-saia-container-padding--h);
+        transform: translateX(0);
+      }
+      50% {
+        right: 50%;
+        transform: translateX(50%);
+      }
+      100% {
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+    @keyframes headerRightAnimateInitial {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes headerRightAnimateShow {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes headerRightAnimateHide {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* /ANIMATIONS*/
 
     /*RESPONSIVE*/
     @include max-width(desktop) {
@@ -383,6 +478,7 @@
       }
     }
     @include max-width(tablet) {
+      --header-list-margin-top: var(--gx-saia-space-xxs);
       &__logo {
         width: 105px;
       }

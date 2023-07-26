@@ -1,6 +1,6 @@
 #saia {
   .header {
-    --header-children-min-height: 45px;
+    --header-children-min-height: 55px;
     --header-container-margin-top: calc(
       (var(--saia-navbar-min-height) - var(--header-children-min-height)) / 2
     );
