@@ -63,9 +63,13 @@
 
 /*RESPONSIVE*/
 
-@include max-width(tablet) {
+@include max-width(small-desktop) {
   :root {
     --saia-navbar-min-height: 80px;
+  }
+}
+@include max-width(tablet) {
+  :root {
     --gx-saia-font-size-xxxl: 52px;
     --gx-saia-font-size-xxl: 46px;
     --gx-saia-font-size-xl: 36px;

@@ -1,10 +1,32 @@
-let headerBurger;
+let html;
+let header;
+let headerOuterContainer;
+let headerInnerContainer;
+let headerNavbarHiddenMaxWidth;
 let headerNav;
+let headerBurger;
+let headerItemAnimationDuration;
+let headerNavbarHiddenMaxWidthNumber;
+let test;
 
 const contentLoaded = () => {
   /*REFERENCES TO ELEMENTS*/
-  headerBurger = document.getElementById("header-burger");
+  html = document.querySelector("html");
+  header = document.querySelector("#saia .header");
+  headerOuterContainer = document.getElementById("header-outer-container");
+  headerInnerContainer = document.getElementById("header-inner-container");
   headerNav = document.getElementById("header-nav");
+  headerBurger = document.getElementById("header-burger");
+  headerNavbarHiddenMaxWidth = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--headerNavbarHiddenMaxWidth");
+  headerNavbarHiddenMaxWidthNumber = parseFloat(
+    headerNavbarHiddenMaxWidth.replace("px", "")
+  );
+  headerItemAnimationDuration = getComputedStyle(header).getPropertyValue(
+    "--header-item-animation-duration"
+  );
+  headerItemAnimationDurationNumber = parseInt(headerItemAnimationDuration, 10);
 
   /*SHOW PAGE*/
   const saia = document.getElementById("saia");
@@ -28,6 +50,11 @@ const contentLoaded = () => {
       }, 260);
     });
   });
+
+  /*SHOW NAVBAR ITEMS*/
+  setTimeout(function () {
+    headerInnerContainer.classList.remove("header__inner-container--hidden");
+  }, 750);
 
   /* 2. BURGER MENU */
   // Initialize Responsive Navbar Menu
@@ -167,9 +194,12 @@ const contentLoaded = () => {
       headerNav?.classList.remove("active");
     });
   });
+
+  /* 13. WATCH WINDOW SCROLL */
+  resizeObserver.observe(html);
 };
 
-/*IO*/
+/*INTERSECTION OBSERVER*/
 const io = (observableImages) => {
   const options = {
     rootMargin: "0px 0px -35% 0px",
@@ -192,14 +222,43 @@ const io = (observableImages) => {
   });
 };
 
+/*RESIZE OBSERVER*/
+/* "If the user is resizing the window, add or remove an auxiliary class to the navbar to hide it for a fraction of a second, in order to prevent an undesired animation from being visible."*/
+const headerResizeTimeouts = [];
+const resizeObserver = new ResizeObserver((entries) => {
+  const showHeaderNavbarHiddenItems = () => {
+    headerOuterContainer.classList.remove(
+      "header__outer-container--hidden-items"
+    );
+  };
+  for (const entry of entries) {
+    const width = window.innerWidth;
+    if (width <= headerNavbarHiddenMaxWidthNumber) {
+      /*Clear all timeouts*/
+      headerResizeTimeouts.forEach((timeOutId) => {
+        clearTimeout(timeOutId);
+      });
+      headerOuterContainer.classList.add(
+        "header__outer-container--hidden-items"
+      );
+    } else {
+      headerResizeTimeouts.push(
+        setTimeout(
+          showHeaderNavbarHiddenItems,
+          headerItemAnimationDurationNumber
+        )
+      );
+    }
+  }
+});
+
 /*HANDLE SCROLL*/
 function handleScroll() {
   /*Make header shorter*/
-  const headerContainer = document.querySelector("#saia .header__container");
   if (window.scrollY <= 500) {
-    headerContainer.classList.remove("header__container--thinner");
+    header.classList.remove("header--thinner");
   } else {
-    headerContainer.classList.add("header__container--thinner");
+    header.classList.add("header--thinner");
   }
   /*Close Navbar*/
   headerBurger?.classList.remove("active");

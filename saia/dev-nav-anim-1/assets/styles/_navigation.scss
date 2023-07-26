@@ -1,34 +1,63 @@
 #saia {
   .header {
     /*VARIABLES*/
+    --header-transition-duration: 200ms;
     --header-children-min-height: 55px;
     --header-container-margin-top: calc(
       (var(--saia-navbar-min-height) - var(--header-children-min-height)) / 2
     );
     --header-list-margin-top: var(--gx-saia-space-s);
-    --header-item-animation-duration: 1s;
-    --header-item-animation-delay: var(--header-item-animation-duration);
+    --header-item-animation-duration: 300ms;
+    --header-center-animation-delay: 0s;
+    --header-right-animation-delay: var(--header-item-animation-duration);
 
     /*animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode | play-state;*/
-    $animationHeaderItemShow: headerItemShow
-      var(--header-item-animation-duration) ease
-      var(--header-item-animation-delay) 1 forwards;
     $headerCenterAnimateRight: headerCenterAnimateRight
-      var(--header-item-animation-duration) ease 1 forwards;
+      var(--header-item-animation-duration) ease
+      var(--header-right-animation-delay) 1 backwards;
     $headerCenterAnimateCenter: headerCenterAnimateCenter
       var(--header-item-animation-duration) ease 1 forwards;
     $headerRightAnimateShow: headerRightAnimateShow
-      var(--header-item-animation-duration) ease 1 forwards;
+      var(--header-item-animation-duration) ease
+      var(--header-right-animation-delay) 1 forwards;
     $headerRightAnimateHide: headerRightAnimateHide
       var(--header-item-animation-duration) ease 1 forwards;
-
     /* /VARIABLES*/
-
     padding-top: calc(
       var(--gx-saia-section-padding--v) + var(--saia-navbar-min-height)
     );
     position: relative;
-    &__navbar {
+
+    &--thinner {
+      //--saia-navbar-min-height: 94px;
+      .header__right {
+        display: flex;
+      }
+    }
+    @include max-width(small-desktop, $min: true) {
+      .header__center {
+        z-index: 10;
+        position: absolute;
+        right: var(--gx-saia-container-padding--h);
+        animation: $headerCenterAnimateRight;
+      }
+      .header__right {
+        opacity: 0;
+        animation: $headerRightAnimateHide;
+      }
+    }
+    @include max-width(small-desktop, $min: true) {
+      &--thinner {
+        .header__center {
+          animation: $headerCenterAnimateCenter;
+        }
+        .header__right {
+          animation: $headerRightAnimateShow;
+        }
+      }
+    }
+
+    &__outer-container {
       min-height: var(--saia-navbar-min-height);
       box-sizing: border-box;
       position: fixed;
@@ -37,8 +66,17 @@
       background-color: var(--gx-saia-color-purple--900);
       z-index: 10;
       border-bottom: var(--gx-saia-line);
+      transition: var(--header-transition-duration) min-height;
+      &--hidden-items {
+        .header__center,
+        .header__right {
+          visibility: hidden;
+        }
+      }
     }
-    &__container {
+    &__inner-container {
+      opacity: 1;
+      transition: var(--header-transition-duration) all;
       flex: 1;
       position: relative;
       display: flex;
@@ -47,45 +85,25 @@
       gap: var(--gx-saia-space-m);
       flex-wrap: wrap;
       margin-top: var(--header-container-margin-top);
-      &--thinner {
-        .header__right {
-          display: flex;
-        }
+      &--hidden {
+        opacity: 0;
       }
       @include max-width(small-desktop) {
         &__center {
           min-height: 0;
         }
       }
-      @include max-width(mobile) {
-      }
-      @include max-width(small-desktop, $min: true) {
-        .header__center {
-          position: absolute;
-          right: var(--gx-saia-container-padding--h);
-          opacity: 0;
-          animation: $animationHeaderItemShow, $headerCenterAnimateRight;
-        }
-        .header__right {
-          opacity: 0;
-          animation: $headerRightAnimateHide;
-        }
-        &--thinner {
-          .header__center {
-            animation: $animationHeaderItemShow, $headerCenterAnimateCenter;
-          }
-          .header__right {
-            animation: $headerRightAnimateShow;
-          }
-        }
-      }
     }
     &__left,
     &__center,
     &__right {
+      opacity: 1;
       min-height: var(--header-children-min-height);
       display: flex;
       align-items: center;
+      &--hidden {
+        opacity: 0;
+      }
     }
     &__left {
       gap: var(--gx-saia-space-m);
@@ -381,10 +399,6 @@
         right: 50%;
         transform: translateX(50%);
       }
-      50% {
-        right: 50%;
-        transform: translateX(50%);
-      }
       100% {
         right: var(--gx-saia-container-padding--h);
         transform: translateX(0);
@@ -394,10 +408,6 @@
       0% {
         right: var(--gx-saia-container-padding--h);
         transform: translateX(0);
-      }
-      50% {
-        right: 50%;
-        transform: translateX(50%);
       }
       100% {
         right: 50%;
@@ -435,7 +445,7 @@
     @include max-width(desktop) {
     }
     @include max-width(small-desktop) {
-      &__container {
+      &__inner-container {
         gap: 0;
       }
       &__nav {

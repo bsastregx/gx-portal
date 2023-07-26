@@ -1,11 +1,16 @@
 /*BREAKPOINTS*/
 $desktopMax: 1199px;
 $desktopMin: 1200px;
-$smallDesktopMax: 991px;
-$smallDesktopMin: 992px;
-$tabletMax: 767px;
-$tabletMin: 768px;
+$smallDesktopMax: 991.5px;
+$smallDesktopMin: 991.6px;
+$tabletMax: 767.5px;
+$tabletMin: 767.6px;
 $mobileMax: 575px;
+
+:root {
+  /*This is the viewport width at which the header navbar is hidden*/
+  --headerNavbarHiddenMaxWidth: #{$smallDesktopMax};
+}
 
 @mixin max-width($breakpoint, $min: false) {
   @if ($breakpoint == desktop) {
