@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="red" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="SAIA connects companies with LLMs in a monitored andcost effective way to easily compose Ai-Assistants, acting as a backboneto protect data privacy. "
+    />
+    <link
+      rel="icon"
+      href="http://www.genexus.com/media/images/saia-favicon.svg"
+    />
+    <title>Saia | Fuel your AI Motion</title>
+    <!--Fonts -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Bree+Serif%7cOpen+Sans%3a400%7cSource+Sans+Pro%3a400i%2c700i%2c300%2c400%2c700%7cRaleway%3a100%2c300%2c400%2c600%2c700%2c900%7cMontserrat%3a400i%2c500i%2c700i%2c100%2c300%2c400%2c500%2c600%2c700%2c800%2c900%7cSource+Serif+Pro%3a100i%2c400i%2c700i%2c100%2c400%2c500%2c700%7cRubik%3a300i%2c400i%2c500i%2c300%2c400%2c500%7cRoboto"
+      title="Spine of AI Applications"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://gxpadmin.genexus.com/preview/www.genexus.com/css/en/173/20230714162240/master.css?font_face"
+    />
+    <!--/Fonts -->
+    <!-- <link rel="stylesheet" href="https://www.genexus.com/media/images/saia-styles.min.css" /> -->
+    <link rel="stylesheet" href="./assets/styles/saia-styles.css" />
+    <!-- <link rel="stylesheet" href="./assets/styles-min.css" /> -->
+    <script src="./assets/scripts.js" defer></script>
+    <style>
+      #saia .header .curved-lines {
+        -webkit-mask-image: url(assets/images/saia-curved-lines.svg);
+        mask-image: url(assets/images/saia-curved-lines.svg);
+      }
+      #saia #header-langs {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="saia" class="saia-hidden">
+      <noscript
+        ><style>
+          #saia.saia-hidden {
+            opacity: 1;
+          }
+          .show-if-js-enabled {
+            display: none !important;
+          }
+          .header__nav {
+            display: block !important;
+          }
+          .header__nav .header__list {
+            opacity: 1 !important;
+            margin-top: var(--gx-saia-space-m) !important;
+          }
+        </style></noscript
+      ><!--HEADER-->
+      <header class="header section section--purple-900">
+        <nav class="header__outer-container" id="header-outer-container">
+          <div
+            class="container header__inner-container header__inner-container--hidden"
+            id="header-inner-container"
+          >
+            <!--header left-->
+            <div class="header__left">
+              <img
+                class="header__logo"
+                src="http://www.genexus.com/media/images/saia-logo-dark.svg"
+                alt="saia logo"
+                title="Spine of AI Applications"
+              />
+              <ul
+                class="header__langs"
+                id="header-langs"
+                data-current-lang="en"
+              >
+                <li class="lang" data-lang="es">ES</li>
+                <li class="lang" data-lang="en">EN</li>
+              </ul>
+            </div>
+            <!--header center-->
+            <div class="header__center">
+              <nav class="header__nav" id="header-nav">
+                <ul class="header__list">
+                  <li class="header__list-item header__list-item--reverse">
+                    <a
+                      class="header__list-link"
+                      href="https://www.genexus.com/en/products/saia#benefits"
+                      data-es="Beneficios"
+                      data-en="Benefits"
+                      >Benefits</a
+                    >
+                    <span class="header__list-line"></span>
+                  </li>
+                  <li class="header__list-item header__list-item--reverse">
+                    <a
+                      class="header__list-link"
+                      href="https://www.genexus.com/en/products/saia#about-us"
+                      data-es="Sobre nosotros"
+                      data-en="About us"
+                      >About us</a
+                    >
+                    <span class="header__list-line"></span>
+                  </li>
+                  <li class="header__list-item header__list-item--reverse">
+                    <a
+                      class="header__list-link"
+                      href="https://www.genexus.com/en/products/saia#how-it-works"
+                      data-es="Cómo funciona"
+                      data-en="How it works"
+                      >How it works</a
+                    >
+                    <span class="header__list-line"></span>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!--header right-->
+            <div class="header__right">
+              <button
+                type="button"
+                class="header__burger show-if-js-enabled"
+                id="header-burger"
+                aria-label="toggle menu"
+              >
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span></button
+              ><noscript
+                ><a
+                  class="button hide--small-desktop go-to-form show-if-js-enabled"
+                  href="#get-in-touch"
+                  >Get early access</a
+                ></noscript
+              ><button
+                class="button hide--small-desktop go-to-form show-if-js-enabled"
+                data-es="Obtener acceso anticipado"
+                data-en="Get early access"
+              >
+                Get early access
+              </button>
+            </div>
+          </div>
+        </nav>
+        <div class="container">
+          <div class="saia-wrapper">
+            <h1
+              class="h2"
+              data-en="Fuel your AI Motion"
+              data-es="Alimenta tu Movimiento de IA"
+            >
+              Fuel your AI Motion
+            </h1>
+            <p
+              class="text-bigger"
+              data-en="We are the spine that connects companies with LLMs in a monitored and cost effective way to easily compose Ai-Assistants, acting as a backbone to protect data privacy"
+              data-es="Somos la columna vertebral que conecta empresas con Modelos de Lenguaje de Aprendizaje Automático (LLM) de manera supervisada y rentable para componer fácilmente Asistentes de IA, actuando como un respaldo para proteger la privacidad de los datos."
+            >
+              We are the spine that connects companies with LLMs in a monitored
+              and cost effective way to easily compose Ai-Assistants, acting as
+              a backbone to protect data privacy
+            </p>
+            <noscript
+              ><a
+                class="button go-to-form"
+                href="#get-in-touch"
+                data-en="Get early access"
+                data-es="Obtener acceso anticipado"
+                >Get early access</a
+              ></noscript
+            ><button
+              class="button go-to-form show-if-js-enabled"
+              data-en="Get early access"
+              data-es="Obtener acceso anticipado"
+            >
+              Get early access
+            </button>
+          </div>
+        </div>
+        <div class="curved-lines"></div>
+      </header>
+      <!--THE CORE STRENGTH-->
+      <section class="section section--purple-200" id="benefits">
+        <div class="container">
+          <div class="cols cols--asymmetric">
+            <div class="cols__left">
+              <h2
+                class="h3"
+                data-en="The Core Strength of your AI-Motion"
+                data-es="La Fortaleza Central de tu AI-Motion"
+              >
+                The Core Strength of your AI-Motion
+              </h2>
+            </div>
+            <div class="cols__right">
+              <div class="grid grid--2x2">
+                <!--card 1-->
+                <article class="card card--purple-300 item1">
+                  <h1 class="h1 card__title">
+                    <span
+                      class="text-color-light"
+                      data-en="Plug your organization into"
+                      data-es="Conecta tu organización a la inteligencia de Modelos"
+                      >Plug your organization into</span
+                    >&nbsp;<span
+                      data-en="LLMs intelligence in a monitored way"
+                      data-es="de Lenguaje de Aprendizaje Automático (LLMs) de manera supervisada."
+                      >LLMs intelligence in a monitored way</span
+                    >
+                  </h1>
+                </article>
+                <!--card 1-->
+                <article class="card card--purple-300 item2">
+                  <h1 class="h1 card__title">
+                    <span
+                      class="text-color-light"
+                      data-en="Protect your private information"
+                      data-es="Protege tu información privada"
+                      >Protect your private information</span
+                    >&nbsp;<span
+                      data-en="from becoming public"
+                      data-es="para evitar que se haga pública."
+                      >from becoming public</span
+                    >
+                  </h1>
+                </article>
+                <!--card 3-->
+                <article class="card card--purple-300 item3">
+                  <h1 class="h1 card__title">
+                    <span
+                      class="text-color-light"
+                      data-en="Keep a close eye on usage & access"
+                      data-es="Mantén un estrecho control sobre el uso y acceso"
+                      >Keep a close eye on usage & access</span
+                    >&nbsp;<span
+                      data-en="to AI-Models"
+                      data-es="a los Modelos de IA."
+                      >to AI-Models</span
+                    >
+                  </h1>
+                </article>
+                <!--card 4-->
+                <article class="card card--purple-300 item4">
+                  <h1 class="h1 card__title">
+                    <span
+                      class="text-color-light"
+                      data-en="Optimize your AI spending"
+                      data-es="Optimiza tus gastos en IA"
+                      >Optimize your AI spending</span
+                    >&nbsp;<span
+                      data-en="and cache repeated queries"
+                      data-es="y almacena en caché las consultas repetidas."
+                      >and cache repeated queries</span
+                    >
+                  </h1>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--EMPOWER USERS-->
+      <section
+        class="section section--gray-100 section--no-padding"
+        id="about-us"
+      >
+        <div class="container">
+          <div class="cols">
+            <div class="cols__left saia-wrapper text-center">
+              <h2
+                class="h3 main-title"
+                data-en="Empower users to solve their needs with natural language"
+                data-es="Potencia a los usuarios para que resuelvan sus necesidades utilizando lenguaje natural"
+              >
+                Empower users<br />to solve their needs with natural language
+              </h2>
+              <p
+                data-en="Unlock the creation of robust AI-Assistants that can integrate and interact with your current operations, processes, systems and documents, creating new paths of innovation and productivity to explore."
+                data-es="Desbloquea la creación de sólidos Asistentes de IA que pueden integrarse e interactuar con tus operaciones, procesos, sistemas y documentos actuales, creando nuevos caminos de innovación y productividad para explorar."
+              >
+                Unlock the creation of robust AI-Assistants that can integrate
+                and interact with your current operations, processes, systems
+                and documents, creating new paths of innovation and productivity
+                to explore.
+              </p>
+            </div>
+            <div class="cols__right no-line-height">
+              <img
+                src="http://www.genexus.com/media/images/saia-empower-users.svg"
+                alt="chatting with ai assistant on a mobile phone"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <main id="steps">
+        <!--AI-ASSISTANTS-->
+        <section id="how-it-works" class="section pb-0">
+          <div class="container text-center">
+            <h2
+              class="h2"
+              data-en="Implement AI-Assistants tailored to your specific needs and areas of expertise"
+              data-es="Implementa Asistentes de IA personalizados según tus necesidades específicas y áreas de experiencia"
+            >
+              Implement AI-Assistants tailored to your specific needs and areas
+              of expertise
+            </h2>
+            <span class="step step--complete"></span> <span class="dot"></span>
+          </div>
+        </section>
+        <!--CUSTOMER EXPERIENCE-->
+        <section id="customer-experience">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Create a superb customer experience"
+                data-es="Crea una experiencia excepcional para el cliente"
+              >
+                Create a superb<br />customer experience
+              </h3>
+              <p
+                class="text-strong"
+                data-en="Integrate an AI assistant into customer service, trained on your policies and processes, enabling seamless customer-initiated refund or product return requests through conversational channels."
+                data-es="Integra un asistente de IA en el servicio al cliente, capacitado con tus políticas y procesos, permitiendo solicitudes de reembolso o devolución de productos iniciadas por los clientes de manera fluida a través de canales de conversación."
+              >
+                Integrate an AI assistant into customer service, trained on your
+                policies and processes, enabling seamless customer-initiated
+                refund or product return requests through conversational
+                channels.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-superb-experience.svg"
+                  alt="chat with ai assistant"
+                  loading="lazy"
+                />
+                <span class="step step--end"></span> <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--CHAT SYSTEMS-->
+        <section id="chat-systems">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Chat with your systems"
+                data-es="Conversa con tus sistemas"
+              >
+                Chat with your systems
+              </h3>
+              <p
+                class="text-strong"
+                data-en="You could add a conversational interface to your SAP Inventory Management System to quickly get insights of inventory levels, shortages or identify a bottleneck in your supply chain."
+                data-es="Podrías agregar una interfaz conversacional a tu Sistema de Gestión de Inventario SAP para obtener rápidamente información sobre los niveles de inventario, escasez o identificar un cuello de botella en tu cadena de suministro."
+              >
+                You could add a conversational interface to your SAP Inventory
+                Management System to quickly get insights of inventory levels,
+                shortages or identify a bottleneck in your supply chain.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-chat-systems.svg"
+                  loading="lazy"
+                  alt="ai gives a graphic report to the user"
+                />
+                <span class="step step--end"></span> <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--ANALYZE INFORMATION-->
+        <section id="analyze-information">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Analyze tons of complex information"
+                data-es="Analiza toneladas de información compleja"
+              >
+                Analyze tons of complex information
+              </h3>
+              <p
+                class="text-strong"
+                data-en="Based on your historical sales data, the market forecasts and economic factors, you could simplify demand forecasting and automatically create purchase orders."
+                data-es="Basándonos en tus datos históricos de ventas, previsiones del mercado y factores económicos, podríamos simplificar la previsión de la demanda y crear automáticamente órdenes de compra."
+              >
+                Based on your historical sales data, the market forecasts and
+                economic factors, you could simplify demand forecasting and
+                automatically create purchase orders.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-analyze-information.svg"
+                  loading="lazy"
+                  alt="Three distinct documents that represent complex information"
+                />
+                <span class="step step--end"></span> <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--CHAT DOCUMENTS-->
+        <section id="chat-documents">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Chat with your documents"
+                data-es="Conversa con tus documentos"
+              >
+                Chat with your documents
+              </h3>
+              <p
+                class="text-strong"
+                data-en="Your legal department could use it for contract review and analysis by identifying key clauses, summarizing contracts, highlighting potential risks, and providing recommendations for necessary actions or precautions."
+                data-es="Tu departamento legal podría utilizarlo para la revisión y análisis de contratos, identificando cláusulas clave, resumiendo contratos, resaltando posibles riesgos y proporcionando recomendaciones para acciones o precauciones necesarias."
+              >
+                Your legal department could use it for contract review and
+                analysis by identifying key clauses, summarizing contracts,
+                highlighting potential risks, and providing recommendations for
+                necessary actions or precautions.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-chat-documents.svg"
+                  loading="lazy"
+                  alt="chatting with ai about a document"
+                />
+                <span class="step step--end"></span> <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--CLASSIFY INFORMATION-->
+        <section id="classify-information">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Classify or edit information"
+                data-es="Clasifica o edita información"
+              >
+                Classify or edit information
+              </h3>
+              <p
+                class="text-strong"
+                data-en="The compliance team can leverage an AI assistant to automate the generation of audit reports through analysis of pertinent data."
+                data-es="El equipo de cumplimiento puede aprovechar un asistente de IA para automatizar la generación de informes de auditoría mediante el análisis de datos relevantes."
+              >
+                The compliance team can leverage an AI assistant to automate the
+                generation of audit reports through analysis of pertinent data.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-classify-information.svg"
+                  loading="lazy"
+                  alt="six documents divided into two groups"
+                />
+                <span class="step step--end"></span> <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--CREATE OR TRANSLATE-->
+        <section id="create-translate">
+          <div class="container">
+            <div class="saia-wrapper saia-wrapper--max-width text-center">
+              <h3
+                class="h3"
+                data-en="Create and translate contents"
+                data-es="Crea y traduce contenidos"
+              >
+                Create and translate contents
+              </h3>
+              <p
+                class="text-strong"
+                data-en="You could use your AI Assistant to create all the technical documentation for your new product in different languages, for instance a car or a new drug, just by entering unstructured information and defining the parameters."
+                data-es="Podrías utilizar tu Asistente de IA para crear toda la documentación técnica para tu nuevo producto en diferentes idiomas, por ejemplo, un automóvil o un nuevo medicamento, simplemente ingresando información no estructurada y definiendo los parámetros."
+              >
+                You could use your AI Assistant to create all the technical
+                documentation for your new product in different languages, for
+                instance a car or a new drug, just by entering unstructured
+                information and defining the parameters.
+              </p>
+              <div>
+                <span class="step step--start"></span>
+                <img
+                  src="http://www.genexus.com/media/images/saia-create-translate-contents.svg"
+                  loading="lazy"
+                  alt="A document being translated by the ai"
+                />
+                <span class="step step--end"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!--GET IN TOUCH-->
+      <section class="section section--purple-900" id="get-in-touch">
+        <div class="container">
+          <noscript
+            ><p
+              class="form-not-displayed"
+              data-en="We have tried to display a form here, but you have JavaScript disabled, and it is necessary to show the form."
+              data-es="Hemos intentado mostrar un formulario aquí, pero tienes JavaScript deshabilitado, y es necesario para mostrar el formulario."
+            >
+              We have tried to display a form here, but you have JavaScript
+              disabled, and it is necessary to show the form.
+            </p></noscript
+          >
+          <div class="cols cols--asymmetric show-if-js-enabled">
+            <div class="cols__left">
+              <h2
+                class="h3 title"
+                data-en="Request Early Access to SAIA and leap into AI with us"
+                data-es="Solicita Acceso Anticipado a SAIA y adéntrate en el mundo de la inteligencia artificial con nosotros"
+              >
+                Request Early Access to SAIA and leap into AI with us
+              </h2>
+            </div>
+            <div class="cols__right">
+              <script
+                charset="utf-8"
+                type="text/javascript"
+                src="//js.hsforms.net/forms/embed/v2.js"
+              ></script>
+              <script>
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "6302527",
+                  formId: "11bd0ca6-4df0-4be5-8d6e-bf8478127d0c",
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="main-footer section section--purple-900 section--no-padding"
+      >
+        <span id="back-to-top" class="show-if-js-enabled"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 384 512"
+          >
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M214.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3V480c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128z"
+            /></svg
+        ></span>
+        <div class="container">
+          <div class="main-footer__wrapper">
+            <div class="main-footer__left">
+              <img
+                class="main-footer__logo"
+                src="http://www.genexus.com/media/images/saia-logo-dark.svg"
+                alt="saia logo"
+                title="Spine of AI Applications"
+              />
+            </div>
+            <div class="main-footer__right">
+              <small
+                >© GeneXus. All rights reserved.
+                <a href="https://www.genexus.com/">GeneXus</a>&nbsp;Powered by
+                <a href="https://www.globant.com/" target="_blank"
+                  >Globant</a
+                ></small
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      let html,
+        header,
+        headerOuterContainer,
+        headerInnerContainer,
+        headerNavbarHiddenMaxWidth,
+        headerCenter,
+        headerNav,
+        headerBurger,
+        headerItemAnimationDuration,
+        headerNavbarHiddenMaxWidthNumber,
+        test;
+      const contentLoaded = () => {
+          (html = document.querySelector("html")),
+            (header = document.querySelector("#saia .header")),
+            (headerOuterContainer = document.getElementById(
+              "header-outer-container"
+            )),
+            (headerInnerContainer = document.getElementById(
+              "header-inner-container"
+            )),
+            (headerCenter = document.querySelector(".header__center")),
+            (headerNav = document.getElementById("header-nav")),
+            (headerBurger = document.getElementById("header-burger")),
+            (headerNavbarHiddenMaxWidth = getComputedStyle(
+              document.documentElement
+            ).getPropertyValue("--headerNavbarHiddenMaxWidth")),
+            (headerNavbarHiddenMaxWidthNumber = parseFloat(
+              headerNavbarHiddenMaxWidth.replace("px", "")
+            )),
+            (headerItemAnimationDuration = getComputedStyle(
+              header
+            ).getPropertyValue("--header-item-animation-duration")),
+            (headerItemAnimationDurationNumber = parseInt(
+              headerItemAnimationDuration,
+              10
+            ));
+          document.getElementById("saia")?.classList.remove("saia-hidden");
+          document
+            .querySelectorAll("#header-nav .header__list-item")
+            ?.forEach((e) => {
+              e.addEventListener("mouseenter", function () {
+                e.classList.add("header__list-item--hovered");
+              }),
+                e.addEventListener("mouseleave", function () {
+                  e.classList.add("header__list-item--animated"),
+                    setTimeout(() => {
+                      e.classList.add("header__list-item--no-transition"),
+                        e.classList.remove("header__list-item--animated"),
+                        e.classList.remove("header__list-item--hovered"),
+                        setTimeout(() => {
+                          e.classList.remove(
+                            "header__list-item--no-transition"
+                          );
+                        }, 10);
+                    }, 260);
+                });
+            }),
+            setTimeout(function () {
+              headerInnerContainer.classList.remove(
+                "header__inner-container--hidden"
+              );
+            }, 750),
+            headerBurger?.addEventListener("click", () => {
+              headerBurger?.classList.toggle("active"),
+                headerNav?.classList.toggle("active"),
+                headerCenter?.classList.toggle("active");
+            });
+          const e = [];
+          let t;
+          const r = document.querySelectorAll("#steps section");
+          r?.length &&
+            r.forEach((n, a) => {
+              const d = n.querySelector("img");
+              d && (d.classList.add("animate", "animate--hidden"), e.push(d)),
+                a === r.length - 1 && (t = n);
+            }),
+            io(e);
+          const n = () => {
+            const e = t.querySelector("img");
+            setTimeout(() => {
+              e.classList.remove("animate--hidden");
+            }, 250);
+          };
+          t &&
+            (t.addEventListener("mouseenter", n),
+            t.addEventListener("touchstart", n));
+          document
+            .getElementById("back-to-top")
+            ?.addEventListener("click", function () {
+              window.scrollTo(0, 0);
+            }),
+            window.addEventListener("message", function (e) {
+              if (
+                "hsFormCallback" === e.data.type &&
+                "onFormReady" === e.data.eventName
+              ) {
+                firstFormItem = document.querySelector(
+                  ".hbspt-form .hs-form-field .hs-input"
+                );
+                document
+                  .querySelectorAll(".hs_country select option")
+                  .forEach((e) => {
+                    const t = e.textContent;
+                    t.length > 25 && (e.textContent = `${t.slice(0, 25)}...`);
+                  });
+              }
+            });
+          document.querySelectorAll(".go-to-form")?.forEach((e) => {
+            e.addEventListener("click", (e) => {
+              document.querySelector(".hbspt-form input")?.focus();
+            });
+          });
+          document.querySelectorAll('img[loading="lazy"]').forEach((e) => {
+            e.setAttribute("loading", "eager");
+          }),
+            handleScroll(),
+            window.addEventListener("scroll", handleScroll);
+          const a = document.querySelectorAll("[data-en]"),
+            d = document.getElementById("header-langs");
+          d.addEventListener("click", function () {
+            const e = d.getAttribute("data-current-lang");
+            let t;
+            "es" === e ? (t = "en") : "en" === e && (t = "es"),
+              d.setAttribute("data-current-lang", t),
+              o(t);
+          });
+          const o = (e) => {
+              a?.forEach((t) => {
+                const r = t.getAttribute("data-en"),
+                  n = t.getAttribute("data-es");
+                "es" === e && n
+                  ? (t.textContent = n)
+                  : "en" === e && r && (t.textContent = r);
+              });
+            },
+            i = (e) => {
+              const t = e.key.toLowerCase();
+              if (((c = (c + t).replaceAll(" ", "")), c.includes(s))) {
+                (document.getElementById("header-langs").style.display =
+                  "flex"),
+                  document.removeEventListener("keydown", i);
+              }
+            },
+            s = "idiomas";
+          let c = "";
+          document.addEventListener("keydown", i);
+          document.querySelectorAll("#header-navbar a").forEach((e) => {
+            e.addEventListener("click", function () {
+              headerBurger?.classList.remove("active"),
+                headerNav?.classList.remove("active");
+            });
+          }),
+            resizeObserver.observe(html);
+        },
+        io = (e) => {
+          let t = new IntersectionObserver(
+            function (e, r) {
+              e.forEach(function (e) {
+                let r = e.target;
+                e.isIntersecting &&
+                  (r.classList.remove("animate--hidden"), t.unobserve(r));
+              });
+            },
+            { rootMargin: "0px 0px -35% 0px", threshold: 0.35 }
+          );
+          e.forEach(function (e) {
+            t.observe(e);
+          });
+        },
+        headerResizeTimeouts = [],
+        resizeObserver = new ResizeObserver((e) => {
+          const t = () => {
+              headerOuterContainer.classList.remove(
+                "header__outer-container--hidden-items"
+              );
+            },
+            r = header.classList.contains("header--thinner")
+              ? headerItemAnimationDurationNumber
+              : 2 * headerItemAnimationDurationNumber;
+          for (const n of e) {
+            window.innerWidth <= headerNavbarHiddenMaxWidthNumber
+              ? (headerResizeTimeouts.forEach((e) => {
+                  clearTimeout(e);
+                }),
+                headerOuterContainer.classList.add(
+                  "header__outer-container--hidden-items"
+                ))
+              : headerResizeTimeouts.push(setTimeout(t, r));
+          }
+        });
+      function handleScroll() {
+        window.scrollY <= 500
+          ? header.classList.remove("header--thinner")
+          : header.classList.add("header--thinner"),
+          headerBurger?.classList.remove("active"),
+          headerNav?.classList.remove("active");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        contentLoaded();
+      });
+    </script>
+  </body>
+</html>
