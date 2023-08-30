@@ -1,0 +1,17 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  overflow: hidden;
+  transition: 200ms height;
+}
+
+.card {
+}
+
+/* Asegura que todas las tarjetas tengan la misma altura */
+.card-container.open {
+  display: flex;
+  flex-wrap: wrap;
+}
