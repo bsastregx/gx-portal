@@ -60,7 +60,7 @@ const evaluateBreakpoint = (currentWidth) => {
 /**
  * Esta función actualiza 'visibleCards' y 'remainingCards' cuando hay un cambio de breakpoint.
  */
-const evaluateCardsOnResize = () => {
+const evaluateCardsOnResize = async () => {
   let diff = 0;
   if (config.prevSize) {
     diff =
@@ -78,7 +78,7 @@ const evaluateCardsOnResize = () => {
  * Esta función actualiza la altura del cardsContainer.
  */
 const evaluateHeight = () => {
-  console.log(visibleCards);
+  console.log(config.currentSize);
 };
 
 const resizeObserver = new ResizeObserver((entries) => {
@@ -93,7 +93,7 @@ const resizeObserver = new ResizeObserver((entries) => {
   }
 });
 
-const init = () => {
+const init = async () => {
   resizeObserver.observe(cardsContainer);
   evaluateHeight();
 };
@@ -110,7 +110,6 @@ const getActualHeight = () => {
 const loadMoreCards = () => {
   const actualHeight = getActualHeight();
   let additionalHeight = 0;
-  //console.log(remainingCards);
 };
 
 loadMoreBtn.addEventListener("click", loadMoreCards);
