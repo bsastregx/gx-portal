@@ -3,6 +3,8 @@ let articlesList;
 let filterHeader;
 let rowSelects;
 let rowActions;
+let rowActionsLeftCol;
+let rowActionsRightCol;
 
 const renderHeader = () => {
   /*header*/
@@ -32,6 +34,12 @@ const renderHeader = () => {
   rowActions = document.createElement("div");
   rowActions.classList.add("row", "row--actions");
   rowActions.setAttribute("id", "header-actions");
+  /*footer row left col*/
+  rowActionsLeftCol = document.createElement("div");
+  rowActionsLeftCol.classList.add("row", "row--actions__left-col");
+  /*footer row right col*/
+  rowActionsRightCol = document.createElement("div");
+  rowActionsRightCol.classList.add("row", "row--actions__right-col");
   /*appends*/
   if (headerTitle) {
     rowMain.appendChild(headerTitle);
@@ -39,6 +47,8 @@ const renderHeader = () => {
   rowMain.appendChild(textFilter);
   filterHeader.appendChild(rowMain);
   filterHeader.appendChild(rowSelects);
+  rowActions.appendChild(rowActionsLeftCol);
+  rowActions.appendChild(rowActionsRightCol);
   filterHeader.appendChild(rowActions);
   articlesList.parentElement.insertBefore(filterHeader, articlesList);
 };
@@ -87,14 +97,32 @@ const renderCategories = () => {
 };
 
 const renderFilterButton = () => {
-  const filterButtonLabels = {
-    en: "filter",
-    es: "filtro",
-    pt: "filtro",
-  };
-  const filterButton = document.createElement("button");
-  filterButton.classList.add("gx-filter-button");
-  filterButton.innerText = filterButtonLabels[pageLang];
+  if (rowActionsRightCol) {
+    const filterButtonLabels = {
+      en: "filter",
+      es: "filtro",
+      pt: "filtro",
+    };
+    const filterButton = document.createElement("button");
+    filterButton.classList.add("gx-button", "gx-button--filter");
+    filterButton.setAttribute("id", "gx-filter-button");
+    filterButton.innerText = filterButtonLabels[pageLang];
+    rowActionsRightCol.appendChild(filterButton);
+  }
+};
+
+const renderClearButton = () => {
+  if (rowActionsRightCol) {
+    const clearButtonLabels = {
+      en: "clear",
+      es: "borrar",
+      pt: "limpar",
+    };
+    const clearButton = document.createElement("button");
+    clearButton.classList.add("gx-button", "gx-button--filter");
+    clearButton.innerText = clearButtonLabels[pageLang];
+    rowActionsRightCol.appendChild(clearButton);
+  }
 };
 
 const init = () => {
@@ -102,7 +130,10 @@ const init = () => {
   if (gxFilterData.cats.length && articlesList) {
     renderHeader();
     renderCategories();
+    renderClearButton();
+    renderFilterButton();
     if (filterHeader) {
+      /*This is needed to calculate the .gx-select-container's width*/
       filterHeader.style.setProperty(
         "--filters-length",
         gxFilterData.cats.length
