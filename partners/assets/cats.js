@@ -1,10 +1,10 @@
-const data = {
+const gxFilterData = {
   filterTitle: {
     en: "find a partner",
     es: "encontrar un socio",
     pt: "encontrar um parceiro",
   },
-  cats = [
+  cats: [
     /*categories*/
     {
       type: "category",
@@ -460,6 +460,5 @@ const data = {
         },
       ],
     },
-  ];
+  ],
 };
-

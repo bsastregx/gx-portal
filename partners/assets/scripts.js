@@ -1,29 +1,51 @@
-const headerFilters = document.getElementById("header-filters");
 const pageLang = document.documentElement.lang;
+let articlesList;
+let filterHeader;
+let rowSelects;
+let rowActions;
 
 const renderHeader = () => {
   /*header*/
-  const header = document.createElement("header");
-  header.classList.add("header-filter");
+  filterHeader = document.createElement("header");
+  filterHeader.classList.add("header-filter");
+  filterHeader.setAttribute("id", "header-filter");
   /*title*/
-  if (data.filterTitle) {
-    const headerTitle = document.createElement("h2");
+  let headerTitle;
+  if (gxFilterData.filterTitle) {
+    headerTitle = document.createElement("h2");
     headerTitle.classList.add("header-filter__title");
-    headerTitle.innerText = data.filterTitle[pageLang];
-    /*main row*/
-    const rowMain = document.createElement("div");
-    rowMain.classList.add("row", "row--main");
+    headerTitle.innerText = gxFilterData.filterTitle[pageLang];
   }
   /*text filter*/
   const textFilter = document.createElement("input");
   textFilter.setAttribute("type", "text");
   textFilter.setAttribute("placeholder", "AGL solutions");
-  textFilter.setAttribute("placeholder", "AGL solutions");
+  textFilter.classList.add("gx-input");
+  /*main row*/
+  const rowMain = document.createElement("div");
+  rowMain.classList.add("row", "row--main");
+  /*selects row*/
+  rowSelects = document.createElement("div");
+  rowSelects.classList.add("row", "row--selects");
+  rowSelects.setAttribute("id", "header-filters");
+  /*footer row*/
+  rowActions = document.createElement("div");
+  rowActions.classList.add("row", "row--actions");
+  rowActions.setAttribute("id", "header-actions");
+  /*appends*/
+  if (headerTitle) {
+    rowMain.appendChild(headerTitle);
+  }
+  rowMain.appendChild(textFilter);
+  filterHeader.appendChild(rowMain);
+  filterHeader.appendChild(rowSelects);
+  filterHeader.appendChild(rowActions);
+  articlesList.parentElement.insertBefore(filterHeader, articlesList);
 };
 
 const renderCategories = () => {
   /*categories*/
-  const cats = data.cats;
+  const cats = gxFilterData.cats;
   cats.forEach((cat) => {
     const type = cat.type;
     const label = cat.label[pageLang];
@@ -59,7 +81,7 @@ const renderCategories = () => {
       /*appends*/
       multiSelectContainer.appendChild(multiSelectLabel);
       multiSelectContainer.appendChild(multiSelect);
-      headerFilters.appendChild(multiSelectContainer);
+      rowSelects.appendChild(multiSelectContainer);
     }
   });
 };
@@ -75,9 +97,22 @@ const renderFilterButton = () => {
   filterButton.innerText = filterButtonLabels[pageLang];
 };
 
-/*Create multi-selects*/
-if (cats.length) {
-  headerFilters.style.setProperty("--filters-length", cats.length);
+const init = () => {
+  articlesList = document.querySelector("ul.articles");
+  if (gxFilterData.cats.length && articlesList) {
+    renderHeader();
+    renderCategories();
+    if (filterHeader) {
+      filterHeader.style.setProperty(
+        "--filters-length",
+        gxFilterData.cats.length
+      );
+    }
+  }
+};
 
-  renderCategories();
-}
+(function () {
+  // your page initialization code here
+  // the DOM will be available here
+  init();
+})();

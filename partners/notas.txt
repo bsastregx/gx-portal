@@ -1,8 +1,0 @@
-let diff = 0;
-if(prevSize) {
-    diff = currentSize.cardsPerLoad - prevSize.cardsPerLoad
-}
-
-
-
-nuevaCantidad = cantidadActual + 1;
