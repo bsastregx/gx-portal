@@ -1,116 +1,83 @@
-const cardsContainer = document.querySelector(".card-container");
-const loadMoreBtn = document.getElementById("load-more-btn");
-totalCards = cardsContainer.querySelectorAll(":scope > *").length;
-let visibleCards = 0;
-let remainingCards = totalCards;
+const headerFilters = document.getElementById("header-filters");
+const pageLang = document.documentElement.lang;
 
-/* obtener altura de fila */
-const getCardsHeight = () => {
-  /*Podemos obtenerla preguntando la altura de cualquier tarjeta
-  ya que por css estamos forzando a que la altura de todas las tarjetas sea la misma.*/
-  const firstCard = cardsContainer.firstElementChild;
-  return firstCard.getBoundingClientRect().height;
-};
-
-/* config */
-const config = {
-  cardHeight: getCardsHeight(),
-  prevSize: null,
-  currentSize: null,
-  xl: {
-    below: null,
-    cardsPerLoad: 8,
-    cardsPerRow: 4,
-  },
-  lg: {
-    below: 1199,
-    cardsPerLoad: 9,
-    cardsPerRow: 3,
-  },
-  md: {
-    below: 767,
-    cardsPerLoad: 8,
-    cardsPerRow: 2,
-  },
-  sm: {
-    below: 575,
-    cardsPerLoad: 8,
-    cardsPerRow: 1,
-  },
-};
-
-/*--- Helper Functions ---*/
-
-const evaluateBreakpoint = (currentWidth) => {
-  if (currentWidth <= config.sm.below) {
-    config.prevSize = config.currentSize;
-    config.currentSize = "sm";
-  } else if (currentWidth <= config.md.below) {
-    config.prevSize = config.currentSize;
-    config.currentSize = "md";
-  } else if (currentWidth <= config.lg.below) {
-    config.prevSize = config.currentSize;
-    config.currentSize = "lg";
-  } else {
-    config.prevSize = config.currentSize;
-    config.currentSize = "xl";
+const renderHeader = () => {
+  /*header*/
+  const header = document.createElement("header");
+  header.classList.add("header-filter");
+  /*title*/
+  if (data.filterTitle) {
+    const headerTitle = document.createElement("h2");
+    headerTitle.classList.add("header-filter__title");
+    headerTitle.innerText = data.filterTitle[pageLang];
+    /*main row*/
+    const rowMain = document.createElement("div");
+    rowMain.classList.add("row", "row--main");
   }
+  /*text filter*/
+  const textFilter = document.createElement("input");
+  textFilter.setAttribute("type", "text");
+  textFilter.setAttribute("placeholder", "AGL solutions");
+  textFilter.setAttribute("placeholder", "AGL solutions");
 };
 
-/**
- * Esta función actualiza 'visibleCards' y 'remainingCards' cuando hay un cambio de breakpoint.
- */
-const evaluateCardsOnResize = () => {
-  let diff = 0;
-  if (config.prevSize) {
-    diff =
-      config[config.currentSize].cardsPerLoad -
-      config[config.prevSize].cardsPerLoad;
-  }
-  if (diff !== 0) {
-    //evaluate cards.
-    visibleCards += diff;
-    remainingCards -= diff;
-  }
-};
+const renderCategories = () => {
+  /*categories*/
+  const cats = data.cats;
+  cats.forEach((cat) => {
+    const type = cat.type;
+    const label = cat.label[pageLang];
+    const cats = cat.cats;
 
-/**
- * Esta función actualiza la altura del cardsContainer.
- */
-const evaluateHeight = () => {
-  console.log(visibleCards);
-};
+    if (type && label && cats.length) {
+      /*create multi-select container*/
+      const multiSelectContainer = document.createElement("div");
+      multiSelectContainer.classList.add("gx-select-container");
 
-const resizeObserver = new ResizeObserver((entries) => {
-  for (const entry of entries) {
-    const newWidth = entry.contentRect.width;
-    evaluateBreakpoint(newWidth);
-    if (config.prevSize && config.prevSize !== config.currentSize) {
-      /*Solo evaluar las cards (cantidad de visibles y restantes) y altura del contenedor si hubo un cambio de breakpoint.*/
-      evaluateCardsOnResize();
-      evaluateHeight();
+      /*create multi-select label*/
+      const multiSelectLabel = document.createElement("label");
+      multiSelectLabel.classList.add("gx-select-label");
+      multiSelectLabel.setAttribute("for", type);
+      multiSelectLabel.innerText = type;
+
+      /*create multi-select*/
+      const multiSelect = document.createElement("select");
+      multiSelect.setAttribute("multiple", "multiple");
+      multiSelect.setAttribute("id", type);
+      multiSelect.classList.add("gx-select");
+
+      /*create options*/
+      cats.forEach((cat) => {
+        const value = cat.value;
+        const label = cat.label;
+        const option = document.createElement("option");
+        option.setAttribute("value", value);
+        option.innerText = cat.label[pageLang];
+        multiSelect.appendChild(option);
+      });
+
+      /*appends*/
+      multiSelectContainer.appendChild(multiSelectLabel);
+      multiSelectContainer.appendChild(multiSelect);
+      headerFilters.appendChild(multiSelectContainer);
     }
-  }
-});
-
-const init = () => {
-  resizeObserver.observe(cardsContainer);
-  evaluateHeight();
-};
-init();
-
-const updateRemainingCards = () => {
-  remainingCards = totalCards - config[config.currentSize].initialCards;
+  });
 };
 
-const getActualHeight = () => {
-  return cardsContainer.getBoundingClientRect().height;
+const renderFilterButton = () => {
+  const filterButtonLabels = {
+    en: "filter",
+    es: "filtro",
+    pt: "filtro",
+  };
+  const filterButton = document.createElement("button");
+  filterButton.classList.add("gx-filter-button");
+  filterButton.innerText = filterButtonLabels[pageLang];
 };
 
-const loadMoreCards = () => {
-  const actualHeight = getActualHeight();
-  let additionalHeight = 0;
-  //console.log(remainingCards);
-};
+/*Create multi-selects*/
+if (cats.length) {
+  headerFilters.style.setProperty("--filters-length", cats.length);
 
-loadMoreBtn.addEventListener("click", loadMoreCards);
+  renderCategories();
+}

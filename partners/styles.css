@@ -1,18 +1,90 @@
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+/*--- Filter Header ---*/
+.header-filter {
+  font-family: Graphik;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #969ba0;
+}
+.header-filter .row {
+  display: flex;
+  justify-content: space-between;
+}
+.header-filter__title {
+  margin: 0;
+}
+.gx-input {
+  padding: 9px 16px 9px 16px;
+}
+.gx-select-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / var(--filters-length));
+}
+.gx-select {
+}
+.gx-select option {
+  white-space: nowrap; /* Prevent text from wrapping */
+  text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+  overflow: hidden; /* Hide overflowing text */
+}
+
+/*--- Grid ---*/
+
+/*articles*/
+.articles {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
   gap: 20px;
-  overflow: hidden;
-  transition: 200ms height;
-  height: 0;
 }
-
-.card {
-}
-
-/* Asegura que todas las tarjetas tengan la misma altura */
-.card-container.open {
+/*article*/
+.articles article {
+  width: unset;
+  box-sizing: border-box;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  margin: 0;
+}
+.articles article > a {
+  margin-top: auto;
+}
+
+/*--- Responsive ---*/
+
+@media only screen and (min-width: 1440px) {
+  .articles {
+    /* background-color: aquamarine; */
+  }
+}
+@media only screen and (max-width: 992px) {
+  .articles {
+    /* background-color: rgb(249, 255, 127); */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 640px) {
+  .articles {
+    /* background-color: rgb(255, 187, 127); */
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*--- Testing Styles ---*/
+
+.paragraph {
+  font-size: 14px;
+  line-height: 1.6em;
+  font-weight: 500;
+  font-family: Graphik;
+  margin-bottom: 16px !important;
+  order: 3;
+}
+.sector {
+  margin: 36px auto 36px auto;
+}
+.viewport {
+  display: block !important;
+  padding: 0 36px;
 }
