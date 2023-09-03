@@ -1,10 +1,13 @@
 const pageLang = document.documentElement.lang;
 let articlesList;
+let articles;
 let filterHeader;
 let rowSelects;
 let rowActions;
 let rowActionsLeftCol;
 let rowActionsRightCol;
+let initialCards;
+let cardsPerLoad;
 
 const renderHeader = () => {
   /*header*/
@@ -107,6 +110,7 @@ const renderFilterButton = () => {
     filterButton.classList.add("gx-button", "gx-button--filter");
     filterButton.setAttribute("id", "gx-filter-button");
     filterButton.innerText = filterButtonLabels[pageLang];
+    filterButton.addEventListener("click", filterHandler);
     rowActionsRightCol.appendChild(filterButton);
   }
 };
@@ -121,13 +125,28 @@ const renderClearButton = () => {
     const clearButton = document.createElement("button");
     clearButton.classList.add("gx-button", "gx-button--filter");
     clearButton.innerText = clearButtonLabels[pageLang];
+    clearButton.addEventListener("click", clearFiltersHandler);
     rowActionsRightCol.appendChild(clearButton);
+  }
+};
+
+const hideCards = () => {
+  if (articles.length) {
+    articles.forEach((article) => {
+      article.setAttribute("hidden", "hidden");
+    });
   }
 };
 
 const init = () => {
   articlesList = document.querySelector("ul.articles");
-  if (gxFilterData.cats.length && articlesList) {
+  if (articlesList) {
+    articles = articlesList.querySelectorAll(":scope > li");
+  }
+  if (gxFilterData.cats.length && articles.length) {
+    initialCards = gxFilterData.conf.initialCards;
+    cardsPerLoad = gxFilterData.conf.cardsPerLoad;
+    hideCards();
     renderHeader();
     renderCategories();
     renderClearButton();
@@ -140,6 +159,15 @@ const init = () => {
       );
     }
   }
+};
+
+/*handlers*/
+const clearFiltersHandler = () => {
+  console.log("clear filters handler");
+};
+
+const filterHandler = () => {
+  console.log("filter handler");
 };
 
 (function () {

@@ -1,4 +1,8 @@
 const gxFilterData = {
+  conf: {
+    initialCards: 9,
+    cardsPerLoad: 9,
+  },
   filterTitle: {
     en: "find a partner",
     es: "encontrar un socio",
