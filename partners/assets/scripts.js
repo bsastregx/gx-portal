@@ -14,7 +14,7 @@ let showMoreButtonEl;
 let noMoreArticlesMessageEl;
 /*arrays*/
 let allArticles = [];
-let multiSelects = [];
+let multiCheckboxs = [];
 let filteredArticles = [];
 
 // RENDERS //
@@ -76,38 +76,43 @@ const renderCategories = () => {
 
     if (type && label && cats.length) {
       /*create multi-select container*/
-      const multiSelectContainer = document.createElement("div");
-      multiSelectContainer.classList.add("gx-select-container");
+      const multiCheckboxContainer = document.createElement("div");
+      multiCheckboxContainer.classList.add("gx-multi-checkbox-container");
 
       /*create multi-select label*/
-      const multiSelectLabel = document.createElement("label");
-      multiSelectLabel.classList.add("gx-select-label");
-      multiSelectLabel.setAttribute("for", type);
-      multiSelectLabel.innerText = type;
+      const multiCheckboxLabel = document.createElement("label");
+      multiCheckboxLabel.classList.add("gx-multi-checkbox-label");
+      multiCheckboxLabel.setAttribute("for", type);
+      multiCheckboxLabel.innerText = type;
 
-      /*create multi-select*/
-      const multiSelect = document.createElement("select");
-      multiSelect.setAttribute("multiple", "multiple");
-      multiSelect.setAttribute("id", type);
-      multiSelect.classList.add("gx-select");
+      /*create multi-checkbox*/
+      const multiCheckbox = document.createElement("div");
+      multiCheckbox.classList.add("gx-multi-checkbox");
 
       /*create options*/
       cats.forEach((cat) => {
         const value = cat.value;
         const label = cat.label[pageLang];
-        const option = document.createElement("option");
-        option.setAttribute("value", value);
-        option.innerText = label;
-        multiSelect.appendChild(option);
+        const labelEl = document.createElement("label");
+        const descriptionEl = document.createElement("span");
+        descriptionEl.classList.add("gx-label-description");
+        descriptionEl.innerText = label;
+        const checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("id", value);
+        /*appends*/
+        labelEl.appendChild(checkbox);
+        labelEl.appendChild(descriptionEl);
+        multiCheckbox.appendChild(labelEl);
       });
 
       /*add references*/
-      multiSelects.push(multiSelect);
+      multiCheckboxs.push(multiCheckbox);
 
       /*appends*/
-      multiSelectContainer.appendChild(multiSelectLabel);
-      multiSelectContainer.appendChild(multiSelect);
-      rowSelectsEl.appendChild(multiSelectContainer);
+      multiCheckboxContainer.appendChild(multiCheckboxLabel);
+      multiCheckboxContainer.appendChild(multiCheckbox);
+      rowSelectsEl.appendChild(multiCheckboxContainer);
     }
   });
 };
@@ -190,25 +195,29 @@ const hideAllCards = () => {
   }
 };
 
-const getSelectedValues = (reference) => {
-  const selectedOptions = reference.selectedOptions;
-  const selectedValues = [];
-  for (let i = 0; i < selectedOptions.length; i++) {
-    selectedValues.push(selectedOptions[i].value);
+const getChecked = (multiCheckbox) => {
+  const checkboxesArray = Array.from(
+    multiCheckbox.querySelectorAll("input[type='checkbox']")
+  );
+  const selectedOptions = [];
+  for (let i = 0; i < checkboxesArray.length; i++) {
+    if (checkboxesArray[i].checked) {
+      selectedOptions.push(checkboxesArray[i].getAttribute("id"));
+    }
   }
-  return selectedValues;
+  return selectedOptions;
 };
 
-const getFilterConditions = () => {
-  let selectedValues = [];
-  multiSelects.forEach((multiSelect) => {
-    selectedValues = getSelectedValues(multiSelect);
+const getSelectedOptions = () => {
+  let selectedOptions = [];
+  multiCheckboxs.forEach((multiCheckbox) => {
+    selectedOptions = [...selectedOptions, ...getChecked(multiCheckbox)];
   });
-  return selectedValues;
+  return selectedOptions;
 };
 
 const displayCards = () => {
-  const filterConditions = getFilterConditions();
+  const filterConditions = getSelectedOptions();
   if (filterConditions.length > 0) {
   } else {
     filteredArticles = Array.from(allArticles);
@@ -218,7 +227,6 @@ const displayCards = () => {
 };
 
 const showMoreArticles = () => {
-  console.log();
   if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
     for (let i = 0; i < filteredArticles.length; i++) {
@@ -262,7 +270,7 @@ const showElement = (elementRef) => {
 const isFilterReady = () => {
   articlesListEl = document.querySelector("ul.articles");
   if (articlesListEl) {
-    allArticles = articlesListEl.querySelectorAll(":scope > li");
+    allArticles = Array.from(articlesListEl.querySelectorAll(":scope > li"));
   }
   return gxFilterData.cats.length && allArticles.length > 0;
 };
@@ -271,7 +279,13 @@ const isFilterReady = () => {
 
 const clearFiltersHandler = () => {};
 
-const filterHandler = () => {};
+const filterHandler = () => {
+  const selectedOptions = getSelectedOptions();
+  if (selectedOptions.length > 0 && allArticles.length > 0) {
+    allArticles.forEach((article) => {});
+  } else {
+  }
+};
 
 const showMoreHandler = () => {
   showMoreArticles();
@@ -297,7 +311,7 @@ const init = () => {
     renderNoMoreArticlesMessage(); //must be called after renderFooter();
     displayCards(); //must be called after renderCategories();
     if (filterHeaderEl) {
-      /*This is needed to calculate the .gx-select-container's width*/
+      /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
         "--filters-length",
         gxFilterData.cats.length

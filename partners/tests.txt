@@ -1,0 +1,33 @@
+- Bantotal
+category: diamond
+type: integration partner
+industry: industry and business
+services: cloud
+country: uruguay
+
+---
+
+- Concepto
+category: gold
+type: solution partner
+industry: information technology, logistics
+services: government and public services
+country: uruguay
+
+---
+
+- Confluencia
+category: gold
+type: solution partner
+industry: healthcare
+services: software development
+country: argentina
+
+---
+
+- Dvelop
+category: gold
+type: solution partner
+industry: information technology
+services: software development
+country: uruguay

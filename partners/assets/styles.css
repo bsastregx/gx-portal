@@ -15,17 +15,31 @@
 .header-filter__title {
   margin: 0;
 }
+/*input*/
 .gx-input {
   padding: 9px 16px 9px 16px;
 }
-.gx-select-container {
+/*multi-checkbox*/
+.gx-multi-checkbox-label {
+  color: red;
+  display: flex;
+}
+.gx-multi-checkbox-container {
   display: flex;
   flex-direction: column;
   width: calc(100% / var(--filters-length));
 }
-.gx-select {
+.gx-multi-checkbox {
+  display: flex;
+  flex-direction: column;
 }
-.gx-select option {
+.gx-multi-checkbox label {
+  display: flex;
+}
+.gx-multi-checkbox label input[type="checkbox"] {
+  margin: 0;
+}
+.gx-label-description {
   white-space: nowrap; /* Prevent text from wrapping */
   text-overflow: ellipsis; /* Display ellipsis for overflowed text */
   overflow: hidden; /* Hide overflowing text */
