@@ -6,6 +6,7 @@ let typeSingular;
 /*elements*/
 let articlesListEl;
 let filterHeaderEl;
+let textFilterEl;
 let rowSelectsEl;
 let rowActionsEl;
 let rowActionsLeftColEl;
@@ -35,12 +36,21 @@ const renderHeader = () => {
     headerTitle.classList.add("header-filter__title");
     headerTitle.innerText = gxFilterData.filterTitle[pageLang];
   }
+  /*text filter label*/
+  const textFilterLabels = {
+    en: `Search by ${typeSingular} name:`,
+    es: `Buscar por nombre de ${typeSingular}:`,
+    pt: `Buscar por nome do ${typeSingular}:`,
+  };
+  const textFilterLabel = document.createElement("label");
+  textFilterLabel.classList.add("gx-input-label");
+  textFilterLabel.innerText = textFilterLabels[pageLang];
   /*text filter*/
-  const textFilter = document.createElement("input");
-  textFilter.setAttribute("type", "text");
-  textFilter.setAttribute("placeholder", "AGL solutions");
-  textFilter.classList.add("gx-input");
-  textFilter.addEventListener("input", filterInputHandler);
+  textFilterEl = document.createElement("input");
+  textFilterEl.setAttribute("type", "text");
+  textFilterEl.setAttribute("placeholder", "AGL solutions");
+  textFilterEl.classList.add("gx-input");
+  textFilterEl.addEventListener("input", filterInputHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -62,7 +72,8 @@ const renderHeader = () => {
   if (headerTitle) {
     rowMain.appendChild(headerTitle);
   }
-  rowMain.appendChild(textFilter);
+  textFilterLabel.appendChild(textFilterEl);
+  rowMain.appendChild(textFilterLabel);
   filterHeaderEl.appendChild(rowMain);
   filterHeaderEl.appendChild(rowSelectsEl);
   rowActionsEl.appendChild(rowActionsElLeftCol);
@@ -107,9 +118,9 @@ const renderCategories = () => {
         checkbox.setAttribute("id", value);
         checkbox.addEventListener("change", checkboxChangedHandler);
         /*test checked by default*/
-        if (label === "diamond" || label === "member") {
-          checkbox.checked = true;
-        }
+        // if (label === "diamond" || label === "member") {
+        //   checkbox.checked = true;
+        // }
         /*/test checked by default*/
         /*appends*/
         labelEl.appendChild(checkbox);
@@ -154,7 +165,7 @@ const renderClearButton = () => {
     const clearButton = document.createElement("button");
     clearButton.classList.add("gx-button", "gx-button--filter");
     clearButton.innerText = clearButtonLabels[pageLang];
-    clearButton.addEventListener("click", clearFiltersHandler);
+    clearButton.addEventListener("click", clearHandler);
     rowActionsElRightColEl.appendChild(clearButton);
   }
 };
@@ -206,6 +217,14 @@ const hideAllCards = () => {
   }
 };
 
+const showAllCards = () => {
+  if (allArticles.length) {
+    allArticles.forEach((article) => {
+      article.removeAttribute("hidden");
+    });
+  }
+};
+
 const getChecked = (multiCheckbox) => {
   const checkboxesArray = Array.from(
     multiCheckbox.querySelectorAll("input[type='checkbox']")
@@ -219,15 +238,8 @@ const getChecked = (multiCheckbox) => {
   return selectedCats;
 };
 
-const getSelectedCats = () => {
-  let selectedCats = [];
-  multiCheckboxes.forEach((multiCheckbox) => {
-    selectedCats = [...selectedCats, ...getChecked(multiCheckbox)];
-  });
-  return selectedCats;
-};
-
-const showMoreArticles = () => {
+/* #show more */
+const showMore = (all = false) => {
   if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
     for (let i = 0; i < filteredArticles.length; i++) {
@@ -248,6 +260,9 @@ const showMoreArticles = () => {
       showElement(showMoreButtonEl);
       hideElement(noMoreArticlesMessageEl);
     }
+  } else {
+    hideElement(showMoreButtonEl);
+    showElement(noMoreArticlesMessageEl);
   }
 };
 
@@ -294,17 +309,19 @@ const getArticleCats = (articleEl) => {
   }
 };
 
+/* #filter */
 const filter = () => {
   filteredArticles = [];
-  const selectedCats = getSelectedCats();
-  if (selectedCats.length > 0 && allArticles.length > 0) {
+  if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
     /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
       let isAMatch = true;
       const articleCats = getArticleCats(article);
       if (articleCats.length > 0) {
-        for (let i = 0; i < selectedCats.length; i++) {
-          const catFound = articleCats.find((cat) => cat === selectedCats[i]);
+        for (let i = 0; i < currentSelectedCategories.length; i++) {
+          const catFound = articleCats.find(
+            (cat) => cat === currentSelectedCategories[i]
+          );
           if (!catFound) {
             isAMatch = false;
             break;
@@ -339,8 +356,10 @@ const setSelectedCategories = () => {
  * It evaluates if the actual selected categories, match with the categories that were selected the last time the filter button was pressed. This is used to compare both states, and disable the filter button, if they match.
  */
 const evaluateFilterDifference = () => {
-  currentSelectedCategoriesString = currentSelectedCategories.sort().join(" ");
-  prevSelectedCategoriesString = prevSelectedCategories.sort().join(" ");
+  const currentSelectedCategoriesString = currentSelectedCategories
+    .sort()
+    .join(" ");
+  const prevSelectedCategoriesString = prevSelectedCategories.sort().join(" ");
   if (currentSelectedCategoriesString === prevSelectedCategoriesString) {
     /*The actual state of the categories filter is the same*/
     disableElement(filterButtonEl);
@@ -350,21 +369,38 @@ const evaluateFilterDifference = () => {
   }
 };
 
+const clearFilters = () => {
+  if (multiCheckboxes.length > 0) {
+    multiCheckboxes.forEach((mc) => {
+      const checkedOptions = Array.from(
+        mc.querySelectorAll("input[type='checkbox']:checked")
+      );
+      if (checkedOptions.length > 0) {
+        checkedOptions.forEach((option) => {
+          option.checked = false;
+        });
+      }
+    });
+  }
+};
+
 // HANDLERS //
 
 const filterInputHandler = (e) => {
-  console.log("filteredArticles", filteredArticles);
+  if (currentSelectedCategories.length > 0) {
+    clearFilters();
+    setSelectedCategories();
+    evaluateFilterDifference();
+  }
+  if (filteredArticles.length < allArticles.length) {
+    /*we want to search in all articles*/
+    filteredArticles = [...allArticles];
+  }
   const value = e.target.value.toLowerCase();
   if (filteredArticles.length > 0) {
     filteredArticles.forEach((article) => {
       const hidden = article.hasAttribute("hidden");
       const title = article.querySelector(".title").innerText.toLowerCase();
-
-      console.log("value", value);
-      console.log("hidden", hidden);
-      console.log("title", title);
-      console.log("---------");
-
       if (title.includes(value) && hidden) {
         article.removeAttribute("hidden");
       } else if (!title.includes(value) && !hidden) {
@@ -390,16 +426,27 @@ const checkboxChangedHandler = (e) => {
   evaluateFilterDifference();
 };
 
-const clearFiltersHandler = () => {};
-
-const filterHandler = () => {
+/* #clear handler */
+const clearHandler = () => {
+  clearFilters();
+  setSelectedCategories();
+  evaluateFilterDifference();
   hideAllCards();
   filter();
-  showMoreArticles();
+  showMore();
+};
+
+/* #filter handler */
+const filterHandler = () => {
+  textFilterEl.value = "";
+  hideAllCards();
+  filter();
+  showMore();
+  evaluateFilterDifference();
 };
 
 const showMoreHandler = () => {
-  showMoreArticles();
+  showMore();
 };
 
 // INIT //
@@ -423,7 +470,7 @@ const init = () => {
     setSelectedCategories(); //must be called after renderCategories();
     evaluateFilterDifference(); //must be called after setSelectedCategories();
     filter();
-    showMoreArticles(); //must be called after renderCategories() and filter();
+    showMore(); //must be called after renderCategories() and filter();
     if (filterHeaderEl) {
       /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
