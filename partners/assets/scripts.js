@@ -199,31 +199,21 @@ const getChecked = (multiCheckbox) => {
   const checkboxesArray = Array.from(
     multiCheckbox.querySelectorAll("input[type='checkbox']")
   );
-  const selectedOptions = [];
+  const selectedCats = [];
   for (let i = 0; i < checkboxesArray.length; i++) {
     if (checkboxesArray[i].checked) {
-      selectedOptions.push(checkboxesArray[i].getAttribute("id"));
+      selectedCats.push(checkboxesArray[i].getAttribute("id"));
     }
   }
-  return selectedOptions;
+  return selectedCats;
 };
 
-const getSelectedOptions = () => {
-  let selectedOptions = [];
+const getSelectedCats = () => {
+  let selectedCats = [];
   multiCheckboxs.forEach((multiCheckbox) => {
-    selectedOptions = [...selectedOptions, ...getChecked(multiCheckbox)];
+    selectedCats = [...selectedCats, ...getChecked(multiCheckbox)];
   });
-  return selectedOptions;
-};
-
-const displayCards = () => {
-  const filterConditions = getSelectedOptions();
-  if (filterConditions.length > 0) {
-  } else {
-    filteredArticles = Array.from(allArticles);
-    /*no filter condition*/
-  }
-  showMoreArticles();
+  return selectedCats;
 };
 
 const showMoreArticles = () => {
@@ -275,16 +265,51 @@ const isFilterReady = () => {
   return gxFilterData.cats.length && allArticles.length > 0;
 };
 
+const getArticleCats = (articleEl) => {
+  let cats = [];
+  if (articleEl) {
+    const categoriesItems = articleEl.querySelectorAll(".category-item");
+    if (categoriesItems.length > 0) {
+      categoriesItems.forEach((cat) => {
+        catClasses = cat.classList;
+        catClasses.forEach((cssClass) => {
+          if (cssClass !== "category-item") {
+            cats.push(cssClass);
+          }
+        });
+      });
+    }
+    return cats;
+  }
+};
+
+const filter = () => {
+  filteredArticles = [];
+  const selectedCats = getSelectedCats();
+  if (selectedCats.length > 0 && allArticles.length > 0) {
+    console.log("show some articles");
+    allArticles.forEach((article) => {
+      const articleCats = getArticleCats(article);
+      if (articleCats.length > 0) {
+        for (let i = 0; i < selectedCats.length; i++) {
+          const catFound = articleCats.find((cat) => cat === selectedCats[i]);
+          console.log(catFound);
+        }
+      }
+    });
+  } else {
+    console.log("show all articles");
+    filteredArticles = [...allArticles];
+  }
+};
+
 // HANDLERS //
 
 const clearFiltersHandler = () => {};
 
 const filterHandler = () => {
-  const selectedOptions = getSelectedOptions();
-  if (selectedOptions.length > 0 && allArticles.length > 0) {
-    allArticles.forEach((article) => {});
-  } else {
-  }
+  console.log("filter handler");
+  filter();
 };
 
 const showMoreHandler = () => {
@@ -296,7 +321,6 @@ const showMoreHandler = () => {
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
-    console.log("allArticles", allArticles);
     /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
     type = gxFilterData.conf.type[pageLang];
@@ -309,7 +333,9 @@ const init = () => {
     renderFooter();
     renderShowMoreButton(); //must be called after renderFooter();
     renderNoMoreArticlesMessage(); //must be called after renderFooter();
-    displayCards(); //must be called after renderCategories();
+    filter();
+    showMoreArticles(); //must be called after renderCategories() and filter();
+    console.log("allArticles after filter", allArticles);
     if (filterHeaderEl) {
       /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
