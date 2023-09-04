@@ -1,6 +1,11 @@
 const gxFilterData = {
   conf: {
-    type: {
+    typeSingular: {
+      en: "partner",
+      es: "socio",
+      pt: "parceiro",
+    },
+    typePlural: {
       en: "partners",
       es: "socios",
       pt: "parceiros",

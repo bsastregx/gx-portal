@@ -1,7 +1,8 @@
 const pageLang = document.documentElement.lang;
 /*filter data*/
 let cardsPerLoad;
-let type;
+let typePlural;
+let typeSingular;
 /*elements*/
 let articlesListEl;
 let filterHeaderEl;
@@ -39,6 +40,7 @@ const renderHeader = () => {
   textFilter.setAttribute("type", "text");
   textFilter.setAttribute("placeholder", "AGL solutions");
   textFilter.classList.add("gx-input");
+  textFilter.addEventListener("input", filterInputHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -183,9 +185,9 @@ const renderShowMoreButton = () => {
 const renderNoMoreArticlesMessage = () => {
   if (articlesFooterEl) {
     const messageLabels = {
-      en: `No more ${type} to display.`,
-      es: `No hay más ${type} para mostrar.`,
-      pt: `Não há mais ${type} para mostrar.`,
+      en: `No more ${typePlural} to display.`,
+      es: `No hay más ${typePlural} para mostrar.`,
+      pt: `Não há mais ${typePlural} para mostrar.`,
     };
     noMoreArticlesMessageEl = document.createElement("p");
     noMoreArticlesMessageEl.classList.add("no-more-articles");
@@ -314,9 +316,11 @@ const filter = () => {
       }
     });
   } else {
+    console.log("include all");
     /*no categories selected. include all articles*/
     filteredArticles = [...allArticles];
   }
+  prevSelectedCategories = [...currentSelectedCategories];
 };
 
 /*Sets the initial state of the selected categories. Only called on init().*/
@@ -348,6 +352,28 @@ const evaluateFilterDifference = () => {
 
 // HANDLERS //
 
+const filterInputHandler = (e) => {
+  console.log("filteredArticles", filteredArticles);
+  const value = e.target.value.toLowerCase();
+  if (filteredArticles.length > 0) {
+    filteredArticles.forEach((article) => {
+      const hidden = article.hasAttribute("hidden");
+      const title = article.querySelector(".title").innerText.toLowerCase();
+
+      console.log("value", value);
+      console.log("hidden", hidden);
+      console.log("title", title);
+      console.log("---------");
+
+      if (title.includes(value) && hidden) {
+        article.removeAttribute("hidden");
+      } else if (!title.includes(value) && !hidden) {
+        article.setAttribute("hidden", "hidden");
+      }
+    });
+  }
+};
+
 const checkboxChangedHandler = (e) => {
   const checked = e.target.checked;
   const cat = e.target.getAttribute("id");
@@ -367,7 +393,9 @@ const checkboxChangedHandler = (e) => {
 const clearFiltersHandler = () => {};
 
 const filterHandler = () => {
+  hideAllCards();
   filter();
+  showMoreArticles();
 };
 
 const showMoreHandler = () => {
@@ -381,7 +409,8 @@ const init = () => {
   if (ready) {
     /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
-    type = gxFilterData.conf.type[pageLang];
+    typeSingular = gxFilterData.conf.typeSingular[pageLang];
+    typePlural = gxFilterData.conf.typePlural[pageLang];
     /*call functions*/
     hideAllCards();
     renderHeader();
