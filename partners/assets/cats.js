@@ -1,7 +1,11 @@
 const gxFilterData = {
   conf: {
-    initialCards: 9,
-    cardsPerLoad: 9,
+    type: {
+      en: "partners",
+      es: "socios",
+      pt: "parceiros",
+    },
+    cardsPerLoad: 2,
   },
   filterTitle: {
     en: "find a partner",

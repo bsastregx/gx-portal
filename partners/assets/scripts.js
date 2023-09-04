@@ -1,19 +1,29 @@
 const pageLang = document.documentElement.lang;
-let articlesList;
-let articles;
-let filterHeader;
-let rowSelects;
-let rowActions;
-let rowActionsLeftCol;
-let rowActionsRightCol;
-let initialCards;
+/*filter data*/
 let cardsPerLoad;
+let type;
+/*elements*/
+let articlesListEl;
+let filterHeaderEl;
+let rowSelectsEl;
+let rowActionsEl;
+let rowActionsLeftColEl;
+let rowActionsElRightColEl;
+let articlesFooterEl;
+let showMoreButtonEl;
+let noMoreArticlesMessageEl;
+/*arrays*/
+let allArticles = [];
+let multiSelects = [];
+let filteredArticles = [];
+
+// RENDERS //
 
 const renderHeader = () => {
   /*header*/
-  filterHeader = document.createElement("header");
-  filterHeader.classList.add("header-filter");
-  filterHeader.setAttribute("id", "header-filter");
+  filterHeaderEl = document.createElement("header");
+  filterHeaderEl.classList.add("header-filter");
+  filterHeaderEl.setAttribute("id", "header-filter");
   /*title*/
   let headerTitle;
   if (gxFilterData.filterTitle) {
@@ -30,30 +40,30 @@ const renderHeader = () => {
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
   /*selects row*/
-  rowSelects = document.createElement("div");
-  rowSelects.classList.add("row", "row--selects");
-  rowSelects.setAttribute("id", "header-filters");
+  rowSelectsEl = document.createElement("div");
+  rowSelectsEl.classList.add("row", "row--selects");
+  rowSelectsEl.setAttribute("id", "header-filters");
   /*footer row*/
-  rowActions = document.createElement("div");
-  rowActions.classList.add("row", "row--actions");
-  rowActions.setAttribute("id", "header-actions");
+  rowActionsEl = document.createElement("div");
+  rowActionsEl.classList.add("row", "row--actions");
+  rowActionsEl.setAttribute("id", "header-actions");
   /*footer row left col*/
-  rowActionsLeftCol = document.createElement("div");
-  rowActionsLeftCol.classList.add("row", "row--actions__left-col");
+  rowActionsElLeftCol = document.createElement("div");
+  rowActionsElLeftCol.classList.add("row", "row--actions__left-col");
   /*footer row right col*/
-  rowActionsRightCol = document.createElement("div");
-  rowActionsRightCol.classList.add("row", "row--actions__right-col");
+  rowActionsElRightColEl = document.createElement("div");
+  rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
   /*appends*/
   if (headerTitle) {
     rowMain.appendChild(headerTitle);
   }
   rowMain.appendChild(textFilter);
-  filterHeader.appendChild(rowMain);
-  filterHeader.appendChild(rowSelects);
-  rowActions.appendChild(rowActionsLeftCol);
-  rowActions.appendChild(rowActionsRightCol);
-  filterHeader.appendChild(rowActions);
-  articlesList.parentElement.insertBefore(filterHeader, articlesList);
+  filterHeaderEl.appendChild(rowMain);
+  filterHeaderEl.appendChild(rowSelectsEl);
+  rowActionsEl.appendChild(rowActionsElLeftCol);
+  rowActionsEl.appendChild(rowActionsElRightColEl);
+  filterHeaderEl.appendChild(rowActionsEl);
+  articlesListEl.parentElement.insertBefore(filterHeaderEl, articlesListEl);
 };
 
 const renderCategories = () => {
@@ -84,23 +94,26 @@ const renderCategories = () => {
       /*create options*/
       cats.forEach((cat) => {
         const value = cat.value;
-        const label = cat.label;
+        const label = cat.label[pageLang];
         const option = document.createElement("option");
         option.setAttribute("value", value);
-        option.innerText = cat.label[pageLang];
+        option.innerText = label;
         multiSelect.appendChild(option);
       });
+
+      /*add references*/
+      multiSelects.push(multiSelect);
 
       /*appends*/
       multiSelectContainer.appendChild(multiSelectLabel);
       multiSelectContainer.appendChild(multiSelect);
-      rowSelects.appendChild(multiSelectContainer);
+      rowSelectsEl.appendChild(multiSelectContainer);
     }
   });
 };
 
 const renderFilterButton = () => {
-  if (rowActionsRightCol) {
+  if (rowActionsElRightColEl) {
     const filterButtonLabels = {
       en: "filter",
       es: "filtro",
@@ -111,12 +124,12 @@ const renderFilterButton = () => {
     filterButton.setAttribute("id", "gx-filter-button");
     filterButton.innerText = filterButtonLabels[pageLang];
     filterButton.addEventListener("click", filterHandler);
-    rowActionsRightCol.appendChild(filterButton);
+    rowActionsElRightColEl.appendChild(filterButton);
   }
 };
 
 const renderClearButton = () => {
-  if (rowActionsRightCol) {
+  if (rowActionsElRightColEl) {
     const clearButtonLabels = {
       en: "clear",
       es: "borrar",
@@ -126,48 +139,171 @@ const renderClearButton = () => {
     clearButton.classList.add("gx-button", "gx-button--filter");
     clearButton.innerText = clearButtonLabels[pageLang];
     clearButton.addEventListener("click", clearFiltersHandler);
-    rowActionsRightCol.appendChild(clearButton);
+    rowActionsElRightColEl.appendChild(clearButton);
   }
 };
 
-const hideCards = () => {
-  if (articles.length) {
-    articles.forEach((article) => {
+const renderFooter = () => {
+  if (articlesListEl) {
+    articlesFooterEl = document.createElement("footer");
+    articlesFooterEl.classList.add("articles-footer");
+    articlesListEl.after(articlesFooterEl);
+  }
+};
+
+const renderShowMoreButton = () => {
+  if (articlesFooterEl) {
+    const showMoreButtonLabels = {
+      en: "show more",
+      es: "mostrar más",
+      pt: "mostrar mais",
+    };
+    showMoreButtonEl = document.createElement("button");
+    showMoreButtonEl.classList.add("gx-button", "gx-button--show-more");
+    showMoreButtonEl.innerText = showMoreButtonLabels[pageLang];
+    showMoreButtonEl.addEventListener("click", showMoreHandler);
+    articlesFooterEl.appendChild(showMoreButtonEl);
+  }
+};
+
+const renderNoMoreArticlesMessage = () => {
+  if (articlesFooterEl) {
+    const messageLabels = {
+      en: `No more ${type} to display.`,
+      es: `No hay más ${type} para mostrar.`,
+      pt: `Não há mais ${type} para mostrar.`,
+    };
+    noMoreArticlesMessageEl = document.createElement("p");
+    noMoreArticlesMessageEl.classList.add("no-more-articles");
+    noMoreArticlesMessageEl.innerText = messageLabels[pageLang];
+    articlesFooterEl.appendChild(noMoreArticlesMessageEl);
+  }
+};
+
+// HELPER FUNCTIONS //
+
+const hideAllCards = () => {
+  if (allArticles.length) {
+    allArticles.forEach((article) => {
       article.setAttribute("hidden", "hidden");
     });
   }
 };
 
-const init = () => {
-  articlesList = document.querySelector("ul.articles");
-  if (articlesList) {
-    articles = articlesList.querySelectorAll(":scope > li");
+const getSelectedValues = (reference) => {
+  const selectedOptions = reference.selectedOptions;
+  const selectedValues = [];
+  for (let i = 0; i < selectedOptions.length; i++) {
+    selectedValues.push(selectedOptions[i].value);
   }
-  if (gxFilterData.cats.length && articles.length) {
-    initialCards = gxFilterData.conf.initialCards;
+  return selectedValues;
+};
+
+const getFilterConditions = () => {
+  let selectedValues = [];
+  multiSelects.forEach((multiSelect) => {
+    selectedValues = getSelectedValues(multiSelect);
+  });
+  return selectedValues;
+};
+
+const displayCards = () => {
+  const filterConditions = getFilterConditions();
+  if (filterConditions.length > 0) {
+  } else {
+    filteredArticles = Array.from(allArticles);
+    /*no filter condition*/
+  }
+  showMoreArticles();
+};
+
+const showMoreArticles = () => {
+  console.log();
+  if (filteredArticles.length > 0) {
+    let shownArticlesLength = 0;
+    for (let i = 0; i < filteredArticles.length; i++) {
+      filteredArticles[i].removeAttribute("hidden");
+      shownArticlesLength++;
+      if (shownArticlesLength === cardsPerLoad) {
+        break;
+      }
+    }
+    /*Then, remove shownCards from filteredArticles */
+    for (let index = 0; index < shownArticlesLength; index++) {
+      filteredArticles.shift();
+    }
+    if (filteredArticles.length === 0) {
+      hideElement(showMoreButtonEl);
+      showElement(noMoreArticlesMessageEl);
+    } else {
+      showElement(showMoreButtonEl);
+      hideElement(noMoreArticlesMessageEl);
+    }
+  }
+};
+
+const disableElement = (elementRef) => {
+  elementRef.setAttribute("disabled", "disabled");
+};
+const enableElement = (elementRef) => {
+  elementRef.removeAttribute("disabled");
+};
+const hideElement = (elementRef) => {
+  elementRef.setAttribute("hidden", "hidden");
+};
+const showElement = (elementRef) => {
+  elementRef.removeAttribute("hidden");
+};
+
+/**
+ * Helper function that evaluates if everything that is needed to run the filter is met.
+ * Returns a boolean.
+ */
+const isFilterReady = () => {
+  articlesListEl = document.querySelector("ul.articles");
+  if (articlesListEl) {
+    allArticles = articlesListEl.querySelectorAll(":scope > li");
+  }
+  return gxFilterData.cats.length && allArticles.length > 0;
+};
+
+// HANDLERS //
+
+const clearFiltersHandler = () => {};
+
+const filterHandler = () => {};
+
+const showMoreHandler = () => {
+  showMoreArticles();
+};
+
+// INIT //
+
+const init = () => {
+  const ready = isFilterReady();
+  if (ready) {
+    console.log("allArticles", allArticles);
+    /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
-    hideCards();
+    type = gxFilterData.conf.type[pageLang];
+    /*call functions*/
+    hideAllCards();
     renderHeader();
-    renderCategories();
-    renderClearButton();
-    renderFilterButton();
-    if (filterHeader) {
+    renderCategories(); //must be called after renderHeader();
+    renderClearButton(); //must be called after renderHeader();
+    renderFilterButton(); //must be called after renderHeader();
+    renderFooter();
+    renderShowMoreButton(); //must be called after renderFooter();
+    renderNoMoreArticlesMessage(); //must be called after renderFooter();
+    displayCards(); //must be called after renderCategories();
+    if (filterHeaderEl) {
       /*This is needed to calculate the .gx-select-container's width*/
-      filterHeader.style.setProperty(
+      filterHeaderEl.style.setProperty(
         "--filters-length",
         gxFilterData.cats.length
       );
     }
   }
-};
-
-/*handlers*/
-const clearFiltersHandler = () => {
-  console.log("clear filters handler");
-};
-
-const filterHandler = () => {
-  console.log("filter handler");
 };
 
 (function () {
