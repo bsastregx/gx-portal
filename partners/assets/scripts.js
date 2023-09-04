@@ -104,6 +104,11 @@ const renderCategories = () => {
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
         checkbox.addEventListener("change", checkboxChangedHandler);
+        /*test checked by default*/
+        if (label === "diamond" || label === "member") {
+          checkbox.checked = true;
+        }
+        /*/test checked by default*/
         /*appends*/
         labelEl.appendChild(checkbox);
         labelEl.appendChild(descriptionEl);
@@ -322,13 +327,41 @@ const setSelectedCategories = () => {
       selectedCats = [...selectedCats, ...getChecked(mc)];
     });
   }
-  console.log("selectedCats", selectedCats);
+  currentSelectedCategories = [...selectedCats];
+  prevSelectedCategories = [...selectedCats];
+};
+
+/**
+ * It evaluates if the actual selected categories, match with the categories that were selected the last time the filter button was pressed. This is used to compare both states, and disable the filter button, if they match.
+ */
+const evaluateFilterDifference = () => {
+  currentSelectedCategoriesString = currentSelectedCategories.sort().join(" ");
+  prevSelectedCategoriesString = prevSelectedCategories.sort().join(" ");
+  if (currentSelectedCategoriesString === prevSelectedCategoriesString) {
+    /*The actual state of the categories filter is the same*/
+    disableElement(filterButtonEl);
+  } else {
+    /*The actual state of the categories filter is different*/
+    enableElement(filterButtonEl);
+  }
 };
 
 // HANDLERS //
 
 const checkboxChangedHandler = (e) => {
-  console.log(e.target.getAttribute("id"));
+  const checked = e.target.checked;
+  const cat = e.target.getAttribute("id");
+  if (checked) {
+    currentSelectedCategories.push(cat);
+  } else {
+    const indexToDelete = currentSelectedCategories.findIndex((selectedCat) => {
+      return cat === selectedCat;
+    });
+    if (indexToDelete !== -1) {
+      currentSelectedCategories.splice(indexToDelete, 1);
+    }
+  }
+  evaluateFilterDifference();
 };
 
 const clearFiltersHandler = () => {};
@@ -359,6 +392,7 @@ const init = () => {
     renderShowMoreButton(); //must be called after renderFooter();
     renderNoMoreArticlesMessage(); //must be called after renderFooter();
     setSelectedCategories(); //must be called after renderCategories();
+    evaluateFilterDifference(); //must be called after setSelectedCategories();
     filter();
     showMoreArticles(); //must be called after renderCategories() and filter();
     if (filterHeaderEl) {
