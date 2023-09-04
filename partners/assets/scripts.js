@@ -12,6 +12,7 @@ let rowActionsEl;
 let rowActionsLeftColEl;
 let rowActionsElRightColEl;
 let articlesFooterEl;
+let clearButtonEl;
 let showMoreButtonEl;
 let filterButtonEl;
 let noMoreArticlesMessageEl;
@@ -162,11 +163,11 @@ const renderClearButton = () => {
       es: "borrar",
       pt: "limpar",
     };
-    const clearButton = document.createElement("button");
-    clearButton.classList.add("gx-button", "gx-button--filter");
-    clearButton.innerText = clearButtonLabels[pageLang];
-    clearButton.addEventListener("click", clearHandler);
-    rowActionsElRightColEl.appendChild(clearButton);
+    clearButtonEl = document.createElement("button");
+    clearButtonEl.classList.add("gx-button", "gx-button--filter");
+    clearButtonEl.innerText = clearButtonLabels[pageLang];
+    clearButtonEl.addEventListener("click", clearHandler);
+    rowActionsElRightColEl.appendChild(clearButtonEl);
   }
 };
 
