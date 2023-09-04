@@ -11,11 +11,14 @@ let rowActionsLeftColEl;
 let rowActionsElRightColEl;
 let articlesFooterEl;
 let showMoreButtonEl;
+let filterButtonEl;
 let noMoreArticlesMessageEl;
 /*arrays*/
 let allArticles = [];
-let multiCheckboxs = [];
+let multiCheckboxes = [];
 let filteredArticles = [];
+let currentSelectedCategories = [];
+let prevSelectedCategories = [];
 
 // RENDERS //
 
@@ -100,6 +103,7 @@ const renderCategories = () => {
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
+        checkbox.addEventListener("change", checkboxChangedHandler);
         /*appends*/
         labelEl.appendChild(checkbox);
         labelEl.appendChild(descriptionEl);
@@ -107,7 +111,7 @@ const renderCategories = () => {
       });
 
       /*add references*/
-      multiCheckboxs.push(multiCheckbox);
+      multiCheckboxes.push(multiCheckbox);
 
       /*appends*/
       multiCheckboxContainer.appendChild(multiCheckboxLabel);
@@ -124,12 +128,12 @@ const renderFilterButton = () => {
       es: "filtro",
       pt: "filtro",
     };
-    const filterButton = document.createElement("button");
-    filterButton.classList.add("gx-button", "gx-button--filter");
-    filterButton.setAttribute("id", "gx-filter-button");
-    filterButton.innerText = filterButtonLabels[pageLang];
-    filterButton.addEventListener("click", filterHandler);
-    rowActionsElRightColEl.appendChild(filterButton);
+    filterButtonEl = document.createElement("button");
+    filterButtonEl.classList.add("gx-button", "gx-button--filter");
+    filterButtonEl.setAttribute("id", "gx-filter-button");
+    filterButtonEl.innerText = filterButtonLabels[pageLang];
+    filterButtonEl.addEventListener("click", filterHandler);
+    rowActionsElRightColEl.appendChild(filterButtonEl);
   }
 };
 
@@ -210,7 +214,7 @@ const getChecked = (multiCheckbox) => {
 
 const getSelectedCats = () => {
   let selectedCats = [];
-  multiCheckboxs.forEach((multiCheckbox) => {
+  multiCheckboxes.forEach((multiCheckbox) => {
     selectedCats = [...selectedCats, ...getChecked(multiCheckbox)];
   });
   return selectedCats;
@@ -287,28 +291,49 @@ const filter = () => {
   filteredArticles = [];
   const selectedCats = getSelectedCats();
   if (selectedCats.length > 0 && allArticles.length > 0) {
-    console.log("show some articles");
+    /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
+      let isAMatch = true;
       const articleCats = getArticleCats(article);
       if (articleCats.length > 0) {
         for (let i = 0; i < selectedCats.length; i++) {
           const catFound = articleCats.find((cat) => cat === selectedCats[i]);
-          console.log(catFound);
+          if (!catFound) {
+            isAMatch = false;
+            break;
+          }
         }
+      }
+      if (isAMatch) {
+        filteredArticles.push(article);
       }
     });
   } else {
-    console.log("show all articles");
+    /*no categories selected. include all articles*/
     filteredArticles = [...allArticles];
   }
 };
 
+/*Sets the initial state of the selected categories. Only called on init().*/
+const setSelectedCategories = () => {
+  let selectedCats = [];
+  if (multiCheckboxes.length > 0) {
+    multiCheckboxes.forEach((mc) => {
+      selectedCats = [...selectedCats, ...getChecked(mc)];
+    });
+  }
+  console.log("selectedCats", selectedCats);
+};
+
 // HANDLERS //
+
+const checkboxChangedHandler = (e) => {
+  console.log(e.target.getAttribute("id"));
+};
 
 const clearFiltersHandler = () => {};
 
 const filterHandler = () => {
-  console.log("filter handler");
   filter();
 };
 
@@ -333,9 +358,9 @@ const init = () => {
     renderFooter();
     renderShowMoreButton(); //must be called after renderFooter();
     renderNoMoreArticlesMessage(); //must be called after renderFooter();
+    setSelectedCategories(); //must be called after renderCategories();
     filter();
     showMoreArticles(); //must be called after renderCategories() and filter();
-    console.log("allArticles after filter", allArticles);
     if (filterHeaderEl) {
       /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
