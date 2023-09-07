@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "GeneXus Meeting 30 está chegando",
     },
     description: {
-      en: "GeneXus Meeting 30 is coming.",
-      es: "GeneXus Meeting 30 se acerca.",
-      pt: "GeneXus Meeting 30 está chegando.",
+      en: "Save the date.",
+      es: "Reserva la fecha.",
+      pt: "Guarde a data.",
     },
   };
 
