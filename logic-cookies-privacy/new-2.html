@@ -1,0 +1,67 @@
+<style type="text/css">/*
+    Notes:
+    'GeneXus Powered by Globant close image': .I84449
+    ---
+    'Privay policy close image': .I75283
+    */
+  
+    .I84449 {
+      cursor: pointer;
+    }
+    .I84449:hover {
+      opacity: 0.8;
+    }
+  
+    @media (max-width: 640px) {
+      .I84448 {
+        position: fixed !important;
+        right: 1rem !important;
+        top: 2rem !important;
+      }
+    }
+    .please-show {
+      display: flex !important;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /*********************************
+      1. 'GENEXUS POWERED BY GLOBANT'
+      *********************************/
+      const poweredByGlobantClose = document.querySelector(".I84449");
+      const pbgParentRegion = poweredByGlobantClose.closest("section.region");
+      const pbgGrandParentRegion =
+        pbgParentRegion.parentNode.closest("section.region");
+  
+      if (localStorage.getItem("cookie-powered-by-globant") === null) {
+        // Cookie cookie-powered-by-globant not accepted yet
+        // Show 'GeneXus Powered by Globant'
+        pbgGrandParentRegion.classList.add("please-show");
+      }
+      /*'Close GeneXus Powered by Globant'*/
+      poweredByGlobantClose.addEventListener("click", () => {
+        console.log("clicked");
+        pbgGrandParentRegion.classList.remove("please-show");
+        localStorage.setItem("cookie-powered-by-globant", "");
+      });
+  
+      /*********************************
+      2. 'PRIVACY POLICY'
+      *********************************/
+      const privacyPolicyClose = document.querySelector(".I75283");
+      const ppParentRegion = privacyPolicyClose.closest("section.region");
+      const ppGrandParentRegion =
+        ppParentRegion.parentNode.closest("section.region");
+  
+      if (localStorage.getItem("accept-cookies") === null) {
+        // Privacy policy not accepted yet
+        // Show 'Privacy policy'
+        ppGrandParentRegion.classList.add("please-show");
+      }
+      /*'Close Privacy policy'*/
+      privacyPolicyClose.addEventListener("click", () => {
+        ppGrandParentRegion.classList.remove("please-show");
+        localStorage.setItem("accept-cookies", "");
+      });
+    });
+  </script>
