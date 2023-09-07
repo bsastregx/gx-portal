@@ -13,6 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /*=== Data ====*/
+  /*local url*/
+  //const baseUrlAssets = "./assets/";
+  /*netlify url*/
+  const baseUrlAssets = "https://gx30-sticky-banner.netlify.app/assets/";
   const pageLang = document.documentElement.lang;
   const gx30 = {
     url: {
@@ -37,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
   gx30StyleTag.innerHTML = `
   @font-face {
     font-family: Graphik;
-    src: url(./assets/graphik.woff);
+    src: url(${baseUrlAssets}graphik.woff);
   }
   @font-face {
     font-family: Rubik;
-    src: url(./assets/rubik.ttf);
+    src: url(${baseUrlAssets}rubik.ttf);
   }
   body {
     height: 2400px;
@@ -187,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="sticky-gx30__header-bottom">
           <img
             class="sticky-gx30__logo"
-            src="./assets/gx-30-squared.svg"
+            src="${baseUrlAssets}gx-30-squared.svg"
             alt="GX30 logo"
           />
         </div>
@@ -201,7 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="sticky-gx30__footer-bottom">
             <img
               class="sticky-gx30__arrow"
-              src="./assets/arrow.svg"
+              src="${baseUrlAssets}arrow.svg"
               alt="arrow icon"
             />
           </div>
