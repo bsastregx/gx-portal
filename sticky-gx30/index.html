@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Banner | GX30</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <button id="toggle-mobile">Toggle mobile version</button>
+
+    <a href="www.google.com" id="sticky-gx30">
+      <article class="sticky-gx30__article">
+        <header class="sticky-gx30__header">
+          <div class="sticky-gx30__header-top">
+            <button class="sticky-gx30__close">✖</button>
+          </div>
+          <div class="sticky-gx30__header-bottom">
+            <img
+              class="sticky-gx30__logo"
+              src="./assets/gx-30-squared.svg"
+              alt="GX30 logo"
+            />
+          </div>
+        </header>
+        <main class="sticky-gx30__main">
+          <h1 class="sticky-gx30__title">GeneXus Meeting 30 is coming</h1>
+          <footer class="sticky-gx30__footer">
+            <div class="sticky-gx30__footer-top">
+              <p class="sticky-gx30__caption">Save the date.</p>
+            </div>
+            <div class="sticky-gx30__footer-bottom">
+              <img
+                class="sticky-gx30__arrow"
+                src="./assets/arrow.svg"
+                alt="arrow icon"
+              />
+            </div>
+          </footer>
+        </main>
+      </article>
+    </a>
+
+    <script>
+      /*Sticky banner scripts*/
+      const stickyGx30 = document.getElementById("sticky-gx30");
+      /*detect is mobilde*/
+      const isMobile =
+        /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      if (isMobile) {
+        stickyGx30.classList.add("is-mobile");
+      }
+      /*close button action*/
+      const closeButton = document.querySelector(".sticky-gx30__close");
+      if (closeButton) {
+        closeButton.addEventListener("mouseenter", function (e) {
+          stickyGx30.classList.add("hover-close");
+        });
+        closeButton.addEventListener("mouseout", function (e) {
+          stickyGx30.classList.remove("hover-close");
+        });
+        closeButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          stickyGx30.classList.add("hidden");
+        });
+      }
+    </script>
+
+    <script>
+      /*Toggle button scripts*/
+      const toggleMobileBtn = document.getElementById("toggle-mobile");
+      if (toggleMobileBtn && stickyGx30) {
+        toggleMobileBtn.addEventListener("click", () => {
+          stickyGx30.classList.toggle("is-mobile");
+        });
+      }
+    </script>
+  </body>
+</html>
