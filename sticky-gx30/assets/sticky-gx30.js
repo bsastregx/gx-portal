@@ -68,8 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
     width: 100%;
     max-width: 265px;
     z-index: 999999999;
+    cursor: pointer;
   
     --main-padding: 16px;
+  }
+  #sticky-gx30:focus {
+    outline:none;
+  }
+  #sticky-gx30:focus .sticky-gx30__article{
+    border-color: #0F62FE;
+    outline: 1px solid #0F62FE;
   }
   /*article*/
   #sticky-gx30 .sticky-gx30__article {
@@ -103,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
+    padding:0;
+    line-height:0;
   }
   #sticky-gx30 .sticky-gx30__close:hover {
     transform: scale(1.25);
@@ -159,8 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   #sticky-gx30.is-mobile .sticky-gx30__close {
     position: relative;
-    top: -8px;
-    right: -12px;
+    top: -13px;
+    right: -8px;
   }
   #sticky-gx30.is-mobile .sticky-gx30__footer {
     display: flex;
