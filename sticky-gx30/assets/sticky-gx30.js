@@ -43,10 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     font-family: Graphik;
     src: url(${baseUrlAssets}graphik.woff);
   }
-  @font-face {
-    font-family: Rubik;
-    src: url(${baseUrlAssets}rubik.ttf);
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
   body {
     height: 2400px;
     background-color: rgb(234, 234, 234);
@@ -118,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     transform: scale(1.25);
   }
   #sticky-gx30 .sticky-gx30__close:focus {
-    outline: 2px solid #111111;
+    outline: none;
   }
   /*header bottom*/
   #sticky-gx30 .sticky-gx30__header-bottom {
@@ -143,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
   /*paragraph*/
   #sticky-gx30 .sticky-gx30__caption {
     font-size: 17px;
+    font-weight: 300;
     line-height:1.425em;
+    font-family: 'Rubik', sans-serif;
   }
   /*--- Mobile version ---*/
   #sticky-gx30.is-mobile {
@@ -174,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   #sticky-gx30.is-mobile .sticky-gx30__footer {
     display: flex;
-    justify-content: space-between;
+    align-items: end;
   }
   #sticky-gx30.is-mobile .sticky-gx30__caption {
     margin: 0;
