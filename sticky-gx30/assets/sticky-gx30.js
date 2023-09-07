@@ -25,14 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "https://www.addevent.com/event/Ea17045544",
     },
     title: {
-      en: "GeneXus Meeting 30 is coming",
-      es: "GeneXus Meeting 30 se acerca",
+      en: "GeneXus Meeting 30 is coming!",
+      es: "¡Se acerca el Encuentro GeneXus 30!",
       pt: "GeneXus Meeting 30 está chegando",
     },
     description: {
-      en: "Save the date.",
-      es: "Reserva la fecha.",
-      pt: "Guarde a data.",
+      en: "O Encontro GeneXus 30 está chegando!",
+      es: "Reserva la fecha ahora.",
+      pt: "Reserve a data agora.",
     },
   };
 
@@ -60,10 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
   #sticky-gx30 {
     text-decoration: none;
     color: #111111;
-    transition: 200ms all;
     position: fixed;
-    bottom: 16px;
-    left: 16px;
+    bottom: 26px;
+    left: 26px;
     transition: 100ms all;
     opacity: 1;
     width: 100%;
@@ -81,17 +80,12 @@ document.addEventListener("DOMContentLoaded", function () {
     padding: 8px;
     font-family: "Rubik", Arial, sans-serif;
   }
-  #sticky-gx30:hover .sticky-gx30__article {
-    background-color: #ebeff7;
-    border-color: #0f62fe;
+  #sticky-gx30:hover {
+    transform: scale(1.025);
   }
   #sticky-gx30.hidden {
     opacity: 0;
     left: 0;
-  }
-  /*override arrow position*/
-  #sticky-gx30.hover-close .sticky-gx30__arrow {
-    transform: translateX(0) !important;
   }
   /*header*/
   #sticky-gx30 .sticky-gx30__header {
@@ -111,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor: pointer;
   }
   #sticky-gx30 .sticky-gx30__close:hover {
-    transform: scale(1.1);
+    transform: scale(1.25);
   }
   #sticky-gx30 .sticky-gx30__close:focus {
     outline: 2px solid #111111;
@@ -130,25 +124,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   /*title*/
   #sticky-gx30 .sticky-gx30__title {
+    font-size:20px;
+    line-height:1.3em;
     font-family: Graphik, Arial, sans-serif;
     margin-block-start: 0;
     margin-block-end: 8px;
   }
   /*paragraph*/
   #sticky-gx30 .sticky-gx30__caption {
-    font-size: 18px;
-  }
-  /*arrow*/
-  #sticky-gx30 .sticky-gx30__arrow {
-    transition: 200ms transform;
-    transform: translateX(0);
-  }
-  #sticky-gx30:hover .sticky-gx30__arrow {
-    transform: translateX(20px);
+    font-size: 17px;
+    line-height:1.425em;
   }
   /*--- Mobile version ---*/
   #sticky-gx30.is-mobile {
-    max-width: 315px;
+    max-width: calc(100% - 52px);
   }
   #sticky-gx30.is-mobile .sticky-gx30__article {
     padding: 0;
@@ -168,12 +157,14 @@ document.addEventListener("DOMContentLoaded", function () {
     width: 40px;
     height: auto;
   }
+  #sticky-gx30.is-mobile .sticky-gx30__close {
+    position: relative;
+    top: -8px;
+    right: -12px;
+  }
   #sticky-gx30.is-mobile .sticky-gx30__footer {
     display: flex;
     justify-content: space-between;
-  }
-  #sticky-gx30.is-mobile:hover .sticky-gx30__arrow {
-    transform: translateX(0);
   }
   #sticky-gx30.is-mobile .sticky-gx30__caption {
     margin: 0;
@@ -187,7 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <article class="sticky-gx30__article">
       <header class="sticky-gx30__header">
         <div class="sticky-gx30__header-top">
-          <button class="sticky-gx30__close">✖</button>
+          <button class="sticky-gx30__close"><img
+          class="sticky-gx30__close-img"
+          src="${baseUrlAssets}close.svg"
+          alt="GX30 logo"
+        /></button>
         </div>
         <div class="sticky-gx30__header-bottom">
           <img
