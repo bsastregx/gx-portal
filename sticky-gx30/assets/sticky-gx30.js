@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: 1;
     width: 100%;
     max-width: 265px;
-    z-index: 999999999
+    z-index: 999999999;
   
     --main-padding: 16px;
   }
