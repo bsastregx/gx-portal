@@ -10,12 +10,12 @@ const gxFilterData = {
       es: "socios",
       pt: "parceiros",
     },
-    cardsPerLoad: 2,
+    cardsPerLoad: 6,
   },
   filterTitle: {
-    en: "Find a Partner",
-    es: "Encontrar un Socio",
-    pt: "Encontrar um Parceiro",
+    en: "Find a partner",
+    es: "Encontrar un socio",
+    pt: "Encontrar um parceiro",
   },
   cats: [
     /*categories*/

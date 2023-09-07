@@ -1,9 +1,9 @@
 - Bantotal
-category: diamond
-type: integration partner
-industry: industry and business
-services: cloud
-country: uruguay
+category: diamond (C128438-5676)
+type: integration partner (C128438-5699)
+industry: industry and business (C128438-5703)
+services: cloud (C128438-5683)
+country: uruguay (C128438-2671)
 
 ---
 

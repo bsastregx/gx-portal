@@ -1,6 +1,33 @@
-/*--- Filter Header ---*/
+:root {
+  --gx-color-action: #e02b58;
+  --gx-color-gray: #969ba0;
+  --border-radius: 4px;
+}
+/*------------------
+General
+------------------*/
+.gx-input,
+.gx-button {
+  font-family: Rubik, sans-serif;
+}
+.gx-input {
+  border: 1px solid var(--gx-color-gray);
+  border-radius: var(--border-radius);
+  margin-top: 8px;
+  padding: 9px 16px 9px 16px;
+}
+.gx-input:focus {
+  border-color: var(--gx-color-action);
+  border-radius: var(--border-radius);
+  margin-top: 8px;
+  padding: 9px 16px 9px 16px;
+}
+/*------------------
+Header
+------------------*/
 #header-filter {
   font-family: Graphik;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -12,17 +39,20 @@
   display: flex;
   justify-content: space-between;
 }
+/* main title*/
 .header-filter__title {
+  font-size: 2.25rem;
   margin: 0;
 }
-/*input*/
-.gx-input-label {
+/*--------------------
+Multi-checkbox Filters
+--------------------*/
+/*filter label*/
+.gx-label--filter {
+  font-size: 0.875rem;
   font-weight: 500;
   display: flex;
   flex-direction: column;
-}
-.gx-input {
-  padding: 9px 16px 9px 16px;
 }
 /*multi-checkbox*/
 .gx-multi-checkbox-label {
@@ -44,14 +74,14 @@
 .gx-multi-checkbox label input[type="checkbox"] {
   margin: 0;
 }
-.gx-label-description {
+.gx-label--description {
   white-space: nowrap; /* Prevent text from wrapping */
   text-overflow: ellipsis; /* Display ellipsis for overflowed text */
   overflow: hidden; /* Hide overflowing text */
 }
-
-/*--- Grid ---*/
-
+/*------------------
+Grid
+------------------*/
 /*articles*/
 .articles {
   display: grid !important;
@@ -69,6 +99,9 @@
 }
 .articles article > a {
   margin-top: auto;
+}
+.articles .article-container--exact-match {
+  background-color: bisque;
 }
 
 /*--- Responsive ---*/

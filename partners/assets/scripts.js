@@ -11,17 +11,22 @@ let rowSelectsEl;
 let rowActionsEl;
 let rowActionsLeftColEl;
 let rowActionsElRightColEl;
+let rowInfoEl;
 let articlesFooterEl;
+let numberPlaceholderEl;
 let clearButtonEl;
-let showMoreButtonEl;
 let filterButtonEl;
+let showMoreButtonEl;
 let noMoreArticlesMessageEl;
 /*arrays*/
+let catsMap = [];
 let allArticles = [];
 let multiCheckboxes = [];
 let filteredArticles = [];
 let currentSelectedCategories = [];
 let prevSelectedCategories = [];
+/*other*/
+let visibleCards = 0;
 
 // RENDERS //
 
@@ -44,31 +49,35 @@ const renderHeader = () => {
     pt: `Buscar por nome do ${typeSingular}:`,
   };
   const textFilterLabel = document.createElement("label");
-  textFilterLabel.classList.add("gx-input-label");
+  textFilterLabel.classList.add("gx-label", "gx-label--filter");
   textFilterLabel.innerText = textFilterLabels[pageLang];
   /*text filter*/
   textFilterEl = document.createElement("input");
   textFilterEl.setAttribute("type", "text");
   textFilterEl.setAttribute("placeholder", "AGL solutions");
-  textFilterEl.classList.add("gx-input");
+  textFilterEl.classList.add("gx-input", "gx-input--filter");
   textFilterEl.addEventListener("input", filterInputHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
-  /*selects row*/
+  /*row main*/
   rowSelectsEl = document.createElement("div");
   rowSelectsEl.classList.add("row", "row--selects");
   rowSelectsEl.setAttribute("id", "header-filters");
-  /*footer row*/
+  /*row footer*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
   rowActionsEl.setAttribute("id", "header-actions");
-  /*footer row left col*/
-  rowActionsElLeftCol = document.createElement("div");
-  rowActionsElLeftCol.classList.add("row", "row--actions__left-col");
-  /*footer row right col*/
+  /*row footer | left col*/
+  rowActionsLeftColEl = document.createElement("div");
+  rowActionsLeftColEl.classList.add("row", "row--actions__left-col");
+  /*row footer | right col*/
   rowActionsElRightColEl = document.createElement("div");
   rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
+  /*row info*/
+  rowInfoEl = document.createElement("div");
+  rowInfoEl.classList.add("row", "row--info");
+  rowInfoEl.setAttribute("id", "header-info");
   /*appends*/
   if (headerTitle) {
     rowMain.appendChild(headerTitle);
@@ -77,9 +86,10 @@ const renderHeader = () => {
   rowMain.appendChild(textFilterLabel);
   filterHeaderEl.appendChild(rowMain);
   filterHeaderEl.appendChild(rowSelectsEl);
-  rowActionsEl.appendChild(rowActionsElLeftCol);
+  rowActionsEl.appendChild(rowActionsLeftColEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
+  filterHeaderEl.appendChild(rowInfoEl);
   articlesListEl.parentElement.insertBefore(filterHeaderEl, articlesListEl);
 };
 
@@ -98,7 +108,7 @@ const renderCategories = () => {
 
       /*create multi-select label*/
       const multiCheckboxLabel = document.createElement("label");
-      multiCheckboxLabel.classList.add("gx-multi-checkbox-label");
+      multiCheckboxLabel.classList.add("gx-label", "gx-label--multi-checkbox");
       multiCheckboxLabel.setAttribute("for", type);
       multiCheckboxLabel.innerText = type;
 
@@ -112,16 +122,16 @@ const renderCategories = () => {
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
         const descriptionEl = document.createElement("span");
-        descriptionEl.classList.add("gx-label-description");
+        descriptionEl.classList.add("gx-label", "gx-label--description");
         descriptionEl.innerText = label;
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
         checkbox.addEventListener("change", checkboxChangedHandler);
         /*test checked by default*/
-        // if (label === "diamond" || label === "member") {
-        //   checkbox.checked = true;
-        // }
+        if (label === "diamond") {
+          checkbox.checked = true;
+        }
         /*/test checked by default*/
         /*appends*/
         labelEl.appendChild(checkbox);
@@ -140,19 +150,35 @@ const renderCategories = () => {
   });
 };
 
-const renderFilterButton = () => {
-  if (rowActionsElRightColEl) {
-    const filterButtonLabels = {
-      en: "filter",
-      es: "filtro",
-      pt: "filtro",
+const renderShowingPartners = () => {
+  if (rowInfoEl) {
+    const messageBefores = {
+      en: `Showing `,
+      es: `Mostrando `,
+      pt: `Mostrando `,
     };
-    filterButtonEl = document.createElement("button");
-    filterButtonEl.classList.add("gx-button", "gx-button--filter");
-    filterButtonEl.setAttribute("id", "gx-filter-button");
-    filterButtonEl.innerText = filterButtonLabels[pageLang];
-    filterButtonEl.addEventListener("click", filterHandler);
-    rowActionsElRightColEl.appendChild(filterButtonEl);
+    const messageAfters = {
+      en: ` of ${allArticles.length} partners`,
+      es: ` de ${allArticles.length} socios`,
+      pt: ` de ${allArticles.length} parceiros`,
+    };
+    /*paragraph*/
+    const paragraph = document.createElement("p");
+    /*message before*/
+    const messageBefore = document.createElement("span");
+    messageBefore.innerText = messageBefores[pageLang];
+    /*number placeholder*/
+    numberPlaceholderEl = document.createElement("span");
+    numberPlaceholderEl.setAttribute("id", "showing-number");
+    numberPlaceholderEl.innerText = "0";
+    /*message after*/
+    const messageAfter = document.createElement("span");
+    messageAfter.innerText = messageAfters[pageLang];
+    /*appends*/
+    paragraph.appendChild(messageBefore);
+    paragraph.appendChild(numberPlaceholderEl);
+    paragraph.appendChild(messageAfter);
+    rowInfoEl.appendChild(paragraph);
   }
 };
 
@@ -168,6 +194,22 @@ const renderClearButton = () => {
     clearButtonEl.innerText = clearButtonLabels[pageLang];
     clearButtonEl.addEventListener("click", clearHandler);
     rowActionsElRightColEl.appendChild(clearButtonEl);
+  }
+};
+
+const renderFilterButton = () => {
+  if (rowActionsElRightColEl) {
+    const filterButtonLabels = {
+      en: "filter",
+      es: "filtro",
+      pt: "filtro",
+    };
+    filterButtonEl = document.createElement("button");
+    filterButtonEl.classList.add("gx-button", "gx-button--filter");
+    filterButtonEl.setAttribute("id", "gx-filter-button");
+    filterButtonEl.innerText = filterButtonLabels[pageLang];
+    filterButtonEl.addEventListener("click", filterHandler);
+    rowActionsElRightColEl.appendChild(filterButtonEl);
   }
 };
 
@@ -240,12 +282,14 @@ const getChecked = (multiCheckbox) => {
 };
 
 /* #show more */
-const showMore = (all = false) => {
+const showMore = () => {
   if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
     for (let i = 0; i < filteredArticles.length; i++) {
       filteredArticles[i].removeAttribute("hidden");
       shownArticlesLength++;
+      visibleCards++;
+
       if (shownArticlesLength === cardsPerLoad) {
         break;
       }
@@ -264,7 +308,9 @@ const showMore = (all = false) => {
   } else {
     hideElement(showMoreButtonEl);
     showElement(noMoreArticlesMessageEl);
+    visibleCards = 0;
   }
+  updateShowingArticles();
 };
 
 const disableElement = (elementRef) => {
@@ -334,7 +380,6 @@ const filter = () => {
       }
     });
   } else {
-    console.log("include all");
     /*no categories selected. include all articles*/
     filteredArticles = [...allArticles];
   }
@@ -385,7 +430,56 @@ const clearFilters = () => {
   }
 };
 
+/**
+ * It creates an array of all the categories, mapping the id with the label. Called only once on init();
+ */
+const createCatsMapArray = () => {
+  catsMap = [];
+  const cats = gxFilterData.cats;
+  if (cats.length > 0) {
+    cats.forEach((cat) => {
+      const cats = cat.cats;
+      if (cats.length > 0) {
+        cats.forEach((cat) => {
+          catsMap.push({
+            id: cat.value,
+            label: cat.label[pageLang],
+          });
+        });
+      }
+    });
+  }
+};
+
+/**
+ * It renders the categories pills, iterating over 'currentSelectedCategories'.
+ */
+const renderPills = () => {
+  if (rowActionsLeftColEl) {
+    rowActionsLeftColEl.innerHTML = "";
+  }
+  if (currentSelectedCategories.length > 0) {
+    currentSelectedCategories.forEach((catId) => {
+      const catData = catsMap.find((cat) => {
+        return cat.id === catId;
+      });
+      if (catData) {
+        const pill = document.createElement("button");
+        pill.classList.add("gx-button-pill");
+        pill.innerText = catData.label;
+        pill.setAttribute("data-cat", catData.id);
+        pill.addEventListener("click", pillClickedHandler);
+        rowActionsLeftColEl.appendChild(pill);
+      }
+    });
+  }
+};
+
 // HANDLERS //
+
+const pillClickedHandler = (e) => {
+  console.log(e.target);
+};
 
 const filterInputHandler = (e) => {
   if (currentSelectedCategories.length > 0) {
@@ -399,16 +493,26 @@ const filterInputHandler = (e) => {
   }
   const value = e.target.value.toLowerCase();
   if (filteredArticles.length > 0) {
+    visibleCards = 0;
     filteredArticles.forEach((article) => {
       const hidden = article.hasAttribute("hidden");
       const title = article.querySelector(".title").innerText.toLowerCase();
-      if (title.includes(value) && hidden) {
+      if (title.includes(value)) {
         article.removeAttribute("hidden");
-      } else if (!title.includes(value) && !hidden) {
+        visibleCards++;
+        if (title === value) {
+          console.log("exact!");
+          article.classList.add("article-container--exact-match");
+        } else {
+          article.classList.remove("article-container--exact-match");
+        }
+      } else if (!title.includes(value)) {
         article.setAttribute("hidden", "hidden");
+        article.classList.remove("article-container--exact-match");
       }
     });
   }
+  updateShowingArticles();
 };
 
 const checkboxChangedHandler = (e) => {
@@ -427,6 +531,10 @@ const checkboxChangedHandler = (e) => {
   evaluateFilterDifference();
 };
 
+const updateShowingArticles = () => {
+  numberPlaceholderEl.innerText = visibleCards;
+};
+
 /* #clear handler */
 const clearHandler = () => {
   clearFilters();
@@ -435,6 +543,8 @@ const clearHandler = () => {
   hideAllCards();
   filter();
   showMore();
+  updateShowingArticles();
+  renderPills();
 };
 
 /* #filter handler */
@@ -444,6 +554,7 @@ const filterHandler = () => {
   filter();
   showMore();
   evaluateFilterDifference();
+  renderPills();
 };
 
 const showMoreHandler = () => {
@@ -460,16 +571,19 @@ const init = () => {
     typeSingular = gxFilterData.conf.typeSingular[pageLang];
     typePlural = gxFilterData.conf.typePlural[pageLang];
     /*call functions*/
+    createCatsMapArray();
     hideAllCards();
     renderHeader();
     renderCategories(); //must be called after renderHeader();
     renderClearButton(); //must be called after renderHeader();
     renderFilterButton(); //must be called after renderHeader();
     renderFooter();
+    renderShowingPartners(); //must be called after renderFooter();
     renderShowMoreButton(); //must be called after renderFooter();
     renderNoMoreArticlesMessage(); //must be called after renderFooter();
     setSelectedCategories(); //must be called after renderCategories();
     evaluateFilterDifference(); //must be called after setSelectedCategories();
+    renderPills(); //must be called after setSelectedCategories();
     filter();
     showMore(); //must be called after renderCategories() and filter();
     if (filterHeaderEl) {
