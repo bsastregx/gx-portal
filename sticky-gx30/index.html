@@ -17,33 +17,58 @@
         height: 2400px;
         background-color: rgb(234, 234, 234);
       }
-      /*sticky banner*/
-      a#sticky-gx30 {
+      #toggle-mobile {
+        position: fixed;
+        left: 16px;
+        top: 16px;
+      }
+
+      /*--- Sticky banner ---*/
+      #sticky-gx30 {
         text-decoration: none;
         color: #111111;
+        transition: 200ms all;
+        position: fixed;
+        bottom: 16px;
+        left: 16px;
+        transition: 100ms all;
+        opacity: 1;
+        width: 100%;
+        max-width: 265px;
+
+        --main-padding: 16px;
       }
-      a#sticky-gx30:hover {
-      }
+
+      /*article*/
       #sticky-gx30 .sticky-gx30__article {
         background-color: #fff;
         border: 1px solid #111111;
         border-radius: 8px;
-        width: 265px;
         box-sizing: border-box;
         padding: 8px;
-        position: fixed;
-        bottom: 16px;
-        left: 16px;
         font-family: "Rubik", Arial, sans-serif;
+      }
+      #sticky-gx30:hover .sticky-gx30__article {
+        background-color: #ebeff7;
+        border-color: #0f62fe;
+      }
+      #sticky-gx30.hidden {
+        opacity: 0;
+        left: 0;
+      }
+      /*override arrow position*/
+      #sticky-gx30.hover-close .sticky-gx30__arrow {
+        transform: translateX(0) !important;
       }
       /*header*/
       #sticky-gx30 .sticky-gx30__header {
         display: flex;
-        justify-content: end;
+        flex-direction: column;
       }
-      /*main*/
-      #sticky-gx30 .sticky-gx30__main {
-        padding: 0 16px 16px 16px;
+      /*header top*/
+      #sticky-gx30 .sticky-gx30__header-top {
+        display: flex;
+        justify-content: end;
       }
       #sticky-gx30 .sticky-gx30__close {
         background-color: transparent;
@@ -58,14 +83,27 @@
       #sticky-gx30 .sticky-gx30__close:focus {
         outline: 2px solid #111111;
       }
+      /*header bottom*/
+      #sticky-gx30 .sticky-gx30__header-bottom {
+        padding: 0 var(--main-padding);
+      }
+      #sticky-gx30 .sticky-gx30__logo {
+        width: 80px;
+        height: auto;
+      }
+      /*main*/
+      #sticky-gx30 .sticky-gx30__main {
+        padding: var(--main-padding);
+      }
       /*title*/
       #sticky-gx30 .sticky-gx30__title {
         font-family: Graphik, Arial, sans-serif;
-        margin-bottom: 8px;
+        margin-block-start: 0;
+        margin-block-end: 8px;
       }
       /*paragraph*/
       #sticky-gx30 .sticky-gx30__caption {
-        font-size: 17px;
+        font-size: 18px;
       }
       /*arrow*/
       #sticky-gx30 .sticky-gx30__arrow {
@@ -75,21 +113,111 @@
       #sticky-gx30:hover .sticky-gx30__arrow {
         transform: translateX(20px);
       }
+
+      /*--- Mobile version ---*/
+      #sticky-gx30.is-mobile {
+        max-width: 315px;
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__article {
+        padding: 0;
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__header {
+        padding: var(--main-padding) var(--main-padding) 0 var(--main-padding);
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__header-bottom {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__logo {
+        width: 40px;
+        height: auto;
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__footer {
+        display: flex;
+        justify-content: space-between;
+      }
+      #sticky-gx30.is-mobile:hover .sticky-gx30__arrow {
+        transform: translateX(0);
+      }
+      #sticky-gx30.is-mobile .sticky-gx30__caption {
+        margin: 0;
+      }
     </style>
   </head>
   <body>
-    <a href="www.google.com" id="sticky-gx30">
+    <button id="toggle-mobile">Toggle mobile version</button>
+    <!-- Mobile -->
+    <a href="www.google.com" id="sticky-gx30" class="is-mobile">
       <article class="sticky-gx30__article">
         <header class="sticky-gx30__header">
-          <button class="sticky-gx30__close">✖</button>
+          <div class="sticky-gx30__header-top">
+            <button class="sticky-gx30__close">✖</button>
+          </div>
+          <div class="sticky-gx30__header-bottom">
+            <img
+              class="sticky-gx30__logo"
+              src="./assets/gx-30-squared.svg"
+              alt="GX30 logo"
+            />
+          </div>
         </header>
         <main class="sticky-gx30__main">
-          <img src="./assets/gx-30-squared.svg" alt="GX30 logo" />
           <h1 class="sticky-gx30__title">GeneXus Meeting 30 is coming</h1>
-          <p class="sticky-gx30__caption">Save the date.</p>
-          <img class="sticky-gx30__arrow" src="./assets/arrow.svg" alt="" />
+          <footer class="sticky-gx30__footer">
+            <div class="sticky-gx30__footer-top">
+              <p class="sticky-gx30__caption">Save the date.</p>
+            </div>
+            <div class="sticky-gx30__footer-bottom">
+              <img
+                class="sticky-gx30__arrow"
+                src="./assets/arrow.svg"
+                alt="arrow icon"
+              />
+            </div>
+          </footer>
         </main>
       </article>
     </a>
+
+    <script>
+      /*Sticky banner scripts*/
+      const stickyGx30 = document.getElementById("sticky-gx30");
+      /*detect is mobilde*/
+      const isMobile =
+        /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      if (isMobile) {
+        stickyGx30.classList.add("is-mobile");
+      }
+      /*close button action*/
+      const closeButton = document.querySelector(".sticky-gx30__close");
+      if (closeButton) {
+        closeButton.addEventListener("mouseenter", function (e) {
+          stickyGx30.classList.add("hover-close");
+        });
+        closeButton.addEventListener("mouseout", function (e) {
+          stickyGx30.classList.remove("hover-close");
+        });
+        closeButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          stickyGx30.classList.add("hidden");
+        });
+      }
+    </script>
+
+    <script>
+      /*Toggle button scripts*/
+      const toggleMobileBtn = document.getElementById("toggle-mobile");
+      if (toggleMobileBtn && stickyGx30) {
+        toggleMobileBtn.addEventListener("click", () => {
+          stickyGx30.classList.toggle("is-mobile");
+        });
+      }
+    </script>
   </body>
 </html>
