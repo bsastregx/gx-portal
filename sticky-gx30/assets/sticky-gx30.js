@@ -44,10 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     src: url(${baseUrlAssets}graphik.woff);
   }
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-  body {
-    height: 2400px;
-    background-color: rgb(234, 234, 234);
-  }
   #toggle-mobile {
     position: fixed;
     left: 16px;
