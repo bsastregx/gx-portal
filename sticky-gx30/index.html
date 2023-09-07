@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Banner | GX30</title>
+    <style>
+      @font-face {
+        font-family: Graphik;
+        src: url(./assets/graphik.woff);
+      }
+      @font-face {
+        font-family: Rubik;
+        src: url(./assets/rubik.woff);
+      }
+      body {
+        height: 2400px;
+        background-color: rgb(234, 234, 234);
+      }
+      /*sticky banner*/
+      a#sticky-gx30 {
+        text-decoration: none;
+        color: #111111;
+      }
+      a#sticky-gx30:hover {
+      }
+      #sticky-gx30 .sticky-gx30__article {
+        background-color: #fff;
+        border: 1px solid #111111;
+        border-radius: 8px;
+        width: 265px;
+        box-sizing: border-box;
+        padding: 8px;
+        position: fixed;
+        bottom: 16px;
+        left: 16px;
+        font-family: "Rubik", Arial, sans-serif;
+      }
+      /*header*/
+      #sticky-gx30 .sticky-gx30__header {
+        display: flex;
+        justify-content: end;
+      }
+      /*main*/
+      #sticky-gx30 .sticky-gx30__main {
+        padding: 0 16px 16px 16px;
+      }
+      #sticky-gx30 .sticky-gx30__close {
+        background-color: transparent;
+        border: 0;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      #sticky-gx30 .sticky-gx30__close:hover {
+        transform: scale(1.1);
+      }
+      #sticky-gx30 .sticky-gx30__close:focus {
+        outline: 2px solid #111111;
+      }
+      /*title*/
+      #sticky-gx30 .sticky-gx30__title {
+        font-family: Graphik, Arial, sans-serif;
+        margin-bottom: 8px;
+      }
+      /*paragraph*/
+      #sticky-gx30 .sticky-gx30__caption {
+        font-size: 17px;
+      }
+      /*arrow*/
+      #sticky-gx30 .sticky-gx30__arrow {
+        transition: 200ms transform;
+        transform: translateX(0);
+      }
+      #sticky-gx30:hover .sticky-gx30__arrow {
+        transform: translateX(20px);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="www.google.com" id="sticky-gx30">
+      <article class="sticky-gx30__article">
+        <header class="sticky-gx30__header">
+          <button class="sticky-gx30__close">✖</button>
+        </header>
+        <main class="sticky-gx30__main">
+          <img src="./assets/gx-30-squared.svg" alt="GX30 logo" />
+          <h1 class="sticky-gx30__title">GeneXus Meeting 30 is coming</h1>
+          <p class="sticky-gx30__caption">Save the date.</p>
+          <img class="sticky-gx30__arrow" src="./assets/arrow.svg" alt="" />
+        </main>
+      </article>
+    </a>
+  </body>
+</html>
