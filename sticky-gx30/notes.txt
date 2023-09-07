@@ -1,0 +1,2 @@
+examples: https://gx30-sticky-banner.netlify.app/netlify/
+url js: https://gx30-sticky-banner.netlify.app/assets/sticky-gx30.js
