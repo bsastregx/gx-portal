@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "GeneXus Meeting 30 está chegando",
     },
     description: {
-      en: "O Encontro GeneXus 30 está chegando!",
-      es: "Save the date now.",
+      en: "Save the date now.",
+      es: "Reserva la fecha ahora.",
       pt: "Reserve a data agora.",
     },
   };
