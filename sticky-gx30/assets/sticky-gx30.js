@@ -17,7 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
   //const baseUrlAssets = "./assets/";
   /*netlify url*/
   const baseUrlAssets = "https://gx30-sticky-banner.netlify.app/assets/";
-  const pageLang = document.documentElement.lang;
+  let pageLang = document.documentElement.lang;
+  if (pageLang.includes("en")) {
+    pageLang = "en";
+  } else if (pageLang.includes("es")) {
+    pageLang = "es";
+  } else if (pageLang.includes("pt")) {
+    pageLang = "pt";
+  } else {
+    //default english
+    pageLang = "en";
+  }
+
   const gx30 = {
     url: {
       en: "https://www.addevent.com/event/NM17045529",
@@ -40,8 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const gx30StyleTag = document.createElement("style");
   gx30StyleTag.innerHTML = `
   @font-face {
-    font-family: Graphik;
-    src: url(${baseUrlAssets}graphik.woff);
+    font-family: "Graphik Semibold";
+    src: url(${baseUrlAssets}graphik-semibold.woff);
+  }
+  @font-face {
+    font-family: "Rubik Light";
+    src: url(${baseUrlAssets}rubik-light.woff);
   }
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
   #toggle-mobile {
@@ -79,12 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
     border-radius: 8px;
     box-sizing: border-box;
     padding: 8px;
-    font-family: "Rubik", Arial, sans-serif;
+    font-family: "Rubik Light", "Rubik Regular", Arial, sans-serif;
   }
   #sticky-gx30:hover {
     transform: scale(1.025);
   }
-  #sticky-gx30.hidden {
+  #sticky-gx30.sticky-gx30--hidden {
     opacity: 0;
     left: 0;
   }
@@ -129,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
   #sticky-gx30 .sticky-gx30__title {
     font-size:20px;
     line-height:1.3em;
-    font-family: Graphik, Arial, sans-serif;
+    font-family: "Graphik Semibold", Arial, sans-serif;
     margin-block-start: 0;
     margin-block-end: 8px;
   }
@@ -218,17 +233,17 @@ document.addEventListener("DOMContentLoaded", function () {
   /*=== Scripts ====*/
   const stickyLink = document.createElement("a");
   stickyLink.setAttribute("id", "sticky-gx30");
-  stickyLink.classList.add("hidden", isMobileClass);
+  stickyLink.classList.add("sticky-gx30--hidden", isMobileClass);
   stickyLink.setAttribute("target", "_blank");
   stickyLink.setAttribute("href", gx30.url[pageLang]);
   document.body.appendChild(stickyLink);
   stickyLink.innerHTML = gx30Html;
   setTimeout(() => {
-    stickyLink.classList.remove("hidden");
+    stickyLink.classList.remove("sticky-gx30--hidden");
   }, 1000);
 
   const removeStickyBanner = () => {
-    stickyLink.classList.add("hidden");
+    stickyLink.classList.add("sticky-gx30--hidden");
     setTimeout(() => {
       stickyLink.remove();
     }, 1000);
@@ -236,12 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const closeButton = document.querySelector(".sticky-gx30__close");
   if (closeButton) {
-    closeButton.addEventListener("mouseenter", function (e) {
-      stickyLink.classList.add("hover-close");
-    });
-    closeButton.addEventListener("mouseout", function (e) {
-      stickyLink.classList.remove("hover-close");
-    });
     closeButton.addEventListener("click", function (e) {
       e.preventDefault();
       removeStickyBanner();
