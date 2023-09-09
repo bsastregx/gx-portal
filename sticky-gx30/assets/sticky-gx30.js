@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   @font-face {
     font-family: "Rubik Light";
-    src: url(${baseUrlAssets}rubik-light.woff);
+    src: url(${baseUrlAssets}rubik-light.ttf);
   }
   @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
   #toggle-mobile {
