@@ -1,7 +1,9 @@
 :root {
   --gx-color-action: #e02b58;
-  --gx-color-neutral--500: #969ba0;
+  --gx-color-neutral--200: #eeeeee;
   --gx-color-neutral--300: #d9d9d9b3;
+  --gx-color-neutral--400: #b5b5b5;
+  --gx-color-neutral--500: #969ba0;
   --border-radius: 4px;
   --font-family-body: Rubik, sans-serif;
   --font-family-titles: Graphik, sans-serif;
@@ -97,37 +99,77 @@ Multi-checkbox Filters
   font-family: inherit;
   font-size: inherit;
   text-align: left;
-  padding: 16px;
   text-transform: capitalize;
   border: 2px solid transparent;
   border-radius: var(--border-radius);
   height: var(--gx-label-multi-checkbox-height);
   box-sizing: border-box;
   transition: var(--gx-transition--ui) all;
+  padding: 16px;
+  cursor: pointer;
+  position: relative;
+  top: -1px;
 }
-.gx-label--multi-checkbox:focus {
+.gx-label--multi-checkbox:hover {
   outline: none;
   border-color: var(--gx-color-neutral--300);
 }
+.gx-label--multi-checkbox:focus {
+  outline: none;
+  border-color: var(--gx-color-action);
+}
 .gx-multi-checkbox {
   box-sizing: border-box;
-  padding: 16px;
   display: flex;
   flex-direction: column;
   box-shadow: var(--box-shadow-dropdown);
   border-radius: var(--border-radius);
+  max-height: 365px;
+  overflow-x: auto;
+  margin-top: 4px;
+}
+/*scrollbar*/
+.gx-multi-checkbox::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+/* Track */
+.gx-multi-checkbox::-webkit-scrollbar-track {
+  background-color: var(--gx-color-neutral--200);
+  border-radius: 10px;
+}
+/* Handle */
+.gx-multi-checkbox::-webkit-scrollbar-thumb {
+  background: var(--gx-color-neutral--400);
+  border-radius: 10px;
+}
+/* Handle on hover */
+.gx-multi-checkbox::-webkit-scrollbar-thumb:hover {
+  background: var(--gx-color-neutral--500);
+  cursor: pointer;
+}
+.gxg-scroll {
+  display: block;
+  overflow-y: auto;
+  padding-right: 2px;
 }
 .gx-multi-checkbox > label {
   display: flex;
   gap: 14px;
   font-size: 17px;
-  padding: 16px 0;
+  padding: 16px;
   cursor: pointer;
+}
+.gx-multi-checkbox > label:hover {
+  background-color: var(--gx-color-neutral--200);
 }
 .gx-multi-checkbox input[type="checkbox"] {
   height: 0;
   width: 0;
   margin: 0;
+}
+.gx-multi-checkbox input[type="checkbox"] label {
+  border: 1px solid transparent;
 }
 .gx-multi-checkbox label > .span-animation {
   display: flex;
@@ -145,6 +187,13 @@ Multi-checkbox Filters
   box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 1);
   -webkit-box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 1);
+}
+.gx-multi-checkbox input[type="checkbox"] + label {
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+}
+.gx-multi-checkbox input[type="checkbox"]:focus + label {
+  border-color: var(--gx-color-action);
 }
 .gx-multi-checkbox input[type="checkbox"]:checked + label > .span-animation {
   border: 0.5em solid var(--gx-color-action);
@@ -174,6 +223,7 @@ Multi-checkbox Filters
   transition: var(--gx-transition--ui) color;
   top: -1px;
   position: relative;
+  font-weight: 300;
 }
 .gx-label--description {
   white-space: nowrap; /* Prevent text from wrapping */
