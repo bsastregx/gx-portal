@@ -121,24 +121,26 @@ const renderCategories = () => {
       /*create options*/
       cats.forEach((cat) => {
         const value = cat.value;
-        const label = cat.label[pageLang];
-        const labelEl = document.createElement("label");
-        const animatonSpan = document.createElement("span");
-        const descriptionEl = document.createElement("span");
-        descriptionEl.classList.add("gx-label", "gx-label--description");
-        descriptionEl.innerText = label;
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
         checkbox.addEventListener("change", checkboxChangedHandler);
+        const label = cat.label[pageLang];
+        const labelEl = document.createElement("label");
+        labelEl.setAttribute("for", value);
+        const animatonSpan = document.createElement("span");
+        animatonSpan.classList.add("span-animation");
+        const descriptionEl = document.createElement("span");
+        descriptionEl.classList.add("gx-label", "gx-label--description");
+        descriptionEl.innerText = label;
         /*test checked by default*/
         // if (label === "diamond") {
         //   checkbox.checked = true;
         // }
         /*/test checked by default*/
         /*appends*/
+        multiCheckbox.appendChild(checkbox);
         labelEl.appendChild(animatonSpan);
-        labelEl.appendChild(checkbox);
         labelEl.appendChild(descriptionEl);
         multiCheckbox.appendChild(labelEl);
       });
