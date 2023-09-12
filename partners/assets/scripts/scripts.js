@@ -17,7 +17,7 @@ let numberPlaceholderEl;
 let clearButtonEl;
 let filterButtonEl;
 let showMoreButtonEl;
-let noMoreArticlesMessageEl;
+let footerMessagesSlotEl;
 /*arrays*/
 let catsMap = [];
 let allArticles = [];
@@ -27,6 +27,23 @@ let currentSelectedCategories = [];
 let prevSelectedCategories = [];
 /*other*/
 let visibleCards = 0;
+const footerMessages = {
+  noMorePartners: {
+    en: `No more ${typePlural} to display`,
+    es: `No hay más ${typePlural} para mostrar`,
+    pt: `Não há mais ${typePlural} para mostrar`,
+  },
+  showingAllCoincidences: {
+    en: `Showing all the ${typePlural} that match your search`,
+    es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda`,
+    pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa`,
+  },
+  noMatchFound: {
+    en: `No ${typeSingular} found with the selected filters`,
+    es: `Ningún ${typeSingular} encontrado con los filtros seleccionados`,
+    pt: `Nenhum ${typeSingular} encontrado com os filtros selecionados`,
+  },
+};
 
 // RENDERS //
 
@@ -238,15 +255,9 @@ const renderShowMoreButton = () => {
 
 const footerMessagesSlot = () => {
   if (articlesFooterEl) {
-    const messageLabels = {
-      en: `No more ${typePlural} to display.`,
-      es: `No hay más ${typePlural} para mostrar.`,
-      pt: `Não há mais ${typePlural} para mostrar.`,
-    };
-    noMoreArticlesMessageEl = document.createElement("p");
-    noMoreArticlesMessageEl.classList.add("no-more-articles");
-    noMoreArticlesMessageEl.innerText = messageLabels[pageLang];
-    articlesFooterEl.appendChild(noMoreArticlesMessageEl);
+    footerMessagesSlotEl = document.createElement("p");
+    footerMessagesSlotEl.classList.add("no-more-articles");
+    articlesFooterEl.appendChild(footerMessagesSlotEl);
   }
 };
 
@@ -300,14 +311,15 @@ const showMore = () => {
     }
     if (filteredArticles.length === 0) {
       hideElement(showMoreButtonEl);
-      showElement(noMoreArticlesMessageEl);
+      showElement(footerMessagesSlotEl);
+      footerMessagesSlotEl.innerText;
     } else {
       showElement(showMoreButtonEl);
-      hideElement(noMoreArticlesMessageEl);
+      hideElement(footerMessagesSlotEl);
     }
   } else {
     hideElement(showMoreButtonEl);
-    showElement(noMoreArticlesMessageEl);
+    showElement(footerMessagesSlotEl);
     visibleCards = 0;
   }
   updateShowingArticles();
