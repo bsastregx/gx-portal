@@ -111,7 +111,7 @@ const renderCategories = () => {
       const multiCheckboxLabel = document.createElement("button");
       multiCheckboxLabel.classList.add("gx-label", "gx-label--multi-checkbox");
       multiCheckboxLabel.setAttribute("for", type);
-      multiCheckboxLabel.setAttribute("r", type);
+      multiCheckboxLabel.addEventListener("click", multiCheckboxLabelHandler);
       multiCheckboxLabel.innerText = type;
 
       /*create multi-checkbox*/
@@ -124,6 +124,7 @@ const renderCategories = () => {
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
+        checkbox.setAttribute("disabled", "disabled");
         checkbox.addEventListener("change", checkboxChangedHandler);
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
@@ -497,6 +498,23 @@ const renderPills = () => {
 };
 
 // HANDLERS //
+
+const multiCheckboxLabelHandler = (e) => {
+  /*label*/
+  const label = e.target;
+  label.classList.toggle("gx-label--multi-checkbox--active");
+  /*multi-checkbox*/
+  const multiCheckbox = label.nextElementSibling;
+  multiCheckbox.classList.toggle("gx-multi-checkbox--opened");
+  /*checkboxes*/
+  const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
+  if (checkboxes.length) {
+    checkboxes.forEach((checkbox) => {
+      console.log(checkbox);
+      checkbox.setAttribute("disabled", "disabled");
+    });
+  }
+};
 
 const pillClickedHandler = (e) => {
   const catId = e.target.getAttribute("data-cat");
