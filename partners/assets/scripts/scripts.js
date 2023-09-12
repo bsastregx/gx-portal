@@ -129,9 +129,9 @@ const renderCategories = () => {
         checkbox.setAttribute("id", value);
         checkbox.addEventListener("change", checkboxChangedHandler);
         /*test checked by default*/
-        if (label === "diamond") {
-          checkbox.checked = true;
-        }
+        // if (label === "diamond") {
+        //   checkbox.checked = true;
+        // }
         /*/test checked by default*/
         /*appends*/
         labelEl.appendChild(checkbox);
@@ -236,7 +236,7 @@ const renderShowMoreButton = () => {
   }
 };
 
-const renderNoMoreArticlesMessage = () => {
+const footerMessagesSlot = () => {
   if (articlesFooterEl) {
     const messageLabels = {
       en: `No more ${typePlural} to display.`,
@@ -580,7 +580,7 @@ const init = () => {
     renderFooter();
     renderShowingPartners(); //must be called after renderFooter();
     renderShowMoreButton(); //must be called after renderFooter();
-    renderNoMoreArticlesMessage(); //must be called after renderFooter();
+    footerMessagesSlot(); //must be called after renderFooter();
     setSelectedCategories(); //must be called after renderCategories();
     evaluateFilterDifference(); //must be called after setSelectedCategories();
     renderPills(); //must be called after setSelectedCategories();
