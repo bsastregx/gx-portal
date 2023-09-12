@@ -10,7 +10,7 @@ const gxFilterData = {
       es: "socios",
       pt: "parceiros",
     },
-    cardsPerLoad: 300,
+    cardsPerLoad: 6,
   },
   filterTitle: {
     en: "Find a partner",

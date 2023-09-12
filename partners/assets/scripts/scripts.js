@@ -22,28 +22,12 @@ let footerMessagesSlotEl;
 let catsMap = [];
 let allArticles = [];
 let multiCheckboxes = [];
-let filteredArticles = [];
+let hiddenArticles = [];
 let currentSelectedCategories = [];
 let prevSelectedCategories = [];
 /*other*/
 let visibleCards = 0;
-const footerMessages = {
-  noMorePartners: {
-    en: `No more ${typePlural} to display`,
-    es: `No hay más ${typePlural} para mostrar`,
-    pt: `Não há mais ${typePlural} para mostrar`,
-  },
-  showingAllCoincidences: {
-    en: `Showing all the ${typePlural} that match your search`,
-    es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda`,
-    pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa`,
-  },
-  noMatchFound: {
-    en: `No ${typeSingular} found with the selected filters`,
-    es: `Ningún ${typeSingular} encontrado con los filtros seleccionados`,
-    pt: `Nenhum ${typeSingular} encontrado com os filtros selecionados`,
-  },
-};
+let footerMessages;
 
 // RENDERS //
 
@@ -294,10 +278,10 @@ const getChecked = (multiCheckbox) => {
 
 /* #show more */
 const showMore = () => {
-  if (filteredArticles.length > 0) {
+  if (hiddenArticles.length > 0) {
     let shownArticlesLength = 0;
-    for (let i = 0; i < filteredArticles.length; i++) {
-      filteredArticles[i].removeAttribute("hidden");
+    for (let i = 0; i < hiddenArticles.length; i++) {
+      hiddenArticles[i].removeAttribute("hidden");
       shownArticlesLength++;
       visibleCards++;
 
@@ -305,22 +289,21 @@ const showMore = () => {
         break;
       }
     }
-    /*Then, remove shownCards from filteredArticles */
+    /*Then, remove shownCards from hiddenArticles */
     for (let index = 0; index < shownArticlesLength; index++) {
-      filteredArticles.shift();
+      hiddenArticles.shift();
     }
-    if (filteredArticles.length === 0) {
+    if (hiddenArticles.length === 0) {
       hideElement(showMoreButtonEl);
-      showElement(footerMessagesSlotEl);
-      footerMessagesSlotEl.innerText;
+      footerMessagesSlotEl.innerText = footerMessages.noMorePartners[pageLang];
     } else {
       showElement(showMoreButtonEl);
-      hideElement(footerMessagesSlotEl);
+      footerMessagesSlotEl.innerText = "";
     }
   } else {
     hideElement(showMoreButtonEl);
-    showElement(footerMessagesSlotEl);
     visibleCards = 0;
+    footerMessagesSlotEl.innerText = footerMessages.noMatchFound[pageLang];
   }
   updateShowingArticles();
 };
@@ -370,7 +353,7 @@ const getArticleCats = (articleEl) => {
 
 /* #filter */
 const filter = () => {
-  filteredArticles = [];
+  hiddenArticles = [];
   if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
     /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
@@ -388,12 +371,12 @@ const filter = () => {
         }
       }
       if (isAMatch) {
-        filteredArticles.push(article);
+        hiddenArticles.push(article);
       }
     });
   } else {
     /*no categories selected. include all articles*/
-    filteredArticles = [...allArticles];
+    hiddenArticles = [...allArticles];
   }
   prevSelectedCategories = [...currentSelectedCategories];
 };
@@ -440,6 +423,7 @@ const clearFilters = () => {
       }
     });
   }
+  footerMessagesSlotEl.innerText = "";
 };
 
 /**
@@ -494,19 +478,20 @@ const pillClickedHandler = (e) => {
 };
 
 const filterInputHandler = (e) => {
+  hideElement(showMoreButtonEl);
   if (currentSelectedCategories.length > 0) {
     clearFilters();
     setSelectedCategories();
     evaluateFilterDifference();
   }
-  if (filteredArticles.length < allArticles.length) {
+  if (hiddenArticles.length < allArticles.length) {
     /*we want to search in all articles*/
-    filteredArticles = [...allArticles];
+    hiddenArticles = [...allArticles];
   }
   const value = e.target.value.toLowerCase();
-  if (filteredArticles.length > 0) {
+  if (hiddenArticles.length > 0) {
     visibleCards = 0;
-    filteredArticles.forEach((article) => {
+    hiddenArticles.forEach((article) => {
       const hidden = article.hasAttribute("hidden");
       const title = article.querySelector(".title").innerText.toLowerCase();
       if (title.includes(value)) {
@@ -523,6 +508,14 @@ const filterInputHandler = (e) => {
         article.classList.remove("article-container--exact-match");
       }
     });
+    if (visibleCards > 0) {
+      console.log("more than 0 visible cards");
+      footerMessagesSlotEl.innerText =
+        footerMessages.showingAllCoincidences[pageLang];
+    } else {
+      console.log("0 visible cards");
+      footerMessagesSlotEl.innerText = footerMessages.noCoincidences[pageLang];
+    }
   }
   updateShowingArticles();
 };
@@ -575,6 +568,31 @@ const showMoreHandler = () => {
 
 // INIT //
 
+const defineFooterMessages = () => {
+  footerMessages = {
+    noMorePartners: {
+      en: `No more ${typePlural} to display`,
+      es: `No hay más ${typePlural} para mostrar`,
+      pt: `Não há mais ${typePlural} para mostrar`,
+    },
+    showingAllCoincidences: {
+      en: `Showing all the ${typePlural} that match your search`,
+      es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda`,
+      pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa`,
+    },
+    noCoincidences: {
+      en: `No ${typeSingular} found matching your search`,
+      es: `No se encontró ningun ${typeSingular} que coincida con tu búsqueda`,
+      pt: `Nenhum ${typeSingular} encontrado correspondente à sua pesquisa`,
+    },
+    noMatchFound: {
+      en: `No ${typeSingular} found with the selected filters`,
+      es: `Ningún ${typeSingular} encontrado con los filtros seleccionados`,
+      pt: `Nenhum ${typeSingular} encontrado com os filtros selecionados`,
+    },
+  };
+};
+
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
@@ -583,6 +601,7 @@ const init = () => {
     typeSingular = gxFilterData.conf.typeSingular[pageLang];
     typePlural = gxFilterData.conf.typePlural[pageLang];
     /*call functions*/
+    defineFooterMessages();
     createCatsMapArray();
     hideAllCards();
     renderHeader();
