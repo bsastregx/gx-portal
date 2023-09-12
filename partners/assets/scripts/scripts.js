@@ -22,7 +22,7 @@ let footerMessagesSlotEl;
 let catsMap = [];
 let allArticles = [];
 let multiCheckboxes = [];
-let hiddenArticles = [];
+let filteredArticles = [];
 let currentSelectedCategories = [];
 let prevSelectedCategories = [];
 /*other*/
@@ -276,12 +276,32 @@ const getChecked = (multiCheckbox) => {
   return selectedCats;
 };
 
+/*It unchecks a checked category. Only called when a pill from a selected category gets clicked (cleared)*/
+const removeChecked = (catId) => {
+  if (catId && rowSelectsEl) {
+    const checkedCat = rowSelectsEl.querySelector(`#${catId}`);
+    if (checkedCat) {
+      checkedCat.checked = false;
+      const catInCurrentSelectedIndex = currentSelectedCategories.findIndex(
+        (cat) => {
+          return catId === cat;
+        }
+      );
+      if (catInCurrentSelectedIndex !== -1) {
+        currentSelectedCategories.splice(catInCurrentSelectedIndex, 1);
+      }
+      enableElement(filterButtonEl);
+      filterButtonEl.click();
+    }
+  }
+};
+
 /* #show more */
 const showMore = () => {
-  if (hiddenArticles.length > 0) {
+  if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
-    for (let i = 0; i < hiddenArticles.length; i++) {
-      hiddenArticles[i].removeAttribute("hidden");
+    for (let i = 0; i < filteredArticles.length; i++) {
+      filteredArticles[i].removeAttribute("hidden");
       shownArticlesLength++;
       visibleCards++;
 
@@ -289,11 +309,11 @@ const showMore = () => {
         break;
       }
     }
-    /*Then, remove shownCards from hiddenArticles */
+    /*Then, remove shownCards from filteredArticles */
     for (let index = 0; index < shownArticlesLength; index++) {
-      hiddenArticles.shift();
+      filteredArticles.shift();
     }
-    if (hiddenArticles.length === 0) {
+    if (filteredArticles.length === 0) {
       hideElement(showMoreButtonEl);
       footerMessagesSlotEl.innerText = footerMessages.noMorePartners[pageLang];
     } else {
@@ -353,7 +373,7 @@ const getArticleCats = (articleEl) => {
 
 /* #filter */
 const filter = () => {
-  hiddenArticles = [];
+  filteredArticles = [];
   if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
     /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
@@ -371,12 +391,12 @@ const filter = () => {
         }
       }
       if (isAMatch) {
-        hiddenArticles.push(article);
+        filteredArticles.push(article);
       }
     });
   } else {
     /*no categories selected. include all articles*/
-    hiddenArticles = [...allArticles];
+    filteredArticles = [...allArticles];
   }
   prevSelectedCategories = [...currentSelectedCategories];
 };
@@ -474,7 +494,12 @@ const renderPills = () => {
 // HANDLERS //
 
 const pillClickedHandler = (e) => {
-  console.log(e.target);
+  const catId = e.target.getAttribute("data-cat");
+  if (catId) {
+    removeChecked(catId);
+  }
+  const pillClicked = e.target;
+  pillClicked.remove();
 };
 
 const filterInputHandler = (e) => {
@@ -484,21 +509,21 @@ const filterInputHandler = (e) => {
     setSelectedCategories();
     evaluateFilterDifference();
   }
-  if (hiddenArticles.length < allArticles.length) {
+  if (filteredArticles.length < allArticles.length) {
     /*we want to search in all articles*/
-    hiddenArticles = [...allArticles];
+    filteredArticles = [...allArticles];
   }
   const value = e.target.value.toLowerCase();
-  if (hiddenArticles.length > 0) {
+  if (filteredArticles.length > 0) {
     visibleCards = 0;
-    hiddenArticles.forEach((article) => {
+    filteredArticles.forEach((article) => {
       const hidden = article.hasAttribute("hidden");
       const title = article.querySelector(".title").innerText.toLowerCase();
       if (title.includes(value)) {
         article.removeAttribute("hidden");
         visibleCards++;
         if (title === value) {
-          console.log("exact!");
+          console.log("exact match!");
           article.classList.add("article-container--exact-match");
         } else {
           article.classList.remove("article-container--exact-match");
@@ -509,11 +534,9 @@ const filterInputHandler = (e) => {
       }
     });
     if (visibleCards > 0) {
-      console.log("more than 0 visible cards");
       footerMessagesSlotEl.innerText =
         footerMessages.showingAllCoincidences[pageLang];
     } else {
-      console.log("0 visible cards");
       footerMessagesSlotEl.innerText = footerMessages.noCoincidences[pageLang];
     }
   }
@@ -537,7 +560,10 @@ const checkboxChangedHandler = (e) => {
 };
 
 const updateShowingArticles = () => {
-  numberPlaceholderEl.innerText = visibleCards;
+  const visibleCards = articlesListEl.querySelectorAll(
+    ":scope > *:not([hidden='hidden'])"
+  );
+  numberPlaceholderEl.innerText = visibleCards.length;
 };
 
 /* #clear handler */
