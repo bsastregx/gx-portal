@@ -108,9 +108,10 @@ const renderCategories = () => {
       multiCheckboxContainer.classList.add("gx-multi-checkbox-container");
 
       /*create multi-select label*/
-      const multiCheckboxLabel = document.createElement("label");
+      const multiCheckboxLabel = document.createElement("button");
       multiCheckboxLabel.classList.add("gx-label", "gx-label--multi-checkbox");
       multiCheckboxLabel.setAttribute("for", type);
+      multiCheckboxLabel.setAttribute("r", type);
       multiCheckboxLabel.innerText = type;
 
       /*create multi-checkbox*/
@@ -122,6 +123,7 @@ const renderCategories = () => {
         const value = cat.value;
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
+        const animatonSpan = document.createElement("span");
         const descriptionEl = document.createElement("span");
         descriptionEl.classList.add("gx-label", "gx-label--description");
         descriptionEl.innerText = label;
@@ -135,6 +137,7 @@ const renderCategories = () => {
         // }
         /*/test checked by default*/
         /*appends*/
+        labelEl.appendChild(animatonSpan);
         labelEl.appendChild(checkbox);
         labelEl.appendChild(descriptionEl);
         multiCheckbox.appendChild(labelEl);

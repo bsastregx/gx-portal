@@ -7,6 +7,7 @@
   --font-family-titles: Graphik, sans-serif;
   --box-shadow-dropdown: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --gx-label-multi-checkbox-height: 54px;
+  --gx-transition--ui: 250ms;
 }
 /*------------------
 General
@@ -92,12 +93,21 @@ Multi-checkbox Filters
   width: calc(100% / var(--filters-length));
 }
 .gx-label--multi-checkbox {
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
   padding: 16px;
   text-transform: capitalize;
-  border: 1px solid var(--gx-color-neutral--300);
+  border: 2px solid transparent;
   border-radius: var(--border-radius);
   height: var(--gx-label-multi-checkbox-height);
   box-sizing: border-box;
+  transition: var(--gx-transition--ui) all;
+}
+.gx-label--multi-checkbox:focus {
+  outline: none;
+  border-color: var(--gx-color-neutral--300);
 }
 .gx-multi-checkbox {
   box-sizing: border-box;
@@ -111,10 +121,16 @@ Multi-checkbox Filters
   display: flex;
   gap: 8px;
   font-size: 17px;
+  padding: 16px 0;
 }
 .gx-multi-checkbox label input[type="checkbox"] {
   margin: 0;
 }
+.gx-multi-checkbox label input[type="checkbox"] + .gx-label--description {
+  text-transform: capitalize;
+  transition: var(--gx-transition--ui) color;
+}
+
 .gx-label--description {
   white-space: nowrap; /* Prevent text from wrapping */
   text-overflow: ellipsis; /* Display ellipsis for overflowed text */
