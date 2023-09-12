@@ -1,9 +1,12 @@
 :root {
   --gx-color-action: #e02b58;
-  --gx-color-neutral: #969ba0;
+  --gx-color-neutral--500: #969ba0;
+  --gx-color-neutral--300: #d9d9d9b3;
   --border-radius: 4px;
   --font-family-body: Rubik, sans-serif;
   --font-family-titles: Graphik, sans-serif;
+  --box-shadow-dropdown: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --gx-label-multi-checkbox-height: 54px;
 }
 /*------------------
 General
@@ -14,7 +17,7 @@ General
   font-size: inherit;
 }
 .gx-input {
-  border: 1px solid var(--gx-color-neutral);
+  border: 1px solid var(--gx-color-neutral--500);
   font-weight: 300;
   border-radius: var(--border-radius);
   margin-top: 8px;
@@ -47,7 +50,7 @@ Header
   margin: 0;
 }
 .gx-input--filter::placeholder {
-  color: var(--gx-color-neutral);
+  color: var(--gx-color-neutral--500);
 }
 .gx-input--filter {
   width: 320px;
@@ -56,6 +59,19 @@ Header
   background: url(../images/search.svg);
   background-repeat: no-repeat;
   background-position: right 10px center;
+}
+/*header filters*/
+#header-filters {
+  gap: 16px;
+  position: relative;
+}
+#header-filters::after {
+  content: "";
+  height: 1px;
+  border-bottom: 1px solid var(--gx-color-neutral--500);
+  position: absolute;
+  width: 100%;
+  top: var(--gx-label-multi-checkbox-height);
 }
 /*--------------------
 Multi-checkbox Filters
@@ -70,21 +86,31 @@ Multi-checkbox Filters
   gap: 16px;
 }
 /*multi-checkbox*/
-.gx-multi-checkbox-label {
-  font-weight: bold;
-  display: flex;
-}
 .gx-multi-checkbox-container {
   display: flex;
   flex-direction: column;
   width: calc(100% / var(--filters-length));
 }
+.gx-label--multi-checkbox {
+  padding: 16px;
+  text-transform: capitalize;
+  border: 1px solid var(--gx-color-neutral--300);
+  border-radius: var(--border-radius);
+  height: var(--gx-label-multi-checkbox-height);
+  box-sizing: border-box;
+}
 .gx-multi-checkbox {
+  box-sizing: border-box;
+  padding: 16px;
   display: flex;
   flex-direction: column;
+  box-shadow: var(--box-shadow-dropdown);
+  border-radius: var(--border-radius);
 }
 .gx-multi-checkbox label {
   display: flex;
+  gap: 8px;
+  font-size: 17px;
 }
 .gx-multi-checkbox label input[type="checkbox"] {
   margin: 0;
