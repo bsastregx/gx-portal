@@ -147,6 +147,14 @@ Multi-checkbox Filters
   max-height: 0;
   transition: var(--gx-transition--ui) max-height;
 }
+.gx-multi-checkbox::before {
+  /*this prevents the select from closing when then the mouse leaves .gx-label--multi-checkbox, but enters the .gx-multi-checkbox*/
+  content: "";
+  width: 100%;
+  height: 15px;
+  top: 47.5px;
+  position: absolute;
+}
 .gx-multi-checkbox--opened {
   max-height: 365px;
 }

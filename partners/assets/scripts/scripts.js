@@ -28,6 +28,12 @@ let prevSelectedCategories = [];
 /*other*/
 let visibleCards = 0;
 let footerMessages;
+/*durations*/
+let timeOutHideSelectRef;
+const timeOutHideSelect = (selectRef) => {
+  console.log(selectRef);
+  selectRef.classList.remove("gx-multi-checkbox--opened");
+};
 
 // RENDERS //
 
@@ -117,6 +123,17 @@ const renderCategories = () => {
       /*create multi-checkbox*/
       const multiCheckbox = document.createElement("div");
       multiCheckbox.classList.add("gx-multi-checkbox");
+      /*mouseleave*/
+      multiCheckbox.addEventListener("mouseleave", (e) => {
+        console.log("multiCheckbox mouseleave");
+        timeOutHideSelectRef = setTimeout(function () {
+          timeOutHideSelect(multiCheckbox);
+        }, 1000);
+      });
+      /*mouseenter*/
+      multiCheckbox.addEventListener("mouseenter", (e) => {
+        clearTimeout(timeOutHideSelectRef);
+      });
 
       /*create options*/
       cats.forEach((cat) => {
@@ -503,6 +520,13 @@ const multiCheckboxLabelHandler = (e) => {
   /*label*/
   const label = e.target;
   label.classList.toggle("gx-label--multi-checkbox--active");
+  label.addEventListener("mouseleave", (e) => {
+    const relatedTarget = e.relatedTarget;
+    const associatedSelect = label.nextElementSibling;
+    if (!relatedTarget.classList.contains("gx-multi-checkbox")) {
+      timeOutHideSelect(associatedSelect);
+    }
+  });
   /*multi-checkbox*/
   const multiCheckbox = label.nextElementSibling;
   multiCheckbox.classList.toggle("gx-multi-checkbox--opened");
@@ -510,10 +534,18 @@ const multiCheckboxLabelHandler = (e) => {
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
   if (checkboxes.length) {
     checkboxes.forEach((checkbox) => {
-      console.log(checkbox);
-      checkbox.setAttribute("disabled", "disabled");
+      checkbox.removeAttribute("disabled");
     });
   }
+  closeOtherSelects(multiCheckbox);
+};
+
+const closeOtherSelects = (currentSelect) => {
+  multiCheckboxes.forEach((multiSelect) => {
+    if (currentSelect !== multiSelect) {
+      multiSelect.classList.remove("gx-multi-checkbox--opened");
+    }
+  });
 };
 
 const pillClickedHandler = (e) => {
