@@ -11,6 +11,9 @@
   --box-shadow-dropdown: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --gx-label-multi-checkbox-height: 54px;
   --gx-transition--ui: 250ms;
+  --gx-border-color-transition-speed: 200ms;
+  --gx-select-transition-height-speed: 150ms;
+  --gx-chevron-transition-speed: 150ms;
   --row-selects-desktop-height: 58px;
   --row-selects-mobile-height: 58px;
 }
@@ -51,6 +54,7 @@ Header
 }
 #header-filter .row--selects-outer-wrapper {
   position: relative;
+  height: var(--row-selects-desktop-height);
 }
 #header-filter .row--selects {
   position: absolute;
@@ -103,6 +107,15 @@ Multi-checkbox Filters
 /*multi-checkbox*/
 .gx-multi-checkbox {
   background-color: var(--gx-color-white);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-dropdown);
+  border-radius: var(--border-radius);
+  overflow-x: auto;
+  margin-top: 4px;
+  max-height: 0;
+  transition: var(--gx-select-transition-height-speed) max-height;
 }
 .gx-multi-checkbox-container {
   display: flex;
@@ -120,7 +133,7 @@ Multi-checkbox Filters
   border-radius: var(--border-radius);
   height: var(--gx-label-multi-checkbox-height);
   box-sizing: border-box;
-  transition: var(--gx-transition--ui) all;
+  transition: var(--gx-border-color-transition-speed) border-color;
   padding: 16px 44px 16px 16px;
   cursor: pointer;
   position: relative;
@@ -138,7 +151,7 @@ Multi-checkbox Filters
   right: 15px;
   top: 50%;
   margin-top: -9px;
-  transition: var(--gx-transition--ui) transform;
+  transition: var(--gx-chevron-transition-speed) transform;
 }
 .gx-label--multi-checkbox:hover {
   outline: none;
@@ -150,17 +163,6 @@ Multi-checkbox Filters
 }
 .gx-label--multi-checkbox--active::after {
   transform: rotate(180deg);
-}
-.gx-multi-checkbox {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--box-shadow-dropdown);
-  border-radius: var(--border-radius);
-  overflow-x: auto;
-  margin-top: 4px;
-  max-height: 0;
-  transition: var(--gx-transition--ui) max-height;
 }
 .gx-multi-checkbox::before {
   /*this prevents the select from closing when then the mouse leaves .gx-label--multi-checkbox, but enters the .gx-multi-checkbox*/
