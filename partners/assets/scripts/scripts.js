@@ -530,9 +530,17 @@ document.addEventListener("click", (e) => {
   const gxLabelMultiCheckboxActive = rowSelectsEl.querySelector(
     ".gx-label--multi-checkbox--active"
   );
+  if (gxLabelMultiCheckboxActive) {
+    gxLabelMultiCheckboxActive.classList.remove(
+      "gx-label--multi-checkbox--active"
+    );
+  }
   const gxMultiCheckboxOpened = rowSelectsEl.querySelector(
     ".gx-multi-checkbox--opened"
   );
+  if (gxMultiCheckboxOpened) {
+    gxMultiCheckboxOpened.classList.remove("gx-multi-checkbox--opened");
+  }
 });
 
 labelMouseLeaveHandler = (e) => {
@@ -621,7 +629,7 @@ const filterInputHandler = (e) => {
         article.removeAttribute("hidden");
         visibleCards++;
         if (title === value) {
-          console.log("exact match!");
+          //exact match!
           article.classList.add("article-container--exact-match");
         } else {
           article.classList.remove("article-container--exact-match");
