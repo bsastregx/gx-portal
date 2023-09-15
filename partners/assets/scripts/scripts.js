@@ -81,10 +81,13 @@ const renderHeader = () => {
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
-  /*row main*/
+  /*row selects*/
   rowSelectsEl = document.createElement("div");
   rowSelectsEl.classList.add("row", "row--selects");
   rowSelectsEl.setAttribute("id", "header-filters");
+  /*row selects inner container*/
+  rowSelectsInnerOuterWrapper = document.createElement("div");
+  rowSelectsInnerOuterWrapper.classList.add("row--selects-outer-wrapper");
   /*row footer*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
@@ -106,7 +109,8 @@ const renderHeader = () => {
   textFilterLabel.appendChild(textFilterEl);
   rowMain.appendChild(textFilterLabel);
   filterHeaderEl.appendChild(rowMain);
-  filterHeaderEl.appendChild(rowSelectsEl);
+  rowSelectsInnerOuterWrapper.appendChild(rowSelectsEl);
+  filterHeaderEl.appendChild(rowSelectsInnerOuterWrapper);
   rowActionsEl.appendChild(rowActionsLeftColEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
