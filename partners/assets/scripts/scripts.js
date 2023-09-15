@@ -29,13 +29,12 @@ let prevSelectedCategories = [];
 let visibleCards = 0;
 let footerMessages;
 /*event listeners*/
-const timeBeforeCloseSelect = 1000;
+const timeBeforeCloseSelect = 800;
 let labelMouseLeaveHandler;
 let multiCheckboxMouseLeaveHandler;
 let multiCheckboxMouseEnterHandler;
 let timeOutHideSelectRef;
 const timeOutHideSelect = (multiCheckbox) => {
-  console.log("close select");
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
   /*then remove listeners*/
   multiCheckbox.removeEventListener(
@@ -43,6 +42,11 @@ const timeOutHideSelect = (multiCheckbox) => {
     multiCheckboxMouseLeaveHandler
   );
   multiCheckbox.removeEventListener("enter", multiCheckboxMouseEnterHandler);
+  /*reset label*/
+  const gxLabelMultiCheckbox = multiCheckbox.previousElementSibling;
+  if (gxLabelMultiCheckbox.classList.contains("gx-label--multi-checkbox")) {
+    gxLabelMultiCheckbox.classList.remove("gx-label--multi-checkbox--active");
+  }
 };
 
 // RENDERS //
@@ -142,9 +146,15 @@ const renderCategories = () => {
         checkbox.setAttribute("id", value);
         checkbox.setAttribute("disabled", "disabled");
         checkbox.addEventListener("change", checkboxChangedHandler);
+        checkbox.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
         labelEl.setAttribute("for", value);
+        labelEl.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
         const animationSpan = document.createElement("span");
         animationSpan.classList.add("span-animation");
         const descriptionEl = document.createElement("span");
@@ -515,17 +525,20 @@ const renderPills = () => {
 
 // HANDLERS //
 
+document.addEventListener("click", (e) => {
+  //close open select, if any
+  const gxLabelMultiCheckboxActive = rowSelectsEl.querySelector(
+    ".gx-label--multi-checkbox--active"
+  );
+  const gxMultiCheckboxOpened = rowSelectsEl.querySelector(
+    ".gx-multi-checkbox--opened"
+  );
+});
+
 labelMouseLeaveHandler = (e) => {
-  console.log("mouse leave label");
-  console.log("e", e);
   const clickedLabel = e.target;
   const relatedTarget = e.relatedTarget;
-  const toElement = e.toElement;
   const associatedSelect = clickedLabel.nextElementSibling;
-  console.log("clickedLabel", clickedLabel);
-  console.log("toElement", toElement);
-  console.log("relatedTarget", relatedTarget);
-  console.log("associatedSelect", associatedSelect);
   if (relatedTarget !== associatedSelect) {
     timeOutHideSelect(associatedSelect);
   }
@@ -539,7 +552,7 @@ const addMultiCheckboxListener = (multiCheckbox) => {
 };
 
 const multiCheckboxLabelHandler = (e) => {
-  console.log("clicked!");
+  e.stopPropagation();
   /*label*/
   const clickedLabel = e.target;
   clickedLabel.classList.toggle("gx-label--multi-checkbox--active");
@@ -547,7 +560,6 @@ const multiCheckboxLabelHandler = (e) => {
   /*multi-checkbox*/
   const multiCheckbox = clickedLabel.nextElementSibling;
   multiCheckbox.classList.toggle("gx-multi-checkbox--opened");
-  console.log("toggle select");
   /*checkboxes*/
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
   if (checkboxes.length) {
@@ -562,13 +574,11 @@ const multiCheckboxLabelHandler = (e) => {
 /*mouseleave*/
 multiCheckboxMouseLeaveHandler = (e) => {
   const multiCheckbox = e.target;
-  console.log("mouse leave select");
   timeOutHideSelectRef = setTimeout(function () {
     timeOutHideSelect(multiCheckbox);
   }, timeBeforeCloseSelect);
 };
 multiCheckboxMouseEnterHandler = (e) => {
-  console.log("clear mouse leave select");
   clearTimeout(timeOutHideSelectRef);
 };
 
@@ -581,6 +591,7 @@ const closeOtherSelects = (currentSelect) => {
 };
 
 const pillClickedHandler = (e) => {
+  e.stopPropagation();
   const catId = e.target.getAttribute("data-cat");
   if (catId) {
     removeChecked(catId);
@@ -631,6 +642,7 @@ const filterInputHandler = (e) => {
 };
 
 const checkboxChangedHandler = (e) => {
+  e.stopPropagation();
   const checked = e.target.checked;
   const cat = e.target.getAttribute("id");
   if (checked) {
@@ -666,7 +678,8 @@ const clearHandler = () => {
 };
 
 /* #filter handler */
-const filterHandler = () => {
+const filterHandler = (e) => {
+  e.stopPropagation();
   textFilterEl.value = "";
   hideAllCards();
   filter();
@@ -675,7 +688,8 @@ const filterHandler = () => {
   renderPills();
 };
 
-const showMoreHandler = () => {
+const showMoreHandler = (e) => {
+  e.stopPropagation();
   showMore();
 };
 

@@ -161,7 +161,7 @@ Multi-checkbox Filters
   /*background-color: yellow;*/
 }
 .gx-multi-checkbox--opened {
-  max-height: 330px;
+  max-height: 332px;
 }
 /*scrollbar*/
 .gx-multi-checkbox::-webkit-scrollbar {
