@@ -94,6 +94,7 @@ Multi-checkbox Filters
   display: flex;
   flex-direction: column;
   width: calc(100% / var(--filters-length));
+  position: relative;
 }
 .gx-label--multi-checkbox {
   background-color: transparent;
@@ -150,13 +151,17 @@ Multi-checkbox Filters
 .gx-multi-checkbox::before {
   /*this prevents the select from closing when then the mouse leaves .gx-label--multi-checkbox, but enters the .gx-multi-checkbox*/
   content: "";
-  width: 100%;
+  width: auto;
   height: 15px;
   top: 47.5px;
   position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  /*background-color: yellow;*/
 }
 .gx-multi-checkbox--opened {
-  max-height: 365px;
+  max-height: 330px;
 }
 /*scrollbar*/
 .gx-multi-checkbox::-webkit-scrollbar {

@@ -28,11 +28,21 @@ let prevSelectedCategories = [];
 /*other*/
 let visibleCards = 0;
 let footerMessages;
-/*durations*/
+/*event listeners*/
+const timeBeforeCloseSelect = 1000;
+let labelMouseLeaveHandler;
+let multiCheckboxMouseLeaveHandler;
+let multiCheckboxMouseEnterHandler;
 let timeOutHideSelectRef;
-const timeOutHideSelect = (selectRef) => {
-  console.log(selectRef);
-  selectRef.classList.remove("gx-multi-checkbox--opened");
+const timeOutHideSelect = (multiCheckbox) => {
+  console.log("close select");
+  multiCheckbox.classList.remove("gx-multi-checkbox--opened");
+  /*then remove listeners*/
+  multiCheckbox.removeEventListener(
+    "mouseleave",
+    multiCheckboxMouseLeaveHandler
+  );
+  multiCheckbox.removeEventListener("enter", multiCheckboxMouseEnterHandler);
 };
 
 // RENDERS //
@@ -123,17 +133,6 @@ const renderCategories = () => {
       /*create multi-checkbox*/
       const multiCheckbox = document.createElement("div");
       multiCheckbox.classList.add("gx-multi-checkbox");
-      /*mouseleave*/
-      multiCheckbox.addEventListener("mouseleave", (e) => {
-        console.log("multiCheckbox mouseleave");
-        timeOutHideSelectRef = setTimeout(function () {
-          timeOutHideSelect(multiCheckbox);
-        }, 1000);
-      });
-      /*mouseenter*/
-      multiCheckbox.addEventListener("mouseenter", (e) => {
-        clearTimeout(timeOutHideSelectRef);
-      });
 
       /*create options*/
       cats.forEach((cat) => {
@@ -146,8 +145,8 @@ const renderCategories = () => {
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
         labelEl.setAttribute("for", value);
-        const animatonSpan = document.createElement("span");
-        animatonSpan.classList.add("span-animation");
+        const animationSpan = document.createElement("span");
+        animationSpan.classList.add("span-animation");
         const descriptionEl = document.createElement("span");
         descriptionEl.classList.add("gx-label", "gx-label--description");
         descriptionEl.innerText = label;
@@ -158,7 +157,7 @@ const renderCategories = () => {
         /*/test checked by default*/
         /*appends*/
         multiCheckbox.appendChild(checkbox);
-        labelEl.appendChild(animatonSpan);
+        labelEl.appendChild(animationSpan);
         labelEl.appendChild(descriptionEl);
         multiCheckbox.appendChild(labelEl);
       });
@@ -516,20 +515,39 @@ const renderPills = () => {
 
 // HANDLERS //
 
+labelMouseLeaveHandler = (e) => {
+  console.log("mouse leave label");
+  console.log("e", e);
+  const clickedLabel = e.target;
+  const relatedTarget = e.relatedTarget;
+  const toElement = e.toElement;
+  const associatedSelect = clickedLabel.nextElementSibling;
+  console.log("clickedLabel", clickedLabel);
+  console.log("toElement", toElement);
+  console.log("relatedTarget", relatedTarget);
+  console.log("associatedSelect", associatedSelect);
+  if (relatedTarget !== associatedSelect) {
+    timeOutHideSelect(associatedSelect);
+  }
+  //remove listener
+  clickedLabel.removeEventListener("mouseleave", labelMouseLeaveHandler);
+};
+
+const addMultiCheckboxListener = (multiCheckbox) => {
+  multiCheckbox.addEventListener("mouseleave", multiCheckboxMouseLeaveHandler);
+  multiCheckbox.addEventListener("mouseenter", multiCheckboxMouseEnterHandler);
+};
+
 const multiCheckboxLabelHandler = (e) => {
+  console.log("clicked!");
   /*label*/
-  const label = e.target;
-  label.classList.toggle("gx-label--multi-checkbox--active");
-  label.addEventListener("mouseleave", (e) => {
-    const relatedTarget = e.relatedTarget;
-    const associatedSelect = label.nextElementSibling;
-    if (!relatedTarget.classList.contains("gx-multi-checkbox")) {
-      timeOutHideSelect(associatedSelect);
-    }
-  });
+  const clickedLabel = e.target;
+  clickedLabel.classList.toggle("gx-label--multi-checkbox--active");
+  clickedLabel.addEventListener("mouseleave", labelMouseLeaveHandler);
   /*multi-checkbox*/
-  const multiCheckbox = label.nextElementSibling;
+  const multiCheckbox = clickedLabel.nextElementSibling;
   multiCheckbox.classList.toggle("gx-multi-checkbox--opened");
+  console.log("toggle select");
   /*checkboxes*/
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
   if (checkboxes.length) {
@@ -538,6 +556,20 @@ const multiCheckboxLabelHandler = (e) => {
     });
   }
   closeOtherSelects(multiCheckbox);
+  addMultiCheckboxListener(multiCheckbox);
+};
+
+/*mouseleave*/
+multiCheckboxMouseLeaveHandler = (e) => {
+  const multiCheckbox = e.target;
+  console.log("mouse leave select");
+  timeOutHideSelectRef = setTimeout(function () {
+    timeOutHideSelect(multiCheckbox);
+  }, timeBeforeCloseSelect);
+};
+multiCheckboxMouseEnterHandler = (e) => {
+  console.log("clear mouse leave select");
+  clearTimeout(timeOutHideSelectRef);
 };
 
 const closeOtherSelects = (currentSelect) => {
