@@ -36,6 +36,30 @@ General
   outline-color: var(--gx-color-action);
 }
 /*------------------
+Buttons
+------------------*/
+.gx-button {
+  padding: 12px 30px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.gx-button--primary {
+  background-color: var(--gx-color-action);
+  color: var(--gx-color-white);
+}
+.gx-button--secondary {
+}
+.gx-button--link {
+  /*background-color: transparent;*/
+  padding: 6px 15px;
+}
+.gx-button--link:hover {
+  text-decoration: underline;
+}
+/*------------------
 Header
 ------------------*/
 #header-filter {

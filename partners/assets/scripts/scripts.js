@@ -222,12 +222,12 @@ const renderShowingPartners = () => {
 const renderClearButton = () => {
   if (rowActionsElRightColEl) {
     const clearButtonLabels = {
-      en: "clear",
-      es: "borrar",
-      pt: "limpar",
+      en: "clear filter",
+      es: "borrar filtro",
+      pt: "limpar filtro",
     };
     clearButtonEl = document.createElement("button");
-    clearButtonEl.classList.add("gx-button", "gx-button--filter");
+    clearButtonEl.classList.add("gx-button", "gx-button--link");
     clearButtonEl.innerText = clearButtonLabels[pageLang];
     clearButtonEl.addEventListener("click", clearHandler);
     rowActionsElRightColEl.appendChild(clearButtonEl);
