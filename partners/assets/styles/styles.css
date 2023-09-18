@@ -1,6 +1,8 @@
 :root {
   --gx-color-action: #e02b58;
+  --gx-color-action--hover: #f44571;
   --gx-color-white: #fff;
+  --gx-color-neutral--100: #f5f5f5;
   --gx-color-neutral--200: #eeeeee;
   --gx-color-neutral--300: #d9d9d9b3;
   --gx-color-neutral--400: #b5b5b5;
@@ -11,6 +13,7 @@
   --box-shadow-dropdown: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --gx-label-multi-checkbox-height: 54px;
   --gx-transition--ui: 250ms;
+  --gx-transition--pill: 150ms;
   --gx-border-color-transition-speed: 200ms;
   --gx-select-transition-height-speed: 150ms;
   --gx-chevron-transition-speed: 150ms;
@@ -38,6 +41,10 @@ General
 /*------------------
 Buttons
 ------------------*/
+.gx-button[disabled] {
+  cursor: initial;
+  opacity: 0.5;
+}
 .gx-button {
   padding: 12px 30px;
   border-radius: 100px;
@@ -50,11 +57,17 @@ Buttons
   background-color: var(--gx-color-action);
   color: var(--gx-color-white);
 }
+.gx-button--primary:not([disabled]):hover {
+  background-color: var(--gx-color-action--hover);
+}
 .gx-button--secondary {
 }
-.gx-button--link {
+.gx-button--sm {
   /*background-color: transparent;*/
   padding: 6px 15px;
+}
+.gx-button--link {
+  background-color: transparent;
 }
 .gx-button--link:hover {
   text-decoration: underline;
@@ -146,6 +159,7 @@ Multi-checkbox Filters
   flex-direction: column;
   width: calc(100% / var(--filters-length));
   position: relative;
+  align-self: flex-start;
 }
 .gx-label--multi-checkbox {
   background-color: transparent;
@@ -352,6 +366,44 @@ Multi-checkbox Filters
   100% {
     transform: translateX(0);
   }
+}
+/*--------------------
+Row Actions
+--------------------*/
+#header-filter .row--actions__left-col {
+  display: block;
+}
+.row--actions__left-col-inner-wrapper {
+  display: flex;
+  gap: 8px;
+}
+.row--actions__right-col {
+  gap: 16px;
+}
+.gx-button-pill {
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 12px;
+  font-family: var(--font-family-body);
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--gx-color-neutral--100);
+  transition: opacity var(--gx-transition--pill);
+  opacity: 1;
+}
+.gx-button-pill--hidden {
+  opacity: 0;
+}
+.gx-button-pill:hover {
+  background-color: var(--gx-color-neutral--300);
+}
+.gx-button-pill::after {
+  content: "×";
+  font-size: 16px;
 }
 /*------------------
 Grid

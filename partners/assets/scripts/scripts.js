@@ -10,6 +10,7 @@ let textFilterEl;
 let rowSelectsEl;
 let rowActionsEl;
 let rowActionsLeftColEl;
+let rowActionsLeftColElInnerWrapper;
 let rowActionsElRightColEl;
 let rowInfoEl;
 let articlesFooterEl;
@@ -29,7 +30,8 @@ let prevSelectedCategories = [];
 let visibleCards = 0;
 let footerMessages;
 /*event listeners*/
-const timeBeforeCloseSelect = 800;
+const timeBeforeCloseSelect = 200;
+const clearPillTransition = 150;
 let labelMouseLeaveHandler;
 let multiCheckboxMouseLeaveHandler;
 let multiCheckboxMouseEnterHandler;
@@ -48,6 +50,10 @@ const timeOutHideSelect = (multiCheckbox) => {
     gxLabelMultiCheckbox.classList.remove("gx-label--multi-checkbox--active");
   }
 };
+
+// CSS VARIABLES //
+const html = document.querySelector("html");
+html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`);
 
 // RENDERS //
 
@@ -95,6 +101,12 @@ const renderHeader = () => {
   /*row footer | left col*/
   rowActionsLeftColEl = document.createElement("div");
   rowActionsLeftColEl.classList.add("row", "row--actions__left-col");
+  /*row footer | left col inner wrapper*/
+  rowActionsLeftColElInnerWrapper = document.createElement("div");
+  rowActionsLeftColElInnerWrapper.classList.add(
+    "row",
+    "row--actions__left-col-inner-wrapper"
+  );
   /*row footer | right col*/
   rowActionsElRightColEl = document.createElement("div");
   rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
@@ -111,6 +123,7 @@ const renderHeader = () => {
   filterHeaderEl.appendChild(rowMain);
   rowSelectsInnerOuterWrapper.appendChild(rowSelectsEl);
   filterHeaderEl.appendChild(rowSelectsInnerOuterWrapper);
+  rowActionsLeftColEl.appendChild(rowActionsLeftColElInnerWrapper);
   rowActionsEl.appendChild(rowActionsLeftColEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
@@ -227,7 +240,12 @@ const renderClearButton = () => {
       pt: "limpar filtro",
     };
     clearButtonEl = document.createElement("button");
-    clearButtonEl.classList.add("gx-button", "gx-button--link");
+    clearButtonEl.classList.add(
+      "gx-button",
+      "gx-button--clear",
+      "gx-button--link",
+      "gx-button--sm"
+    );
     clearButtonEl.innerText = clearButtonLabels[pageLang];
     clearButtonEl.addEventListener("click", clearHandler);
     rowActionsElRightColEl.appendChild(clearButtonEl);
@@ -242,7 +260,12 @@ const renderFilterButton = () => {
       pt: "filtro",
     };
     filterButtonEl = document.createElement("button");
-    filterButtonEl.classList.add("gx-button", "gx-button--filter");
+    filterButtonEl.classList.add(
+      "gx-button",
+      "gx-button--primary",
+      "gx-button--filter",
+      "gx-button--sm"
+    );
     filterButtonEl.setAttribute("id", "gx-filter-button");
     filterButtonEl.innerText = filterButtonLabels[pageLang];
     filterButtonEl.addEventListener("click", filterHandler);
@@ -507,8 +530,8 @@ const createCatsMapArray = () => {
  * It renders the categories pills, iterating over 'currentSelectedCategories'.
  */
 const renderPills = () => {
-  if (rowActionsLeftColEl) {
-    rowActionsLeftColEl.innerHTML = "";
+  if (rowActionsLeftColElInnerWrapper) {
+    rowActionsLeftColElInnerWrapper.innerHTML = "";
   }
   if (currentSelectedCategories.length > 0) {
     currentSelectedCategories.forEach((catId) => {
@@ -521,7 +544,7 @@ const renderPills = () => {
         pill.innerText = catData.label;
         pill.setAttribute("data-cat", catData.id);
         pill.addEventListener("click", pillClickedHandler);
-        rowActionsLeftColEl.appendChild(pill);
+        rowActionsLeftColElInnerWrapper.appendChild(pill);
       }
     });
   }
@@ -603,13 +626,16 @@ const closeOtherSelects = (currentSelect) => {
 };
 
 const pillClickedHandler = (e) => {
+  console.log("pillClickedHandler");
   e.stopPropagation();
-  const catId = e.target.getAttribute("data-cat");
-  if (catId) {
-    removeChecked(catId);
-  }
   const pillClicked = e.target;
-  pillClicked.remove();
+  const catId = e.target.getAttribute("data-cat");
+  pillClicked.classList.add("gx-button-pill--hidden");
+  setTimeout(() => {
+    if (catId) {
+      removeChecked(catId);
+    }
+  }, clearPillTransition);
 };
 
 const filterInputHandler = (e) => {
