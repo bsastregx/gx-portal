@@ -652,7 +652,29 @@ const powerUpCards = () => {
 
 // 6. HANDLERS //
 
-const autoScrollMultiCheckbox = (multiCheckbox) => {};
+const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
+  if (multiCheckboxContainer) {
+    /*multi checkbox container*/
+    const mCCBoundingClientRect =
+      multiCheckboxContainer.getBoundingClientRect();
+    const mCCLeft = mCCBoundingClientRect.left;
+    const mCCRight = mCCBoundingClientRect.right;
+    /*row--selects inner-wrapper*/
+    const rowSelectsInnerWrapperBoundingClient =
+      rowSelectsInnerWrapper.getBoundingClientRect();
+    rSIWLeft = rowSelectsInnerWrapperBoundingClient.left;
+    rSIWRight = rowSelectsInnerWrapperBoundingClient.right;
+    /*calculate overflow*/
+    if (mCCLeft < rSIWLeft || mCCRight > rSIWRight) {
+      /*multiCheckbox if overflowing*/
+      multiCheckboxContainer.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  }
+};
 
 document.addEventListener("click", (e) => {
   //close open select, if any
@@ -703,6 +725,9 @@ const multiCheckboxLabelClickHandler = (e) => {
   enableCheckboxes(multiCheckbox);
   closeOtherSelects(multiCheckbox);
   addMultiCheckboxListener(multiCheckbox);
+  /*multi-checkbox container*/
+  const multiCheckboxContainer = e.target.parentElement;
+  autoScrollMultiCheckboxContainer(multiCheckboxContainer);
 };
 
 const multiCheckboxLabelKeydownHandler = (e) => {
@@ -741,7 +766,6 @@ const multiCheckboxLabelKeydownHandler = (e) => {
 
 /*mouseleave*/
 multiCheckboxMouseLeaveHandler = (e) => {
-  console.log("leave");
   const multiCheckbox = e.target;
   timeOutHideSelectRef = setTimeout(function () {
     timeOutHideSelect(multiCheckbox);
@@ -760,7 +784,6 @@ const closeOtherSelects = (currentSelect) => {
 };
 
 const pillClickedHandler = (e) => {
-  console.log("pillClickedHandler");
   e.stopPropagation();
   const pillClicked = e.target;
   const catId = e.target.getAttribute("data-cat");
