@@ -8,6 +8,7 @@ let articlesListEl;
 let filterHeaderEl;
 let textFilterEl;
 let rowSelectsEl;
+let rowSelectsInnerWrapper;
 let rowActionsEl;
 let rowActionsLeftColEl;
 let rowActionsLeftColElInnerWrapper;
@@ -29,15 +30,27 @@ let prevSelectedCategories = [];
 /*other*/
 let visibleCards = 0;
 let footerMessages;
+const clearButtonLabels = {
+  en: "clear filter",
+  es: "borrar filtro",
+  pt: "limpar filtro",
+};
+const clearButtonClearedLabels = {
+  en: "clearing...",
+  es: "limpiado...",
+  pt: "limpado...",
+};
 /*event listeners*/
-const timeBeforeCloseSelect = 200;
+const timeBeforeCloseSelect = 400;
 const clearPillTransition = 150;
+const selectHeightTransition = 150;
 let labelMouseLeaveHandler;
 let multiCheckboxMouseLeaveHandler;
 let multiCheckboxMouseEnterHandler;
 let timeOutHideSelectRef;
 const timeOutHideSelect = (multiCheckbox) => {
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
+  displayScrollbar();
   /*then remove listeners*/
   multiCheckbox.removeEventListener(
     "mouseleave",
@@ -54,6 +67,10 @@ const timeOutHideSelect = (multiCheckbox) => {
 // CSS VARIABLES //
 const html = document.querySelector("html");
 html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`);
+html.style.setProperty(
+  "--gx-select-transition-height-speed",
+  `${selectHeightTransition}ms`
+);
 
 // RENDERS //
 
@@ -97,6 +114,11 @@ const renderHeader = () => {
   /*row selects inner container*/
   rowSelectsInnerWrapper = document.createElement("div");
   rowSelectsInnerWrapper.classList.add("row--selects-inner-wrapper");
+  rowSelectsInnerWrapper.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    // Adjust the scrollLeft property based on the wheel delta
+    rowSelectsInnerWrapper.scrollLeft += e.deltaY;
+  });
   /*row footer*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
@@ -152,7 +174,14 @@ const renderCategories = () => {
       const multiCheckboxLabel = document.createElement("button");
       multiCheckboxLabel.classList.add("gx-label", "gx-label--multi-checkbox");
       multiCheckboxLabel.setAttribute("for", type);
-      multiCheckboxLabel.addEventListener("click", multiCheckboxLabelHandler);
+      multiCheckboxLabel.addEventListener(
+        "click",
+        multiCheckboxLabelClickHandler
+      );
+      multiCheckboxLabel.addEventListener(
+        "keydown",
+        multiCheckboxLabelKeydownHandler
+      );
       multiCheckboxLabel.innerText = type;
 
       /*create multi-checkbox*/
@@ -167,6 +196,7 @@ const renderCategories = () => {
         checkbox.setAttribute("id", value);
         checkbox.setAttribute("disabled", "disabled");
         checkbox.addEventListener("change", checkboxChangedHandler);
+        checkbox.addEventListener("keydown", checkboxKeyDownHandler);
         checkbox.addEventListener("click", (e) => {
           e.stopPropagation();
         });
@@ -212,9 +242,9 @@ const renderShowingPartners = () => {
       pt: `Mostrando `,
     };
     const messageAfters = {
-      en: ` of ${allArticles.length} partners`,
-      es: ` de ${allArticles.length} socios`,
-      pt: ` de ${allArticles.length} parceiros`,
+      en: ` of ${allArticles.length} total partners`,
+      es: ` de ${allArticles.length} socios totales`,
+      pt: ` de ${allArticles.length} parceiros totais`,
     };
     /*paragraph*/
     const paragraph = document.createElement("p");
@@ -238,11 +268,6 @@ const renderShowingPartners = () => {
 
 const renderClearButton = () => {
   if (rowActionsElRightColEl) {
-    const clearButtonLabels = {
-      en: "clear filter",
-      es: "borrar filtro",
-      pt: "limpar filtro",
-    };
     clearButtonEl = document.createElement("button");
     clearButtonEl.classList.add(
       "gx-button",
@@ -293,7 +318,11 @@ const renderShowMoreButton = () => {
       pt: "mostrar mais",
     };
     showMoreButtonEl = document.createElement("button");
-    showMoreButtonEl.classList.add("gx-button", "gx-button--show-more");
+    showMoreButtonEl.classList.add(
+      "gx-button",
+      "gx-button--primary",
+      "gx-button--show-more"
+    );
     showMoreButtonEl.innerText = showMoreButtonLabels[pageLang];
     showMoreButtonEl.addEventListener("click", showMoreHandler);
     articlesFooterEl.appendChild(showMoreButtonEl);
@@ -303,7 +332,7 @@ const renderShowMoreButton = () => {
 const footerMessagesSlot = () => {
   if (articlesFooterEl) {
     footerMessagesSlotEl = document.createElement("p");
-    footerMessagesSlotEl.classList.add("no-more-articles");
+    footerMessagesSlotEl.classList.add("footer-messages");
     articlesFooterEl.appendChild(footerMessagesSlotEl);
   }
 };
@@ -389,6 +418,10 @@ const showMore = () => {
     footerMessagesSlotEl.innerText = footerMessages.noMatchFound[pageLang];
   }
   updateShowingArticles();
+};
+
+const scrollDown = () => {
+  articlesFooterEl.scrollIntoView({ behavior: "smooth", block: "end" });
 };
 
 const disableElement = (elementRef) => {
@@ -554,7 +587,29 @@ const renderPills = () => {
   }
 };
 
+const displayScrollbar = () => {
+  /*show scrollbar again*/
+  setTimeout(() => {
+    rowSelectsInnerWrapper.classList.remove("hide-scrollbar");
+  }, selectHeightTransition);
+};
+
+const powerUpCards = () => {
+  allArticles.forEach((article) => {
+    const link = article.querySelector("a");
+    if (link) {
+      article.classList.add("article-container--actionable");
+      const url = link.getAttribute("href");
+      article.addEventListener("click", () => {
+        window.open(url, "_blank");
+      });
+    }
+  });
+};
+
 // HANDLERS //
+
+const autoScrollMultiCheckbox = (multiCheckbox) => {};
 
 document.addEventListener("click", (e) => {
   //close open select, if any
@@ -571,6 +626,7 @@ document.addEventListener("click", (e) => {
   );
   if (gxMultiCheckboxOpened) {
     gxMultiCheckboxOpened.classList.remove("gx-multi-checkbox--opened");
+    displayScrollbar();
   }
 });
 
@@ -590,8 +646,10 @@ const addMultiCheckboxListener = (multiCheckbox) => {
   multiCheckbox.addEventListener("mouseenter", multiCheckboxMouseEnterHandler);
 };
 
-const multiCheckboxLabelHandler = (e) => {
+const multiCheckboxLabelClickHandler = (e) => {
   e.stopPropagation();
+  /*hide scrollbar*/
+  rowSelectsInnerWrapper.classList.add("hide-scrollbar");
   /*label*/
   const clickedLabel = e.target;
   clickedLabel.classList.toggle("gx-label--multi-checkbox--active");
@@ -608,6 +666,27 @@ const multiCheckboxLabelHandler = (e) => {
   }
   closeOtherSelects(multiCheckbox);
   addMultiCheckboxListener(multiCheckbox);
+};
+
+const multiCheckboxLabelKeydownHandler = (e) => {
+  const isActive = e.target.classList.contains(
+    "gx-label--multi-checkbox--active"
+  );
+  const nextSibling = e.target.nextElementSibling;
+  let multiCheckbox;
+  if (nextSibling.classList.contains("gx-multi-checkbox")) {
+    multiCheckbox = nextSibling;
+  }
+  if (e.code === "ArrowDown" && isActive && multiCheckbox) {
+    e.preventDefault();
+    firstOption = multiCheckbox.firstElementChild;
+    if (firstOption) {
+      firstOption.focus();
+    }
+  } else if (e.code === "ArrowDown" && !isActive && multiCheckbox) {
+    e.preventDefault();
+    e.target.click();
+  }
 };
 
 /*mouseleave*/
@@ -700,6 +779,31 @@ const checkboxChangedHandler = (e) => {
   evaluateFilterDifference();
 };
 
+const checkboxKeyDownHandler = (e) => {
+  let sibling;
+  if (e.code === "ArrowDown") {
+    e.preventDefault();
+    sibling = e.target.nextElementSibling;
+    if (sibling) {
+      sibling = sibling.nextElementSibling;
+    }
+  } else if (e.code === "ArrowUp") {
+    e.preventDefault();
+    sibling = e.target.previousElementSibling;
+    if (sibling) {
+      sibling = sibling.previousElementSibling;
+    }
+  } else if (e.code === "Enter") {
+    e.preventDefault();
+    e.target.click();
+  } else if (e.code === "Escape") {
+    e.preventDefault();
+  }
+  if (sibling) {
+    sibling.focus();
+  }
+};
+
 const updateShowingArticles = () => {
   const visibleCards = articlesListEl.querySelectorAll(
     ":scope > *:not([hidden='hidden'])"
@@ -708,7 +812,14 @@ const updateShowingArticles = () => {
 };
 
 /* #clear handler */
-const clearHandler = () => {
+const clearHandler = (e) => {
+  const button = e.target;
+  button.classList.add("gx-button--link--disabled");
+  button.innerText = clearButtonClearedLabels[pageLang];
+  setTimeout(() => {
+    button.innerText = clearButtonLabels[pageLang];
+    button.classList.remove("gx-button--link--disabled");
+  }, 1000);
   clearFilters();
   setSelectedCategories();
   evaluateFilterDifference();
@@ -733,6 +844,7 @@ const filterHandler = (e) => {
 const showMoreHandler = (e) => {
   e.stopPropagation();
   showMore();
+  scrollDown();
 };
 
 // INIT //
@@ -745,14 +857,14 @@ const defineFooterMessages = () => {
       pt: `Não há mais ${typePlural} para mostrar`,
     },
     showingAllCoincidences: {
-      en: `Showing all the ${typePlural} that match your search`,
+      en: `Showing all the ${typePlural} that match with your search`,
       es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda`,
       pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa`,
     },
     noCoincidences: {
-      en: `No ${typeSingular} found matching your search`,
-      es: `No se encontró ningun ${typeSingular} que coincida con tu búsqueda`,
-      pt: `Nenhum ${typeSingular} encontrado correspondente à sua pesquisa`,
+      en: `No ${typePlural} found matching your search`,
+      es: `No se encontró ningun ${typePlural} que coincida con tu búsqueda`,
+      pt: `Nenhum ${typePlural} encontrado correspondente à sua pesquisa`,
     },
     noMatchFound: {
       en: `No ${typeSingular} found with the selected filters`,
@@ -765,6 +877,7 @@ const defineFooterMessages = () => {
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
+    powerUpCards();
     /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
     typeSingular = gxFilterData.conf.typeSingular[pageLang];
