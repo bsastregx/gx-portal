@@ -1,3 +1,15 @@
+/*
+INDEX:
+1.VARIABLES
+2.OTHER
+3.CSS VARIABLES
+4.RENDERS
+5.HELPER FUNCTIONS
+6.HANDLERS
+*/
+
+/* 1.VARIABLES */
+
 const pageLang = document.documentElement.lang;
 /*filter data*/
 let cardsPerLoad;
@@ -27,7 +39,9 @@ let multiCheckboxes = [];
 let filteredArticles = [];
 let currentSelectedCategories = [];
 let prevSelectedCategories = [];
-/*other*/
+
+/* 2.OTHER */
+
 let visibleCards = 0;
 let footerMessages;
 const clearButtonLabels = {
@@ -62,9 +76,18 @@ const timeOutHideSelect = (multiCheckbox) => {
   if (gxLabelMultiCheckbox.classList.contains("gx-label--multi-checkbox")) {
     gxLabelMultiCheckbox.classList.remove("gx-label--multi-checkbox--active");
   }
+  disableCheckboxes(multiCheckbox);
+  const multiCheckboxContainer = multiCheckbox.parentElement;
+  if (multiCheckboxContainer) {
+    const multiCheckboxButton = multiCheckboxContainer.querySelector("button");
+    if (multiCheckboxButton) {
+      multiCheckboxButton.focus();
+    }
+  }
 };
 
-// CSS VARIABLES //
+// 3. CSS VARIABLES //
+
 const html = document.querySelector("html");
 html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`);
 html.style.setProperty(
@@ -72,7 +95,7 @@ html.style.setProperty(
   `${selectHeightTransition}ms`
 );
 
-// RENDERS //
+// 4. RENDERS //
 
 const renderHeader = () => {
   /*header*/
@@ -337,7 +360,27 @@ const footerMessagesSlot = () => {
   }
 };
 
-// HELPER FUNCTIONS //
+// 5. HELPER FUNCTIONS //
+
+const enableCheckboxes = (multiCheckbox) => {
+  /*checkboxes*/
+  const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
+  if (checkboxes.length) {
+    checkboxes.forEach((checkbox) => {
+      checkbox.removeAttribute("disabled");
+    });
+  }
+};
+
+const disableCheckboxes = (multiCheckbox) => {
+  /*checkboxes*/
+  const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
+  if (checkboxes.length) {
+    checkboxes.forEach((checkbox) => {
+      checkbox.setAttribute("disabled", "disabled");
+    });
+  }
+};
 
 const hideAllCards = () => {
   if (allArticles.length) {
@@ -607,7 +650,7 @@ const powerUpCards = () => {
   });
 };
 
-// HANDLERS //
+// 6. HANDLERS //
 
 const autoScrollMultiCheckbox = (multiCheckbox) => {};
 
@@ -657,13 +700,7 @@ const multiCheckboxLabelClickHandler = (e) => {
   /*multi-checkbox*/
   const multiCheckbox = clickedLabel.nextElementSibling;
   multiCheckbox.classList.toggle("gx-multi-checkbox--opened");
-  /*checkboxes*/
-  const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
-  if (checkboxes.length) {
-    checkboxes.forEach((checkbox) => {
-      checkbox.removeAttribute("disabled");
-    });
-  }
+  enableCheckboxes(multiCheckbox);
   closeOtherSelects(multiCheckbox);
   addMultiCheckboxListener(multiCheckbox);
 };
@@ -672,6 +709,7 @@ const multiCheckboxLabelKeydownHandler = (e) => {
   const isActive = e.target.classList.contains(
     "gx-label--multi-checkbox--active"
   );
+  const multiCheckboxContainer = e.target.parentElement;
   const nextSibling = e.target.nextElementSibling;
   let multiCheckbox;
   if (nextSibling.classList.contains("gx-multi-checkbox")) {
@@ -686,11 +724,24 @@ const multiCheckboxLabelKeydownHandler = (e) => {
   } else if (e.code === "ArrowDown" && !isActive && multiCheckbox) {
     e.preventDefault();
     e.target.click();
+  } else if (e.code === "ArrowRight") {
+    const nextSibling = multiCheckboxContainer.nextElementSibling;
+    if (nextSibling) {
+      const nextButton = nextSibling.querySelector("button");
+      nextButton.focus();
+    }
+  } else if (e.code === "ArrowLeft") {
+    const prevSibling = multiCheckboxContainer.previousElementSibling;
+    if (prevSibling) {
+      const prevButton = prevSibling.querySelector("button");
+      prevButton.focus();
+    }
   }
 };
 
 /*mouseleave*/
 multiCheckboxMouseLeaveHandler = (e) => {
+  console.log("leave");
   const multiCheckbox = e.target;
   timeOutHideSelectRef = setTimeout(function () {
     timeOutHideSelect(multiCheckbox);
@@ -781,6 +832,8 @@ const checkboxChangedHandler = (e) => {
 
 const checkboxKeyDownHandler = (e) => {
   let sibling;
+  const multiCheckbox = e.target.parentElement;
+  const multiCheckboxButton = multiCheckbox.previousElementSibling;
   if (e.code === "ArrowDown") {
     e.preventDefault();
     sibling = e.target.nextElementSibling;
@@ -798,9 +851,15 @@ const checkboxKeyDownHandler = (e) => {
     e.target.click();
   } else if (e.code === "Escape") {
     e.preventDefault();
+    timeOutHideSelect(multiCheckbox);
+    multiCheckboxButton.focus();
   }
   if (sibling) {
     sibling.focus();
+  } else if (!sibling && e.code === "ArrowUp") {
+    //This is the first option. Set focus on the .gx-label button
+    timeOutHideSelect(multiCheckbox);
+    multiCheckboxButton.focus();
   }
 };
 
