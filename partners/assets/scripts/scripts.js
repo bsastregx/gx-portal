@@ -91,9 +91,12 @@ const renderHeader = () => {
   rowSelectsEl = document.createElement("div");
   rowSelectsEl.classList.add("row", "row--selects");
   rowSelectsEl.setAttribute("id", "header-filters");
+  /*row selects outer container*/
+  rowSelectsOuterWrapper = document.createElement("div");
+  rowSelectsOuterWrapper.classList.add("row--selects-outer-wrapper");
   /*row selects inner container*/
-  rowSelectsInnerOuterWrapper = document.createElement("div");
-  rowSelectsInnerOuterWrapper.classList.add("row--selects-outer-wrapper");
+  rowSelectsInnerWrapper = document.createElement("div");
+  rowSelectsInnerWrapper.classList.add("row--selects-inner-wrapper");
   /*row footer*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
@@ -121,8 +124,9 @@ const renderHeader = () => {
   textFilterLabel.appendChild(textFilterEl);
   rowMain.appendChild(textFilterLabel);
   filterHeaderEl.appendChild(rowMain);
-  rowSelectsInnerOuterWrapper.appendChild(rowSelectsEl);
-  filterHeaderEl.appendChild(rowSelectsInnerOuterWrapper);
+  rowSelectsInnerWrapper.appendChild(rowSelectsEl);
+  rowSelectsOuterWrapper.appendChild(rowSelectsInnerWrapper);
+  filterHeaderEl.appendChild(rowSelectsOuterWrapper);
   rowActionsLeftColEl.appendChild(rowActionsLeftColElInnerWrapper);
   rowActionsEl.appendChild(rowActionsLeftColEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);

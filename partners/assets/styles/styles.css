@@ -93,9 +93,12 @@ Header
   position: relative;
   height: var(--row-selects-desktop-height);
 }
+#header-filter .row--selects-inner-wrapper {
+  overflow-x: auto;
+  overflow-y: clip;
+}
 #header-filter .row--selects {
-  position: absolute;
-  width: 100%;
+  width: calc(220px * var(--filters-length));
   z-index: 10;
 }
 /* main title*/
@@ -121,7 +124,7 @@ Header
   gap: 16px;
   position: relative;
 }
-#header-filters::after {
+.row--selects-inner-wrapper::after {
   content: "";
   height: 1px;
   border-bottom: 1px solid var(--gx-color-neutral--500);
@@ -160,6 +163,7 @@ Multi-checkbox Filters
   width: calc(100% / var(--filters-length));
   position: relative;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 .gx-label--multi-checkbox {
   background-color: transparent;
@@ -218,21 +222,26 @@ Multi-checkbox Filters
   max-height: 332px;
 }
 /*scrollbar*/
+
+.row--selects-inner-wrapper::-webkit-scrollbar,
 .gx-multi-checkbox::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 /* Track */
+.row--selects-inner-wrapper::-webkit-scrollbar-track,
 .gx-multi-checkbox::-webkit-scrollbar-track {
   background-color: var(--gx-color-neutral--200);
   border-radius: 10px;
 }
 /* Handle */
+.row--selects-inner-wrapper::-webkit-scrollbar-thumb,
 .gx-multi-checkbox::-webkit-scrollbar-thumb {
   background: var(--gx-color-neutral--400);
   border-radius: 10px;
 }
 /* Handle on hover */
+.row--selects-inner-wrapper::-webkit-scrollbar-thumb:hover,
 .gx-multi-checkbox::-webkit-scrollbar-thumb:hover {
   background: var(--gx-color-neutral--500);
   cursor: pointer;
