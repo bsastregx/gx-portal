@@ -7,6 +7,9 @@
   --gx-color-neutral--300: #d9d9d9b3;
   --gx-color-neutral--400: #b5b5b5;
   --gx-color-neutral--500: #969ba0;
+  --gx-color-accent-blue--200: #e5eeff;
+  --gx-color-accent-blue--700: #003aa6;
+
   --border-radius: 4px;
   --font-family-body: Rubik, sans-serif;
   --font-family-titles: Graphik, sans-serif;
@@ -434,7 +437,11 @@ Grid
 .article-container--actionable a .text {
   display: none;
 }
-.article-container--actionable:hover > article {
+.article-container--actionable:focus {
+  outline: none;
+}
+.article-container--actionable:hover > article,
+.article-container--actionable:focus > article {
   border-color: black;
 }
 
@@ -452,6 +459,18 @@ Grid
   height: 100%;
   display: flex;
   margin: 0;
+}
+.articles .membership-label {
+  display: inline-block;
+  font-family: var(--font-family-titles);
+  line-height: 12px;
+  font-size: 12px;
+  padding: 4px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  background-color: var(--gx-color-accent-blue--200);
+  color: var(--gx-color-accent-blue--700);
+  margin-block-end: 8px;
 }
 .articles article > a {
   margin-top: auto;

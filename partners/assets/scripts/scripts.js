@@ -39,6 +39,7 @@ let multiCheckboxes = [];
 let filteredArticles = [];
 let currentSelectedCategories = [];
 let prevSelectedCategories = [];
+let membershipCategories = [];
 
 /* 2.OTHER */
 
@@ -205,7 +206,7 @@ const renderCategories = () => {
         "keydown",
         multiCheckboxLabelKeydownHandler
       );
-      multiCheckboxLabel.innerText = type;
+      multiCheckboxLabel.innerText = cat.label[pageLang];
 
       /*create multi-checkbox*/
       const multiCheckbox = document.createElement("div");
@@ -213,6 +214,14 @@ const renderCategories = () => {
 
       /*create options*/
       cats.forEach((cat) => {
+        if (type === "category") {
+          /*this is the membership category. Save items to use for the cards labels*/
+          membershipCategories.push({
+            id: cat.value,
+            label: cat.label[pageLang],
+          });
+        }
+
         const value = cat.value;
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
@@ -361,6 +370,24 @@ const footerMessagesSlot = () => {
 };
 
 // 5. HELPER FUNCTIONS //
+
+const getArticleCategory = (article) => {
+  cats = getArticleCats(article);
+  let foundIndex = -1;
+  for (let i = 0; i < cats.length; i++) {
+    foundIndex = membershipCategories.findIndex((cat) => {
+      return cat.id === cats[i];
+    });
+    if (foundIndex !== -1) {
+      break;
+    }
+  }
+  if (foundIndex !== -1) {
+    return membershipCategories[foundIndex].label;
+  } else {
+    return undefined;
+  }
+};
 
 const enableCheckboxes = (multiCheckbox) => {
   /*checkboxes*/
@@ -639,13 +666,35 @@ const displayScrollbar = () => {
 
 const powerUpCards = () => {
   allArticles.forEach((article) => {
-    const link = article.querySelector("a");
-    if (link) {
+    const links = article.querySelectorAll("a");
+    if (links.length > 0) {
       article.classList.add("article-container--actionable");
-      const url = link.getAttribute("href");
+      const url = links[0].getAttribute("href");
       article.addEventListener("click", () => {
         window.open(url, "_blank");
       });
+      article.addEventListener("keydown", (e) => {
+        if (e.code === "Enter") {
+          article.click();
+        }
+      });
+      article.setAttribute("tabindex", "0");
+    }
+    /*remove original links to prevent undesired tabindex*/
+    links.forEach((link) => {
+      link.removeAttribute("href");
+      link.removeAttribute("target");
+    });
+    /*add category pill*/
+    const categoryLabel = getArticleCategory(article);
+    if (categoryLabel) {
+      const articleHeader = article.querySelector("header");
+      const membershipLabelEl = document.createElement("span");
+      membershipLabelEl.classList.add("membership-label");
+      membershipLabelEl.innerText = categoryLabel;
+      if (articleHeader) {
+        articleHeader.appendChild(membershipLabelEl);
+      }
     }
   });
 };
@@ -959,7 +1008,6 @@ const defineFooterMessages = () => {
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
-    powerUpCards();
     /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
     typeSingular = gxFilterData.conf.typeSingular[pageLang];
@@ -981,6 +1029,7 @@ const init = () => {
     renderPills(); //must be called after setSelectedCategories();
     filter();
     showMore(); //must be called after renderCategories() and filter();
+    powerUpCards(); //must be called after renderCategories
     if (filterHeaderEl) {
       /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
