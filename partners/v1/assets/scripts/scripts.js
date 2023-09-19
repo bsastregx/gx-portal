@@ -929,6 +929,11 @@ const filterKeydownHandler = (e) => {
    */
   let ctrlKey = e.code === "ControlLeft" || e.code === "ControlRight";
   let cmdKey = e.code === "MetaLeft" || e.code === "MetaRight";
+  console.group();
+  console.log("e.code", e.code);
+  console.log("e.ctrlKey", e.ctrlKey);
+  console.log("e.metaKey", e.metaKey);
+  console.groupEnd();
   if (
     (e.key === "Backspace" && e.ctrlKey) ||
     (e.key === "Backspace" && e.metaKey)
