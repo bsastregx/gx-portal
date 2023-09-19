@@ -163,7 +163,7 @@ Header
 /*--------------------
 Multi-checkbox Filters
 --------------------*/
-/*filter label*/
+/*gx label filter*/
 .gx-label--filter {
   font-size: 17px;
   font-weight: 300;
@@ -171,6 +171,26 @@ Multi-checkbox Filters
   flex-direction: row;
   align-items: center;
   gap: 16px;
+}
+/*gx filter wrapper*/
+.gx-input--filter-wrapper {
+  position: relative;
+}
+/*clear input suggestion*/
+.gx-clear-suggestion {
+  font-size: 12px;
+  background-color: var(--gx-color-neutral--200);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--gx-color-neutral--400);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.gx-clear-suggestion--hidden {
+  display: none;
 }
 /*multi-checkbox*/
 .gx-multi-checkbox {
@@ -183,7 +203,6 @@ Multi-checkbox Filters
   overflow-x: auto;
   margin-top: 4px;
   max-height: 0;
-  transition: var(--gx-select-transition-height-speed) max-height;
 }
 .gx-multi-checkbox-container {
   display: flex;

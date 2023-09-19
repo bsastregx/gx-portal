@@ -31,6 +31,7 @@ let clearButtonEl;
 let filterButtonEl;
 let showMoreButtonEl;
 let footerMessagesSlotEl;
+let clearInputSuggestionEl;
 /*arrays*/
 let catsMap = [];
 let allArticles = [];
@@ -41,7 +42,9 @@ let prevSelectedCategories = [];
 let membershipCategories = [];
 
 /* 2.OTHER */
+var userAgent = navigator.userAgent;
 let visibleCards = 0;
+let textFilterBackspaceCounter = 0;
 let footerMessages;
 const clearButtonLabels = {
   en: "clear filter",
@@ -129,12 +132,32 @@ const renderHeader = () => {
   const textFilterLabel = document.createElement("label");
   textFilterLabel.classList.add("gx-label", "gx-label--filter");
   textFilterLabel.innerText = textFilterLabels[pageLang];
+  /*text wrapper*/
+  textFilterWrapper = document.createElement("div");
+  textFilterWrapper.classList.add("gx-input--filter-wrapper");
+  /*clear input suggestion*/
+  let clearKey = "ctrl";
+  if (userAgent.match(/Mac/i)) {
+    clearKey = "cmd";
+  }
+  const clearInputSuggestionLabels = {
+    en: `${clearKey} + backspace`,
+    es: `${clearKey} + retroceso`,
+    pt: `${clearKey} + retrocesso`,
+  };
+  clearInputSuggestionEl = document.createElement("span");
+  clearInputSuggestionEl.classList.add(
+    "gx-clear-suggestion",
+    "gx-clear-suggestion--hidden"
+  );
+  clearInputSuggestionEl.innerText = clearInputSuggestionLabels[pageLang];
   /*text filter*/
   textFilterEl = document.createElement("input");
   textFilterEl.setAttribute("type", "text");
   textFilterEl.setAttribute("placeholder", "AGL solutions");
   textFilterEl.classList.add("gx-input", "gx-input--filter");
   textFilterEl.addEventListener("input", filterInputHandler);
+  textFilterEl.addEventListener("keydown", filterKeydownHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -166,7 +189,9 @@ const renderHeader = () => {
   if (headerTitle) {
     rowMain.appendChild(headerTitle);
   }
-  textFilterLabel.appendChild(textFilterEl);
+  textFilterLabel.appendChild(textFilterWrapper);
+  textFilterWrapper.appendChild(clearInputSuggestionEl);
+  textFilterWrapper.appendChild(textFilterEl);
   rowMain.appendChild(textFilterLabel);
   filterHeaderEl.appendChild(rowMain);
   rowSelectsInnerWrapper.appendChild(rowSelectsEl);
@@ -896,6 +921,28 @@ const filterInputHandler = (e) => {
     }
   }
   updateShowingArticles();
+};
+
+const filterKeydownHandler = (e) => {
+  /**
+   * Suggest the user to hit ctrl + backspace to delete
+   */
+  if (
+    (e.key === "Backspace" && e.ctrlKey) ||
+    (e.key === "Backspace" && e.metaKey)
+  ) {
+    clearInputSuggestionEl.remove();
+  } else if (e.key === "Backspace") {
+    textFilterBackspaceCounter++;
+  } else if (!e.ctrlKey && !e.metaKey) {
+    textFilterBackspaceCounter = 0;
+    clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
+  }
+  if (textFilterBackspaceCounter >= 3) {
+    if (clearInputSuggestionEl) {
+      clearInputSuggestionEl.classList.remove("gx-clear-suggestion--hidden");
+    }
+  }
 };
 
 const checkboxChangedHandler = (e) => {
