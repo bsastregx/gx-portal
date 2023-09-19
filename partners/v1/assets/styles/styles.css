@@ -7,6 +7,7 @@
   --gx-color-neutral--300: #d9d9d9b3;
   --gx-color-neutral--400: #b5b5b5;
   --gx-color-neutral--500: #969ba0;
+  --gx-color-neutral--600: #6e7277;
   --gx-color-accent-blue--200: #e5eeff;
   --gx-color-accent-blue--700: #003aa6;
 
@@ -21,7 +22,10 @@
   --gx-chevron-transition-speed: 150ms;
   --row-selects-desktop-height: 58px;
   --row-selects-mobile-height: 58px;
+  --gx-header-filters-gap: 16px;
+  --gx-horizontal-padding: 5px;
 }
+
 /*------------------
 General
 ------------------*/
@@ -40,6 +44,7 @@ General
 .gx-input:focus {
   outline-color: var(--gx-color-action);
 }
+
 /*------------------
 Buttons
 ------------------*/
@@ -63,6 +68,11 @@ Buttons
   background-color: var(--gx-color-action--hover);
 }
 .gx-button--secondary {
+  background-color: var(--gx-color-white);
+  border-color: black;
+}
+.gx-button--secondary:hover {
+  background-color: var(--gx-color-neutral--200);
 }
 .gx-button--sm {
   /*background-color: transparent;*/
@@ -70,6 +80,7 @@ Buttons
 }
 .gx-button--link {
   background-color: transparent;
+  font-weight: 400;
 }
 .gx-button--link--disabled {
   pointer-events: none;
@@ -77,6 +88,7 @@ Buttons
 .gx-button--link:hover {
   text-decoration: underline;
 }
+
 /*------------------
 Header
 ------------------*/
@@ -86,21 +98,25 @@ Header
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 32px;
   margin-bottom: 20px;
 }
 #header-filter .row {
   display: flex;
   justify-content: space-between;
 }
+#header-filter .row--main {
+  margin-bottom: 64px;
+}
 #header-filter .row--selects-outer-wrapper {
   position: relative;
   height: var(--row-selects-desktop-height);
+  margin-bottom: 16px;
 }
 #header-filter .row--selects-inner-wrapper {
   overflow-x: auto;
   overflow-y: clip;
   scroll-behavior: smooth;
+  display: flex;
 }
 #header-filter .row--selects-inner-wrapper.hide-scrollbar {
   overflow-x: hidden;
@@ -115,12 +131,6 @@ Header
   position: absolute;
   width: 100%;
   top: var(--gx-label-multi-checkbox-height);
-}
-#header-filter .row--selects {
-  padding-top: 1px;
-  width: calc(220px * var(--filters-length));
-  z-index: 10;
-  padding: 1px 5px 0 5px;
 }
 /* main title*/
 .header-filter__title {
@@ -142,9 +152,14 @@ Header
 }
 /*header filters*/
 #header-filters {
-  gap: 16px;
   position: relative;
+  gap: var(--gx-header-filters-gap);
+  /* padding top prevents .gx-label--multi-checkbox border cut edge
+  horizontal padding prevents .gx-multi-checkbox box shadow cut off */
+  padding: 1px var(--gx-horizontal-padding) 0 var(--gx-horizontal-padding);
+  z-index: 10;
 }
+
 /*--------------------
 Multi-checkbox Filters
 --------------------*/
@@ -173,7 +188,12 @@ Multi-checkbox Filters
 .gx-multi-checkbox-container {
   display: flex;
   flex-direction: column;
-  width: calc(100% / var(--filters-length));
+  width: calc(
+    (
+        var(--gx-desktop-lg-width) - (var(--gx-header-filters-gap) * 4) -
+          (var(--gx-horizontal-padding) * 2)
+      ) / 5
+  );
   position: relative;
   align-self: flex-start;
   flex-shrink: 0;
@@ -182,6 +202,7 @@ Multi-checkbox Filters
   background-color: transparent;
   font-family: inherit;
   font-size: inherit;
+  font-weight: 300;
   text-align: left;
   text-transform: capitalize;
   border: 2px solid transparent;
@@ -238,8 +259,8 @@ Multi-checkbox Filters
 
 .row--selects-inner-wrapper::-webkit-scrollbar,
 .gx-multi-checkbox::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 /* Track */
 .row--selects-inner-wrapper::-webkit-scrollbar-track,
@@ -389,18 +410,25 @@ Multi-checkbox Filters
     transform: translateX(0);
   }
 }
+
 /*--------------------
 Row Actions
 --------------------*/
-#header-filter .row--actions__left-col {
-  display: block;
+#header-filter .row--actions {
+  margin-bottom: 48px;
+  gap: 64px;
 }
-.row--actions__left-col-inner-wrapper {
+#header-filter .row--actions__left-col {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
+  justify-content: unset;
   gap: 8px;
+  align-self: flex-start;
 }
 .row--actions__right-col {
   gap: 16px;
+  align-self: flex-start;
 }
 .gx-button-pill {
   padding: 4px 8px;
@@ -428,6 +456,16 @@ Row Actions
   content: "×";
   font-size: 16px;
 }
+
+/*--------------------
+Row Info
+--------------------*/
+.row--info {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--gx-color-neutral--600);
+}
+
 /*------------------
 Grid
 ------------------*/

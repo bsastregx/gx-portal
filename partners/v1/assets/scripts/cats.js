@@ -11,6 +11,7 @@ const gxFilterData = {
       pt: "parceiros",
     },
     cardsPerLoad: 6,
+    desktopLgWidth: 1138,
   },
   filterTitle: {
     en: "Find a partner",

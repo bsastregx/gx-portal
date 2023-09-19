@@ -23,7 +23,6 @@ let rowSelectsEl;
 let rowSelectsInnerWrapper;
 let rowActionsEl;
 let rowActionsLeftColEl;
-let rowActionsLeftColElInnerWrapper;
 let rowActionsElRightColEl;
 let rowInfoEl;
 let articlesFooterEl;
@@ -42,7 +41,6 @@ let prevSelectedCategories = [];
 let membershipCategories = [];
 
 /* 2.OTHER */
-
 let visibleCards = 0;
 let footerMessages;
 const clearButtonLabels = {
@@ -55,8 +53,9 @@ const clearButtonClearedLabels = {
   es: "limpiado...",
   pt: "limpado...",
 };
+
 /*event listeners*/
-const timeBeforeCloseSelect = 400;
+const timeBeforeCloseSelect = 40000;
 const clearPillTransition = 150;
 const selectHeightTransition = 150;
 let labelMouseLeaveHandler;
@@ -64,6 +63,7 @@ let multiCheckboxMouseLeaveHandler;
 let multiCheckboxMouseEnterHandler;
 let timeOutHideSelectRef;
 const timeOutHideSelect = (multiCheckbox) => {
+  console.log("close select");
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
   displayScrollbar();
   /*then remove listeners*/
@@ -85,6 +85,7 @@ const timeOutHideSelect = (multiCheckbox) => {
       multiCheckboxButton.focus();
     }
   }
+  horizontalScroll(true);
 };
 
 // 3. CSS VARIABLES //
@@ -95,6 +96,10 @@ html.style.setProperty(
   "--gx-select-transition-height-speed",
   `${selectHeightTransition}ms`
 );
+html.style.setProperty(
+  "--gx-desktop-lg-width",
+  `${gxFilterData.conf.desktopLgWidth}px`
+);
 
 // 4. RENDERS //
 
@@ -103,13 +108,18 @@ const renderHeader = () => {
   filterHeaderEl = document.createElement("header");
   filterHeaderEl.classList.add("header-filter");
   filterHeaderEl.setAttribute("id", "header-filter");
-  /*title*/
+
+  /*header title label*/
   let headerTitle;
-  if (gxFilterData.filterTitle) {
-    headerTitle = document.createElement("h2");
-    headerTitle.classList.add("header-filter__title");
-    headerTitle.innerText = gxFilterData.filterTitle[pageLang];
-  }
+  const headerTitleLabels = {
+    en: `Find a ${typeSingular}`,
+    es: `Encontrar un ${typeSingular}:`,
+    pt: `Encontrar um ${typeSingular}:`,
+  };
+  headerTitle = document.createElement("h2");
+  headerTitle.classList.add("header-filter__title");
+  headerTitle.innerText = headerTitleLabels[pageLang];
+
   /*text filter label*/
   const textFilterLabels = {
     en: `Search by ${typeSingular} name:`,
@@ -138,11 +148,6 @@ const renderHeader = () => {
   /*row selects inner container*/
   rowSelectsInnerWrapper = document.createElement("div");
   rowSelectsInnerWrapper.classList.add("row--selects-inner-wrapper");
-  rowSelectsInnerWrapper.addEventListener("wheel", (e) => {
-    e.preventDefault();
-    // Adjust the scrollLeft property based on the wheel delta
-    rowSelectsInnerWrapper.scrollLeft += e.deltaY;
-  });
   /*row footer*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
@@ -150,12 +155,6 @@ const renderHeader = () => {
   /*row footer | left col*/
   rowActionsLeftColEl = document.createElement("div");
   rowActionsLeftColEl.classList.add("row", "row--actions__left-col");
-  /*row footer | left col inner wrapper*/
-  rowActionsLeftColElInnerWrapper = document.createElement("div");
-  rowActionsLeftColElInnerWrapper.classList.add(
-    "row",
-    "row--actions__left-col-inner-wrapper"
-  );
   /*row footer | right col*/
   rowActionsElRightColEl = document.createElement("div");
   rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
@@ -173,7 +172,6 @@ const renderHeader = () => {
   rowSelectsInnerWrapper.appendChild(rowSelectsEl);
   rowSelectsOuterWrapper.appendChild(rowSelectsInnerWrapper);
   filterHeaderEl.appendChild(rowSelectsOuterWrapper);
-  rowActionsLeftColEl.appendChild(rowActionsLeftColElInnerWrapper);
   rowActionsEl.appendChild(rowActionsLeftColEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
@@ -352,7 +350,7 @@ const renderShowMoreButton = () => {
     showMoreButtonEl = document.createElement("button");
     showMoreButtonEl.classList.add(
       "gx-button",
-      "gx-button--primary",
+      "gx-button--secondary",
       "gx-button--show-more"
     );
     showMoreButtonEl.innerText = showMoreButtonLabels[pageLang];
@@ -370,6 +368,29 @@ const footerMessagesSlot = () => {
 };
 
 // 5. HELPER FUNCTIONS //
+
+/*
+Activates/deactivates horizontal scrolling with the mousewheel on .row--selects-inner-wrapper
+*/
+const horizontalScroll = (activate) => {
+  if (activate) {
+    console.log("activate");
+    rowSelectsInnerWrapper.addEventListener(
+      "wheel",
+      horizontalScrollWheelHandler
+    );
+  } else {
+    rowSelectsInnerWrapper.removeEventListener(
+      "wheel",
+      horizontalScrollWheelHandler
+    );
+  }
+};
+const horizontalScrollWheelHandler = (e) => {
+  e.preventDefault();
+  // Adjust the scrollLeft property based on the wheel delta
+  rowSelectsInnerWrapper.scrollLeft += e.deltaY;
+};
 
 const getArticleCategory = (article) => {
   cats = getArticleCats(article);
@@ -637,8 +658,8 @@ const createCatsMapArray = () => {
  * It renders the categories pills, iterating over 'currentSelectedCategories'.
  */
 const renderPills = () => {
-  if (rowActionsLeftColElInnerWrapper) {
-    rowActionsLeftColElInnerWrapper.innerHTML = "";
+  if (rowActionsLeftColEl) {
+    rowActionsLeftColEl.innerHTML = "";
   }
   if (currentSelectedCategories.length > 0) {
     currentSelectedCategories.forEach((catId) => {
@@ -651,7 +672,7 @@ const renderPills = () => {
         pill.innerText = catData.label;
         pill.setAttribute("data-cat", catData.id);
         pill.addEventListener("click", pillClickedHandler);
-        rowActionsLeftColElInnerWrapper.appendChild(pill);
+        rowActionsLeftColEl.appendChild(pill);
       }
     });
   }
@@ -727,20 +748,11 @@ const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
 
 document.addEventListener("click", (e) => {
   //close open select, if any
-  const gxLabelMultiCheckboxActive = rowSelectsEl.querySelector(
-    ".gx-label--multi-checkbox--active"
-  );
-  if (gxLabelMultiCheckboxActive) {
-    gxLabelMultiCheckboxActive.classList.remove(
-      "gx-label--multi-checkbox--active"
-    );
-  }
-  const gxMultiCheckboxOpened = rowSelectsEl.querySelector(
+  const openedMultiCheckbox = rowSelectsEl.querySelector(
     ".gx-multi-checkbox--opened"
   );
-  if (gxMultiCheckboxOpened) {
-    gxMultiCheckboxOpened.classList.remove("gx-multi-checkbox--opened");
-    displayScrollbar();
+  if (openedMultiCheckbox) {
+    timeOutHideSelect(openedMultiCheckbox);
   }
 });
 
@@ -777,6 +789,7 @@ const multiCheckboxLabelClickHandler = (e) => {
   /*multi-checkbox container*/
   const multiCheckboxContainer = e.target.parentElement;
   autoScrollMultiCheckboxContainer(multiCheckboxContainer);
+  horizontalScroll(false);
 };
 
 const multiCheckboxLabelKeydownHandler = (e) => {
@@ -1017,6 +1030,7 @@ const init = () => {
     createCatsMapArray();
     hideAllCards();
     renderHeader();
+    horizontalScroll(true); //must be called after renderHeader();
     renderCategories(); //must be called after renderHeader();
     renderClearButton(); //must be called after renderHeader();
     renderFilterButton(); //must be called after renderHeader();
