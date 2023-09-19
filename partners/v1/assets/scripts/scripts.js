@@ -929,10 +929,7 @@ const filterKeydownHandler = (e) => {
    */
   let ctrlKey = e.code === "ControlLeft" || e.code === "ControlRight";
   let cmdKey = e.code === "Meta";
-  if (
-    (e.key === "Backspace" && e.ctrlKey) ||
-    (e.key === "Backspace" && e.metaKey)
-  ) {
+  if ((e.key === "Backspace" && ctrlKey) || (e.key === "Backspace" && cmdKey)) {
     clearInputSuggestionEl.remove();
   } else if (e.key === "Backspace") {
     textFilterBackspaceCounter++;
