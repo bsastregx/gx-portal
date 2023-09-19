@@ -157,7 +157,7 @@ const renderHeader = () => {
   textFilterEl.setAttribute("placeholder", "AGL solutions");
   textFilterEl.classList.add("gx-input", "gx-input--filter");
   textFilterEl.addEventListener("input", filterInputHandler);
-  textFilterEl.addEventListener("keydown", filterKeydownHandler);
+  textFilterEl.addEventListener("keyup", filterKeydownHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -934,11 +934,15 @@ const filterKeydownHandler = (e) => {
     clearInputSuggestionEl.remove();
   } else if (e.key === "Backspace") {
     textFilterBackspaceCounter++;
+    if (textFilterEl.value.length === 0) {
+      textFilterBackspaceCounter = 0;
+      clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
+    }
   } else if (!e.ctrlKey && !e.metaKey) {
     textFilterBackspaceCounter = 0;
     clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
   }
-  if (textFilterBackspaceCounter >= 3) {
+  if (textFilterBackspaceCounter >= 3 && textFilterEl.value.length !== 0) {
     if (clearInputSuggestionEl) {
       clearInputSuggestionEl.classList.remove("gx-clear-suggestion--hidden");
     }
