@@ -927,6 +927,8 @@ const filterKeydownHandler = (e) => {
   /**
    * Suggest the user to hit ctrl + backspace to delete
    */
+  let ctrlKey = e.code === "ControlLeft" || e.code === "ControlRight";
+  let cmdKey = e.code === "Meta";
   if (
     (e.key === "Backspace" && e.ctrlKey) ||
     (e.key === "Backspace" && e.metaKey)
@@ -938,7 +940,7 @@ const filterKeydownHandler = (e) => {
       textFilterBackspaceCounter = 0;
       clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
     }
-  } else if (!e.ctrlKey && !e.metaKey) {
+  } else if (!ctrlKey && !cmdKey) {
     textFilterBackspaceCounter = 0;
     clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
   }
