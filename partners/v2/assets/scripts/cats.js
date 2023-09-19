@@ -12,6 +12,7 @@ const gxFilterData = {
     },
     cardsPerLoad: 6,
     desktopLgWidth: 1138,
+    noResultsImgSrc: "./assets/images/no-results-illustration.svg",
   },
   filterTitle: {
     en: "Find a partner",

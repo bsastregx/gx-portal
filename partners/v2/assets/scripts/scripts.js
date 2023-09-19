@@ -30,6 +30,9 @@ let numberPlaceholderEl;
 let clearButtonEl;
 let showMoreButtonEl;
 let footerMessagesSlotEl;
+let footerMessagesIllustrationEl;
+let footerMessagesTitleEl;
+let footerMessagesDescriptionEl;
 let clearInputSuggestionEl;
 /*arrays*/
 let catsMap = [];
@@ -64,7 +67,6 @@ let multiCheckboxMouseLeaveHandler;
 let multiCheckboxMouseEnterHandler;
 let timeOutHideSelectRef;
 const timeOutHideSelect = (multiCheckbox) => {
-  console.log("close select");
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
   displayScrollbar();
   /*then remove listeners*/
@@ -253,7 +255,6 @@ const renderCategories = () => {
         checkbox.addEventListener("keydown", checkboxKeyDownHandler);
         checkbox.addEventListener("click", (e) => {
           e.stopPropagation();
-          console.log("checked");
         });
         const label = cat.label[pageLang];
         const labelEl = document.createElement("label");
@@ -333,7 +334,7 @@ const renderClearButton = () => {
     clearButtonEl.innerText = clearButtonLabels[pageLang];
     clearButtonEl.addEventListener("click", clearHandler);
     /*disable clear filter button, assuming there are no categories checked on first render*/
-    clearButtonEl.setAttribute("disabled", "disabled");
+    clearButtonEl.setAttribute("hidden", "hidden");
     rowActionsElRightColEl.appendChild(clearButtonEl);
   }
 };
@@ -367,8 +368,26 @@ const renderShowMoreButton = () => {
 
 const footerMessagesSlot = () => {
   if (articlesFooterEl) {
+    /*footer messages*/
     footerMessagesSlotEl = document.createElement("p");
     footerMessagesSlotEl.classList.add("footer-messages");
+    /*footer messages image*/
+    footerMessagesIllustrationEl = document.createElement("img");
+    footerMessagesIllustrationEl.classList.add("footer-messages__illustration");
+    footerMessagesIllustrationEl.setAttribute(
+      "src",
+      gxFilterData.conf.noResultsImgSrc
+    );
+    /*footer messages title*/
+    footerMessagesTitleEl = document.createElement("span");
+    footerMessagesTitleEl.classList.add("footer-messages__title");
+    /*footer messages description*/
+    footerMessagesDescriptionEl = document.createElement("span");
+    footerMessagesDescriptionEl.classList.add("footer-messages__description");
+    /*appends*/
+    footerMessagesSlotEl.appendChild(footerMessagesIllustrationEl);
+    footerMessagesSlotEl.appendChild(footerMessagesTitleEl);
+    footerMessagesSlotEl.appendChild(footerMessagesDescriptionEl);
     articlesFooterEl.appendChild(footerMessagesSlotEl);
   }
 };
@@ -380,7 +399,6 @@ Activates/deactivates horizontal scrolling with the mousewheel on .row--selects-
 */
 const horizontalScroll = (activate) => {
   if (activate) {
-    console.log("activate");
     rowSelectsInnerWrapper.addEventListener(
       "wheel",
       horizontalScrollWheelHandler
@@ -483,7 +501,7 @@ const removeChecked = (catId) => {
     }
   }
   if (currentSelectedCategories.length === 0) {
-    disableElement(clearButtonEl);
+    hideElement(clearButtonEl);
   }
 };
 
@@ -506,15 +524,24 @@ const showMore = () => {
     }
     if (filteredArticles.length === 0) {
       hideElement(showMoreButtonEl);
-      footerMessagesSlotEl.innerText = footerMessages.noMorePartners[pageLang];
+      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      footerMessagesTitleEl.innerText = "";
+      footerMessagesDescriptionEl.innerText =
+        footerMessages.noMorePartners[pageLang];
     } else {
       showElement(showMoreButtonEl);
-      footerMessagesSlotEl.innerText = "";
+      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      footerMessagesTitleEl.innerText = "";
+      footerMessagesDescriptionEl.innerText = "";
     }
   } else {
     hideElement(showMoreButtonEl);
     visibleCards = 0;
-    footerMessagesSlotEl.innerText = footerMessages.noMatchFound[pageLang];
+    footerMessagesIllustrationEl.removeAttribute("hidden");
+    footerMessagesTitleEl.innerText =
+      footerMessages.noMatchFoundTitle[pageLang];
+    footerMessagesDescriptionEl.innerText =
+      footerMessages.noMatchFoundDescription[pageLang];
   }
   updateShowingArticles();
 };
@@ -619,7 +646,8 @@ const clearFilters = () => {
       }
     });
   }
-  footerMessagesSlotEl.innerText = "";
+  footerMessagesTitleEl.innerText = "";
+  footerMessagesDescriptionEl.innerText = "";
 };
 
 /**
@@ -877,10 +905,14 @@ const filterInputHandler = (e) => {
       }
     });
     if (visibleCards > 0) {
-      footerMessagesSlotEl.innerText =
+      footerMessagesTitleEl.innerText = "";
+      footerMessagesDescriptionEl.innerText =
         footerMessages.showingAllCoincidences[pageLang];
     } else {
-      footerMessagesSlotEl.innerText = footerMessages.noCoincidences[pageLang];
+      footerMessagesTitleEl.innerText =
+        footerMessages.noMatchFoundTitle[pageLang];
+      footerMessagesDescriptionEl.innerText =
+        footerMessages.noMatchFoundDescription[pageLang];
     }
   }
   updateShowingArticles();
@@ -935,9 +967,9 @@ const checkboxChangedHandler = (e) => {
     }
   }
   if (currentSelectedCategories.length === 0) {
-    disableElement(clearButtonEl);
+    hideElement(clearButtonEl);
   } else {
-    enableElement(clearButtonEl);
+    showElement(clearButtonEl);
   }
   filterHandler();
 };
@@ -990,6 +1022,7 @@ const clearHandler = (e) => {
   setTimeout(() => {
     button.innerText = clearButtonLabels[pageLang];
     button.classList.remove("gx-button--link--disabled");
+    hideElement(button);
   }, 1000);
   clearFilters();
   setSelectedCategories();
@@ -1020,24 +1053,24 @@ const showMoreHandler = (e) => {
 const defineFooterMessages = () => {
   footerMessages = {
     noMorePartners: {
-      en: `No more ${typePlural} to display`,
-      es: `No hay más ${typePlural} para mostrar`,
-      pt: `Não há mais ${typePlural} para mostrar`,
+      en: `No more ${typePlural} to display.`,
+      es: `No hay más ${typePlural} para mostrar.`,
+      pt: `Não há mais ${typePlural} para mostrar.`,
     },
     showingAllCoincidences: {
-      en: `Showing all the ${typePlural} that match with your search`,
-      es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda`,
-      pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa`,
+      en: `Showing all the ${typePlural} that match with your search.`,
+      es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda.`,
+      pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa.`,
     },
-    noCoincidences: {
-      en: `No ${typePlural} found matching your search`,
-      es: `No se encontró ningun ${typePlural} que coincida con tu búsqueda`,
-      pt: `Nenhum ${typePlural} encontrado correspondente à sua pesquisa`,
+    noMatchFoundTitle: {
+      en: "Sorry, no results found.",
+      es: "Lo siento, no se encontraron resultados.",
+      pt: "Desculpe, não foram encontrados resultados.",
     },
-    noMatchFound: {
-      en: `No ${typeSingular} found with the selected filters`,
-      es: `Ningún ${typeSingular} encontrado con los filtros seleccionados`,
-      pt: `Nenhum ${typeSingular} encontrado com os filtros selecionados`,
+    noMatchFoundDescription: {
+      en: `Try removing or change your filters to find ${typePlural}.`,
+      es: `Lo siento, no se encontraron resultados. Intenta eliminar o cambiar tus filtros para encontrar ${typePlural}.`,
+      pt: `Desculpe, não foram encontrados resultados. Tente remover ou alterar seus filtros para encontrar ${typePlural}.`,
     },
   };
 };

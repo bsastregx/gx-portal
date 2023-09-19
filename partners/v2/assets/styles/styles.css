@@ -54,7 +54,7 @@ Buttons
   pointer-events: none;
 }
 .gx-button {
-  padding: 12px 30px;
+  padding: 13.5px 30px;
   border-radius: 100px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -365,8 +365,8 @@ Multi-checkbox Filters
   > .span-animation:before {
   content: "";
   position: absolute;
-  top: -1px;
-  left: -5px;
+  top: -2px;
+  left: -6px;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
   transform: rotate(45deg);
@@ -440,6 +440,7 @@ Row Actions
 #header-filter .row--actions {
   margin-bottom: 48px;
   gap: 64px;
+  min-height: 33px; /*this is the clear button height. This prevents an abrupt height change when the clear button shows/hides*/
 }
 #header-filter .row--actions__left-col {
   display: flex;
@@ -546,8 +547,20 @@ Grid
   padding-bottom: 16px;
 }
 .footer-messages {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   font-family: var(--font-family-body);
+  gap: 8px;
+}
+.footer-messages__illustration {
+  margin-block-end: 32px;
+}
+.footer-messages__title {
   font-weight: 500;
+}
+.footer-messages__description {
+  font-weight: 300;
 }
 
 /*--- Responsive ---*/
