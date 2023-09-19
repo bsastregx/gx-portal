@@ -157,7 +157,8 @@ const renderHeader = () => {
   textFilterEl.setAttribute("placeholder", "AGL solutions");
   textFilterEl.classList.add("gx-input", "gx-input--filter");
   textFilterEl.addEventListener("input", filterInputHandler);
-  textFilterEl.addEventListener("keyup", filterKeydownHandler);
+  textFilterEl.addEventListener("keydown", filterKeyDownHandler);
+  textFilterEl.addEventListener("keyup", filterKeyUpHandler);
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -923,17 +924,12 @@ const filterInputHandler = (e) => {
   updateShowingArticles();
 };
 
-const filterKeydownHandler = (e) => {
+const filterKeyDownHandler = (e) => {
   /**
    * Suggest the user to hit ctrl + backspace to delete
    */
   let ctrlKey = e.code === "ControlLeft" || e.code === "ControlRight";
   let cmdKey = e.code === "MetaLeft" || e.code === "MetaRight";
-  console.group();
-  console.log("e.code", e.code);
-  console.log("e.ctrlKey", e.ctrlKey);
-  console.log("e.metaKey", e.metaKey);
-  console.groupEnd();
   if (
     (e.key === "Backspace" && e.ctrlKey) ||
     (e.key === "Backspace" && e.metaKey)
@@ -941,10 +937,6 @@ const filterKeydownHandler = (e) => {
     clearInputSuggestionEl.remove();
   } else if (e.key === "Backspace") {
     textFilterBackspaceCounter++;
-    if (textFilterEl.value.length === 0) {
-      textFilterBackspaceCounter = 0;
-      clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
-    }
   } else if (!ctrlKey && !cmdKey) {
     textFilterBackspaceCounter = 0;
     clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
@@ -953,6 +945,16 @@ const filterKeydownHandler = (e) => {
     if (clearInputSuggestionEl) {
       clearInputSuggestionEl.classList.remove("gx-clear-suggestion--hidden");
     }
+  }
+};
+
+const filterKeyUpHandler = () => {
+  /**
+   * Clear "hit ctrl + backspace to delete" suggestion if input value is empty
+   */
+  if (textFilterEl.value.length === 0) {
+    textFilterBackspaceCounter = 0;
+    clearInputSuggestionEl.classList.add("gx-clear-suggestion--hidden");
   }
 };
 
