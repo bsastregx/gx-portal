@@ -966,7 +966,6 @@ const filterInputHandler = (e) => {
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText =
         footerMessages.showingAllCoincidences[pageLang];
-      clearHandler();
     } else if (visibleCards > 0 && value.length === 0) {
       /*reset*/
       footerMessagesIllustrationEl.setAttribute("hidden", "hidden");

@@ -912,7 +912,6 @@ const filterInputHandler = (e) => {
         footerMessages.showingAllCoincidences[pageLang];
     } else if (visibleCards > 0 && value.length === 0) {
       /*reset*/
-      console.log("clear handler");
       footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText = "";
