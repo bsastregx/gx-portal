@@ -459,10 +459,12 @@ const footerMessagesSlot = () => {
  * It evaluates if the mobile view result button, should be displayed or hidden, depending on whether there are results to show or not.
  */
 const toggleViewResultButton = () => {
-  if (filteredArticles.length > 0) {
-    showElement(viewResultsButtonEl);
-  } else {
-    hideElement(viewResultsButtonEl);
+  if (isMobile) {
+    if (filteredArticles.length > 0) {
+      showElement(viewResultsButtonEl);
+    } else {
+      hideElement(viewResultsButtonEl);
+    }
   }
 };
 
