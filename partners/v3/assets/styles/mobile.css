@@ -21,6 +21,10 @@ body.gx-mobile-device .header-filter__title-wrapper {
 body.gx-mobile-device .gx-button--clear {
   padding-left: 0;
 }
+body.gx-mobile-device .gx-input--filter,
+body.gx-mobile-device .gx-input--filter-wrapper {
+  width: 100%;
+}
 
 /*-----------------------------------------------
 Burger menu (copied from https://unanimo.design )
