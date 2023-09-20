@@ -83,12 +83,19 @@ Buttons
   /*background-color: transparent;*/
   padding: var(--gx-button-sm-vertical-padding) 15px;
 }
+.gx-button--full-width {
+  width: 100%;
+  margin-top: 24px;
+}
 .gx-button--link {
   background-color: transparent;
   font-weight: 400;
 }
 .gx-button--clear {
   padding-right: 0;
+}
+.gx-button--clear--plural:after {
+  content: "s";
 }
 .gx-button--link--disabled {
   pointer-events: none;
@@ -473,6 +480,7 @@ Row Actions
   align-self: flex-start;
 }
 .gx-button-pill {
+  color: var(--gx-color-black);
   padding: 4px 8px;
   font-size: 12px;
   line-height: 12px;

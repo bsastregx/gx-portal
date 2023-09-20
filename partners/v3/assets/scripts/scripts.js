@@ -22,6 +22,7 @@ let textFilterEl;
 let textFilterLabelEl;
 let rowSelectsEl;
 let rowSelectsInnerWrapper;
+let rowSelectsOuterWrapper;
 let rowActionsEl;
 let rowActionsLeftColInnerWrapperEl;
 let rowActionsLeftColEl;
@@ -37,6 +38,7 @@ let footerMessagesTitleEl;
 let footerMessagesDescriptionEl;
 let clearInputSuggestionEl;
 let burgerButton;
+let viewResultsButtonEl;
 /*arrays*/
 let catsMap = [];
 let allArticles = [];
@@ -51,16 +53,6 @@ let visibleCards = 0;
 let textFilterBackspaceCounter = 0;
 let footerMessages;
 let isMobile = false;
-const clearButtonLabels = {
-  en: "clear filter",
-  es: "borrar filtro",
-  pt: "limpar filtro",
-};
-const clearButtonClearedLabels = {
-  en: "clearing...",
-  es: "limpiado...",
-  pt: "limpado...",
-};
 
 /*event listeners*/
 const timeBeforeCloseSelect = 40000;
@@ -362,6 +354,11 @@ const renderShowingPartners = () => {
 
 const renderClearButton = () => {
   if (rowActionsElRightColEl) {
+    const clearButtonLabels = {
+      en: "clear filter",
+      es: "borrar filtro",
+      pt: "limpar filtro",
+    };
     clearButtonEl = document.createElement("button");
     clearButtonEl.classList.add(
       "gx-button",
@@ -373,7 +370,33 @@ const renderClearButton = () => {
     clearButtonEl.addEventListener("click", clearHandler);
     /*disable clear filter button, assuming there are no categories checked on first render*/
     clearButtonEl.setAttribute("hidden", "hidden");
-    rowActionsElRightColEl.appendChild(clearButtonEl);
+
+    if (isMobile && rowSelectsInnerWrapper) {
+      rowSelectsInnerWrapper.appendChild(clearButtonEl);
+    } else {
+      rowActionsElRightColEl.appendChild(clearButtonEl);
+    }
+  }
+};
+
+const renderViewResultsButton = () => {
+  if (isMobile && rowSelectsInnerWrapper) {
+    const viewResultsButtonLabels = {
+      en: `view result`,
+      es: `ver resultado`,
+      pt: `ver resultado`,
+    };
+
+    viewResultsButtonEl = document.createElement("button");
+    viewResultsButtonEl.classList.add(
+      "gx-button",
+      "gx-button--primary",
+      "gx-button--full-width"
+    );
+    viewResultsButtonEl.setAttribute("hidden", "hidden");
+    viewResultsButtonEl.innerText = viewResultsButtonLabels[pageLang];
+    viewResultsButtonEl.addEventListener("click", viewResultsButtonHandler);
+    rowSelectsInnerWrapper.appendChild(viewResultsButtonEl);
   }
 };
 
@@ -433,11 +456,21 @@ const footerMessagesSlot = () => {
 // 5. HELPER FUNCTIONS //
 
 /**
- * It evaluates if the burger toggle should display a visual hint informing the user that there are one or more categories selecteod.
+ * It evaluates if the mobile view result button, should be displayed or hidden, depending on whether there are results to show or not.
+ */
+const toggleViewResultButton = () => {
+  if (filteredArticles.length > 0) {
+    showElement(viewResultsButtonEl);
+  } else {
+    hideElement(viewResultsButtonEl);
+  }
+};
+
+/**
+ * It evaluates if the burger toggle should display a visual hint informing the user that there are one or more categories selected.
  */
 const burgerHasFilters = () => {
   if (burgerButton) {
-    console.log("burgerButton");
     if (currentSelectedCategories.length > 0) {
       burgerButton.classList.add("burger--has-filters");
     } else {
@@ -671,6 +704,12 @@ const filter = () => {
   } else {
     /*no categories selected. include all articles*/
     filteredArticles = [...allArticles];
+  }
+  /*update "Clear Filter" label to be plural or singular depending on the selected categories length*/
+  if (currentSelectedCategories.length > 1) {
+    clearButtonEl.classList.add("gx-button--clear--plural");
+  } else {
+    clearButtonEl.classList.remove("gx-button--clear--plural");
   }
 };
 
@@ -1106,13 +1145,7 @@ const updateShowingArticles = () => {
 const clearHandler = async (e) => {
   if (e) {
     const button = e.target;
-    button.classList.add("gx-button--link--disabled");
-    button.innerText = clearButtonClearedLabels[pageLang];
-    setTimeout(() => {
-      button.innerText = clearButtonLabels[pageLang];
-      button.classList.remove("gx-button--link--disabled");
-      hideElement(button);
-    }, 1000);
+    hideElement(button);
   }
   if (isMobile) {
     rowActionsLeftColInnerWrapperEl.classList.add(
@@ -1133,6 +1166,12 @@ const clearHandler = async (e) => {
   renderPills();
 };
 
+const viewResultsButtonHandler = () => {
+  if (isMobile && burgerButton) {
+    burgerButton.click();
+  }
+};
+
 function delay(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -1147,6 +1186,7 @@ const filterHandler = () => {
   textFilterEl.value = "";
   hideAllCards();
   filter();
+  toggleViewResultButton(); /*this should be called before showMore()*/
   showMore();
   renderPills();
 };
@@ -1208,6 +1248,7 @@ const init = () => {
     horizontalScroll(true); //must be called after renderHeader();
     renderCategories(); //must be called after renderHeader();
     renderClearButton(); //must be called after renderHeader();
+    renderViewResultsButton(); //must be called after renderHeader() This is only for mobile;
     renderFooter();
     renderShowingPartners(); //must be called after renderFooter();
     renderShowMoreButton(); //must be called after renderFooter();

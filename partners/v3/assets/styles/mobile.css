@@ -40,7 +40,11 @@ body.gx-mobile-device .header-filter__title-wrapper {
   align-items: center;
 }
 body.gx-mobile-device .gx-button--clear {
-  padding-left: 0;
+  padding: 6px 15px;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: -6px;
+  text-decoration: underline;
 }
 body.gx-mobile-device .gx-input--filter,
 body.gx-mobile-device .gx-input--filter-wrapper {
@@ -50,6 +54,7 @@ body.gx-mobile-device .gx-input--filter-wrapper {
 /*-----------------------------------------------
 Burger menu (copied from https://unanimo.design )
 ------------------------------------------------*/
+
 .burger {
   position: relative;
   display: none;
@@ -130,6 +135,7 @@ Burger menu (copied from https://unanimo.design )
 /*------------------
 Row Selects
 ------------------*/
+
 body.gx-mobile-device #header-filters {
   padding: 0;
   gap: 0;
@@ -208,6 +214,7 @@ body.gx-mobile-device .gx-label--multi-checkbox:after {
 /*------------------
 Input Filter
 ------------------*/
+
 body.gx-mobile-device .gx-label--filter {
   display: grid;
   grid-template-rows: 1fr;
@@ -239,4 +246,12 @@ body.gx-mobile-device #header-filter .row--actions__left-col {
   width: 100%;
   overflow-x: auto;
   overflow-y: clip;
+}
+
+/*------------------
+Clear button
+------------------*/
+
+body.gx-mobile-device .row--actions__right-col {
+  border-top: 1px solid var(--gx-color-neutral--300);
 }
