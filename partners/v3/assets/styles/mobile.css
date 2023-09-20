@@ -1,0 +1,158 @@
+/*------------------
+Header
+------------------*/
+
+body.gx-mobile-device #header-filter .row--main {
+  margin-block-end: 20px;
+}
+body.gx-mobile-device #header-filter .row--actions {
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+body.gx-mobile-device .header-filter__title {
+  font-size: 20px;
+}
+body.gx-mobile-device .header-filter__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+body.gx-mobile-device .gx-button--clear {
+  padding-left: 0;
+}
+
+/*-----------------------------------------------
+Burger menu (copied from https://unanimo.design )
+------------------------------------------------*/
+.burger {
+  position: relative;
+  display: none;
+  cursor: pointer;
+  width: 22px;
+  height: 1rem;
+  border: none;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  background: none;
+  transform: rotate(0deg);
+  transition: 0.35s ease-in-out;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+.burger-line {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  border: none;
+  outline: none;
+  opacity: 1;
+  border-radius: 0.25rem;
+  background: #121212;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+.burger-line:nth-child(1) {
+  top: 0;
+}
+.burger-line:nth-child(2),
+.burger-line:nth-child(3) {
+  top: 0.5rem;
+  width: 14px;
+  left: 4px;
+}
+.burger-line:nth-child(4) {
+  top: 1rem;
+  width: 7px;
+  left: 7.5px;
+}
+.burger.active .burger-line:nth-child(1),
+.burger.active .burger-line:nth-child(4) {
+  top: 1.25rem;
+  width: 0%;
+  left: 50%;
+}
+.burger.active .burger-line:nth-child(2) {
+  transform: rotate(45deg);
+}
+.burger.active .burger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.burger.active .burger-line:nth-child(2),
+.burger.active .burger-line:nth-child(3) {
+  width: 24px;
+}
+
+/*------------------
+Row Selects
+------------------*/
+body.gx-mobile-device #header-filters {
+  padding: 0;
+  gap: 0;
+}
+body.gx-mobile-device .gx-multi-checkbox {
+  margin-top: 0;
+  box-shadow: none;
+}
+body.gx-mobile-device .gx-label--multi-checkbox {
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  border-bottom-color: var(--gx-color-neutral--300);
+}
+body.gx-mobile-device .row--selects-inner-wrapper {
+  display: block !important;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:hover {
+  background-color: transparent;
+}
+body.gx-mobile-device #header-filter .row--selects-inner-wrapper .row--selects {
+  padding-bottom: 0 !important;
+}
+body.gx-mobile-device #header-filter .row--selects-inner-wrapper::after {
+  display: none;
+}
+body.gx-mobile-device .gx-multi-checkbox::before {
+  display: none;
+}
+body.gx-mobile-device .gx-multi-checkbox--opened {
+  border-bottom: 2px solid var(--gx-color-neutral--300);
+  border-radius: 0;
+  max-height: 195px;
+}
+body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
+  height: auto;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 250ms grid-template-rows;
+}
+body.gx-mobile-device #header-filter .row--selects-outer-wrapper--hidden {
+  grid-template-rows: 0fr !important;
+}
+body.gx-mobile-device #header-filter .row {
+  flex-direction: column;
+}
+body.gx-mobile-device .gx-multi-checkbox-container {
+  width: 100%;
+}
+body.gx-mobile-device .gx-multi-checkbox > label {
+  padding: 8px;
+  padding-left: 2px;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:first-of-type {
+  padding-top: 12px;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:last-of-type {
+  padding-bottom: 12px;
+}
+body.gx-mobile-device .gx-label--multi-checkbox:after {
+  right: 0;
+}
