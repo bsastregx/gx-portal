@@ -125,7 +125,7 @@ body.gx-mobile-device .gx-multi-checkbox::before {
 body.gx-mobile-device .gx-multi-checkbox--opened {
   border-bottom: 2px solid var(--gx-color-neutral--300);
   border-radius: 0;
-  max-height: 195px;
+  max-height: 200px;
 }
 body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
   height: auto;
@@ -155,4 +155,28 @@ body.gx-mobile-device .gx-multi-checkbox > label:last-of-type {
 }
 body.gx-mobile-device .gx-label--multi-checkbox:after {
   right: 0;
+}
+
+/*------------------
+Pills
+------------------*/
+
+body.gx-mobile-device .row--actions__left-col-inner-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 250ms grid-template-rows;
+  overflow: hidden;
+}
+body.gx-mobile-device .row--actions__left-col-inner-wrapper--hidden {
+  grid-template-rows: 0fr !important;
+}
+body.gx-mobile-device #header-filter .row--actions {
+  min-height: 0;
+  margin-bottom: 8px;
+}
+body.gx-mobile-device #header-filter .row--actions__left-col {
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: clip;
 }

@@ -22,6 +22,7 @@ let textFilterEl;
 let rowSelectsEl;
 let rowSelectsInnerWrapper;
 let rowActionsEl;
+let rowActionsLeftColInnerWrapperEl;
 let rowActionsLeftColEl;
 let rowActionsElRightColEl;
 let rowInfoEl;
@@ -197,6 +198,11 @@ const renderHeader = () => {
   /*row footer | left col*/
   rowActionsLeftColEl = document.createElement("div");
   rowActionsLeftColEl.classList.add("row", "row--actions__left-col");
+  /*row footer | left col inner-wrapper*/
+  rowActionsLeftColInnerWrapperEl = document.createElement("div");
+  rowActionsLeftColInnerWrapperEl.classList.add(
+    "row--actions__left-col-inner-wrapper"
+  );
   /*row footer | right col*/
   rowActionsElRightColEl = document.createElement("div");
   rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
@@ -213,7 +219,9 @@ const renderHeader = () => {
     rowMain.appendChild(headerTitleWrapperEl);
   }
   textFilterLabel.appendChild(textFilterWrapper);
-  textFilterWrapper.appendChild(clearInputSuggestionEl);
+  if (!isMobile) {
+    textFilterWrapper.appendChild(clearInputSuggestionEl);
+  }
   textFilterWrapper.appendChild(textFilterEl);
   if (isMobile) {
     rowSelectsOuterWrapper.classList.add("row--selects-outer-wrapper--hidden");
@@ -226,7 +234,8 @@ const renderHeader = () => {
   if (!isMobile) {
     filterHeaderEl.appendChild(rowSelectsOuterWrapper);
   }
-  rowActionsEl.appendChild(rowActionsLeftColEl);
+  rowActionsLeftColInnerWrapperEl.appendChild(rowActionsLeftColEl);
+  rowActionsEl.appendChild(rowActionsLeftColInnerWrapperEl);
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
   filterHeaderEl.appendChild(rowInfoEl);
@@ -957,6 +966,7 @@ const filterInputHandler = (e) => {
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText =
         footerMessages.showingAllCoincidences[pageLang];
+      clearHandler();
     } else if (visibleCards > 0 && value.length === 0) {
       /*reset*/
       footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
@@ -1075,7 +1085,7 @@ const updateShowingArticles = () => {
 };
 
 /* #clear handler */
-const clearHandler = (e) => {
+const clearHandler = async (e) => {
   if (e) {
     const button = e.target;
     button.classList.add("gx-button--link--disabled");
@@ -1086,6 +1096,16 @@ const clearHandler = (e) => {
       hideElement(button);
     }, 1000);
   }
+  if (isMobile) {
+    rowActionsLeftColInnerWrapperEl.classList.add(
+      "row--actions__left-col-inner-wrapper--hidden"
+    );
+    await asyncClearPills();
+    rowActionsLeftColInnerWrapperEl.classList.remove(
+      "row--actions__left-col-inner-wrapper--hidden"
+    );
+  }
+
   clearFilters();
   setSelectedCategories();
   hideAllCards();
@@ -1094,6 +1114,15 @@ const clearHandler = (e) => {
   updateShowingArticles();
   renderPills();
 };
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+async function asyncClearPills() {
+  await delay(250);
+}
 
 /* #filter handler */
 const filterHandler = () => {
