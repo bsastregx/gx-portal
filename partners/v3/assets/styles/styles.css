@@ -8,6 +8,7 @@
   --gx-color-neutral--400: #b5b5b5;
   --gx-color-neutral--500: #969ba0;
   --gx-color-neutral--600: #6e7277;
+  --gx-color-black: #111111;
   --gx-color-accent-blue--200: #e5eeff;
   --gx-color-accent-blue--700: #003aa6;
 
@@ -35,6 +36,7 @@ General
   font-family: var(--font-family-body);
   font-size: inherit;
   font-size: 17px;
+  color: var(--gx-color-black);
 }
 .gx-input {
   border: 1px solid var(--gx-color-neutral--500);
@@ -72,7 +74,7 @@ Buttons
 }
 .gx-button--secondary {
   background-color: var(--gx-color-white);
-  border-color: black;
+  border-color: var(--gx-color-black);
 }
 .gx-button--secondary:hover {
   background-color: var(--gx-color-neutral--200);
@@ -225,6 +227,7 @@ Multi-checkbox Filters
   flex-shrink: 0;
 }
 .gx-label--multi-checkbox {
+  color: var(--gx-color-black);
   background-color: transparent;
   font-family: inherit;
   font-size: inherit;
@@ -379,8 +382,8 @@ Multi-checkbox Filters
   > .span-animation:before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -5px;
+  top: -1.5px;
+  left: -6px;
   border-right: 3px solid transparent;
   border-bottom: 3px solid transparent;
   transform: rotate(45deg);
@@ -519,7 +522,7 @@ Grid
 }
 .article-container--actionable:hover > article,
 .article-container--actionable:focus > article {
-  border-color: black;
+  border-color: var(--gx-color-black);
 }
 
 /*articles*/

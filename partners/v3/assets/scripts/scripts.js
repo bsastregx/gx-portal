@@ -19,6 +19,7 @@ let typeSingular;
 let articlesListEl;
 let filterHeaderEl;
 let textFilterEl;
+let textFilterLabelEl;
 let rowSelectsEl;
 let rowSelectsInnerWrapper;
 let rowActionsEl;
@@ -62,7 +63,7 @@ const clearButtonClearedLabels = {
 };
 
 /*event listeners*/
-const timeBeforeCloseSelect = 400;
+const timeBeforeCloseSelect = 40000;
 const clearPillTransition = 150;
 const selectHeightTransition = 150;
 let labelMouseLeaveHandler;
@@ -149,9 +150,9 @@ const renderHeader = () => {
     es: `Buscar por nombre de ${typeSingular}:`,
     pt: `Buscar por nome do ${typeSingular}:`,
   };
-  const textFilterLabel = document.createElement("label");
-  textFilterLabel.classList.add("gx-label", "gx-label--filter");
-  textFilterLabel.innerText = textFilterLabels[pageLang];
+  textFilterLabelEl = document.createElement("label");
+  textFilterLabelEl.classList.add("gx-label", "gx-label--filter");
+  textFilterLabelEl.innerText = textFilterLabels[pageLang];
   /*text wrapper*/
   textFilterWrapper = document.createElement("div");
   textFilterWrapper.classList.add("gx-input--filter-wrapper");
@@ -219,7 +220,7 @@ const renderHeader = () => {
     headerTitleWrapperEl.appendChild(headerTitle);
     rowMain.appendChild(headerTitleWrapperEl);
   }
-  textFilterLabel.appendChild(textFilterWrapper);
+  textFilterLabelEl.appendChild(textFilterWrapper);
   if (!isMobile) {
     textFilterWrapper.appendChild(clearInputSuggestionEl);
   }
@@ -228,7 +229,7 @@ const renderHeader = () => {
     rowSelectsOuterWrapper.classList.add("row--selects-outer-wrapper--hidden");
     rowMain.appendChild(rowSelectsOuterWrapper);
   }
-  rowMain.appendChild(textFilterLabel);
+  rowMain.appendChild(textFilterLabelEl);
   filterHeaderEl.appendChild(rowMain);
   rowSelectsInnerWrapper.appendChild(rowSelectsEl);
   rowSelectsOuterWrapper.appendChild(rowSelectsInnerWrapper);
@@ -795,6 +796,7 @@ const powerUpCards = () => {
 function burgerHandler(button) {
   button.classList.toggle("active");
   rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
+  body.classList.toggle("filter-menu-opened");
 }
 
 const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
