@@ -315,9 +315,20 @@ Multi-checkbox Filters
   font-size: 17px;
   padding: 16px;
   cursor: pointer;
+  /*ripple*/
+  background-position: center;
+  transition: background 0.4s;
 }
 .gx-multi-checkbox > label:hover {
-  background-color: var(--gx-color-neutral--200);
+  background: var(--gx-color-neutral--100)
+    radial-gradient(circle, transparent 1%, var(--gx-color-neutral--100) 1%)
+    center/15000%;
+  /*background-color: var(--gx-color-neutral--200);*/
+}
+.gx-multi-checkbox > label:active {
+  background-color: var(--gx-color-neutral--300);
+  background-size: 100%;
+  transition: background 0s;
 }
 .gx-multi-checkbox input[type="checkbox"] {
   height: 0;
