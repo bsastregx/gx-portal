@@ -1081,8 +1081,8 @@ const defineFooterMessages = () => {
     },
     noMatchFoundDescription: {
       en: `Try removing or change your filters to find ${typePlural}.`,
-      es: `Lo siento, no se encontraron resultados. Intenta eliminar o cambiar tus filtros para encontrar ${typePlural}.`,
-      pt: `Desculpe, não foram encontrados resultados. Tente remover ou alterar seus filtros para encontrar ${typePlural}.`,
+      es: `Intenta eliminar o cambiar tus filtros para encontrar ${typePlural}.`,
+      pt: `Tente remover ou alterar seus filtros para encontrar ${typePlural}.`,
     },
   };
 };
