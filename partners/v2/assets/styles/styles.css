@@ -207,6 +207,7 @@ Multi-checkbox Filters
   overflow-x: auto;
   margin-top: 4px;
   max-height: 0;
+  transition: max-height var(--gx-select-transition-height-speed);
 }
 .gx-multi-checkbox-container {
   display: flex;

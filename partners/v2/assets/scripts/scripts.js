@@ -59,7 +59,7 @@ const clearButtonClearedLabels = {
 };
 
 /*event listeners*/
-const timeBeforeCloseSelect = 40000;
+const timeBeforeCloseSelect = 400;
 const clearPillTransition = 150;
 const selectHeightTransition = 150;
 let labelMouseLeaveHandler;
@@ -646,6 +646,7 @@ const clearFilters = () => {
       }
     });
   }
+  footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
   footerMessagesTitleEl.innerText = "";
   footerMessagesDescriptionEl.innerText = "";
 };
@@ -904,11 +905,20 @@ const filterInputHandler = (e) => {
         article.classList.remove("article-container--exact-match");
       }
     });
-    if (visibleCards > 0) {
+    if (visibleCards > 0 && value.length > 0) {
+      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText =
         footerMessages.showingAllCoincidences[pageLang];
+    } else if (visibleCards > 0 && value.length === 0) {
+      /*reset*/
+      console.log("clear handler");
+      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      footerMessagesTitleEl.innerText = "";
+      footerMessagesDescriptionEl.innerText = "";
+      clearHandler();
     } else {
+      footerMessagesIllustrationEl.removeAttribute("hidden", "hidden");
       footerMessagesTitleEl.innerText =
         footerMessages.noMatchFoundTitle[pageLang];
       footerMessagesDescriptionEl.innerText =
@@ -1016,14 +1026,16 @@ const updateShowingArticles = () => {
 
 /* #clear handler */
 const clearHandler = (e) => {
-  const button = e.target;
-  button.classList.add("gx-button--link--disabled");
-  button.innerText = clearButtonClearedLabels[pageLang];
-  setTimeout(() => {
-    button.innerText = clearButtonLabels[pageLang];
-    button.classList.remove("gx-button--link--disabled");
-    hideElement(button);
-  }, 1000);
+  if (e) {
+    const button = e.target;
+    button.classList.add("gx-button--link--disabled");
+    button.innerText = clearButtonClearedLabels[pageLang];
+    setTimeout(() => {
+      button.innerText = clearButtonLabels[pageLang];
+      button.classList.remove("gx-button--link--disabled");
+      hideElement(button);
+    }, 1000);
+  }
   clearFilters();
   setSelectedCategories();
   hideAllCards();
