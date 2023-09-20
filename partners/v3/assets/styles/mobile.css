@@ -46,6 +46,18 @@ Burger menu (copied from https://unanimo.design )
   opacity: 1;
   visibility: visible;
 }
+.burger--has-filters::before {
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 1;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--gx-color-action--hover);
+}
 .burger-line {
   display: block;
   position: absolute;
@@ -73,6 +85,9 @@ Burger menu (copied from https://unanimo.design )
   top: 1rem;
   width: 7px;
   left: 7.5px;
+}
+.burger.active::before {
+  display: none;
 }
 .burger.active .burger-line:nth-child(1),
 .burger.active .burger-line:nth-child(4) {

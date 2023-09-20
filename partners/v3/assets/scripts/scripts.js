@@ -35,6 +35,7 @@ let footerMessagesIllustrationEl;
 let footerMessagesTitleEl;
 let footerMessagesDescriptionEl;
 let clearInputSuggestionEl;
+let burgerButton;
 /*arrays*/
 let catsMap = [];
 let allArticles = [];
@@ -61,7 +62,7 @@ const clearButtonClearedLabels = {
 };
 
 /*event listeners*/
-const timeBeforeCloseSelect = 40000;
+const timeBeforeCloseSelect = 400;
 const clearPillTransition = 150;
 const selectHeightTransition = 150;
 let labelMouseLeaveHandler;
@@ -122,7 +123,7 @@ const renderHeader = () => {
   headerTitleWrapperEl.classList.add("header-filter__title-wrapper");
 
   /*header title wrapper burguer*/
-  const burguerButton = `
+  burgerButton = `
   <button type="button" class="burger" id="burger" onclick="burgerHandler(this)">
     <span class="burger-line"></span>
     <span class="burger-line"></span>
@@ -213,7 +214,7 @@ const renderHeader = () => {
   /*appends*/
   if (headerTitle && headerTitleWrapperEl) {
     if (isMobile) {
-      headerTitleWrapperEl.innerHTML = burguerButton;
+      headerTitleWrapperEl.innerHTML = burgerButton;
     }
     headerTitleWrapperEl.appendChild(headerTitle);
     rowMain.appendChild(headerTitleWrapperEl);
@@ -240,6 +241,7 @@ const renderHeader = () => {
   filterHeaderEl.appendChild(rowActionsEl);
   filterHeaderEl.appendChild(rowInfoEl);
   articlesListEl.parentElement.insertBefore(filterHeaderEl, articlesListEl);
+  burgerButton = document.getElementById("burger");
 };
 
 const renderCategories = () => {
@@ -428,6 +430,20 @@ const footerMessagesSlot = () => {
 };
 
 // 5. HELPER FUNCTIONS //
+
+/**
+ * It evaluates if the burger toggle should display a visual hint informing the user that there are one or more categories selecteod.
+ */
+const burgerHasFilters = () => {
+  if (burgerButton) {
+    console.log("burgerButton");
+    if (currentSelectedCategories.length > 0) {
+      burgerButton.classList.add("burger--has-filters");
+    } else {
+      burgerButton.classList.remove("burger--has-filters");
+    }
+  }
+};
 
 /*
 Activates/deactivates horizontal scrolling with the mousewheel on .row--selects-inner-wrapper
@@ -1040,6 +1056,7 @@ const checkboxChangedHandler = (checkbox) => {
   } else {
     showElement(clearButtonEl);
   }
+  burgerHasFilters();
   filterHandler();
 };
 
