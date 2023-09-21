@@ -393,7 +393,7 @@ const renderViewResultsButton = () => {
       "gx-button--primary",
       "gx-button--full-width"
     );
-    viewResultsButtonEl.setAttribute("hidden", "hidden");
+    viewResultsButtonEl.setAttribute("disabled", "disabled");
     viewResultsButtonEl.innerText = viewResultsButtonLabels[pageLang];
     viewResultsButtonEl.addEventListener("click", viewResultsButtonHandler);
     rowSelectsInnerWrapper.appendChild(viewResultsButtonEl);
@@ -461,9 +461,9 @@ const footerMessagesSlot = () => {
 const toggleViewResultButton = () => {
   if (isMobile) {
     if (filteredArticles.length > 0) {
-      showElement(viewResultsButtonEl);
+      disableElement(viewResultsButtonEl);
     } else {
-      hideElement(viewResultsButtonEl);
+      enableElement(viewResultsButtonEl);
     }
   }
 };

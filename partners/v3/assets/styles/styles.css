@@ -54,7 +54,6 @@ Buttons
 ------------------*/
 .gx-button[disabled] {
   cursor: initial;
-  opacity: 0.8;
   pointer-events: none;
 }
 .gx-button {
@@ -68,6 +67,10 @@ Buttons
 .gx-button--primary {
   background-color: var(--gx-color-action);
   color: var(--gx-color-white);
+}
+.gx-button--primary[disabled] {
+  background-color: var(--gx-color-neutral--300);
+  color: var(--gx-color-neutral--600);
 }
 .gx-button--primary:not([disabled]):hover {
   background-color: var(--gx-color-action--hover);
