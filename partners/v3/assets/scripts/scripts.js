@@ -461,9 +461,9 @@ const footerMessagesSlot = () => {
 const toggleViewResultButton = () => {
   if (isMobile) {
     if (filteredArticles.length > 0) {
-      disableElement(viewResultsButtonEl);
-    } else {
       enableElement(viewResultsButtonEl);
+    } else {
+      disableElement(viewResultsButtonEl);
     }
   }
 };
