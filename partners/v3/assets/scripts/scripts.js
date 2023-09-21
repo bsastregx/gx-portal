@@ -986,6 +986,7 @@ const pillClickedHandler = (e) => {
   setTimeout(() => {
     if (catId) {
       removeChecked(catId);
+      burgerHasFilters();
     }
   }, clearPillTransition);
 };
