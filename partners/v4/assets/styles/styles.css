@@ -541,7 +541,13 @@ Grid
 .article-container--actionable:hover a .text {
   color: var(--gx-color-accent-blue--500);
 }
-.article-container--actionable:hover > article,
+.article-container--actionable > article {
+  transform: scale(1);
+  transition: 50ms transform;
+}
+.article-container--actionable:hover > article {
+  transform: scale(1.01);
+}
 .article-container--actionable:focus > article {
   border-color: var(--gx-color-black);
 }

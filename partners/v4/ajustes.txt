@@ -30,3 +30,7 @@ Ine, quité el link "Website" porque el link es la card entera. Entiendo que sin
 
 15
 El border-radius estaba en 4px, 2 más que en el diseño. Lo bajé a 2px. Con respecto al padding, tiene 4px todo al rededor. Esto está respetando el valor de figma. Lo vemos juntos si querés.
+
+16
+Si. Quedó ajustado. Si querés ajustar el tamaño o la velocidad avisame por favor, es un toque cambiarlo.
+
