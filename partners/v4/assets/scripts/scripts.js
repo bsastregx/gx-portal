@@ -1025,8 +1025,7 @@ const filterInputHandler = (e) => {
     if (visibleCards > 0 && value.length > 0) {
       footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
       footerMessagesTitleEl.innerText = "";
-      footerMessagesDescriptionEl.innerText =
-        footerMessages.showingAllCoincidences[pageLang];
+      footerMessagesDescriptionEl.innerText = "";
     } else if (visibleCards > 0 && value.length === 0) {
       /*reset*/
       footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
@@ -1221,11 +1220,12 @@ const defineFooterMessages = () => {
       es: `No hay más ${typePlural} para mostrar.`,
       pt: `Não há mais ${typePlural} para mostrar.`,
     },
-    showingAllCoincidences: {
-      en: `Showing all the ${typePlural} that match with your search.`,
-      es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda.`,
-      pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa.`,
-    },
+    // (Banned by Ines)
+    // showingAllCoincidences: {
+    //   en: `Showing all the ${typePlural} that match with your search.`,
+    //   es: `Mostrando todos los ${typePlural} que coinciden con tu búsqueda.`,
+    //   pt: `Mostrando todos os ${typePlural} que correspondem à sua pesquisa.`,
+    // },
     noMatchFoundTitle: {
       en: "Sorry, no results found.",
       es: "Lo siento, no se encontraron resultados.",
