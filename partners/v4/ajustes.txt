@@ -48,4 +48,10 @@ Este es el comporamiento nativo de un select. Podés probarlo acá: https://www.
 21
 Done
 
+22
+Ine, para lograr que la scrollbar quede con el aire que indica el diseño, tengo que agregar otra caja, y eso me rompe parte de los estilos, pero sobre todo el tema de la navegación con el teclado. Se puede hacer, pero me lleva un tiempo del que no dispongo ahora mismo. Te propongo dejarlo para otro momento. 
+
+23
+Done
+
 Fixes Ine Desktop #

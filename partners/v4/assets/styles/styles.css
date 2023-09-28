@@ -484,7 +484,7 @@ Row Actions
   justify-content: unset;
   gap: 8px;
   align-self: flex-start;
-  padding-top: var(var(--gx-button-sm-vertical-padding));
+  padding-top: var(--gx-button-sm-vertical-padding);
 }
 .row--actions__right-col {
   gap: 16px;
