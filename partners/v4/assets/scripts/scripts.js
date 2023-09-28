@@ -685,20 +685,18 @@ const filter = () => {
   console.log("filter");
   filteredArticles = [];
   if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
-    console.log("currentSelectedCategories", currentSelectedCategories);
     /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
       console.log(article);
-      let isAMatch = true;
+      let isAMatch = false;
       const articleCats = getArticleCats(article);
-      console.log("articleCats", articleCats);
       if (articleCats.length > 0) {
-        for (let i = 0; i < currentSelectedCategories.length; i++) {
-          const catFound = articleCats.find(
-            (cat) => cat === currentSelectedCategories[i]
+        for (let i = 0; i < articleCats.length; i++) {
+          const catFound = currentSelectedCategories.find(
+            (cat) => cat === articleCats[i]
           );
-          if (!catFound) {
-            isAMatch = false;
+          if (catFound) {
+            isAMatch = true;
             break;
           }
         }

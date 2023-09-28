@@ -1,3 +1,43 @@
+Clonet Trotta:
+
+C128438-5681 -> countries: argentina
+C128438-5682 -> industries: insurance
+C128438-5683 -> services: could 
+C128438-5691 -> category: platinum
+C128438-5697 -> types: solution partner
+
+---
+
+Send 
+C128438-5677 -> countries: brazil
+C128438-5692 -> category: gold
+C128438-5697 -> types: solution partner
+C128438-5707 -> industries: retail and trade
+
+---
+
+ADMAIN
+C128438-5679 -> services: consulting
+C128438-5693 -> category: silver
+C128438-5697 -> types: solution partner
+C128438-5702 -> industries: information technology 
+C128438-5719 -> countries: chile
+
+---
+
+DEUX
+C128438-5693 -> category: silver
+C128438-5697 -> types: solution partner
+
+---
+
+Migrate
+C128438-5693 -> category: silver
+C128438-5697 -> types: solution partner
+
+
+==============================================
+
 - Bantotal
 category: diamond (C128438-5676)
 type: integration partner (C128438-5699)
