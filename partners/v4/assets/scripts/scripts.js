@@ -682,12 +682,10 @@ const getArticleCats = (articleEl) => {
 
 /* #filter */
 const filter = () => {
-  console.log("filter");
   filteredArticles = [];
   if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
     /*one or more categories selected. filter articles*/
     allArticles.forEach((article) => {
-      console.log(article);
       let isAMatch = false;
       const articleCats = getArticleCats(article);
       if (articleCats.length > 0) {
@@ -877,7 +875,7 @@ document.addEventListener("click", (e) => {
 });
 
 function inputCheckboxLabelClickHandler(e) {
-  console.log("inputCheckboxLabelClickHandler", e);
+  console.log("hola");
   e.stopPropagation();
   e.preventDefault();
   const inputCheckboxLabel = this;
@@ -1125,7 +1123,10 @@ const checkboxKeyDownHandler = (e) => {
     }
   } else if (e.code === "Enter") {
     e.preventDefault();
-    e.target.click();
+    const checkboxLabel = e.target.nextElementSibling;
+    if (checkboxLabel) {
+      checkboxLabel.click();
+    }
   } else if (e.code === "Escape") {
     e.preventDefault();
     timeOutHideSelect(multiCheckbox);
@@ -1189,7 +1190,6 @@ async function asyncClearPills() {
 
 /* #filter handler */
 const filterHandler = () => {
-  console.log("filterHandler");
   textFilterEl.value = "";
   hideAllCards();
   filter();

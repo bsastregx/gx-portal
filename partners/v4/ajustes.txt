@@ -1,0 +1,19 @@
+Mauro:
+1
+Estaba haciendo el filtrado por intersección, y no por unión. Por ejemplo, si elegías 'brasil, diamond, finance' te mostraba solo los partners que tuvieran esas tres categorías simultáneamente. Un partner que fuera solamente 'diamond' no entraba en el filtrado.
+
+2
+Esto quedó corregido. Antes cada categoría era un elemento button, que de forma nativa, ejecutan el click cuando das enter. Tuve que cambiar el button por un label, y se perdió el evento en enter.
+
+3
+Los 42 partners que se ven en este prototipo, los copié de la página de portal hace mas o menos 3 o 4 semanas. En ese momento no existía ningún partner con alguna de esas categorías. Tal vez Beatriz haya actualizado el contenido, y ahora existan. Es normal que no veas resultados en el prototipo actual buscando por esas categorías, porque no hay ningún partner que tenga alguna de ellas.
+
+---
+
+Ine Desktop:
+10
+Done
+
+
+
+
