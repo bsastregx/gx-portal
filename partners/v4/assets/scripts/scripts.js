@@ -637,6 +637,7 @@ const showMore = () => {
       footerMessages.noMatchFoundTitle[pageLang];
     footerMessagesDescriptionEl.innerText =
       footerMessages.noMatchFoundDescription[pageLang];
+    hideElement(rowInfoEl);
   }
   updateShowingArticles();
 };
@@ -1057,6 +1058,7 @@ const filterInputHandler = (e) => {
         footerMessages.noMatchFoundTitle[pageLang];
       footerMessagesDescriptionEl.innerText =
         footerMessages.noMatchFoundDescription[pageLang];
+      hideElement(rowInfoEl);
     }
   }
   updateShowingArticles();
