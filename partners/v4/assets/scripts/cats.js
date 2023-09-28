@@ -10,7 +10,7 @@ const gxFilterData = {
       es: "socios",
       pt: "parceiros",
     },
-    cardsPerLoad: 6,
+    cardsPerLoad: 9,
     desktopLgWidth: 1138,
     noResultsImgSrc: "./assets/images/no-results-illustration.svg",
   },

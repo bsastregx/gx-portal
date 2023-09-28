@@ -16,37 +16,36 @@ let cardsPerLoad;
 let typePlural;
 let typeSingular;
 /*elements*/
+let articlesFooterEl;
 let articlesListEl;
+let burgerButton;
+let clearButtonEl;
+let clearInputSuggestionEl;
 let filterHeaderEl;
-let textFilterEl;
-let textFilterLabelEl;
+let footerMessagesDescriptionEl;
+let footerMessagesIllustrationEl;
+let footerMessagesSlotEl;
+let footerMessagesTitleEl;
+let numberPlaceholderEl;
+let rowActionsEl;
+let rowActionsElRightColEl;
+let rowActionsLeftColEl;
+let rowActionsLeftColInnerWrapperEl;
+let rowInfoEl;
 let rowSelectsEl;
 let rowSelectsInnerWrapper;
 let rowSelectsOuterWrapper;
-let rowActionsEl;
-let rowActionsLeftColInnerWrapperEl;
-let rowActionsLeftColEl;
-let rowActionsElRightColEl;
-let rowInfoEl;
-let articlesFooterEl;
-let numberPlaceholderEl;
-let clearButtonEl;
 let showMoreButtonEl;
-let footerMessagesSlotEl;
-let footerMessagesIllustrationEl;
-let footerMessagesTitleEl;
-let footerMessagesDescriptionEl;
-let clearInputSuggestionEl;
-let burgerButton;
+let textFilterEl;
+let textFilterLabelEl;
 let viewResultsButtonEl;
 /*arrays*/
-let catsMap = [];
 let allArticles = [];
-let multiCheckboxes = [];
-let filteredArticles = [];
+let catsMap = [];
 let currentSelectedCategories = [];
+let filteredArticles = [];
 let membershipCategories = [];
-
+let multiCheckboxes = [];
 /* 2.OTHER */
 var userAgent = navigator.userAgent;
 let visibleCards = 0;
@@ -204,6 +203,7 @@ const renderHeader = () => {
   rowInfoEl = document.createElement("div");
   rowInfoEl.classList.add("row", "row--info");
   rowInfoEl.setAttribute("id", "header-info");
+  hideElement(rowInfoEl);
   /*appends*/
   if (headerTitle && headerTitleWrapperEl) {
     if (isMobile) {
@@ -282,8 +282,7 @@ const renderCategories = () => {
         const checkbox = document.createElement("input");
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute("id", value);
-        checkbox.setAttribute("disabled", "disabled");
-        /*checkbox.addEventListener("change", checkboxChangedHandler);*/
+        disableElement(checkbox);
         checkbox.addEventListener("keydown", checkboxKeyDownHandler);
         checkbox.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -369,7 +368,7 @@ const renderClearButton = () => {
     clearButtonEl.innerText = clearButtonLabels[pageLang];
     clearButtonEl.addEventListener("click", clearHandler);
     /*disable clear filter button, assuming there are no categories checked on first render*/
-    clearButtonEl.setAttribute("hidden", "hidden");
+    hideElement(clearButtonEl);
 
     if (isMobile && rowSelectsInnerWrapper) {
       rowSelectsInnerWrapper.appendChild(clearButtonEl);
@@ -393,7 +392,7 @@ const renderViewResultsButton = () => {
       "gx-button--primary",
       "gx-button--full-width"
     );
-    viewResultsButtonEl.setAttribute("disabled", "disabled");
+    disableElement(viewResultsButtonEl);
     viewResultsButtonEl.innerText = viewResultsButtonLabels[pageLang];
     viewResultsButtonEl.addEventListener("click", viewResultsButtonHandler);
     rowSelectsInnerWrapper.appendChild(viewResultsButtonEl);
@@ -454,6 +453,14 @@ const footerMessagesSlot = () => {
 };
 
 // 5. HELPER FUNCTIONS //
+
+const getOpenedMultiCheckbox = () => {
+  if (rowSelectsEl) {
+    return Array.from(
+      rowSelectsEl.querySelectorAll(".gx-multi-checkbox--opened")
+    );
+  }
+};
 
 /**
  * It evaluates if the mobile view result button, should be displayed or hidden, depending on whether there are results to show or not.
@@ -526,7 +533,7 @@ const enableCheckboxes = (multiCheckbox) => {
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
   if (checkboxes.length) {
     checkboxes.forEach((checkbox) => {
-      checkbox.removeAttribute("disabled");
+      enableElement(checkbox);
     });
   }
 };
@@ -536,7 +543,7 @@ const disableCheckboxes = (multiCheckbox) => {
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
   if (checkboxes.length) {
     checkboxes.forEach((checkbox) => {
-      checkbox.setAttribute("disabled", "disabled");
+      disableElement(checkbox);
     });
   }
 };
@@ -544,7 +551,7 @@ const disableCheckboxes = (multiCheckbox) => {
 const hideAllCards = () => {
   if (allArticles.length) {
     allArticles.forEach((article) => {
-      article.setAttribute("hidden", "hidden");
+      hideElement(article);
     });
   }
 };
@@ -552,7 +559,7 @@ const hideAllCards = () => {
 const showAllCards = () => {
   if (allArticles.length) {
     allArticles.forEach((article) => {
-      article.removeAttribute("hidden");
+      showElement(article);
     });
   }
 };
@@ -589,6 +596,7 @@ const removeChecked = (catId) => {
   }
   if (currentSelectedCategories.length === 0) {
     hideElement(clearButtonEl);
+    hideElement(rowInfoEl);
   }
 };
 
@@ -597,7 +605,7 @@ const showMore = () => {
   if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
     for (let i = 0; i < filteredArticles.length; i++) {
-      filteredArticles[i].removeAttribute("hidden");
+      showElement(filteredArticles[i]);
       shownArticlesLength++;
       visibleCards++;
 
@@ -611,20 +619,20 @@ const showMore = () => {
     }
     if (filteredArticles.length === 0) {
       hideElement(showMoreButtonEl);
-      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      hideElement(footerMessagesIllustrationEl);
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText =
         footerMessages.noMorePartners[pageLang];
     } else {
       showElement(showMoreButtonEl);
-      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      hideElement(footerMessagesIllustrationEl);
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText = "";
     }
   } else {
     hideElement(showMoreButtonEl);
     visibleCards = 0;
-    footerMessagesIllustrationEl.removeAttribute("hidden");
+    showElement(footerMessagesIllustrationEl);
     footerMessagesTitleEl.innerText =
       footerMessages.noMatchFoundTitle[pageLang];
     footerMessagesDescriptionEl.innerText =
@@ -638,13 +646,13 @@ const scrollDown = () => {
 };
 
 const disableElement = (elementRef) => {
-  elementRef.setAttribute("disabled", "disabled");
+  elementRef.setAttribute("disabled", "");
 };
 const enableElement = (elementRef) => {
   elementRef.removeAttribute("disabled");
 };
 const hideElement = (elementRef) => {
-  elementRef.setAttribute("hidden", "hidden");
+  elementRef.setAttribute("hidden", "");
 };
 const showElement = (elementRef) => {
   elementRef.removeAttribute("hidden");
@@ -739,7 +747,7 @@ const clearFilters = () => {
       }
     });
   }
-  footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+  hideElement(footerMessagesIllustrationEl);
   footerMessagesTitleEl.innerText = "";
   footerMessagesDescriptionEl.innerText = "";
 };
@@ -875,10 +883,10 @@ document.addEventListener("click", (e) => {
 });
 
 function inputCheckboxLabelClickHandler(e) {
-  console.log("hola");
   e.stopPropagation();
   e.preventDefault();
   const inputCheckboxLabel = this;
+  inputCheckboxLabel.focus();
   const inputCheckbox = inputCheckboxLabel.previousElementSibling;
   checkboxChangedHandler(inputCheckbox);
 }
@@ -935,6 +943,17 @@ const multiCheckboxLabelKeydownHandler = (e) => {
   let multiCheckbox;
   if (nextSibling.classList.contains("gx-multi-checkbox")) {
     multiCheckbox = nextSibling;
+  }
+  if (
+    e.code === "ArrowRight" ||
+    e.code === "ArrowLeft" ||
+    e.code === "Escape"
+  ) {
+    e.preventDefault();
+    const openedMultiCheckboxes = getOpenedMultiCheckbox();
+    openedMultiCheckboxes.forEach((multiCheckbox) => {
+      timeOutHideSelect(multiCheckbox);
+    });
   }
   if (e.code === "ArrowDown" && isActive && multiCheckbox) {
     e.preventDefault();
@@ -1006,10 +1025,9 @@ const filterInputHandler = (e) => {
   if (filteredArticles.length > 0) {
     visibleCards = 0;
     filteredArticles.forEach((article) => {
-      const hidden = article.hasAttribute("hidden");
       const title = article.querySelector(".title").innerText.toLowerCase();
       if (title.includes(value)) {
-        article.removeAttribute("hidden");
+        showElement(article);
         visibleCards++;
         if (title === value) {
           //exact match!
@@ -1018,22 +1036,23 @@ const filterInputHandler = (e) => {
           article.classList.remove("article-container--exact-match");
         }
       } else if (!title.includes(value)) {
-        article.setAttribute("hidden", "hidden");
+        hideElement(article);
         article.classList.remove("article-container--exact-match");
       }
     });
     if (visibleCards > 0 && value.length > 0) {
-      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      hideElement(footerMessagesIllustrationEl);
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText = "";
+      showElement(rowInfoEl);
     } else if (visibleCards > 0 && value.length === 0) {
       /*reset*/
-      footerMessagesIllustrationEl.setAttribute("hidden", "hidden");
+      hideElement(footerMessagesIllustrationEl);
       footerMessagesTitleEl.innerText = "";
       footerMessagesDescriptionEl.innerText = "";
       clearHandler();
     } else {
-      footerMessagesIllustrationEl.removeAttribute("hidden", "hidden");
+      showElement(footerMessagesIllustrationEl);
       footerMessagesTitleEl.innerText =
         footerMessages.noMatchFoundTitle[pageLang];
       footerMessagesDescriptionEl.innerText =
@@ -1097,8 +1116,10 @@ const checkboxChangedHandler = (checkbox) => {
   }
   if (currentSelectedCategories.length === 0) {
     hideElement(clearButtonEl);
+    hideElement(rowInfoEl);
   } else {
     showElement(clearButtonEl);
+    showElement(rowInfoEl);
   }
   burgerHasFilters();
   filterHandler();
@@ -1142,7 +1163,7 @@ const checkboxKeyDownHandler = (e) => {
 
 const updateShowingArticles = () => {
   const visibleCards = articlesListEl.querySelectorAll(
-    ":scope > *:not([hidden='hidden'])"
+    ":scope > *:not([hidden])"
   );
   numberPlaceholderEl.innerText = visibleCards.length;
 };
@@ -1162,7 +1183,6 @@ const clearHandler = async (e) => {
       "row--actions__left-col-inner-wrapper--hidden"
     );
   }
-
   clearFilters();
   setSelectedCategories();
   hideAllCards();
@@ -1170,6 +1190,7 @@ const clearHandler = async (e) => {
   showMore();
   updateShowingArticles();
   renderPills();
+  hideElement(rowInfoEl);
 };
 
 const viewResultsButtonHandler = () => {
