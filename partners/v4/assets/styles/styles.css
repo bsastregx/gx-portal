@@ -1,6 +1,6 @@
 :root {
   --gx-color-action-fuchsia--500: #e02b58;
-  --gx-color-action--hover: #f44571;
+  --gx-color-action-fuchsia--700: #d2285d;
   --gx-color-neutrals-dark--800: #3b4044;
   --gx-color-focus-color: var(--gx-color-neutrals-dark--800);
   --gx-color-white: #fff;
@@ -80,14 +80,16 @@ Buttons
   color: var(--gx-color-neutral--600);
 }
 .gx-button--primary:not([disabled]):hover {
-  background-color: var(--gx-color-action--hover);
+  background-color: var(--gx-color-action-fuchsia--700);
 }
 .gx-button--secondary {
   background-color: var(--gx-color-white);
   border-color: var(--gx-color-black);
 }
 .gx-button--secondary:hover {
-  background-color: var(--gx-color-neutral--200);
+  background-color: var(--gx-color-action-fuchsia--700);
+  border-color: var(--gx-color-action-fuchsia--700);
+  color: var(--gx-color-white);
 }
 .gx-button--sm {
   /*background-color: transparent;*/
