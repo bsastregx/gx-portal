@@ -157,7 +157,7 @@ Header
   border-bottom: 1px solid var(--gx-color-neutral--500);
   position: absolute;
   width: 100%;
-  top: var(--gx-label-multi-checkbox-height);
+  top: calc(var(--gx-label-multi-checkbox-height) - 2px);
 }
 /* main title*/
 .header-filter__title {

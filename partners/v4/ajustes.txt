@@ -10,8 +10,6 @@ Los 42 partners que se ven en este prototipo, los copié de la página de portal
 
 ---
 
-Fixes Ine Desktop #
-
 Ine Desktop:
 10
 Done
@@ -34,3 +32,20 @@ El border-radius estaba en 4px, 2 más que en el diseño. Lo bajé a 2px. Con re
 16
 Si. Quedó ajustado. Si querés ajustar el tamaño o la velocidad avisame por favor, es un toque cambiarlo.
 
+17
+Pronto
+
+18
+Pronto
+
+19
+Lo que me quedó mal, es que cuando se selecciona una opción del dropdown, este no tenga estilo de focus. Ahora lo agregué. 
+
+20
+Eso está bien, el foco debería quedar en el filtro/select, para poder seguir navegando con el teclado.
+Este es el comporamiento nativo de un select. Podés probarlo acá: https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select
+
+21
+Done
+
+Fixes Ine Desktop #
