@@ -27,3 +27,6 @@ Done
 
 14
 Ine, quité el link "Website" porque el link es la card entera. Entiendo que sin el texto "Website" puede no quedar claro que la card te lleva al website. Ahora volví a ponerlo (sin underline, porque no es un link), y en hover le doy el mismo azul que la flecha, para enfatizar que la acción de click te lleva al website. Cómo lo ves? 
+
+15
+El border-radius estaba en 4px, 2 más que en el diseño. Lo bajé a 2px. Con respecto al padding, tiene 4px todo al rededor. Esto está respetando el valor de figma. Lo vemos juntos si querés.
