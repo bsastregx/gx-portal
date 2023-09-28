@@ -12,6 +12,7 @@
   --gx-color-neutral--600: #6e7277;
   --gx-color-black: #111111;
   --gx-color-accent-blue--200: #e5eeff;
+  --gx-color-accent-blue--500: #0f62fe;
   --gx-color-accent-blue--700: #003aa6;
 
   --border-radius: 4px;
@@ -532,10 +533,13 @@ Grid
   cursor: pointer;
 }
 .article-container--actionable a .text {
-  display: none;
+  text-decoration: none !important;
 }
 .article-container--actionable:focus {
   outline: none;
+}
+.article-container--actionable:hover a .text {
+  color: var(--gx-color-accent-blue--500);
 }
 .article-container--actionable:hover > article,
 .article-container--actionable:focus > article {
