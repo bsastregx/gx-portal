@@ -1,0 +1,257 @@
+/*---------------------------------------
+Body overlay (only when filter is opened)
+---------------------------------------*/
+body.gx-mobile-device.filter-menu-opened:before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 10;
+}
+body.gx-mobile-device .header-filter__title-wrapper,
+body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
+  position: relative;
+  z-index: 20;
+}
+
+/*------------------
+Header
+------------------*/
+
+body.gx-mobile-device #header-filter .row--main {
+  margin-block-end: 20px;
+}
+body.gx-mobile-device #header-filter .row--actions {
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+body.gx-mobile-device .header-filter__title {
+  font-size: 20px;
+}
+body.gx-mobile-device .header-filter__title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+body.gx-mobile-device .gx-button--clear {
+  padding: 6px 15px;
+  width: 100%;
+  margin-top: 18px;
+  margin-bottom: -6px;
+  text-decoration: underline;
+}
+body.gx-mobile-device .gx-input--filter,
+body.gx-mobile-device .gx-input--filter-wrapper {
+  width: 100%;
+}
+
+/*-----------------------------------------------
+Burger menu (copied from https://unanimo.design )
+------------------------------------------------*/
+
+.burger {
+  position: relative;
+  display: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: none;
+  outline: none;
+  opacity: 0;
+  visibility: hidden;
+  background: none;
+  transform: rotate(0deg);
+  transition: 0.35s ease-in-out;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+.burger--has-filters::before {
+  display: block;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 1;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--gx-color-action--hover);
+}
+.burger-line {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  border: none;
+  outline: none;
+  opacity: 1;
+  border-radius: 0.25rem;
+  background: #121212;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+.burger-line:nth-child(1) {
+  top: 0;
+}
+.burger-line:nth-child(2),
+.burger-line:nth-child(3) {
+  top: 0.5rem;
+  width: 14px;
+  left: 5px;
+}
+.burger-line:nth-child(4) {
+  top: 1rem;
+  width: 7px;
+  left: 8.5px;
+}
+.burger.active::before {
+  display: none;
+}
+.burger.active .burger-line:nth-child(1),
+.burger.active .burger-line:nth-child(4) {
+  top: 1.25rem;
+  width: 0%;
+  left: 50%;
+}
+.burger.active .burger-line:nth-child(2) {
+  transform: rotate(45deg);
+}
+.burger.active .burger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.burger.active .burger-line:nth-child(2),
+.burger.active .burger-line:nth-child(3) {
+  width: 24px;
+}
+
+/*------------------
+Row Selects
+------------------*/
+
+body.gx-mobile-device #header-filters {
+  padding: 0;
+  gap: 0;
+}
+body.gx-mobile-device .gx-multi-checkbox {
+  margin-top: 0;
+  box-shadow: none;
+}
+body.gx-mobile-device .gx-label--multi-checkbox {
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  border-bottom-color: var(--gx-color-neutral--300);
+}
+body.gx-mobile-device .row--selects-inner-wrapper {
+  display: block !important;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:hover {
+  background-color: transparent;
+}
+body.gx-mobile-device #header-filter .row--selects-inner-wrapper .row--selects {
+  padding-bottom: 0 !important;
+}
+body.gx-mobile-device #header-filter .row--selects-inner-wrapper::after {
+  display: none;
+}
+body.gx-mobile-device .gx-multi-checkbox::before {
+  display: none;
+}
+body.gx-mobile-device .gx-multi-checkbox--opened {
+  border-bottom: 2px solid var(--gx-color-neutral--300);
+  border-radius: 0;
+  max-height: 225px;
+}
+body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
+  height: auto;
+  margin-bottom: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 250ms grid-template-rows;
+}
+body.gx-mobile-device #header-filter .row--selects-outer-wrapper--hidden {
+  grid-template-rows: 0fr !important;
+}
+body.gx-mobile-device #header-filter .row {
+  flex-direction: column;
+}
+body.gx-mobile-device .gx-multi-checkbox-container {
+  width: 100%;
+}
+body.gx-mobile-device .gx-multi-checkbox > label {
+  padding: 8px;
+  padding-left: 2px;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:first-of-type {
+  padding-top: 16px;
+}
+body.gx-mobile-device .gx-multi-checkbox > label:last-of-type {
+  padding-bottom: 16px;
+}
+body.gx-mobile-device .gx-label--multi-checkbox:after {
+  right: 0;
+}
+/*checkbox*/
+.gx-multi-checkbox
+  input[type="checkbox"]:checked
+  + label
+  > .span-animation:before {
+  top: -2.5px;
+  left: -6px;
+}
+
+/*------------------
+Input Filter
+------------------*/
+
+body.gx-mobile-device .gx-label--filter {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 250ms grid-template-rows;
+}
+body.gx-mobile-device .gx-label--filter.gx-label--hidden {
+  grid-template-rows: 0fr;
+}
+
+/*------------------
+Pills
+------------------*/
+
+body.gx-mobile-device .row--actions__left-col-inner-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: 250ms grid-template-rows;
+  overflow: hidden;
+}
+body.gx-mobile-device .row--actions__left-col-inner-wrapper--hidden {
+  grid-template-rows: 0fr !important;
+}
+body.gx-mobile-device #header-filter .row--actions {
+  min-height: 0;
+  margin-bottom: 8px;
+}
+body.gx-mobile-device #header-filter .row--actions__left-col {
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: clip;
+}
+
+/*------------------
+Clear button
+------------------*/
+
+body.gx-mobile-device .row--actions__right-col {
+  border-top: 1px solid var(--gx-color-neutral--300);
+}
