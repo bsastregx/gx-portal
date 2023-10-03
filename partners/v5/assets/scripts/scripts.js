@@ -72,7 +72,7 @@ let footerMessages; //Objeto que contiene las posibles descripciones para mostra
 let isMobile = false; //Variable que indica si el dispositivo es mobile o no. Se usa para mostrar ciertos elementos que se usan solo en mobile.
 
 /*EVENT LISTENERS*/
-const timeBeforeCloseSelect = 40000; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
+const timeBeforeCloseSelect = 400; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
 const clearPillTransition = 150; //Tiempo que se usa para la transición al eliminar la pill.
 const selectHeightTransition = 150; //Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
 let labelMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
@@ -299,42 +299,59 @@ const renderCategories = () => {
 
       /*create options*/
       cats.forEach((cat) => {
+        const value = cat.value;
         if (type === "category") {
           /*this is the membership category. Save items to use for the cards labels*/
           membershipCategories.push({
-            id: cat.value,
+            id: value,
             label: cat.label[pageLang],
           });
         }
 
-        const value = cat.value;
-        const checkbox = document.createElement("input");
-        checkbox.setAttribute("type", "checkbox");
-        checkbox.setAttribute("id", value);
-        disableElement(checkbox);
-        checkbox.addEventListener("keydown", checkboxKeyDownHandler);
-        checkbox.addEventListener("click", (e) => {
-          e.stopPropagation();
-        });
-        const label = cat.label[pageLang];
-        const labelEl = document.createElement("label");
-        labelEl.setAttribute("for", value);
-        labelEl.addEventListener("click", inputCheckboxLabelClickHandler);
-        const animationSpan = document.createElement("span");
-        animationSpan.classList.add("span-animation");
-        const descriptionEl = document.createElement("span");
-        descriptionEl.classList.add("gx-label", "gx-label--description");
-        descriptionEl.innerText = label;
-        /*test checked by default*/
-        // if (label === "diamond") {
-        //   checkbox.checked = true;
-        // }
-        /*/test checked by default*/
-        /*appends*/
-        multiCheckbox.appendChild(checkbox);
-        labelEl.appendChild(animationSpan);
-        labelEl.appendChild(descriptionEl);
-        multiCheckbox.appendChild(labelEl);
+        let renderCat = true;
+        if (gxFilterData.conf.hideEmptyCats) {
+          //if hideEmptyCats is true, we only want to add the category, if there is at least one article/card with this category. We already know that, if the cat exists in 'allArticlesUniqueCats'.
+          catFoundIndex = allArticlesUniqueCats.findIndex((arrayCat) => {
+            return arrayCat === value;
+          });
+          if (catFoundIndex !== -1) {
+            //cat found. Remove from 'allArticlesUniqueCats' to reduce array length for next time.
+            allArticlesUniqueCats.splice(catFoundIndex, 1);
+          } else {
+            //cat does not exists in any card/article. Do not render.
+            renderCat = false;
+          }
+        }
+
+        if (renderCat) {
+          const checkbox = document.createElement("input");
+          checkbox.setAttribute("type", "checkbox");
+          checkbox.setAttribute("id", value);
+          disableElement(checkbox);
+          checkbox.addEventListener("keydown", checkboxKeyDownHandler);
+          checkbox.addEventListener("click", (e) => {
+            e.stopPropagation();
+          });
+          const label = cat.label[pageLang];
+          const labelEl = document.createElement("label");
+          labelEl.setAttribute("for", value);
+          labelEl.addEventListener("click", inputCheckboxLabelClickHandler);
+          const animationSpan = document.createElement("span");
+          animationSpan.classList.add("span-animation");
+          const descriptionEl = document.createElement("span");
+          descriptionEl.classList.add("gx-label", "gx-label--description");
+          descriptionEl.innerText = label;
+          /*test checked by default*/
+          // if (label === "diamond") {
+          //   checkbox.checked = true;
+          // }
+          /*/test checked by default*/
+          /*appends*/
+          multiCheckbox.appendChild(checkbox);
+          labelEl.appendChild(animationSpan);
+          labelEl.appendChild(descriptionEl);
+          multiCheckbox.appendChild(labelEl);
+        }
       });
 
       /*add references*/
