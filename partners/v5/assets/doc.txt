@@ -52,7 +52,8 @@ INDEX:
 
 /*ARRAYS*/
 allArticles = [] -> La cantidad de artículos totales que contiene la página
-catsMap = [] -> Array con todas las categorías. Mapea el id con el label (descripción). Se llama una vez en init()
+allArticlesCats = [] -> Array que guarda todas las categorías de todos los artículos, sin repetir. Se utiliza en getAllArticleCats, y en el renderizado de las categorías, solo si 'hideEmptyCats' en cats.js es true.
+catsMap = [] -> Array con todas las categorías definidas en cats.js. Mapea el id con el label (descripción). Se llama una vez en init()
 currentSelectedCategories = [] -> Contiene las categorías actualmente seleccionadas. Se usa por ejemplo, para renderizar las pills.
 filteredArticles = [] -> Artículos filtrados
 membershipCategories = [] -> Categorías del tipo 'membership'. Se utilizan para mostrar el label 'Diamond' o 'Platinum'
@@ -131,7 +132,7 @@ powerUpCards -> Mejora las cards: aplica un link a toda la card, y lo ejecuta en
 burgerHandler -> El handler de la burger (Solo para mobile)
 autoScrollMultiCheckboxContainer -> Se usa para posicionar un select cuando el usuario lo abre, si es que no esta enteramente visible
 inputCheckboxLabelClickHandler -> El handler que se ejecuta cuando el usuario selecciona una categoría.
-multiCheckboxLabelClickHandler -> Handler para el click del label del select (en realidad es un botón) 
+multiCheckboxLabelClickHandler -> Handler para el cl`ick del label del select (en realidad es un botón) 
 multiCheckboxLabelKeyDownHandler -> Handler para el evento keyDown del label (botón) del select 
 closeOtherSelects -> Cierra todos los selects, excepto el actual
 pillClickedHandler -> Handler que se ejecuta al hacer click en una pill

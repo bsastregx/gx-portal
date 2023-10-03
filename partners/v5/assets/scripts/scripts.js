@@ -54,7 +54,8 @@ let numberPlaceholderEl; //span que muestra la cantidad de tarjetas mostradas | 
 
 /*ARRAYS*/
 let allArticles = []; //La cantidad de artículos totales que contiene la página
-let catsMap = []; //Array con todas las categorías. Mapea el id con el label (descripción). Se llama una vez en init()
+let allArticlesUniqueCats = []; //Array que guarda todas las categorías de todos los artículos, sin repetir. Se utiliza en getAllArticleCats, y en el renderizado de las categorías, solo si 'hideEmptyCats' en cats.js es true.
+let catsMap = []; //Array con todas las categorías definidas en cats.js. Mapea el id con el label (descripción). Se llama una vez en init()
 let currentSelectedCategories = []; //Contiene las categorías actualmente seleccionadas. Se usa por ejemplo, para renderizar las pills.
 let filteredArticles = []; //Artículos filtrados
 let membershipCategories = []; //Categorías del tipo 'membership'. Se utilizan para mostrar el label 'Diamond' o 'Platinum'
@@ -1411,6 +1412,37 @@ const showMoreHandler = (e) => {
 ------------------------------------*/
 
 /**
+ * Guarda en un array todas las categorías únicas de todos los artículos, sin repetir. Se usa para evitar el renderizado de categorías vacías (categorías que no pertenecen a ningún articulo). Esto evita
+ * tener 0 resultados. Esto es opcional, ya que hay casos en los que puede ser necesario mostrar todas las categorías, incluso vacías. y se configura en cats.js (hideEmptyCats).
+ */
+getAllArticleCats = () => {
+  if (gxFilterData.conf.hideEmptyCats && allArticles.length > 0) {
+    const categoriesItems = articlesListEl.querySelectorAll(".category-item");
+    if (categoriesItems.length > 0) {
+      categoriesItems.forEach((categoryItem) => {
+        //remove .category-item class (we only want the category id class)
+        const categoryClasses = Array.from(categoryItem.classList);
+        const categoryItemClassIndex = categoryClasses.findIndex((cssClass) => {
+          return cssClass === "category-item";
+        });
+        if (categoryItemClassIndex !== -1) {
+          //hopefully we only have one css class now, the category class id.
+          categoryClasses.splice(categoryItemClassIndex, 1);
+          const cat = categoryClasses[0];
+          //Add the category class if not already on 'allArticlesUniqueCats'
+          const catFound = allArticlesUniqueCats.find((alreadyAddedCat) => {
+            return alreadyAddedCat === cat;
+          });
+          if (catFound === undefined) {
+            allArticlesUniqueCats.push(cat);
+          }
+        }
+      });
+    }
+  }
+};
+
+/**
  * Detecta si el dispositivo es o no mobile.
  */
 const detectMobile = () => {
@@ -1456,6 +1488,7 @@ const defineFooterMessages = () => {
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
+    getAllArticleCats();
     /*get config properties*/
     cardsPerLoad = gxFilterData.conf.cardsPerLoad;
     typeSingular = gxFilterData.conf.typeSingular[pageLang];

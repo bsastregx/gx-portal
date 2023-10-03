@@ -1,1 +1,4 @@
-- revisar por que queda info 'Showing 9 of 42 total partners' cuando esta oculto
+- revisar por que queda info 'Showing 9 of 42 total partners' cuando esta oculto.
+- permitir el cambio de select, estando parado en un item (izquierda/derecha).
+- ocultar la barrita vertical mientras se esta abriendo el select.
+

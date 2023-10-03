@@ -13,6 +13,7 @@ const gxFilterData = {
     cardsPerLoad: 9,
     desktopLgWidth: 1138,
     noResultsImgSrc: "./assets/images/no-results-illustration.svg",
+    hideEmptyCats: true,
   },
   filterTitle: {
     en: "Find a partner",
