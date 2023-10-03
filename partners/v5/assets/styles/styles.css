@@ -54,7 +54,7 @@ General
   outline: none;
 }
 .opacity-0 {
-  opacity: 0;
+  opacity: 0 !important;
 }
 /*------------------
 Buttons
@@ -162,7 +162,7 @@ Header
 .header-filter__title {
   font-family: var(--font-family-titles);
   font-size: 36px;
-  transition: opacity var(--gx-small-transition);
+  transition: var(--gx-small-transition) opacity;
   opacity: 1;
   margin: 0;
 }

@@ -22,6 +22,8 @@ let typeSingular;
 /*HTML ELEMENTS (HEADER)*/
 let filterHeaderEl; //El header que contiene todo (row--main, row--selects, row--actions, row--info) | .header-filter
 //header > 1.row--main
+let headerTitle; //El titulo principal h2 | .header-filter__title
+let headerTitleLabels; //La descripción del titulo.
 let textFilterLabelEl; //El input de búsqueda por teclado | .gx-input--filter
 let textFilterEl; //El label del filtro de texto "Search by partner name". | .gx-label--filter
 let burgerButton; //El burger button que togglea el menu. Solo visible en mobile. | #burger
@@ -157,8 +159,8 @@ const renderHeader = () => {
   `;
 
   /*header title label*/
-  let headerTitle;
-  const headerTitleLabels = {
+  headerTitle;
+  headerTitleLabels = {
     en: `Find a ${typeSingular}`,
     es: `Encontrar un ${typeSingular}:`,
     pt: `Encontrar um ${typeSingular}:`,
@@ -1051,6 +1053,20 @@ function burgerHandler(button) {
   rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
   body.classList.toggle("filter-menu-opened");
   //Change title 'Find' for 'Filters'
+  hideElement(headerTitle, true);
+  setTimeout(() => {
+    const filtersLabels = {
+      en: `Filters:`,
+      es: `Filtros:`,
+      pt: `Filtros:`,
+    };
+    if (body.classList.contains("filter-menu-opened")) {
+      headerTitle.innerText = filtersLabels[pageLang];
+    } else {
+      headerTitle.innerText = headerTitleLabels[pageLang];
+    }
+    showElement(headerTitle, true);
+  }, smallUiTransition);
 }
 
 /**
