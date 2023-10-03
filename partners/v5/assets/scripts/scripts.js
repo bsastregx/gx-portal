@@ -1409,6 +1409,10 @@ const showMoreHandler = (e) => {
 /*------------------------------------
 7.INIT (Todo lo relacionado al inicio)
 ------------------------------------*/
+
+/**
+ * Detecta si el dispositivo es o no mobile.
+ */
 const detectMobile = () => {
   if (/Mobi/.test(navigator.userAgent)) {
     // This means the user is on a mobile device
@@ -1446,6 +1450,9 @@ const defineFooterMessages = () => {
   };
 };
 
+/**
+ * Bootstrap
+ */
 const init = () => {
   const ready = isFilterReady();
   if (ready) {
