@@ -87,9 +87,8 @@ Buttons
   border-color: var(--gx-color-black);
 }
 .gx-button--secondary:hover {
-  background-color: var(--gx-color-action-fuchsia--700);
+  color: var(--gx-color-action-fuchsia--700);
   border-color: var(--gx-color-action-fuchsia--700);
-  color: var(--gx-color-white);
 }
 .gx-button--sm {
   /*background-color: transparent;*/
@@ -228,7 +227,7 @@ Multi-checkbox Filters
   box-shadow: var(--box-shadow-dropdown);
   border-radius: var(--border-radius);
   overflow-x: auto;
-  margin-top: 4px;
+  /*margin-top: 4px;*/
   max-height: 0;
   transition: max-height var(--gx-select-transition-height-speed);
 }

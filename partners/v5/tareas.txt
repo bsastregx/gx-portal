@@ -2,3 +2,13 @@
 - permitir el cambio de select, estando parado en un item (izquierda/derecha).
 - ocultar la barrita vertical mientras se esta abriendo el select.
 
+Mauro:
+- Ocultar categorías vacías.
+
+Ine (desktop)
+10. Lo veo muy sutil, casi no se nota. La idea del estilo del focus es que permita identificar fácilmente el elemento activo.
+15. No se como solucionar esto ahora.
+16. Pronto
+17. Pronto
+19. Pronto
+20. Queda para charlar

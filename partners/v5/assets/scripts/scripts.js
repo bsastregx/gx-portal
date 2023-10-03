@@ -80,9 +80,10 @@ let multiCheckboxMouseLeaveHandler; //Evento que se dispara cuando el mouse aban
 let multiCheckboxMouseEnterHandler; //Evento que se dispara cuando el mouse entra en el select (multi-checkbox).
 let timeOutHideSelectRef; //Referencia a un setTimeout, que se usa para evitar que el select se cierre después de 'timeBeforeCloseSelect' si el puntero volvió a entrar antes de ese tiempo.
 
-const timeOutHideSelect = (multiCheckbox) => {
+const timeOutHideSelect = (multiCheckbox, blur = false) => {
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
   displayScrollbar();
+  const gxLabelMultiCheckbox = multiCheckbox.previousElementSibling;
   if (!isMobile) {
     /*then remove listeners*/
     multiCheckbox.removeEventListener(
@@ -90,9 +91,14 @@ const timeOutHideSelect = (multiCheckbox) => {
       multiCheckboxMouseLeaveHandler
     );
     multiCheckbox.removeEventListener("enter", multiCheckboxMouseEnterHandler);
+    if (blur) {
+      //blur is used when user is using mouse, noy keyboard.
+      setTimeout(() => {
+        gxLabelMultiCheckbox.blur();
+      }, 150);
+    }
   }
   /*reset label*/
-  const gxLabelMultiCheckbox = multiCheckbox.previousElementSibling;
   if (gxLabelMultiCheckbox.classList.contains("gx-label--multi-checkbox")) {
     gxLabelMultiCheckbox.classList.remove("gx-label--multi-checkbox--active");
   }
@@ -1077,7 +1083,6 @@ const addMultiCheckboxListener = (multiCheckbox) => {
  * Handler para el click del label del select (en realidad es un botón)
  */
 const multiCheckboxLabelClickHandler = (e) => {
-  console.log("multiCheckboxLabelClickHandler");
   e.stopPropagation();
   /*hide scrollbar*/
   rowSelectsInnerWrapper.classList.add("hide-scrollbar");
@@ -1180,7 +1185,6 @@ const pillClickedHandler = (e) => {
  * Handler para la búsqueda por filtro de texto
  */
 const filterInputHandler = (e) => {
-  console.log("filterInputHandler");
   hideElement(showMoreButtonEl);
   if (currentSelectedCategories.length > 0) {
     clearFilters();
