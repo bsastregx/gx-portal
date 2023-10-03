@@ -20,8 +20,6 @@
   --font-family-titles: Graphik, sans-serif;
   --box-shadow-dropdown: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --gx-label-multi-checkbox-height: 54px;
-  --gx-transition--ui: 250ms;
-  --gx-transition--pill: 150ms;
   --gx-border-color-transition-speed: 200ms;
   --gx-chevron-transition-speed: 150ms;
   --row-selects-desktop-height: 58px;
@@ -55,7 +53,9 @@ General
   border-color: var(--gx-color-focus-color);
   outline: none;
 }
-
+.opacity-0 {
+  opacity: 0;
+}
 /*------------------
 Buttons
 ------------------*/
@@ -162,6 +162,8 @@ Header
 .header-filter__title {
   font-family: var(--font-family-titles);
   font-size: 36px;
+  transition: opacity var(--gx-small-transition);
+  opacity: 1;
   margin: 0;
 }
 .gx-input--filter::placeholder {
@@ -410,7 +412,7 @@ Multi-checkbox Filters
 }
 .gx-multi-checkbox .gx-label--description {
   text-transform: capitalize;
-  transition: var(--gx-transition--ui) color;
+  transition: var(--gx-small-transition) color;
   top: -1px;
   position: relative;
   font-weight: 300;
@@ -474,12 +476,12 @@ Row Actions
 --------------------*/
 #header-filter .row--actions {
   margin: 16px 0 48px 0;
-  gap: 64px;
+  gap: 128px;
 }
 #header-filter .row--actions__left-col {
   display: flex;
   flex-wrap: wrap;
-  max-width: 400px;
+  max-width: 100%;
   justify-content: unset;
   gap: 8px;
   align-self: flex-start;
@@ -502,7 +504,7 @@ Row Actions
   align-items: center;
   gap: 8px;
   background-color: var(--gx-color-neutral--100);
-  transition: opacity var(--gx-transition--pill);
+  transition: opacity var(--gx-small-transition);
   opacity: 1;
   text-transform: capitalize;
 }
@@ -521,7 +523,7 @@ Row Actions
 Row Info
 --------------------*/
 .row--info {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 300;
   color: var(--gx-color-neutral--600);
   margin-bottom: 16px;

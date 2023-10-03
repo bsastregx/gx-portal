@@ -73,7 +73,7 @@ let isMobile = false; //Variable que indica si el dispositivo es mobile o no. Se
 
 /*EVENT LISTENERS*/
 const timeBeforeCloseSelect = 400; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
-const clearPillTransition = 150; //Tiempo que se usa para la transición al eliminar la pill.
+const smallUiTransition = 250; //Tiempo que se usa para la transición al eliminar la pill.
 const selectHeightTransition = 150; //Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
 let labelMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
 let multiCheckboxMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el select (multi-checkbox).
@@ -119,7 +119,7 @@ const timeOutHideSelect = (multiCheckbox, blur = false) => {
 
 const body = document.querySelector("body");
 const html = document.querySelector("html");
-html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`); //Tiempo que se usa para la transición de la pill, cuando se oculta al cerrarla.
+html.style.setProperty("--gx-small-transition", `${smallUiTransition}ms`); //Tiempo que se usa para la transición de la pill, cuando se oculta al cerrarla.
 html.style.setProperty(
   "--gx-select-transition-height-speed",
   `${selectHeightTransition}ms`
@@ -794,17 +794,25 @@ const enableElement = (elementRef) => {
 };
 
 /**
- * Oculta un elemento de golpe, agregando el atributo 'hidden'
+ * Oculta un elemento de golpe, o con transición, agregando el atributo 'hidden'
  */
-const hideElement = (elementRef) => {
-  elementRef.setAttribute("hidden", "");
+const hideElement = (elementRef, transition = false) => {
+  if (!transition) {
+    elementRef.setAttribute("hidden", "");
+  } else {
+    elementRef.classList.add("opacity-0");
+  }
 };
 
 /**
- * Muestra un elemento de golpe, quitando el atributo 'hidden'
+ * Muestra un elemento de golpe, o con transición, quitando el atributo 'hidden'
  */
-const showElement = (elementRef) => {
-  elementRef.removeAttribute("hidden");
+const showElement = (elementRef, transition = false) => {
+  if (!transition) {
+    elementRef.removeAttribute("hidden");
+  } else {
+    elementRef.classList.remove("opacity-0");
+  }
 };
 
 /**
@@ -1042,6 +1050,7 @@ function burgerHandler(button) {
   button.classList.toggle("active");
   rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
   body.classList.toggle("filter-menu-opened");
+  //Change title 'Find' for 'Filters'
 }
 
 /**
@@ -1203,7 +1212,7 @@ const pillClickedHandler = (e) => {
       removeChecked(catId);
       burgerHasFilters();
     }
-  }, clearPillTransition);
+  }, smallUiTransition);
 };
 
 /**
@@ -1505,9 +1514,9 @@ const detectMobile = () => {
 const defineFooterMessages = () => {
   footerMessages = {
     noMorePartners: {
-      en: `No more ${typePlural} to display.`,
-      es: `No hay más ${typePlural} para mostrar.`,
-      pt: `Não há mais ${typePlural} para mostrar.`,
+      en: `No more ${typePlural} to display`,
+      es: `No hay más ${typePlural} para mostrar`,
+      pt: `Não há mais ${typePlural} para mostrar`,
     },
     // (Banned by Ines)
     // showingAllCoincidences: {

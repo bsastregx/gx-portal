@@ -80,7 +80,7 @@ let timeOutHideSelectRef; -> Referencia a un setTimeout, que se usa para evitar 
 ----------------------
 3.CSS VARIABLES
 ----------------------
---gx-transition--pill -> Tiempo que se usa para la transición de la pill, cuando se oculta al cerrarla.
+--gx-small-transition -> Tiempo que se usa para la transición elementos pequeños, como la pill, o el titulo (solo em mobile)
 --gx-select-transition-height-speed -> Tiempo que se usa para la velocidad de apertura/cierre del select (multi-checkbox)
 --gx-desktop-lg-width -> El ancho del contenedor de todo, sin contar el padding (si tuviera). Se usa para calcular el ancho del select '.gx-multi-checkbox-container', que es el mismo para todos.
 
