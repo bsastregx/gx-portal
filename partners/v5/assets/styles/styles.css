@@ -41,6 +41,8 @@ General
   font-size: inherit;
   font-size: 17px;
   color: var(--gx-color-black);
+  transition: var(--gx-small-transition) opacity;
+  opacity: 1;
 }
 .gx-input {
   border: 1px solid var(--gx-color-neutral--500);
@@ -112,6 +114,8 @@ Buttons
 }
 .gx-button--clear {
   padding-right: 0;
+  transition: var(--gx-small-transition) opacity;
+  opacity: 1;
 }
 .gx-button--clear--plural:after {
   content: "s";
@@ -313,7 +317,6 @@ Multi-checkbox Filters
   max-height: 332px;
 }
 /*scrollbar*/
-
 .row--selects-inner-wrapper::-webkit-scrollbar,
 .gx-multi-checkbox::-webkit-scrollbar {
   width: 4px;
@@ -348,6 +351,7 @@ Multi-checkbox Filters
   font-size: 17px;
   padding: 16px;
   cursor: pointer;
+  align-items: center;
   /*ripple*/
   background-position: center;
   transition: background 0.4s;

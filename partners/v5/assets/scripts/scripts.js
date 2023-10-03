@@ -28,6 +28,7 @@ let typeSingular;
 /*HTML ELEMENTS (HEADER)*/
 let filterHeaderEl; //El header que contiene todo (row--main, row--selects, row--actions, row--info) | .header-filter
 //header > 1.row--main
+let rowMain;
 let headerTitle; //El titulo principal h2 | .header-filter__title
 let headerTitleLabels; //La descripción del titulo.
 let textFilterLabelEl; //El input de búsqueda por teclado | .gx-input--filter
@@ -61,6 +62,8 @@ let footerMessagesIllustrationEl; //Tag img para la ilustración | .footer-messa
 let footerMessagesTitleEl; //span para el titulo del mensaje del footer | .footer-messages__title
 let footerMessagesDescriptionEl; //span para ela descripción del mensaje del footer | .footer-messages__description
 let numberPlaceholderEl; //span que muestra la cantidad de tarjetas mostradas | #showing-number
+
+let fixedOverlay;
 
 /*ARRAYS*/
 let allArticles = []; //La cantidad de artículos totales que contiene la página
@@ -228,7 +231,7 @@ const renderHeader = () => {
   }
 
   /*main row*/
-  const rowMain = document.createElement("div");
+  rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
   /*row selects*/
   rowSelectsEl = document.createElement("div");
@@ -260,6 +263,19 @@ const renderHeader = () => {
   rowInfoEl.classList.add("row", "row--info");
   rowInfoEl.setAttribute("id", "header-info");
   hideElement(rowInfoEl);
+
+  /*fixed overlay*/
+  if (isMobile) {
+    fixedOverlay = document.createElement("div");
+    fixedOverlay.classList.add("fixed-overlay");
+    fixedOverlay.addEventListener("wheel", preventScroll, { passive: false });
+    function preventScroll(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }
+
   /*appends*/
   if (headerTitle && headerTitleWrapperEl) {
     if (isMobile) {
@@ -292,6 +308,9 @@ const renderHeader = () => {
   rowActionsEl.appendChild(rowActionsElRightColEl);
   filterHeaderEl.appendChild(rowActionsEl);
   filterHeaderEl.appendChild(rowInfoEl);
+  if (isMobile) {
+    filterHeaderEl.appendChild(fixedOverlay);
+  }
   articlesListEl.parentElement.insertBefore(filterHeaderEl, articlesListEl);
   burgerButton = document.getElementById("burger");
 };
@@ -480,9 +499,18 @@ const renderViewResultsButton = () => {
       "gx-button--primary",
       "gx-button--full-width"
     );
-    disableElement(viewResultsButtonEl);
+    if (isMobile) {
+      hideElement(viewResultsButtonEl, true);
+    }
+    if (!gxFilterData.conf.hideEmptyCats) {
+      disableElement(viewResultsButtonEl);
+    }
     viewResultsButtonEl.innerText = viewResultsButtonLabels[pageLang];
-    viewResultsButtonEl.addEventListener("click", viewResultsButtonHandler);
+    if (isMobile) {
+      viewResultsButtonEl.addEventListener("click", viewResultsButtonHandler);
+    } else {
+      viewResultsButtonEl.addEventListener("click", burgerHandler);
+    }
     rowSelectsInnerWrapper.appendChild(viewResultsButtonEl);
   }
 };
@@ -592,7 +620,7 @@ const getOpenedMultiCheckbox = () => {
  * It evaluates if the mobile view result button, should be displayed or hidden, depending on whether there are results to show or not.
  */
 const toggleViewResultButton = () => {
-  if (isMobile) {
+  if (isMobile && !gxFilterData.conf.hideEmptyCats) {
     if (filteredArticles.length > 0) {
       enableElement(viewResultsButtonEl);
     } else {
@@ -1077,51 +1105,58 @@ labelMouseLeaveHandler = (e) => {
 /**
  * El handler de la burger (Solo para mobile)
  */
+const filtersLabels = {
+  en: `Filters:`,
+  es: `Filtros:`,
+  pt: `Filtros:`,
+};
+let overlayIsFixed = false;
 const burgerScrollIntoViewTransition = 300;
 function burgerHandler(button) {
   //first position to top
-  closestSector.scrollIntoView({
-    behavior: "smooth",
-  });
+  if (!overlayIsFixed) {
+    closestSector.scrollIntoView({
+      behavior: "smooth",
+    });
+  } else {
+    hideElement(viewResultsButtonEl, true);
+    hideElement(clearButtonEl, true);
+  }
   setTimeout(() => {
     button.classList.toggle("active");
     rowSelectsOuterWrapper.classList.toggle(
       "row--selects-outer-wrapper--hidden"
     );
-    body.classList.toggle("filter-menu-opened");
     topLine.classList.toggle("opacity-0");
     bottomLine.classList.toggle("opacity-0");
-    //Change title 'Find' for 'Filters'
-    hideElement(headerTitle, true);
-    setTimeout(() => {
-      const filtersLabels = {
-        en: `Filters:`,
-        es: `Filtros:`,
-        pt: `Filtros:`,
-      };
-      if (body.classList.contains("filter-menu-opened")) {
-        headerTitle.innerText = filtersLabels[pageLang];
-      } else {
-        headerTitle.innerText = headerTitleLabels[pageLang];
-      }
-      showElement(headerTitle, true);
-    }, smallUiTransition);
-    fixfilter();
-  }, burgerScrollIntoViewTransition);
+    toggleFixedOverlay(!overlayIsFixed);
+  }, smallUiTransition);
 }
 
-const fixfilter = () => {
-  // var fixed = document.getElementById("closest-sector");
-  // fixed.addEventListener(
-  //   "touchmove",
-  //   function (e) {
-  //     e.preventDefault();
-  //   },
-  //   false
-  // );
-  // setTimeout(() => {
-  //   closestSector.classList.add("fixed");
-  // }, smallUiTransition);
+const toggleFixedOverlay = (activate) => {
+  if (activate) {
+    setTimeout(() => {
+      body.classList.add("fixed");
+      hideElement(headerTitle, true);
+      setTimeout(() => {
+        headerTitle.innerText = filtersLabels[pageLang];
+        showElement(headerTitle, true);
+        showElement(viewResultsButtonEl, true);
+        showElement(clearButtonEl, true);
+      }, smallUiTransition);
+    }, smallUiTransition);
+  } else {
+    hideElement(headerTitle, true);
+    setTimeout(() => {
+      headerTitle.innerText = headerTitleLabels[pageLang];
+      showElement(headerTitle, true);
+      body.classList.remove("fixed");
+      closestSector.scrollIntoView({
+        behavior: "instant",
+      });
+    }, smallUiTransition);
+  }
+  overlayIsFixed = !overlayIsFixed;
 };
 
 /**
@@ -1188,7 +1223,11 @@ const addMultiCheckboxListener = (multiCheckbox) => {
  * Handler para el click del label del select (en realidad es un botón)
  */
 const multiCheckboxLabelClickHandler = (e) => {
+  const target = e.target;
   e.stopPropagation();
+  if (isMobile) {
+    deactivateButtonsLabels(target);
+  }
   /*hide scrollbar*/
   rowSelectsInnerWrapper.classList.add("hide-scrollbar");
   /*label*/
@@ -1209,6 +1248,17 @@ const multiCheckboxLabelClickHandler = (e) => {
   const multiCheckboxContainer = e.target.parentElement;
   autoScrollMultiCheckboxContainer(multiCheckboxContainer);
   horizontalScroll(false);
+};
+
+const deactivateButtonsLabels = (target) => {
+  const activeButtons = rowSelectsEl.querySelectorAll(
+    ".gx-label--multi-checkbox--active"
+  );
+  activeButtons.forEach((button) => {
+    if (button !== target) {
+      button.classList.remove("gx-label--multi-checkbox--active");
+    }
+  });
 };
 
 /**
