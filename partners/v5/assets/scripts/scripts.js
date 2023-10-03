@@ -1077,30 +1077,52 @@ labelMouseLeaveHandler = (e) => {
 /**
  * El handler de la burger (Solo para mobile)
  */
+const burgerScrollIntoViewTransition = 300;
 function burgerHandler(button) {
   //first position to top
-  console.log(closestSector);
-  // button.classList.toggle("active");
-  // rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
-  // body.classList.toggle("filter-menu-opened");
-  // topLine.classList.toggle("opacity-0");
-  // bottomLine.classList.toggle("opacity-0");
-  // //Change title 'Find' for 'Filters'
-  // hideElement(headerTitle, true);
-  // setTimeout(() => {
-  //   const filtersLabels = {
-  //     en: `Filters:`,
-  //     es: `Filtros:`,
-  //     pt: `Filtros:`,
-  //   };
-  //   if (body.classList.contains("filter-menu-opened")) {
-  //     headerTitle.innerText = filtersLabels[pageLang];
-  //   } else {
-  //     headerTitle.innerText = headerTitleLabels[pageLang];
-  //   }
-  //   showElement(headerTitle, true);
-  // }, smallUiTransition);
+  closestSector.scrollIntoView({
+    behavior: "smooth",
+  });
+  setTimeout(() => {
+    button.classList.toggle("active");
+    rowSelectsOuterWrapper.classList.toggle(
+      "row--selects-outer-wrapper--hidden"
+    );
+    body.classList.toggle("filter-menu-opened");
+    topLine.classList.toggle("opacity-0");
+    bottomLine.classList.toggle("opacity-0");
+    //Change title 'Find' for 'Filters'
+    hideElement(headerTitle, true);
+    setTimeout(() => {
+      const filtersLabels = {
+        en: `Filters:`,
+        es: `Filtros:`,
+        pt: `Filtros:`,
+      };
+      if (body.classList.contains("filter-menu-opened")) {
+        headerTitle.innerText = filtersLabels[pageLang];
+      } else {
+        headerTitle.innerText = headerTitleLabels[pageLang];
+      }
+      showElement(headerTitle, true);
+    }, smallUiTransition);
+    fixfilter();
+  }, burgerScrollIntoViewTransition);
 }
+
+const fixfilter = () => {
+  // var fixed = document.getElementById("closest-sector");
+  // fixed.addEventListener(
+  //   "touchmove",
+  //   function (e) {
+  //     e.preventDefault();
+  //   },
+  //   false
+  // );
+  // setTimeout(() => {
+  //   closestSector.classList.add("fixed");
+  // }, smallUiTransition);
+};
 
 /**
  * Se usa para posicionar un select cuando el usuario lo abre, si es que no esta enteramente visible.
@@ -1506,7 +1528,6 @@ const filterHandler = () => {
  * Handler que maneja las funciones relacionadas al mostrado de tarjetas (botón "View more")
  */
 const showMoreHandler = (e) => {
-  console.log(e);
   e.stopPropagation();
   showMore();
   if (!isMobile) {

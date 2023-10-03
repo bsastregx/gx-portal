@@ -60,7 +60,8 @@ General
 Gx Portal page tweaks
 --------------------*/
 #closest-sector {
-  margin-top: 128px !important;
+  padding-top: 64px !important;
+  margin-top: 64px !important;
 }
 
 /*------------------
@@ -659,7 +660,9 @@ Grid
 }
 @media only screen and (max-width: 640px) {
   #closest-sector {
-    margin-top: 75px !important;
+    /*applied also on mobile styles*/
+    padding-top: 35px !important;
+    margin-top: 35px !important;
   }
   .articles {
     /* background-color: rgb(255, 187, 127); */

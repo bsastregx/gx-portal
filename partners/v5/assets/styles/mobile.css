@@ -7,14 +7,21 @@ Gx Portal tweaks
 body.gx-mobile-device .viewport {
   padding: 0 var(--viewportPadding) !important;
 }
-#closest-sector {
-  margin-top: 75px !important;
+body.gx-mobile-device #closest-sector {
+  padding-top: 35px !important;
+  margin-top: 35px !important;
 }
-
+body.gx-mobile-device #closest-sector.fixed {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  margin-top: 0 !important;
+}
 /*---------------------------------------
 Body overlay (only when filter is opened)
 ---------------------------------------*/
-body.gx-mobile-device.filter-menu-opened:before {
+body.gx-mobile-device.filter-menu-opened .row--main:before {
   content: "";
   display: block;
   position: fixed;
@@ -28,7 +35,7 @@ body.gx-mobile-device.filter-menu-opened:before {
 body.gx-mobile-device .header-filter__title-wrapper,
 body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
   position: relative;
-  z-index: 20;
+  z-index: 15;
 }
 
 /*------------------
@@ -182,6 +189,7 @@ body.gx-mobile-device .gx-label--multi-checkbox {
   border-right: 0;
   border-radius: 0;
   border-bottom-color: var(--gx-color-neutral--300);
+  border-width: 1px;
 }
 body.gx-mobile-device .row--selects-inner-wrapper {
   display: block !important;
@@ -208,7 +216,7 @@ body.gx-mobile-device #header-filter .row--selects-outer-wrapper {
   margin-bottom: 0;
   display: grid;
   grid-template-rows: 1fr;
-  transition: 250ms grid-template-rows;
+  transition: var(--gx-small-transition) grid-template-rows;
 }
 body.gx-mobile-device #header-filter .row--selects-outer-wrapper--hidden {
   grid-template-rows: 0fr !important;
