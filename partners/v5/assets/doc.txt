@@ -1,0 +1,131 @@
+INDEX:
+1.VARIABLES
+2.OTHER
+3.CSS VARIABLES
+4.RENDERS
+5.HELPER FUNCTIONS
+6.HANDLERS
+
+----------------------
+1.VARIABLES
+----------------------
+    pageLang -> El idioma de la página.
+
+/*filter data*/ 
+    cardsPerLoad -> Cantidad de tarjetas que se cargan en "Show More". Se configura en cats.js
+    typePlural -> El nombre del tipo en plural (Partners). Se configura en cats.js
+    typeSingular -> El nombre del tipo en singular (Partner). Se configura en cats.js
+
+/*HTML ELEMENTS (HEADER)*/
+    filterHeaderEl -> El header que contiene todo (row--main, row--selects, row--actions, row--info) | .header-filter
+//header > 1.row--main 
+    textFilterLabelEl -> El label del filtro de texto "Search by partner name". | .gx-label--filter
+    textFilterEl -> El input de búsqueda por teclado | .gx-input--filter
+    burgerButton -> El burger button que togglea el menu. Solo visible en mobile. | #burger
+//header > 2.row--selects
+    rowSelectsOuterWrapper -> El wrapper externo de los selects | .row--selects-outer-wrapper
+    rowSelectsInnerWrapper -> El wrapper interno de los selects | .row--selects-inner-wrapper
+    rowSelectsEl -> El div que contiene a los selects (multi-checkbox) | .row--selects
+    viewResultsButtonEl -> Botón 'View Result' (solo mobile)
+//header > 3.row--actions
+    rowActionsEl -> El row que contiene acciones (pills, botón de clear) | .row--actions
+    rowActionsLeftColEl -> La columna izquierda del row de acciones (pills) | .row--actions__left-col 
+    rowActionsLeftColInnerWrapperEl -> Un wrapper interno de la columna izquierda del row de acciones | .row--actions__left-col-inner-wrapper
+    rowActionsElRightColEl -> La columna derecha del row de acciones (pills) | .row--actions__right-col
+    clearButtonEl -> El botón que permite limpiar los filtros (Clear Filter) | .gx-button--clear
+//header > 4.row--info
+    clearInputSuggestionEl -> Sugerencia de shortcut para limpiar el filtro por búsqueda. | .gx-clear-suggestion
+    rowInfoEl -> Contiene unicamente un texto con la cantidad de cards que se están mostrando, y las totales
+
+/*HTML ELEMENTS (ARTICLES)*/
+    articlesListEl -> La lista de artículos. Viene dada desde portal | ul.articles 
+
+/*HTML ELEMENTS (FOOTER)*/
+    articlesFooterEl -> Contiene el botón "Show more" o mensajes. Ej. "No more partners to display" | .articles-footer
+    showMoreButtonEl -> Botón para mostrar mas resultados | .gx-button--show-more
+    footerMessagesSlotEl -> Es el contenedor de la info que se muestra en el footer (ilustración, título y descripción) | .footer-messages
+    footerMessagesIllustrationEl -> Tag img para la ilustración | .footer-messages__illustration
+    footerMessagesTitleEl -> span para el titulo del mensaje del footer | .footer-messages__title
+    footerMessagesDescriptionEl -> span para ela descripción del mensaje del footer | .footer-messages__description
+    numberPlaceholderEl -> span que muestra la cantidad de tarjetas mostradas | #showing-number
+
+/*ARRAYS*/
+allArticles = [] -> La cantidad de artículos totales que contiene la página
+catsMap = [] -> Array con todas las categorías. Mapea el id con el label (descripción). Se llama una vez en init()
+currentSelectedCategories = [] -> Contiene las categorías actualmente seleccionadas. Se usa por ejemplo, para renderizar las pills.
+filteredArticles = [] -> Artículos filtrados
+membershipCategories = [] -> Categorías del tipo 'membership'. Se utilizan para mostrar el label 'Diamond' o 'Platinum'
+multiCheckboxes = [] -> Referencias a los selects (multi-checkboxes). Ej. Category | Partner Types | Industries | Services, etc...
+
+----------------------
+2.OTHER
+----------------------
+userAgent -> Se usa para saber si es windows o mac, a fin de mostrar el shortcut correcto en 'clearInputSuggestionEl'.
+visibleCards = 0; -> La cantidad de tarjetas visibles.
+textFilterBackspaceCounter = 0; -> Cantidad de backspaces seguidos que el usuario digitó.
+footerMessages; -> Objeto que contiene las posibles descripciones para mostrar en el footer. 
+isMobile = false; -> Variable que indica si el dispositivo es mobile o no. Se usa para mostrar ciertos elementos que se usan solo en mobile.
+
+/*EVENT LISTENERS*/
+const timeBeforeCloseSelect = 400; -> Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
+const clearPillTransition = 150; -> Tiempo que se usa para la transición al eliminar la pill.
+const selectHeightTransition = 150; -> Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
+let labelMouseLeaveHandler; -> Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
+let multiCheckboxMouseLeaveHandler; -> Evento que se dispara cuando el mouse abandona el select (multi-checkbox)
+let multiCheckboxMouseEnterHandler; -> Evento que se dispara cuando el mouse entra en el select (multi-checkbox)
+let timeOutHideSelectRef; -> Referencia a un setTimeout, que se usa para evitar que el select se cierre después de 'timeBeforeCloseSelect' si el puntero volvió a entrar antes de ese tiempo.
+
+----------------------
+3.CSS VARIABLES
+----------------------
+--gx-transition--pill -> Tiempo que se usa para la transición de la pill, cuando se oculta al cerrarla.
+--gx-select-transition-height-speed -> Tiempo que se usa para la velocidad de apertura/cierre del select (multi-checkbox)
+--gx-desktop-lg-width -> El ancho del contenedor de todo, sin contar el padding (si tuviera). Se usa para calcular el ancho del select '.gx-multi-checkbox-container', que es el mismo para todos.
+
+----------------------
+4.RENDERS
+----------------------
+renderHeader -> Hace el render del header, que es todo lo que aparece antes de las cards (1.row--main, 2.row--selects, 3.row--actions, 4.row--info).
+renderCategories -> Hace el render de todos los selects (multi-checkboxes) y los inserta en el 2.row--selects.
+renderShowingPartners -> Hace el render del texto que indica la cantidad de cards que se están mostrando, y las totales.
+renderClearButton -> Hace el render del botón de clear (limpia los filtros)
+renderViewResultsButton -> Hace el render del botón "Ver Resultado". Solo visible en mobile.
+renderFooter -> Hace el render solo del footer (No lo que esta dentro). Se inserta después de la lista de artículos que viene de portal.
+renderShowMoreButton -> Hace el render del botón "Ver mas" que carga mas artículos. Se inserta en el footer.
+footerMessagesSlot -> Hace el render del "slot" de mensajes, y de los elementos que van dentro de él (La ilustración, el titulo, y la descripción de los mensajes)
+renderPills -> It renders the categories pills, iterating over 'currentSelectedCategories'.
+
+----------------------
+5.HELPER FUNCTIONS
+----------------------
+getOpenedMultiCheckbox -> Devuelve un array de los selects que están actualmente abiertos.
+toggleViewResultButton -> It evaluates if the mobile view result button, should be displayed or hidden, depending on whether there are results to show or not.
+burgerHasFilters -> It evaluates if the burger toggle should display a visual hint informing the user that there are one or more categories selected.
+horizontalScroll -> Activates/deactivates horizontal scrolling with the mouse-wheel on .row--selects-inner-wrapper
+getArticleCategory -> Devuelve la categoría del tipo membership (Platinum, Gold, etc) que se muestra en la card arriba del titulo.
+enableCheckboxes -> Habilita todos los checkboxes de un select. Esto permite que se puedan navegar con el teclado.
+disableCheckboxes -> Deshabilita todos los checkboxes de un select (multi-checkbox). Esto impide que se puedan navegar con el teclado.
+hideAllCards -> Oculta todas las tarjetas.
+showAllCards -> Muestra todas las tarjetas.
+getChecked -> Devuelve los checkboxes chequeados de un select en particular.
+removeChecked -> It unchecks a checked category. Only called when a pill from a selected category gets clicked (cleared)
+showMore -> La función que se encarga de mostrar mas cards, cuando el usuario presiona el botón 'show more'
+scrollDown -> Se encarga de hacer un scroll hasta el footer, luego de que el usuario presiono el botón "Show More" y se cargaron mas cards.
+disableElement -> Deshabilita un elemento, agregando el atributo 'disabled'
+enableElement -> Habilita un elemento, quitando el atributo 'disabled'
+hideElement -> Oculta un elemento de golpe, agregando el atributo 'hidden'
+showElement -> Muestra un elemento de golpe, quitando el atributo 'hidden'
+isFilterReady -> Helper function that evaluates if everything that is needed to run the filter is met. Returns a boolean
+getArticleCats -> Devuelve un array de las categorías (id's) de un articulo
+filter -> Filtra artículos tomando en cuenta las categorías seleccionadas.
+setSelectedCategories -> Sets the initial state of the selected categories. Only called on init(). Se basa en los checkboxes activos inicialmente. En la práctica, al inicio siempre van a estar todos apagados.
+clearFilters -> Se usa para limpiar los filtros. Des-chequea las categorías activas, oculta la ilustración del footer, y limpia el titulo y la descripción del footer.
+createCatsMapArray -> It creates an array of all the categories, mapping the id with the label. Called only once on init();
+displayScrollbar -> Muestra la scrollbar horizontal del contenedor de los selects
+powerUpCards -> Mejora las cards: aplica un link a toda la card, y lo ejecuta en click o enter. Agrega el label de categoría membership (Diamond, Platinum, etc)
+
+----------------------
+6.HANDLERS
+----------------------
+
+

@@ -1,0 +1,1 @@
+- revisar por que queda info 'Showing 9 of 42 total partners' cuando esta oculto

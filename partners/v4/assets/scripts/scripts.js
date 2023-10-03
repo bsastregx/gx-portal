@@ -54,7 +54,7 @@ let footerMessages;
 let isMobile = false;
 
 /*event listeners*/
-const timeBeforeCloseSelect = 40000;
+const timeBeforeCloseSelect = 400;
 const clearPillTransition = 150;
 const selectHeightTransition = 150;
 let labelMouseLeaveHandler;

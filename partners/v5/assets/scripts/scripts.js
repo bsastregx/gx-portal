@@ -8,59 +8,76 @@ INDEX:
 6.HANDLERS
 */
 
-/* 1.VARIABLES */
+/*----------------------
+1.VARIABLES
+----------------------*/
 
 const pageLang = document.documentElement.lang;
 /*filter data*/
 let cardsPerLoad;
 let typePlural;
 let typeSingular;
-/*elements*/
-let articlesFooterEl;
-let articlesListEl;
-let burgerButton;
-let clearButtonEl;
-let clearInputSuggestionEl;
-let filterHeaderEl;
-let footerMessagesDescriptionEl;
-let footerMessagesIllustrationEl;
-let footerMessagesSlotEl;
-let footerMessagesTitleEl;
-let numberPlaceholderEl;
-let rowActionsEl;
-let rowActionsElRightColEl;
-let rowActionsLeftColEl;
-let rowActionsLeftColInnerWrapperEl;
-let rowInfoEl;
-let rowSelectsEl;
-let rowSelectsInnerWrapper;
-let rowSelectsOuterWrapper;
-let showMoreButtonEl;
-let textFilterEl;
-let textFilterLabelEl;
-let viewResultsButtonEl;
-/*arrays*/
-let allArticles = [];
-let catsMap = [];
-let currentSelectedCategories = [];
-let filteredArticles = [];
-let membershipCategories = [];
-let multiCheckboxes = [];
-/* 2.OTHER */
-var userAgent = navigator.userAgent;
-let visibleCards = 0;
-let textFilterBackspaceCounter = 0;
-let footerMessages;
-let isMobile = false;
 
-/*event listeners*/
-const timeBeforeCloseSelect = 40000;
-const clearPillTransition = 150;
-const selectHeightTransition = 150;
-let labelMouseLeaveHandler;
-let multiCheckboxMouseLeaveHandler;
-let multiCheckboxMouseEnterHandler;
-let timeOutHideSelectRef;
+/*HTML ELEMENTS (HEADER)*/
+let filterHeaderEl; //El header que contiene todo (row--main, row--selects, row--actions, row--info) | .header-filter
+//header > 1.row--main
+let textFilterLabelEl; //El input de búsqueda por teclado | .gx-input--filter
+let textFilterEl; //El label del filtro de texto "Search by partner name". | .gx-label--filter
+let burgerButton; //El burger button que togglea el menu. Solo visible en mobile. | #burger
+//header > 2.row--selects
+let rowSelectsOuterWrapper; //El wrapper externo de los selects | .row--selects-outer-wrapper
+let rowSelectsInnerWrapper; //El wrapper interno de los selects | .row--selects-inner-wrapper
+let rowSelectsEl; //El div que contiene a los selects (multi-checkbox) | .row--selects
+let viewResultsButtonEl; //Botón 'View Result' (solo mobile)
+//header > 3.row--actions
+let rowActionsEl; //El row que contiene acciones (pills, botón de clear) | .row--actions
+let rowActionsLeftColEl; //La columna izquierda del row de acciones (pills) | .row--actions__left-col
+let rowActionsLeftColInnerWrapperEl; //Un wrapper interno de la columna izquierda del row de acciones | .row--actions__left-col-inner-wrapper
+let rowActionsElRightColEl; //La columna derecha del row de acciones (pills) | .row--actions__right-col
+let clearButtonEl; //El botón que permite limpiar los filtros (Clear Filter) | .gx-button--clear
+//header > 4.row--info
+let clearInputSuggestionEl; //Sugerencia de shortcut para limpiar el filtro por búsqueda. | .gx-clear-suggestion
+let rowInfoEl; //
+
+/*HTML ELEMENTS (ARTICLES)*/
+let articlesListEl; //La lista de artículos. Viene dada desde portal | ul.articles
+
+/*HTML ELEMENTS (FOOTER)*/
+let articlesFooterEl; //Contiene el botón "Show more" o mensajes. Ej. "No more partners to display" | .articles-footer
+let showMoreButtonEl; //Botón para mostrar mas resultados | .gx-button--show-more
+let footerMessagesSlotEl; //Es el contenedor de la info que se muestra en el footer (ilustración, título y descripción) | .footer-messages
+let footerMessagesIllustrationEl; //Tag img para la ilustración | .footer-messages__illustration
+let footerMessagesTitleEl; //span para el titulo del mensaje del footer | .footer-messages__title
+let footerMessagesDescriptionEl; //span para ela descripción del mensaje del footer | .footer-messages__description
+let numberPlaceholderEl; //span que muestra la cantidad de tarjetas mostradas | #showing-number
+
+/*ARRAYS*/
+let allArticles = []; //La cantidad de artículos totales que contiene la página
+let catsMap = []; //Array con todas las categorías. Mapea el id con el label (descripción). Se llama una vez en init()
+let currentSelectedCategories = []; //Contiene las categorías actualmente seleccionadas. Se usa por ejemplo, para renderizar las pills.
+let filteredArticles = []; //Artículos filtrados
+let membershipCategories = []; //Categorías del tipo 'membership'. Se utilizan para mostrar el label 'Diamond' o 'Platinum'
+let multiCheckboxes = []; //Referencias a los selects (multi-checkboxes). Ej. Category | Partner Types | Industries | Services, etc...
+
+/*----------------------
+2.OTHER
+----------------------*/
+
+var userAgent = navigator.userAgent; //Se usa para saber si es windows o mac, a fin de mostrar el shortcut correcto en 'clearInputSuggestionEl'
+let visibleCards = 0; //La cantidad de tarjetas visibles
+let textFilterBackspaceCounter = 0; //Cantidad de backspaces seguidos que el usuario digitó
+let footerMessages; //Objeto que contiene las posibles descripciones para mostrar en el footer.
+let isMobile = false; //Variable que indica si el dispositivo es mobile o no. Se usa para mostrar ciertos elementos que se usan solo en mobile.
+
+/*EVENT LISTENERS*/
+const timeBeforeCloseSelect = 400; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
+const clearPillTransition = 150; //Tiempo que se usa para la transición al eliminar la pill.
+const selectHeightTransition = 150; //Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
+let labelMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
+let multiCheckboxMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el select (multi-checkbox).
+let multiCheckboxMouseEnterHandler; //Evento que se dispara cuando el mouse entra en el select (multi-checkbox).
+let timeOutHideSelectRef; //Referencia a un setTimeout, que se usa para evitar que el select se cierre después de 'timeBeforeCloseSelect' si el puntero volvió a entrar antes de ese tiempo.
+
 const timeOutHideSelect = (multiCheckbox) => {
   multiCheckbox.classList.remove("gx-multi-checkbox--opened");
   displayScrollbar();
@@ -88,22 +105,29 @@ const timeOutHideSelect = (multiCheckbox) => {
   horizontalScroll(true);
 };
 
-// 3. CSS VARIABLES //
+/*----------------------
+3.CSS VARIABLES
+----------------------*/
 
 const body = document.querySelector("body");
 const html = document.querySelector("html");
-html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`);
+html.style.setProperty("--gx-transition--pill", `${clearPillTransition}ms`); //Tiempo que se usa para la transición de la pill, cuando se oculta al cerrarla.
 html.style.setProperty(
   "--gx-select-transition-height-speed",
   `${selectHeightTransition}ms`
-);
+); //Tiempo que se usa para la velocidad de apertura/cierre del select (multi-checkbox)
 html.style.setProperty(
   "--gx-desktop-lg-width",
   `${gxFilterData.conf.desktopLgWidth}px`
-);
+); //El ancho del contenedor de todo, sin contar el padding (si tuviera). Se usa para calcular el ancho del select '.gx-multi-checkbox-container', que es el mismo para todos.
 
-// 4. RENDERS //
+/*----------------------
+4.RENDERS
+----------------------*/
 
+/**
+ * Hace el render del header, que es todo lo que aparece antes de las cards (1.row--main, 2.row--selects, 3.row--actions, 4.row--info).
+ */
 const renderHeader = () => {
   /*header*/
   filterHeaderEl = document.createElement("header");
@@ -184,19 +208,19 @@ const renderHeader = () => {
   /*row selects inner container*/
   rowSelectsInnerWrapper = document.createElement("div");
   rowSelectsInnerWrapper.classList.add("row--selects-inner-wrapper");
-  /*row footer*/
+  /*row actions*/
   rowActionsEl = document.createElement("div");
   rowActionsEl.classList.add("row", "row--actions");
   rowActionsEl.setAttribute("id", "header-actions");
-  /*row footer | left col*/
+  /*row actions | left col*/
   rowActionsLeftColEl = document.createElement("div");
   rowActionsLeftColEl.classList.add("row", "row--actions__left-col");
-  /*row footer | left col inner-wrapper*/
+  /*row actions | left col inner-wrapper*/
   rowActionsLeftColInnerWrapperEl = document.createElement("div");
   rowActionsLeftColInnerWrapperEl.classList.add(
     "row--actions__left-col-inner-wrapper"
   );
-  /*row footer | right col*/
+  /*row actions | right col*/
   rowActionsElRightColEl = document.createElement("div");
   rowActionsElRightColEl.classList.add("row", "row--actions__right-col");
   /*row info*/
@@ -237,6 +261,9 @@ const renderHeader = () => {
   burgerButton = document.getElementById("burger");
 };
 
+/**
+ * Hace el render de todos los selects (multi-checkboxes) y los inserta en row--selects.
+ */
 const renderCategories = () => {
   /*categories*/
   const cats = gxFilterData.cats;
@@ -319,6 +346,9 @@ const renderCategories = () => {
   });
 };
 
+/**
+ * Hace el render del texto que indica la cantidad de cards que se están mostrando, y las totales.
+ */
 const renderShowingPartners = () => {
   if (rowInfoEl) {
     const messageBefores = {
@@ -351,6 +381,9 @@ const renderShowingPartners = () => {
   }
 };
 
+/**
+ * Hace el render del botón de clear (limpia los filtros)
+ */
 const renderClearButton = () => {
   if (rowActionsElRightColEl) {
     const clearButtonLabels = {
@@ -378,6 +411,9 @@ const renderClearButton = () => {
   }
 };
 
+/**
+ * Hace el render del botón "Ver Resultado". Solo visible en mobile.
+ */
 const renderViewResultsButton = () => {
   if (isMobile && rowSelectsInnerWrapper) {
     const viewResultsButtonLabels = {
@@ -399,6 +435,9 @@ const renderViewResultsButton = () => {
   }
 };
 
+/**
+ *  Hace el render solo del footer (No lo que esta dentro).
+ */
 const renderFooter = () => {
   if (articlesListEl) {
     articlesFooterEl = document.createElement("footer");
@@ -407,6 +446,9 @@ const renderFooter = () => {
   }
 };
 
+/**
+ * Hace el render del botón "Ver mas" que carga mas artículos. Se inserta en el footer.
+ */
 const renderShowMoreButton = () => {
   if (articlesFooterEl) {
     const showMoreButtonLabels = {
@@ -426,6 +468,9 @@ const renderShowMoreButton = () => {
   }
 };
 
+/**
+ * Hace el render del "slot" de mensajes, y de los elementos que van dentro de él (La ilustración, el titulo, y la descripción de los mensajes)
+ */
 const footerMessagesSlot = () => {
   if (articlesFooterEl) {
     /*footer messages*/
@@ -452,8 +497,37 @@ const footerMessagesSlot = () => {
   }
 };
 
-// 5. HELPER FUNCTIONS //
+/**
+ * It renders the categories pills, iterating over 'currentSelectedCategories'.
+ */
+const renderPills = () => {
+  if (rowActionsLeftColEl) {
+    rowActionsLeftColEl.innerHTML = "";
+  }
+  if (currentSelectedCategories.length > 0) {
+    currentSelectedCategories.forEach((catId) => {
+      const catData = catsMap.find((cat) => {
+        return cat.id === catId;
+      });
+      if (catData) {
+        const pill = document.createElement("button");
+        pill.classList.add("gx-button-pill");
+        pill.innerText = catData.label;
+        pill.setAttribute("data-cat", catData.id);
+        pill.addEventListener("click", pillClickedHandler);
+        rowActionsLeftColEl.appendChild(pill);
+      }
+    });
+  }
+};
 
+/*----------------------
+5.HELPER FUNCTIONS
+----------------------*/
+
+/**
+ * Devuelve un array de los selects que están actualmente abiertos.
+ */
 const getOpenedMultiCheckbox = () => {
   if (rowSelectsEl) {
     return Array.from(
@@ -488,9 +562,10 @@ const burgerHasFilters = () => {
   }
 };
 
-/*
-Activates/deactivates horizontal scrolling with the mousewheel on .row--selects-inner-wrapper
-*/
+/**
+ * Activates/deactivates horizontal scrolling with the mousewheel on .row--selects-inner-wrapper
+ */
+
 const horizontalScroll = (activate) => {
   if (activate) {
     rowSelectsInnerWrapper.addEventListener(
@@ -510,6 +585,9 @@ const horizontalScrollWheelHandler = (e) => {
   rowSelectsInnerWrapper.scrollLeft += e.deltaY;
 };
 
+/**
+ * Devuelve la categoría del tipo membership (Platinum, Gold, etc) que se muestra en la card arriba del titulo.
+ */
 const getArticleCategory = (article) => {
   cats = getArticleCats(article);
   let foundIndex = -1;
@@ -528,6 +606,9 @@ const getArticleCategory = (article) => {
   }
 };
 
+/**
+ * Habilita todos los checkboxes de un select (multi-checkbox).Esto permite que se puedan navegar con el teclado, ya que de lo contrario, están deshabilitados, lo cual impide la navegación por teclado. Se desactivan cuando se cierra el select.
+ */
 const enableCheckboxes = (multiCheckbox) => {
   /*checkboxes*/
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
@@ -538,6 +619,9 @@ const enableCheckboxes = (multiCheckbox) => {
   }
 };
 
+/**
+ * Deshabilita todos los checkboxes de un select (multi-checkbox). Esto impide que se puedan navegar con el teclado. Se usa después que se cerro un select, para evitar que el tab entre en los checkboxes que están ocultos.
+ */
 const disableCheckboxes = (multiCheckbox) => {
   /*checkboxes*/
   const checkboxes = multiCheckbox.querySelectorAll("input[type='checkbox']");
@@ -548,6 +632,9 @@ const disableCheckboxes = (multiCheckbox) => {
   }
 };
 
+/**
+ * Esconde todas las tarjetas.
+ */
 const hideAllCards = () => {
   if (allArticles.length) {
     allArticles.forEach((article) => {
@@ -556,6 +643,9 @@ const hideAllCards = () => {
   }
 };
 
+/**
+ * Muestra todas las tarjetas.
+ */
 const showAllCards = () => {
   if (allArticles.length) {
     allArticles.forEach((article) => {
@@ -564,6 +654,9 @@ const showAllCards = () => {
   }
 };
 
+/**
+ * Devuelve los checkboxes chequeados de un select en particular.
+ */
 const getChecked = (multiCheckbox) => {
   const checkboxesArray = Array.from(
     multiCheckbox.querySelectorAll("input[type='checkbox']")
@@ -577,7 +670,9 @@ const getChecked = (multiCheckbox) => {
   return selectedCats;
 };
 
-/*It unchecks a checked category. Only called when a pill from a selected category gets clicked (cleared)*/
+/**
+ * It unchecks a checked category. Only called when a pill from a selected category gets clicked (cleared)
+ */
 const removeChecked = (catId) => {
   if (catId && rowSelectsEl) {
     const checkedCat = rowSelectsEl.querySelector(`#${catId}`);
@@ -600,7 +695,9 @@ const removeChecked = (catId) => {
   }
 };
 
-/* #show more */
+/**
+ * La función que se encarga de mostrar mas cards, cuando el usuario presiona el botón 'show more'
+ */
 const showMore = () => {
   if (filteredArticles.length > 0) {
     let shownArticlesLength = 0;
@@ -642,26 +739,45 @@ const showMore = () => {
   updateShowingArticles();
 };
 
+/**
+ * Se encarga de hacer un scroll hasta el footer, luego de que el usuario presiono el botón "Show More" y se cargaron mas cards. Se utiliza un setTimeout para asegurar que funciona bien siempre. De lo contrario, a veces no se mueve.
+ */
 const scrollDown = () => {
-  articlesFooterEl.scrollIntoView({ behavior: "smooth", block: "end" });
+  setTimeout(() => {
+    articlesFooterEl.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, 150);
 };
 
+/**
+ * Deshabilita un elemento, agregando el atributo 'disabled'
+ */
 const disableElement = (elementRef) => {
   elementRef.setAttribute("disabled", "");
 };
+
+/**
+ * Habilita un elemento, quitando el atributo 'disabled'
+ */
 const enableElement = (elementRef) => {
   elementRef.removeAttribute("disabled");
 };
+
+/**
+ * Oculta un elemento de golpe, agregando el atributo 'hidden'
+ */
 const hideElement = (elementRef) => {
   elementRef.setAttribute("hidden", "");
 };
+
+/**
+ * Muestra un elemento de golpe, quitando el atributo 'hidden'
+ */
 const showElement = (elementRef) => {
   elementRef.removeAttribute("hidden");
 };
 
 /**
- * Helper function that evaluates if everything that is needed to run the filter is met.
- * Returns a boolean.
+ * Helper function that evaluates if everything that is needed to run the filter is met. Returns a boolean
  */
 const isFilterReady = () => {
   articlesListEl = document.querySelector("ul.articles");
@@ -671,6 +787,9 @@ const isFilterReady = () => {
   return gxFilterData.cats.length && allArticles.length > 0;
 };
 
+/**
+ * Devuelve un array de las categorías (id's) de un articulo
+ */
 const getArticleCats = (articleEl) => {
   let cats = [];
   if (articleEl) {
@@ -689,7 +808,9 @@ const getArticleCats = (articleEl) => {
   }
 };
 
-/* #filter */
+/**
+ * Filtra artículos tomando en cuenta las categorías seleccionadas.
+ */
 const filter = () => {
   filteredArticles = [];
   if (currentSelectedCategories.length > 0 && allArticles.length > 0) {
@@ -724,7 +845,9 @@ const filter = () => {
   }
 };
 
-/*Sets the initial state of the selected categories. Only called on init().*/
+/**
+ * Sets the initial state of the selected categories. Only called on init().
+ */
 const setSelectedCategories = () => {
   let selectedCats = [];
   if (multiCheckboxes.length > 0) {
@@ -735,6 +858,9 @@ const setSelectedCategories = () => {
   currentSelectedCategories = [...selectedCats];
 };
 
+/**
+ * Se usa para limpiar los filtros. Des-chequea las categorías activas, oculta la ilustración del footer, y limpia el titulo y la descripción del footer.
+ */
 const clearFilters = () => {
   if (multiCheckboxes.length > 0) {
     multiCheckboxes.forEach((mc) => {
@@ -775,29 +901,8 @@ const createCatsMapArray = () => {
 };
 
 /**
- * It renders the categories pills, iterating over 'currentSelectedCategories'.
+ * Muestra la scrollbar horizontal del contenedor de los selects. Cuando los selects no entran en el contenedor, se muestra una scrollbar, que permite deslizar horizontalmente. Pero cuando se abre un select, hay que ocultarla, porque de lo contrario, queda visible debajo del select. Esta función la vuelve a mostrar luego de que se cierra el select.
  */
-const renderPills = () => {
-  if (rowActionsLeftColEl) {
-    rowActionsLeftColEl.innerHTML = "";
-  }
-  if (currentSelectedCategories.length > 0) {
-    currentSelectedCategories.forEach((catId) => {
-      const catData = catsMap.find((cat) => {
-        return cat.id === catId;
-      });
-      if (catData) {
-        const pill = document.createElement("button");
-        pill.classList.add("gx-button-pill");
-        pill.innerText = catData.label;
-        pill.setAttribute("data-cat", catData.id);
-        pill.addEventListener("click", pillClickedHandler);
-        rowActionsLeftColEl.appendChild(pill);
-      }
-    });
-  }
-};
-
 const displayScrollbar = () => {
   /*show scrollbar again*/
   setTimeout(() => {
@@ -805,6 +910,9 @@ const displayScrollbar = () => {
   }, selectHeightTransition);
 };
 
+/**
+ * Mejora las cards: aplica un link a toda la card, y lo ejecuta en click o enter. Agrega el label de categoría membership (Diamond, Platinum, etc)
+ */
 const powerUpCards = () => {
   allArticles.forEach((article) => {
     const links = article.querySelectorAll("a");
@@ -840,7 +948,9 @@ const powerUpCards = () => {
   });
 };
 
-// 6. HANDLERS //
+/*----------------------
+6.HANDLERS
+----------------------*/
 
 /*Only form mobile*/
 function burgerHandler(button) {
