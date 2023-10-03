@@ -6,6 +6,7 @@ INDEX:
 4.RENDERS
 5.HELPER FUNCTIONS
 6.HANDLERS
+7.INIT
 */
 
 /*----------------------
@@ -70,7 +71,7 @@ let footerMessages; //Objeto que contiene las posibles descripciones para mostra
 let isMobile = false; //Variable que indica si el dispositivo es mobile o no. Se usa para mostrar ciertos elementos que se usan solo en mobile.
 
 /*EVENT LISTENERS*/
-const timeBeforeCloseSelect = 400; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
+const timeBeforeCloseSelect = 40000; //Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
 const clearPillTransition = 150; //Tiempo que se usa para la transición al eliminar la pill.
 const selectHeightTransition = 150; //Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
 let labelMouseLeaveHandler; //Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
@@ -287,7 +288,7 @@ const renderCategories = () => {
       );
       multiCheckboxLabel.addEventListener(
         "keydown",
-        multiCheckboxLabelKeydownHandler
+        multiCheckboxLabelKeyDownHandler
       );
       multiCheckboxLabel.innerText = cat.label[pageLang];
 
@@ -952,13 +953,51 @@ const powerUpCards = () => {
 6.HANDLERS
 ----------------------*/
 
-/*Only form mobile*/
+/**
+ * Evento que se dispara cuando el mouse abandona el select (multi-checkbox)
+ */
+multiCheckboxMouseLeaveHandler = (e) => {
+  const multiCheckbox = e.target;
+  timeOutHideSelectRef = setTimeout(function () {
+    timeOutHideSelect(multiCheckbox);
+  }, timeBeforeCloseSelect);
+};
+
+/**
+ * Evento que se dispara cuando el mouse entra en el select (multi-checkbox)
+ */
+multiCheckboxMouseEnterHandler = (e) => {
+  clearTimeout(timeOutHideSelectRef);
+};
+
+/**
+ * Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
+ */
+labelMouseLeaveHandler = (e) => {
+  const clickedLabel = e.target;
+  const relatedTarget = e.relatedTarget;
+  const associatedSelect = clickedLabel.nextElementSibling;
+  if (relatedTarget !== associatedSelect) {
+    timeOutHideSelect(associatedSelect);
+  }
+  //remove listener
+  if (!isMobile) {
+    clickedLabel.removeEventListener("mouseleave", labelMouseLeaveHandler);
+  }
+};
+
+/**
+ * El handler de la burger (Solo para mobile)
+ */
 function burgerHandler(button) {
   button.classList.toggle("active");
   rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
   body.classList.toggle("filter-menu-opened");
 }
 
+/**
+ * Se usa para posicionar un select cuando el usuario lo abre, si es que no esta enteramente visible.
+ */
 const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
   if (multiCheckboxContainer) {
     /*multi checkbox container*/
@@ -983,6 +1022,9 @@ const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
   }
 };
 
+/**
+ * Se usa para cerrar los selects, si es que hay alguno abierto.
+ */
 document.addEventListener("click", (e) => {
   //close open select, if any
   const openedMultiCheckbox = rowSelectsEl.querySelector(
@@ -993,6 +1035,9 @@ document.addEventListener("click", (e) => {
   }
 });
 
+/**
+ * El handler que se ejecuta cuando el usuario selecciona una categoría.
+ */
 function inputCheckboxLabelClickHandler(e) {
   e.stopPropagation();
   e.preventDefault();
@@ -1002,26 +1047,19 @@ function inputCheckboxLabelClickHandler(e) {
   checkboxChangedHandler(inputCheckbox);
 }
 
-labelMouseLeaveHandler = (e) => {
-  const clickedLabel = e.target;
-  const relatedTarget = e.relatedTarget;
-  const associatedSelect = clickedLabel.nextElementSibling;
-  if (relatedTarget !== associatedSelect) {
-    timeOutHideSelect(associatedSelect);
-  }
-  //remove listener
-
-  if (!isMobile) {
-    clickedLabel.removeEventListener("mouseleave", labelMouseLeaveHandler);
-  }
-};
-
+/**
+ * Agrega listeners de mouseleave, y mouseenter en el select (multi-checkbox).
+ */
 const addMultiCheckboxListener = (multiCheckbox) => {
   multiCheckbox.addEventListener("mouseleave", multiCheckboxMouseLeaveHandler);
   multiCheckbox.addEventListener("mouseenter", multiCheckboxMouseEnterHandler);
 };
 
+/**
+ * Handler para el click del label del select (en realidad es un botón)
+ */
 const multiCheckboxLabelClickHandler = (e) => {
+  console.log("multiCheckboxLabelClickHandler");
   e.stopPropagation();
   /*hide scrollbar*/
   rowSelectsInnerWrapper.classList.add("hide-scrollbar");
@@ -1045,7 +1083,10 @@ const multiCheckboxLabelClickHandler = (e) => {
   horizontalScroll(false);
 };
 
-const multiCheckboxLabelKeydownHandler = (e) => {
+/**
+ * Handler para el evento keyDown del label (botón) del select
+ */
+const multiCheckboxLabelKeyDownHandler = (e) => {
   const isActive = e.target.classList.contains(
     "gx-label--multi-checkbox--active"
   );
@@ -1090,17 +1131,9 @@ const multiCheckboxLabelKeydownHandler = (e) => {
   }
 };
 
-/*mouseleave*/
-multiCheckboxMouseLeaveHandler = (e) => {
-  const multiCheckbox = e.target;
-  timeOutHideSelectRef = setTimeout(function () {
-    timeOutHideSelect(multiCheckbox);
-  }, timeBeforeCloseSelect);
-};
-multiCheckboxMouseEnterHandler = (e) => {
-  clearTimeout(timeOutHideSelectRef);
-};
-
+/**
+ * Cierra todos los selects, excepto el actual
+ */
 const closeOtherSelects = (currentSelect) => {
   multiCheckboxes.forEach((multiSelect) => {
     if (currentSelect !== multiSelect) {
@@ -1109,6 +1142,9 @@ const closeOtherSelects = (currentSelect) => {
   });
 };
 
+/**
+ * Handler que se ejecuta al hacer click en una pill
+ */
 const pillClickedHandler = (e) => {
   e.stopPropagation();
   const pillClicked = e.target;
@@ -1122,7 +1158,11 @@ const pillClickedHandler = (e) => {
   }, clearPillTransition);
 };
 
+/**
+ * Handler para la búsqueda por filtro de texto
+ */
 const filterInputHandler = (e) => {
+  console.log("filterInputHandler");
   hideElement(showMoreButtonEl);
   if (currentSelectedCategories.length > 0) {
     clearFilters();
@@ -1174,6 +1214,9 @@ const filterInputHandler = (e) => {
   updateShowingArticles();
 };
 
+/**
+ * Handler para el evento keyDown del filtro de texto. Se usa para detectar backspace, ctrl, cmd, y sugerir combinación de teclas al usuario para borrar el campo rápidamente.
+ */
 const filterKeyDownHandler = (e) => {
   /**
    * Suggest the user to hit ctrl + backspace to delete
@@ -1198,6 +1241,9 @@ const filterKeyDownHandler = (e) => {
   }
 };
 
+/**
+ * Se usa en combinación con filterKeyDownHandler
+ */
 const filterKeyUpHandler = () => {
   /**
    * Clear "hit ctrl + backspace to delete" suggestion if input value is empty
@@ -1208,6 +1254,9 @@ const filterKeyUpHandler = () => {
   }
 };
 
+/**
+ * Se usa para cambiar el estado de un checkbox (checked/unchecked). Remueve la categoría de 'currentSelectedCategories', y oculta o muestra el botón de 'clear' y la row de información, en función de si hay o no alguna categoría seleccionada.
+ */
 const checkboxChangedHandler = (checkbox) => {
   let checked = true;
   if (checkbox.checked) {
@@ -1237,6 +1286,9 @@ const checkboxChangedHandler = (checkbox) => {
   filterHandler();
 };
 
+/**
+ * Listener del evento KeyDown del checkbox. Se usa para navegar, seleccionar, o cerrar el select.
+ */
 const checkboxKeyDownHandler = (e) => {
   let sibling;
   const multiCheckbox = e.target.parentElement;
@@ -1273,6 +1325,9 @@ const checkboxKeyDownHandler = (e) => {
   }
 };
 
+/**
+ * Se usa para obtener el numero de cards visibles, y mostrar ese numero en la row de información "Mostrando X cards de tantas"
+ */
 const updateShowingArticles = () => {
   const visibleCards = articlesListEl.querySelectorAll(
     ":scope > *:not([hidden])"
@@ -1280,21 +1335,24 @@ const updateShowingArticles = () => {
   numberPlaceholderEl.innerText = visibleCards.length;
 };
 
-/* #clear handler */
+/**
+ * Handler del botón "clear filters"
+ */
 const clearHandler = async (e) => {
   if (e) {
     const button = e.target;
     hideElement(button);
   }
-  if (isMobile) {
-    rowActionsLeftColInnerWrapperEl.classList.add(
-      "row--actions__left-col-inner-wrapper--hidden"
-    );
-    await asyncClearPills();
-    rowActionsLeftColInnerWrapperEl.classList.remove(
-      "row--actions__left-col-inner-wrapper--hidden"
-    );
-  }
+  // Comento lo siguiente, porque creo que no se esta usando más.
+  // if (isMobile) {
+  //   rowActionsLeftColInnerWrapperEl.classList.add(
+  //     "row--actions__left-col-inner-wrapper--hidden"
+  //   );
+  //   await asyncClearPills();
+  //   rowActionsLeftColInnerWrapperEl.classList.remove(
+  //     "row--actions__left-col-inner-wrapper--hidden"
+  //   );
+  // }
   clearFilters();
   setSelectedCategories();
   hideAllCards();
@@ -1305,22 +1363,31 @@ const clearHandler = async (e) => {
   hideElement(rowInfoEl);
 };
 
+/**
+ * Handler del botón "View Results" (Sólo disponible en mobile).
+ */
 const viewResultsButtonHandler = () => {
   if (isMobile && burgerButton) {
     burgerButton.click();
   }
 };
 
-function delay(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
-async function asyncClearPills() {
-  await delay(250);
-}
+/**
+ * Delay que se usa con un await,
+ */
+// Comento lo siguiente, porque creo que no se esta usando más.
+// function delay(ms) {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, ms);
+//   });
+// }
+// async function asyncClearPills() {
+//   await delay(250);
+// }
 
-/* #filter handler */
+/**
+ * Maneja varias funciones relacionadas al filtrado.
+ */
 const filterHandler = () => {
   textFilterEl.value = "";
   hideAllCards();
@@ -1330,14 +1397,18 @@ const filterHandler = () => {
   renderPills();
 };
 
+/**
+ * Handler que maneja las funciones relacionadas al mostrado de tarjetas (botón "View more")
+ */
 const showMoreHandler = (e) => {
   e.stopPropagation();
   showMore();
   scrollDown();
 };
 
-// INIT //
-
+/*------------------------------------
+7.INIT (Todo lo relacionado al inicio)
+------------------------------------*/
 const detectMobile = () => {
   if (/Mobi/.test(navigator.userAgent)) {
     // This means the user is on a mobile device
@@ -1346,6 +1417,9 @@ const detectMobile = () => {
   }
 };
 
+/**
+ * Define los mensajes para mostrar en el footer, dependiendo del idioma.
+ */
 const defineFooterMessages = () => {
   footerMessages = {
     noMorePartners: {

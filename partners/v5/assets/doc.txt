@@ -5,6 +5,7 @@ INDEX:
 4.RENDERS
 5.HELPER FUNCTIONS
 6.HANDLERS
+7.INIT
 
 ----------------------
 1.VARIABLES
@@ -127,5 +128,31 @@ powerUpCards -> Mejora las cards: aplica un link a toda la card, y lo ejecuta en
 ----------------------
 6.HANDLERS
 ----------------------
+burgerHandler -> El handler de la burger (Solo para mobile)
+autoScrollMultiCheckboxContainer -> Se usa para posicionar un select cuando el usuario lo abre, si es que no esta enteramente visible
+inputCheckboxLabelClickHandler -> El handler que se ejecuta cuando el usuario selecciona una categoría.
+multiCheckboxLabelClickHandler -> Handler para el click del label del select (en realidad es un botón) 
+multiCheckboxLabelKeyDownHandler -> Handler para el evento keyDown del label (botón) del select 
+closeOtherSelects -> Cierra todos los selects, excepto el actual
+pillClickedHandler -> Handler que se ejecuta al hacer click en una pill
+filterInputHandler -> Handler para la búsqueda por filtro de texto
+filterKeyDownHandler -> Handler para el evento keyDown del filtro de texto. Se usa para detectar backspace, ctrl, cmd, y sugerir combinación de teclas al usuario para borrar el campo rápidamente.
+checkboxChangedHandler -> Se usa para cambiar el estado de un checkbox (checked/unchecked). Remueve la categoría de 'currentSelectedCategories', y oculta o muestra el botón de 'clear' y la row de información, en función de si hay o no alguna categoría seleccionada.
+checkboxKeyDownHandler -> Listener del evento KeyDown del checkbox. Se usa para navegar, seleccionar, o cerrar el select.
+updateShowingArticles -> Se usa para obtener el numero de cards visibles, y mostrar ese numero en la row de información "Mostrando X cards de tantas"
+clearHandler -> Handler del botón "clear filters"
+viewResultsButtonHandler -> Handler del botón "View Results" (Sólo disponible en mobile).
+filterHandler -> Maneja varias funciones relacionadas al filtrado. Se llama cuando: Se des-chequea una categoría, o cuando cambia el estado de un checkbox.
+showMoreHandler -> Handler que maneja las funciones relacionadas al mostrado de tarjetas (botón "View more")
 
-
+-------------------------------------
+7.INIT (Todo lo relacionado al inicio)
+-------------------------------------
+detectMobile -> Detecta si el dispositivo es o no mobile.
+defineFooterMessages -> Define los mensajes para mostrar en el footer, dependiendo del idioma.
+init -> Hace el 'bootstrap' de todo:
+    1.carga la cantidad de tarjetas a mostrar
+    2.carga el typeSingular
+    3.carga el typePlural   
+    etc...
+Init solo se ejecuta una vez.
