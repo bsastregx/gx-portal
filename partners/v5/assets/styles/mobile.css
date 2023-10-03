@@ -1,11 +1,14 @@
 /*---------------------------------------
-Gx Portal (viewport)
+Gx Portal tweaks
 ---------------------------------------*/
 :root {
   --viewportPadding: 26px;
 }
 body.gx-mobile-device .viewport {
   padding: 0 var(--viewportPadding) !important;
+}
+#closest-sector {
+  margin-top: 75px !important;
 }
 
 /*---------------------------------------

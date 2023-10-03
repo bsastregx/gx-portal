@@ -1,5 +1,6 @@
 /*
 INDEX:
+0.GX-PORTAL REFERENCES
 1.VARIABLES
 2.OTHER
 3.CSS VARIABLES
@@ -8,6 +9,11 @@ INDEX:
 6.HANDLERS
 7.INIT
 */
+
+/*----------------------
+0.GX-PORTAL REFERENCES
+----------------------*/
+let closestSector;
 
 /*----------------------
 1.VARIABLES
@@ -258,10 +264,12 @@ const renderHeader = () => {
   if (headerTitle && headerTitleWrapperEl) {
     if (isMobile) {
       headerTitleWrapperEl.innerHTML = burgerButton;
-      rowMain.appendChild(headerTitleWrapperEl);
-      rowMain.appendChild(topLine);
     }
     headerTitleWrapperEl.appendChild(headerTitle);
+    rowMain.appendChild(headerTitleWrapperEl);
+    if (isMobile) {
+      rowMain.appendChild(topLine);
+    }
   }
   textFilterLabelEl.appendChild(textFilterWrapper);
   if (!isMobile) {
@@ -791,6 +799,16 @@ const scrollDown = () => {
     articlesFooterEl.scrollIntoView({ behavior: "smooth", block: "end" });
   }, 150);
 };
+const scrollDownMobile = (e) => {
+  setTimeout(() => {
+    const body = document.querySelector("body");
+    const currentScrollY = window.scrollY;
+    window.scrollTo({
+      top: currentScrollY + e.clientY - 100,
+      behavior: "smooth",
+    });
+  }, 150);
+};
 
 /**
  * Deshabilita un elemento, agregando el atributo 'disabled'
@@ -1060,26 +1078,28 @@ labelMouseLeaveHandler = (e) => {
  * El handler de la burger (Solo para mobile)
  */
 function burgerHandler(button) {
-  button.classList.toggle("active");
-  rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
-  body.classList.toggle("filter-menu-opened");
-  topLine.classList.toggle("opacity-0");
-  bottomLine.classList.toggle("opacity-0");
-  //Change title 'Find' for 'Filters'
-  hideElement(headerTitle, true);
-  setTimeout(() => {
-    const filtersLabels = {
-      en: `Filters:`,
-      es: `Filtros:`,
-      pt: `Filtros:`,
-    };
-    if (body.classList.contains("filter-menu-opened")) {
-      headerTitle.innerText = filtersLabels[pageLang];
-    } else {
-      headerTitle.innerText = headerTitleLabels[pageLang];
-    }
-    showElement(headerTitle, true);
-  }, smallUiTransition);
+  //first position to top
+  console.log(closestSector);
+  // button.classList.toggle("active");
+  // rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
+  // body.classList.toggle("filter-menu-opened");
+  // topLine.classList.toggle("opacity-0");
+  // bottomLine.classList.toggle("opacity-0");
+  // //Change title 'Find' for 'Filters'
+  // hideElement(headerTitle, true);
+  // setTimeout(() => {
+  //   const filtersLabels = {
+  //     en: `Filters:`,
+  //     es: `Filtros:`,
+  //     pt: `Filtros:`,
+  //   };
+  //   if (body.classList.contains("filter-menu-opened")) {
+  //     headerTitle.innerText = filtersLabels[pageLang];
+  //   } else {
+  //     headerTitle.innerText = headerTitleLabels[pageLang];
+  //   }
+  //   showElement(headerTitle, true);
+  // }, smallUiTransition);
 }
 
 /**
@@ -1486,9 +1506,14 @@ const filterHandler = () => {
  * Handler que maneja las funciones relacionadas al mostrado de tarjetas (botón "View more")
  */
 const showMoreHandler = (e) => {
+  console.log(e);
   e.stopPropagation();
   showMore();
-  scrollDown();
+  if (!isMobile) {
+    scrollDown();
+  } else {
+    scrollDownMobile(e);
+  }
 };
 
 /*------------------------------------
@@ -1566,6 +1591,12 @@ const defineFooterMessages = () => {
   };
 };
 
+const tweakGxPortalPage = () => {
+  //add closest sector a unique class, to force custom margin
+  closestSector = filterHeaderEl.closest(".sector");
+  closestSector.setAttribute("id", "closest-sector");
+};
+
 /**
  * Bootstrap
  */
@@ -1596,6 +1627,7 @@ const init = () => {
     filter();
     showMore(); //must be called after renderCategories() and filter();
     powerUpCards(); //must be called after renderCategories
+    tweakGxPortalPage();
     if (filterHeaderEl) {
       /*This is needed to calculate the .gx-multi-checkbox-container's width*/
       filterHeaderEl.style.setProperty(
