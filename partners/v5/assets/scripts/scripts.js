@@ -27,6 +27,8 @@ let headerTitleLabels; //La descripción del titulo.
 let textFilterLabelEl; //El input de búsqueda por teclado | .gx-input--filter
 let textFilterEl; //El label del filtro de texto "Search by partner name". | .gx-label--filter
 let burgerButton; //El burger button que togglea el menu. Solo visible en mobile. | #burger
+let topLine; //(only mobile, when the filter is open)
+let bottomLine; //(only mobile, when the filter is open)
 //header > 2.row--selects
 let rowSelectsOuterWrapper; //El wrapper externo de los selects | .row--selects-outer-wrapper
 let rowSelectsInnerWrapper; //El wrapper interno de los selects | .row--selects-inner-wrapper
@@ -211,6 +213,14 @@ const renderHeader = () => {
   textFilterEl.addEventListener("input", filterInputHandler);
   textFilterEl.addEventListener("keydown", filterKeyDownHandler);
   textFilterEl.addEventListener("keyup", filterKeyUpHandler);
+
+  if (isMobile) {
+    topLine = document.createElement("hr");
+    topLine.classList.add("header-top-line", "opacity-0");
+    bottomLine = document.createElement("hr");
+    bottomLine.classList.add("header-bottom-line", "opacity-0");
+  }
+
   /*main row*/
   const rowMain = document.createElement("div");
   rowMain.classList.add("row", "row--main");
@@ -248,9 +258,10 @@ const renderHeader = () => {
   if (headerTitle && headerTitleWrapperEl) {
     if (isMobile) {
       headerTitleWrapperEl.innerHTML = burgerButton;
+      rowMain.appendChild(headerTitleWrapperEl);
+      rowMain.appendChild(topLine);
     }
     headerTitleWrapperEl.appendChild(headerTitle);
-    rowMain.appendChild(headerTitleWrapperEl);
   }
   textFilterLabelEl.appendChild(textFilterWrapper);
   if (!isMobile) {
@@ -1052,6 +1063,8 @@ function burgerHandler(button) {
   button.classList.toggle("active");
   rowSelectsOuterWrapper.classList.toggle("row--selects-outer-wrapper--hidden");
   body.classList.toggle("filter-menu-opened");
+  topLine.classList.toggle("opacity-0");
+  bottomLine.classList.toggle("opacity-0");
   //Change title 'Find' for 'Filters'
   hideElement(headerTitle, true);
   setTimeout(() => {

@@ -19,4 +19,5 @@ Ine (desktop)
 28. Pronto
 
 Ine (mobile)
-
+29. Pronto
+30. Pronto

@@ -1,4 +1,14 @@
 /*---------------------------------------
+Gx Portal (viewport)
+---------------------------------------*/
+:root {
+  --viewportPadding: 26px;
+}
+body.gx-mobile-device .viewport {
+  padding: 0 var(--viewportPadding) !important;
+}
+
+/*---------------------------------------
 Body overlay (only when filter is opened)
 ---------------------------------------*/
 body.gx-mobile-device.filter-menu-opened:before {
@@ -58,6 +68,7 @@ Burger menu (copied from https://unanimo.design )
 .burger {
   position: relative;
   display: none;
+  top: 5px;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -132,6 +143,22 @@ Burger menu (copied from https://unanimo.design )
   width: 24px;
 }
 
+/*------------------
+hr line separators
+------------------*/
+
+#header-filter .header-top-line,
+#header-filter .header-bottom-line {
+  margin: 0;
+  border-top: 1px solid var(--gx-color-neutral--300);
+  border-bottom: 0;
+  position: relative;
+  z-index: 10;
+  width: 98vw;
+  left: calc((var(--viewportPadding) * -1) + 1vw);
+  transition: opacity var(--gx-small-transition);
+  opacity: 1;
+}
 /*------------------
 Row Selects
 ------------------*/
