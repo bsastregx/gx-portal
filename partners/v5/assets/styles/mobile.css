@@ -199,7 +199,7 @@ body.gx-mobile-device .gx-label--multi-checkbox--active {
 body.gx-mobile-device .gx-label--multi-checkbox:focus {
   border-color: var(--gx-color-neutral--300) !important;
 }
-.gx-multi-checkbox input[type="checkbox"]:focus + label {
+body.gx-mobile-device .gx-multi-checkbox input[type="checkbox"]:focus + label {
   border-color: transparent;
 }
 
