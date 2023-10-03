@@ -544,10 +544,10 @@ Grid
 }
 .article-container--actionable > article {
   transform: scale(1);
-  transition: 50ms transform;
+  transition: 0 transform;
 }
 .article-container--actionable:hover > article {
-  transform: scale(1.01);
+  transform: scale(1.015);
 }
 .article-container--actionable:focus > article {
   border-color: var(--gx-color-black);
@@ -571,6 +571,18 @@ Grid
   -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.13);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.13);
+}
+.articles article .title {
+  height: auto;
+  margin-bottom: 8px;
+}
+.articles article .card-categories-list {
+  font-size: 14px;
+  color: var(--gx-color-neutral--600);
+  font-family: var(--font-family-body);
+  order: 3;
+  line-height: 1.6em;
+  margin-bottom: 64px;
 }
 .articles .membership-label {
   display: inline-block;

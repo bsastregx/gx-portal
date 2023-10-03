@@ -168,14 +168,15 @@ const renderHeader = () => {
   headerTitle.innerText = headerTitleLabels[pageLang];
 
   /*text filter label*/
-  const textFilterLabels = {
-    en: `Search by ${typeSingular} name:`,
-    es: `Buscar por nombre de ${typeSingular}:`,
-    pt: `Buscar por nome do ${typeSingular}:`,
-  };
+  // const textFilterLabels = {
+  //   en: `Search by ${typeSingular} name:`,
+  //   es: `Buscar por nombre de ${typeSingular}:`,
+  //   pt: `Buscar por nome do ${typeSingular}:`,
+  // };
   textFilterLabelEl = document.createElement("label");
   textFilterLabelEl.classList.add("gx-label", "gx-label--filter");
-  textFilterLabelEl.innerText = textFilterLabels[pageLang];
+  //textFilterLabelEl.innerText = textFilterLabels[pageLang];
+
   /*text wrapper*/
   textFilterWrapper = document.createElement("div");
   textFilterWrapper.classList.add("gx-input--filter-wrapper");
@@ -196,9 +197,14 @@ const renderHeader = () => {
   );
   clearInputSuggestionEl.innerText = clearInputSuggestionLabels[pageLang];
   /*text filter*/
+  const placeHolder = {
+    en: `Search by ${typeSingular} name`,
+    es: `Buscar por nombre de ${typeSingular}`,
+    pt: `Buscar por nome do ${typeSingular}`,
+  };
   textFilterEl = document.createElement("input");
   textFilterEl.setAttribute("type", "text");
-  textFilterEl.setAttribute("placeholder", "AGL solutions");
+  textFilterEl.setAttribute("placeholder", placeHolder[pageLang]);
   textFilterEl.classList.add("gx-input", "gx-input--filter");
   textFilterEl.addEventListener("input", filterInputHandler);
   textFilterEl.addEventListener("keydown", filterKeyDownHandler);
@@ -970,7 +976,26 @@ const powerUpCards = () => {
         articleHeader.appendChild(membershipLabelEl);
       }
     }
+    renderCardCategories(article);
   });
+};
+
+const renderCardCategories = (card) => {
+  let catsNamesArray = [];
+  const catsIds = getArticleCats(card);
+  catsIds.forEach((catsId) => {
+    const foundCat = catsMap.find((mapCat) => {
+      return mapCat.id === catsId;
+    });
+    if (foundCat) {
+      catsNamesArray.push(foundCat.label);
+    }
+  });
+  const catsNamesParagraph = document.createElement("p");
+  catsNamesParagraph.classList.add("card-categories-list");
+  catsNamesParagraph.innerText = catsNamesArray.join(", ");
+  const cardTitle = card.querySelector(".title");
+  cardTitle.insertAdjacentElement("afterend", catsNamesParagraph);
 };
 
 /*----------------------
