@@ -4,6 +4,9 @@ Gx Portal tweaks
 :root {
   --viewportPadding: 26px;
 }
+body.gx-mobile-device {
+  --gx-filter-lateral-padding: 0;
+}
 body.gx-mobile-device .viewport {
   padding: 0 var(--viewportPadding) !important;
 }
@@ -11,6 +14,11 @@ body.gx-mobile-device #closest-sector {
   padding-top: 35px !important;
   margin-top: 35px !important;
 }
+body.gx-mobile-device > nav {
+  transition: 200ms transform;
+  transform: translateY(0) !important;
+}
+
 /* body.gx-mobile-device #closest-sector.fixed {
   position: fixed;
   z-index: 20;
@@ -21,6 +29,12 @@ body.gx-mobile-device #closest-sector {
 /*---------------------------------------
 Body fixed (Menu is opened)
 ----------------------------------------*/
+body.gx-mobile-device.fixed > nav {
+  display: none;
+}
+body.gx-mobile-device > nav {
+  transform: translateY(-100%) !important;
+}
 body.gx-mobile-device .fixed-overlay {
   position: fixed;
   z-index: 10;

@@ -878,8 +878,10 @@ const showElement = (elementRef, transition = false) => {
  * Helper function that evaluates if everything that is needed to run the filter is met. Returns a boolean
  */
 const isFilterReady = () => {
-  articlesListEl = document.querySelector("ul.articles");
+  articlesListsArray = document.querySelectorAll("ul.articles");
+  articlesListEl = articlesListsArray[gxFilterData.conf.listIndex];
   if (articlesListEl) {
+    articlesListEl.classList.add("articles-filter-list");
     allArticles = Array.from(articlesListEl.querySelectorAll(":scope > li"));
   }
   return gxFilterData.cats.length && allArticles.length > 0;

@@ -27,6 +27,7 @@
   --gx-header-filters-gap: 16px;
   --gx-horizontal-padding: 5px;
   --gx-button-sm-vertical-padding: 6px;
+  --gx-filter-lateral-padding: 36px;
 }
 
 /*------------------
@@ -138,6 +139,7 @@ Header
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  padding: 0 var(--gx-filter-lateral-padding);
 }
 #header-filter .row {
   display: flex;
@@ -574,6 +576,10 @@ Grid
   grid-auto-rows: 1fr;
   gap: 20px;
 }
+/*custom class added with javascript*/
+.articles.articles-filter-list {
+  padding: 0 var(--gx-filter-lateral-padding);
+}
 /*article*/
 .articles article {
   width: unset;
@@ -672,22 +678,4 @@ Grid
     /* background-color: rgb(255, 187, 127); */
     grid-template-columns: repeat(1, 1fr);
   }
-}
-
-/*--- Testing Styles ---*/
-
-.paragraph {
-  font-size: 14px;
-  line-height: 1.6em;
-  font-weight: 500;
-  font-family: Graphik;
-  margin-bottom: 16px !important;
-  order: 3;
-}
-.sector {
-  margin: 36px auto 36px auto;
-}
-.viewport {
-  display: block !important;
-  padding: 0 36px;
 }

@@ -1,0 +1,32 @@
+- revisar por que queda info 'Showing 9 of 42 total partners' cuando esta oculto.
+- permitir el cambio de select, estando parado en un item (izquierda/derecha).
+- ocultar la barrita vertical mientras se esta abriendo el select.
+
+Mauro:
+- Ocultar categorías vacías.
+
+Ine (desktop)
+10. Lo veo muy sutil, casi no se nota. La idea del estilo del focus es que permita identificar fácilmente el elemento activo.
+15. No se como solucionar esto ahora.
+16. Pronto
+17. Pronto
+19. Pronto
+20. Queda para charlar
+24. Pronto
+25. Pronto
+26. Pronto
+27. Pronto
+28. Pronto
+
+Ine (mobile)
+29. Pronto
+30. Pronto
+
+31. Pronto la de arriba, la de abajo tiene un problema, y no queda bien ademas, si el botón de clear no esta visible, ya que queda con mucho aire superior. Lo veo luego.
+
+32. No me parece que quede bien ninguna de las dos cosas: La negrita hace que el texto se ensanche un poco, y ese movimiento no queda bien para mi. Luego, Al quitar la linea, queda demasiado espacio debajo del titulo de la categoría (mi opinión).
+
+33.Lo veo funcionando bien.
+
+34. Quedo corregido. Si hay algo para mostrar se habilita, sino queda deshabilitado. De todas formas, en esta version, siempre lo vas a ver habilitado, porque solo estamos mostrando ahora las categorías que tienen alguna card asociada. Osea, siempre hay resultados ahora. 
+

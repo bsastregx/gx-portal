@@ -17,3 +17,18 @@ body.gx-mobile-device .dummy-header {
 body.gx-mobile-device .dummy-header {
   height: 500px;
 }
+.paragraph {
+  font-size: 14px;
+  line-height: 1.6em;
+  font-weight: 500;
+  font-family: Graphik;
+  margin-bottom: 16px !important;
+  order: 3;
+}
+.sector {
+  margin: 36px auto 36px auto;
+}
+.viewport {
+  display: block !important;
+  padding: 0 36px;
+}
