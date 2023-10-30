@@ -1630,6 +1630,12 @@ const detectMobile = () => {
     // This means the user is on a mobile device
     isMobile = true;
     body.classList.add("gx-mobile-device");
+    //Get navigation bar height (this is used to position the "View Result" button accordingly)
+    const windowInnerHeight = window.innerHeight;
+    html.style.setProperty(
+      "--gx-mobile-inner-height",
+      `${windowInnerHeight}px`
+    );
   }
 };
 

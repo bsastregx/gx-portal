@@ -50,10 +50,15 @@ body.gx-mobile-device.fixed .gx-label--filter {
 body.gx-mobile-device.fixed #header-filter {
   position: fixed;
   z-index: 99;
-  top: 35px;
+  /*top: 35px;*/
   left: 26px;
   width: calc(100vw - 52px);
-  height: calc(100vh - 70px);
+  /*height: calc(100vh - 70px);*/
+  height: var(--gx-mobile-inner-height);
+  top: 0;
+  padding-top: 26px;
+  padding-bottom: 13px;
+  box-sizing: border-box;
   display: block;
 }
 body.gx-mobile-device.fixed #header-filter .row--main {
