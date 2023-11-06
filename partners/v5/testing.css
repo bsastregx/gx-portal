@@ -32,3 +32,9 @@ body.gx-mobile-device .dummy-header {
   display: block !important;
   /*padding: 0 36px;*/
 }
+.sector.I128439 {
+  /*simulate gx-portal sector lateral padding*/
+  /* padding-inline-start: 32px;
+  padding-inline-end: 32px; */
+  box-sizing: border-box;
+}

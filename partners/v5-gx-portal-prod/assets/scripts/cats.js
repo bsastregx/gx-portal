@@ -15,7 +15,7 @@ const gxFilterData = {
     noResultsImgSrc:
       "https://gx-portal-partners-prod.netlify.app/images/no-results-illustration.svg",
     hideEmptyCats: true,
-    listIndex: 8,
+    listIndex: 0,
   },
   filterTitle: {
     en: "Find a partner",

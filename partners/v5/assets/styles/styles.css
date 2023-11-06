@@ -140,6 +140,8 @@ Header
   flex-direction: column;
   align-items: stretch;
   padding: 0 var(--gx-filter-lateral-padding);
+  box-sizing: border-box;
+  width: 100%;
 }
 #header-filter .row {
   display: flex;

@@ -1,11 +1,11 @@
 /*---------------------------------------
 Gx Portal tweaks
 ---------------------------------------*/
-:root {
-  --viewportPadding: 26px;
+body.gx-mobile-device {
+  --gx-filter-lateral-padding: 24px;
 }
 body.gx-mobile-device .viewport {
-  padding: 0 var(--viewportPadding) !important;
+  /* padding: 0 var(--viewportPadding) !important; testing */
 }
 body.gx-mobile-device #closest-sector {
   padding-top: 35px !important;
@@ -61,6 +61,8 @@ body.gx-mobile-device.fixed #header-filter {
   top: 0;
   padding-top: 26px;
   padding-bottom: 13px;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
   display: block;
 }
@@ -223,13 +225,18 @@ hr line separators
   position: relative;
   z-index: 10;
   width: 98vw;
-  left: calc((var(--viewportPadding) * -1) + 1vw);
+  left: calc((var(--gx-filter-lateral-padding) * -1) + 1vw);
   transition: opacity var(--gx-small-transition);
   opacity: 1;
 }
 /*------------------
 Row Selects
 ------------------*/
+
+body.gx-mobile-device #header-filters::-webkit-scrollbar-thumb,
+body.gx-mobile-device #header-filters::-webkit-scrollbar-track {
+  background: transparent;
+}
 
 body.gx-mobile-device #header-filters {
   padding: 0;
@@ -257,8 +264,8 @@ body.gx-mobile-device .gx-multi-checkbox > label:hover {
 }
 body.gx-mobile-device #header-filter .row--selects-inner-wrapper .row--selects {
   padding-bottom: 0 !important;
-  padding-right: 4px;
-  padding-left: 4px;
+  /* padding-right: 4px;
+  padding-left: 4px; */
 }
 body.gx-mobile-device #header-filter .row--selects-inner-wrapper::after {
   display: none;
@@ -288,7 +295,7 @@ body.gx-mobile-device .gx-multi-checkbox-container {
   width: 100%;
 }
 body.gx-mobile-device .gx-multi-checkbox > label {
-  padding: 8px;
+  padding: 8px 8px 8px 2px;
 }
 body.gx-mobile-device .gx-multi-checkbox > label:first-of-type {
   /*padding-top: 16px;*/

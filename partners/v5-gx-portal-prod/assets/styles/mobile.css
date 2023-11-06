@@ -32,14 +32,15 @@ Body fixed (Menu is opened)
 body.gx-mobile-device.fixed > nav {
   display: none;
 }
-body.gx-mobile-device > nav {
+body.gx-mobile-device.fixed > nav {
   transform: translateY(-100%) !important;
 }
 body.gx-mobile-device .fixed-overlay {
   position: fixed;
   z-index: 10;
   width: 100vw;
-  height: 100vh;
+  /*height: 100vh;*/
+  height: var(--gx-mobile-inner-height);
   background-color: #fff;
   left: 0;
   top: 0;
