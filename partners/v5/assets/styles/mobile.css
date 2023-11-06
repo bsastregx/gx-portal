@@ -3,13 +3,14 @@ Gx Portal tweaks
 ---------------------------------------*/
 body.gx-mobile-device {
   --gx-filter-lateral-padding: 24px;
+  --gx-filter-mobile-closest-sector-padding-top: 32px;
 }
 body.gx-mobile-device .viewport {
   /* padding: 0 var(--viewportPadding) !important; testing */
 }
 body.gx-mobile-device #closest-sector {
-  padding-top: 35px !important;
-  margin-top: 35px !important;
+  padding-top: var(--gx-filter-mobile-closest-sector-padding-top) !important;
+  margin-top: var(--gx-filter-mobile-closest-sector-padding-top) !important;
 }
 /* body.gx-mobile-device #closest-sector.fixed {
   position: fixed;
@@ -53,13 +54,11 @@ body.gx-mobile-device.fixed .gx-label--filter {
 body.gx-mobile-device.fixed #header-filter {
   position: fixed;
   z-index: 99;
-  /*top: 35px;*/
-  left: 26px;
-  width: calc(100vw - 52px);
-  /*height: calc(100vh - 70px);*/
+  left: var(--gx-filter-lateral-padding);
+  width: calc(100vw - calc(var(--gx-filter-lateral-padding) * 2));
   height: var(--gx-mobile-inner-height);
   top: 0;
-  padding-top: 26px;
+  padding-top: var(--gx-filter-mobile-closest-sector-padding-top);
   padding-bottom: 13px;
   padding-left: 0;
   padding-right: 0;
@@ -225,7 +224,7 @@ hr line separators
   position: relative;
   z-index: 10;
   width: 98vw;
-  left: calc((var(--gx-filter-lateral-padding) * -1) + 1vw);
+  left: calc((var(--gx-filter-lateral-padding) * -1));
   transition: opacity var(--gx-small-transition);
   opacity: 1;
 }

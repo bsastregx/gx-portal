@@ -652,9 +652,6 @@ Grid
 /*--- Responsive ---*/
 
 @media only screen and (min-width: 1440px) {
-  .articles {
-    /* background-color: aquamarine; */
-  }
 }
 @media only screen and (max-width: 992px) {
   .row--main {
@@ -666,18 +663,11 @@ Grid
     align-items: flex-start;
   }
   .articles {
-    /* background-color: rgb(249, 255, 127); */
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (max-width: 640px) {
-  #closest-sector {
-    /*applied also on mobile styles*/
-    padding-top: 35px !important;
-    margin-top: 35px !important;
-  }
   .articles {
-    /* background-color: rgb(255, 187, 127); */
     grid-template-columns: repeat(1, 1fr);
   }
 }
