@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const gx30 = {
     url: {
-      en: "https://frontend.event.genexus.com/frontend.myregister.aspx",
-      es: "https://frontend.event.genexus.com/frontend.myregister.aspx",
-      pt: "https://frontend.event.genexus.com/frontend.myregister.aspx",
+      en: "https://www.genexus.com/en/meetings/meeting2023",
+      es: "https://www.genexus.com/es/encuentros/encuentro2023",
+      pt: "https://www.genexus.com/pt/encontros/encontro2023",
     },
     title: {
       en: "¡Reserve your spot at GX30, GeneXus Meeting!",
