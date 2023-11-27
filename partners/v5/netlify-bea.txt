@@ -1,0 +1,10 @@
+<!-- Netlify files, owned by Bea (bsilva@webdev-it.com) -->
+<link rel="stylesheet" href="https://friendly-speculoos-203099.netlify.app/styles/styles.css"/>
+<link rel="stylesheet" href="https://friendly-speculoos-203099.netlify.app/styles/mobile.css"/>
+<script src="https://friendly-speculoos-203099.netlify.app/scripts/cats.js" defer></script>
+<script src="https://friendly-speculoos-203099.netlify.app/scripts/scripts.js" defer></script>
+
+---
+
+bsilva@webdev-it.com
+vale24mateo08
