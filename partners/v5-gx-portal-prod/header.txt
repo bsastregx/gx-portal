@@ -1,5 +1,0 @@
-<!-- Netlify files, owned by Bruno (bsastre@genexus.com) -->
-<link rel="stylesheet" href="https://gx-portal-partners-prod.netlify.app/styles/styles.css"/>
-<link rel="stylesheet" href="https://gx-portal-partners-prod.netlify.app/styles/mobile.css"/>
-<script src="https://gx-portal-partners-prod.netlify.app/scripts/cats.js" defer></script>
-<script src="https://gx-portal-partners-prod.netlify.app/scripts/scripts.js" defer></script>

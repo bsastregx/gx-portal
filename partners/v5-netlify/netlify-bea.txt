@@ -1,0 +1,12 @@
+<!-- Partner categories (gx-partners-categories.netlify.app/cats.js), owned by Beatriz Silva (bsilva@webdev-it.com) -->
+<!-- Rest of the files (filter files) owned by Bruno Sastre (bsastre@genexus.com) -->
+<link rel="stylesheet" href="https://gx-definitive-filter.netlify.app/assets/styles/styles.min.css"/>
+<link rel="stylesheet" href="https://gx-definitive-filter.netlify.app/assets/styles/mobile.min.css"/>
+<script src="https://gx-partners-categories.netlify.app/cats.js" defer></script>
+<script src="https://gx-definitive-filter.netlify.app/assets/scripts/scripts.min.js" defer></script>
+
+
+---
+
+bsilva@webdev-it.com
+vale24mateo08

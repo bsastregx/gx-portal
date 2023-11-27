@@ -13,7 +13,7 @@ const gxFilterData = {
     cardsPerLoad: 9,
     desktopLgWidth: 1138,
     noResultsImgSrc:
-      "https://gx-portal-partners-prod.netlify.app/images/no-results-illustration.svg",
+      "https://gx-definitive-filter.netlify.app/assets/images/no-results-illustration.svg",
     hideEmptyCats: true,
     listIndex: 0,
   },
