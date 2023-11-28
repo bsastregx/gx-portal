@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "https://www.genexus.com/pt/encontros/encontro2023",
     },
     title: {
-      en: "¡Reserve your spot at GX30, GeneXus Meeting!",
-      es: "¡Reserva tu lugar en el GX30, Encuentro GeneXus!",
-      pt: "¡Reserve o seu lugar no GX30, Encontro GeneXus!",
+      en: "¡Follow the GeneXus Encounter via streaming!",
+      es: "¡Sigue el Encuentro GeneXus por streaming!",
+      pt: "¡Acompanhe o Encontro GeneXus por streaming!",
     },
     description: {
-      en: "Register for free now.",
-      es: "Regístrate gratis ya.",
-      pt: "Registre-se gratuitamente agora.",
+      en: "GeneXus.com/GX30",
+      es: "GeneXus.com/GX30",
+      pt: "GeneXus.com/GX30",
     },
   };
 
