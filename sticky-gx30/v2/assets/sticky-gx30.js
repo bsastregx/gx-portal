@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "https://www.genexus.com/pt/encontros/encontro2023",
     },
     title: {
-      en: "¡Follow the GeneXus Encounter via streaming!",
-      es: "¡Sigue el Encuentro GeneXus por streaming!",
-      pt: "¡Acompanhe o Encontro GeneXus por streaming!",
+      en: "¡Relive the Meeting!",
+      es: "¡Revive en Encuentro!",
+      pt: "¡Reviva a Reunião!",
     },
     description: {
-      en: "GeneXus.com/GX30",
-      es: "GeneXus.com/GX30",
-      pt: "GeneXus.com/GX30",
+      en: "All online talks.",
+      es: "Todas las charlas online.",
+      pt: "Todas as palestras online",
     },
   };
 
