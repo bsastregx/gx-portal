@@ -36,14 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
       pt: "https://www.genexus.com/pt/encontros/encontro2023",
     },
     title: {
-      en: "¡Relive the Meeting!",
-      es: "¡Revive en Encuentro!",
-      pt: "¡Reviva a Reunião!",
+      en: "¡Relive the meeting!",
+      es: "¡Revive el encuentro!",
+      pt: "¡Reviva o encontro!",
     },
     description: {
       en: "All online talks.",
       es: "Todas las charlas online.",
-      pt: "Todas as palestras online",
+      pt: "Todas as palestras online.",
     },
   };
 
