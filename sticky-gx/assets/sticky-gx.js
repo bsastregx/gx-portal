@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /*local url*/
   //const baseUrlAssets = "./assets/";
   /*netlify url*/
-  const baseUrlAssets = "https://gx30-sticky-banner.netlify.app/assets/";
+  const baseUrlAssets = "https://gx-sticky-banner.netlify.app/assets/";
   let pageLang = document.documentElement.lang;
   if (pageLang.includes("en")) {
     pageLang = "en";
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pageLang = "en";
   }
 
-  const gx30 = {
+  const gx = {
     url: {
       en: "https://www.genexus.com/en/meetings/meeting2023",
       es: "https://www.genexus.com/es/encuentros/encuentro2023",
@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   /*=== Styles ====*/
-  const gx30StyleTag = document.createElement("style");
-  gx30StyleTag.innerHTML = `
+  const gxStyleTag = document.createElement("style");
+  gxStyleTag.innerHTML = `
     @font-face {
       font-family: "Graphik Semibold";
       src: url(${baseUrlAssets}graphik-semibold.woff);
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       top: 16px;
     }
     /*--- Sticky banner ---*/
-    #sticky-gx30 {
+    #sticky-gx {
       text-decoration: none;
       color: #111111;
       position: fixed;
@@ -80,15 +80,15 @@ document.addEventListener("DOMContentLoaded", function () {
     
       --main-padding: 16px;
     }
-    #sticky-gx30:focus {
+    #sticky-gx:focus {
       outline:none;
     }
-    #sticky-gx30:focus .sticky-gx30__article{
+    #sticky-gx:focus .sticky-gx__article{
       border-color: #0F62FE;
       outline: 1px solid #0F62FE;
     }
     /*article*/
-    #sticky-gx30 .sticky-gx30__article {
+    #sticky-gx .sticky-gx__article {
       background-color: #fff;
       border: 1px solid #111111;
       border-radius: 8px;
@@ -96,24 +96,24 @@ document.addEventListener("DOMContentLoaded", function () {
       padding: 8px;
       font-family: "Rubik Light", "Rubik Regular", Arial, sans-serif;
     }
-    #sticky-gx30:hover {
+    #sticky-gx:hover {
       transform: scale(1.025);
     }
-    #sticky-gx30.sticky-gx30--hidden {
+    #sticky-gx.sticky-gx--hidden {
       opacity: 0;
       left: 0;
     }
     /*header*/
-    #sticky-gx30 .sticky-gx30__header {
+    #sticky-gx .sticky-gx__header {
       display: flex;
       flex-direction: column;
     }
     /*header top*/
-    #sticky-gx30 .sticky-gx30__header-top {
+    #sticky-gx .sticky-gx__header-top {
       display: flex;
       justify-content: end;
     }
-    #sticky-gx30 .sticky-gx30__close {
+    #sticky-gx .sticky-gx__close {
       background-color: transparent;
       border: 0;
       font-weight: bold;
@@ -122,26 +122,26 @@ document.addEventListener("DOMContentLoaded", function () {
       padding:0;
       line-height:0;
     }
-    #sticky-gx30 .sticky-gx30__close:hover {
+    #sticky-gx .sticky-gx__close:hover {
       transform: scale(1.25);
     }
-    #sticky-gx30 .sticky-gx30__close:focus {
+    #sticky-gx .sticky-gx__close:focus {
       outline: none;
     }
     /*header bottom*/
-    #sticky-gx30 .sticky-gx30__header-bottom {
+    #sticky-gx .sticky-gx__header-bottom {
       padding: 0 var(--main-padding);
     }
-    #sticky-gx30 .sticky-gx30__logo {
+    #sticky-gx .sticky-gx__logo {
       width: 80px;
       height: auto;
     }
     /*main*/
-    #sticky-gx30 .sticky-gx30__main {
+    #sticky-gx .sticky-gx__main {
       padding: var(--main-padding);
     }
     /*title*/
-    #sticky-gx30 .sticky-gx30__title {
+    #sticky-gx .sticky-gx__title {
       font-size:20px;
       line-height:1.3em;
       font-family: "Graphik Semibold", Arial, sans-serif;
@@ -149,78 +149,78 @@ document.addEventListener("DOMContentLoaded", function () {
       margin-block-end: 8px;
     }
     /*paragraph*/
-    #sticky-gx30 .sticky-gx30__caption {
+    #sticky-gx .sticky-gx__caption {
       font-size: 17px;
       font-weight: 300;
       line-height:1.425em;
       font-family: 'Rubik', sans-serif;
     }
     /*--- Mobile version ---*/
-    #sticky-gx30.is-mobile {
+    #sticky-gx.is-mobile {
       max-width: calc(100% - 52px);
     }
-    #sticky-gx30.is-mobile .sticky-gx30__article {
+    #sticky-gx.is-mobile .sticky-gx__article {
       padding: 0;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__header {
+    #sticky-gx.is-mobile .sticky-gx__header {
       padding: var(--main-padding) var(--main-padding) 0 var(--main-padding);
       flex-direction: row-reverse;
       justify-content: space-between;
       align-items: center;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__header-bottom {
+    #sticky-gx.is-mobile .sticky-gx__header-bottom {
       display: flex;
       align-items: center;
       padding: 0;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__logo {
+    #sticky-gx.is-mobile .sticky-gx__logo {
       width: 40px;
       height: auto;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__close {
+    #sticky-gx.is-mobile .sticky-gx__close {
       position: relative;
       top: -13px;
       right: -8px;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__footer {
+    #sticky-gx.is-mobile .sticky-gx__footer {
       display: flex;
       align-items: end;
     }
-    #sticky-gx30.is-mobile .sticky-gx30__caption {
+    #sticky-gx.is-mobile .sticky-gx__caption {
       margin: 0;
     }
     
   `;
-  document.head.appendChild(gx30StyleTag);
+  document.head.appendChild(gxStyleTag);
 
   /*=== HTML ====*/
-  const gx30Html = `
-      <article class="sticky-gx30__article">
-        <header class="sticky-gx30__header">
-          <div class="sticky-gx30__header-top">
-            <button class="sticky-gx30__close"><img
-            class="sticky-gx30__close-img"
+  const gxHtml = `
+      <article class="sticky-gx__article">
+        <header class="sticky-gx__header">
+          <div class="sticky-gx__header-top">
+            <button class="sticky-gx__close"><img
+            class="sticky-gx__close-img"
             src="${baseUrlAssets}close.svg"
-            alt="GX30 logo"
+            alt="GX logo"
           /></button>
           </div>
-          <div class="sticky-gx30__header-bottom">
+          <div class="sticky-gx__header-bottom">
             <img
-              class="sticky-gx30__logo"
+              class="sticky-gx__logo"
               src="${baseUrlAssets}gx-30-squared.svg"
-              alt="GX30 logo"
+              alt="GX logo"
             />
           </div>
         </header>
-        <main class="sticky-gx30__main">
-          <h1 class="sticky-gx30__title">${gx30.title[pageLang]}</h1>
-          <footer class="sticky-gx30__footer">
-            <div class="sticky-gx30__footer-top">
-              <p class="sticky-gx30__caption">${gx30.description[pageLang]}</p>
+        <main class="sticky-gx__main">
+          <h1 class="sticky-gx__title">${gx.title[pageLang]}</h1>
+          <footer class="sticky-gx__footer">
+            <div class="sticky-gx__footer-top">
+              <p class="sticky-gx__caption">${gx.description[pageLang]}</p>
             </div>
-            <div class="sticky-gx30__footer-bottom">
+            <div class="sticky-gx__footer-bottom">
               <img
-                class="sticky-gx30__arrow"
+                class="sticky-gx__arrow"
                 src="${baseUrlAssets}arrow.svg"
                 alt="arrow icon"
               />
@@ -232,24 +232,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*=== Scripts ====*/
   const stickyLink = document.createElement("a");
-  stickyLink.setAttribute("id", "sticky-gx30");
-  stickyLink.classList.add("sticky-gx30--hidden", isMobileClass);
+  stickyLink.setAttribute("id", "sticky-gx");
+  stickyLink.classList.add("sticky-gx--hidden", isMobileClass);
   stickyLink.setAttribute("target", "_blank");
-  stickyLink.setAttribute("href", gx30.url[pageLang]);
+  stickyLink.setAttribute("href", gx.url[pageLang]);
   document.body.appendChild(stickyLink);
-  stickyLink.innerHTML = gx30Html;
+  stickyLink.innerHTML = gxHtml;
   setTimeout(() => {
-    stickyLink.classList.remove("sticky-gx30--hidden");
+    stickyLink.classList.remove("sticky-gx--hidden");
   }, 1000);
 
   const removeStickyBanner = () => {
-    stickyLink.classList.add("sticky-gx30--hidden");
+    stickyLink.classList.add("sticky-gx--hidden");
     setTimeout(() => {
       stickyLink.remove();
     }, 1000);
   };
 
-  const closeButton = document.querySelector(".sticky-gx30__close");
+  const closeButton = document.querySelector(".sticky-gx__close");
   if (closeButton) {
     closeButton.addEventListener("click", function (e) {
       e.preventDefault();
