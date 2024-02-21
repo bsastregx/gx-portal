@@ -14,6 +14,11 @@ let rowSelectsInnerWrapper = this.document.querySelector(
   ".row--selects-inner-wrapper"
 );
 
+//The category inputs
+let categoryCheckboxes = Array.from(
+  this.document.querySelectorAll(".gx-category-checkbox")
+);
+
 //Event that is fired when the mouse leaves the button (.gx-label--multi-checkbox) that opens the select.
 let labelMouseLeaveHandler;
 
@@ -39,6 +44,9 @@ let multiCheckboxes = Array.from(
 /************************
 Variables
 ************************/
+
+//The current clicked category id, used for the "categoryToggled" custom event.
+let categoryClickedId = undefined;
 
 //Time used for the transition that animates the height of the select (multi-checkbox).
 const selectHeightTransition = 150;
@@ -163,6 +171,19 @@ labelMouseLeaveHandler = (e) => {
     timeOutHideSelect(associatedSelect);
   }
 };
+
+categoryCheckboxes.forEach((categoryCheckbox) => {
+  categoryCheckbox.addEventListener("click", (e) => {
+    const categoryToggled = new CustomEvent("categoryToggled", {
+      detail: {
+        categoryId: e.target.id,
+      },
+      bubbles: true, // Does your event bubble?
+      cancelable: true, // Is your event cancelable?
+    });
+    categoryCheckbox.dispatchEvent(categoryToggled);
+  });
+});
 
 /************************
 Functions
@@ -309,6 +330,28 @@ const horizontalScrollWheelHandler = (e) => {
   e.preventDefault();
   // Adjust the scrollLeft property based on the wheel delta
   rowSelectsInnerWrapper.scrollLeft += e.deltaY;
+};
+
+/**
+ * It deselects all categories
+ */
+const deselectAllCats = () => {
+  categoryCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+};
+
+/**
+ * It returns all the selected items ids
+ */
+const getSelectedIds = () => {
+  const selectedItemsIds = [];
+  categoryCheckboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      selectedItemsIds.push(checkbox.id);
+    }
+  });
+  return selectedItemsIds;
 };
 
 /************************

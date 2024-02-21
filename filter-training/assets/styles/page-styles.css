@@ -44,3 +44,8 @@ body.gx-mobile-device .dummy-header {
   padding-inline-end: 32px; */
   box-sizing: border-box;
 }
+.actions-container {
+  position: fixed;
+  left: 8px;
+  top: 8px;
+}
