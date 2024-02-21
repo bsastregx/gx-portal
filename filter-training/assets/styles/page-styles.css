@@ -1,5 +1,11 @@
+#header-filter {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box !important;
+}
 .dummy-header {
-  background-image: url(./assets/images/dummy-header.png);
+  background-image: url(../images/dummy-header.png);
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;

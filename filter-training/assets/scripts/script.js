@@ -4,26 +4,26 @@ References
 
 const html = document.querySelector("html");
 
-//El wrapper externo de los selects | .row--selects-outer-wrapper
+//The external wrapper of the selects | .row--selects-outer-wrapper
 let rowSelectsOuterWrapper = this.document.querySelector(
   ".row--selects-outer-wrapper"
 );
 
-//El wrapper interno de los selects | .row--selects-inner-wrapper
+//The internal wrapper of the selects | .row--selects-inner-wrapper
 let rowSelectsInnerWrapper = this.document.querySelector(
   ".row--selects-inner-wrapper"
 );
 
-//Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
+//Event that is fired when the mouse leaves the button (.gx-label--multi-checkbox) that opens the select.
 let labelMouseLeaveHandler;
 
-//Evento que se dispara cuando el mouse abandona el select (multi-checkbox).
+//Event that is fired when the mouse leaves the select (multi-checkbox).
 let multiCheckboxMouseLeaveHandler;
 
-//Evento que se dispara cuando el mouse entra en el select (multi-checkbox).
+//Event that is fired when the mouse enters the select (multi-checkbox).
 let multiCheckboxMouseEnterHandler;
 
-//Referencia a un setTimeout, que se usa para evitar que el select se cierre después de 'timeBeforeCloseSelect' si el puntero volvió a entrar antes de ese tiempo.
+//Reference to a setTimeout, which is used to prevent the select from closing after 'timeBeforeCloseSelect' if the pointer reentered before that time.
 let timeOutHideSelectRef;
 
 /*--- .gx-label--multi-checkbox ---*/
@@ -31,7 +31,7 @@ const multiCheckboxesLabel = Array.from(
   document.querySelectorAll(".gx-label--multi-checkbox")
 );
 
-//Referencias a los selects (multi-checkboxes). Ej. Category | Partner Types | Industries | Services, etc...
+//References to selects (multi-checkboxes). Ex. Category | Partner Types | Industries | Services, etc...
 let multiCheckboxes = Array.from(
   document.querySelectorAll(".gx-multi-checkbox")
 );
@@ -40,27 +40,35 @@ let multiCheckboxes = Array.from(
 Variables
 ************************/
 
-//Tiempo que se usa para la transición que anima la altura del select (multi-checkbox).
+//Time used for the transition that animates the height of the select (multi-checkbox).
 const selectHeightTransition = 150;
 
-//Tiempo de espera antes de cerrar el select luego que el puntero del mouse lo abandonó. Se cancela si el puntero vuelve a entrar antes.
+//Time to wait before closing the select after the mouse pointer has left it. Canceled if the pointer re-enters before.
 const timeBeforeCloseSelect = 400;
 
-//Tiempo que se usa para la velocidad de apertura/cierre del select (multi-checkbox)
+//Time used for the opening/closing speed of the select (multi-checkbox)
 html.style.setProperty(
   "--gx-select-transition-height-speed",
   `${selectHeightTransition}ms`
 );
 
+//The maximum height of the .gx-multi-checkbox
+html.style.setProperty("--gx-select-multi-checkbox-max-height", `200px`);
+
+//The width of each .gx-multi-checkbox-container
+html.style.setProperty("--gx-multi-checkbox-container-width", `300px`);
+
 /**************************************************
 Handlers (Must be defined before "Event Listeners")
 **************************************************/
 /**
- * Handler para el click del label del select (en realidad es un botón)
+ * Handler for the click of the select label (actually it is a button)
  */
 const multiCheckboxLabelClickHandler = (e) => {
   const target = e.target;
   e.stopPropagation();
+  /*hide scrollbar*/
+  rowSelectsInnerWrapper.classList.add("hide-scrollbar");
   /*label*/
   const clickedLabel = e.target;
   clickedLabel.classList.toggle("gx-label--multi-checkbox--active");
@@ -80,7 +88,7 @@ const multiCheckboxLabelClickHandler = (e) => {
 };
 
 /**
- * Handler para el evento keyDown del label (botón) del select
+ * Handler for the keyDown event of the select label (button)
  */
 const multiCheckboxLabelKeyDownHandler = (e) => {
   const isActive = e.target.classList.contains(
@@ -128,7 +136,7 @@ const multiCheckboxLabelKeyDownHandler = (e) => {
 };
 
 /**
- * Evento que se dispara cuando el mouse abandona el select (multi-checkbox)
+ * Event that is fired when the mouse leaves the select (multi-checkbox)
  */
 multiCheckboxMouseLeaveHandler = (e) => {
   const multiCheckbox = e.target;
@@ -138,14 +146,14 @@ multiCheckboxMouseLeaveHandler = (e) => {
 };
 
 /**
- * Evento que se dispara cuando el mouse entra en el select (multi-checkbox)
+ * Event that is fired when the mouse enters the select (multi-checkbox)
  */
 multiCheckboxMouseEnterHandler = (e) => {
   clearTimeout(timeOutHideSelectRef);
 };
 
 /**
- * Evento que se dispara cuando el mouse abandona el botón (.gx-label--multi-checkbox) que abre el select.
+ * Event that is fired when the mouse leaves the button (.gx-label--multi-checkbox) that opens the select.
  */
 labelMouseLeaveHandler = (e) => {
   const clickedLabel = e.target;
@@ -192,7 +200,7 @@ const timeOutHideSelect = (multiCheckbox, blur = false) => {
 };
 
 /**
- * Muestra la scrollbar horizontal del contenedor de los selects. Cuando los selects no entran en el contenedor, se muestra una scrollbar, que permite deslizar horizontalmente. Pero cuando se abre un select, hay que ocultarla, porque de lo contrario, queda visible debajo del select. Esta función la vuelve a mostrar luego de que se cierra el select.
+ * Shows the horizontal scrollbar of the selects container. When the selects do not fit into the container, a scrollbar is displayed, allowing horizontal scrolling. But when a select is opened, it must be hidden, because otherwise it remains visible below the select. This function is displayed again after the select is closed.
  */
 const displayScrollbar = () => {
   /*show scrollbar again*/
@@ -202,7 +210,7 @@ const displayScrollbar = () => {
 };
 
 /**
- * Se usa para posicionar un select cuando el usuario lo abre, si es que no esta enteramente visible.
+ * Used to position a select when the user opens it, if it is not entirely visible.
  */
 const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
   if (multiCheckboxContainer) {
@@ -229,7 +237,7 @@ const autoScrollMultiCheckboxContainer = (multiCheckboxContainer) => {
 };
 
 /**
- * Habilita todos los checkboxes de un select (multi-checkbox).Esto permite que se puedan navegar con el teclado, ya que de lo contrario, están deshabilitados, lo cual impide la navegación por teclado. Se desactivan cuando se cierra el select.
+ * Enables all checkboxes of a select (multi-checkbox). This allows them to be navigated with the keyboard, since otherwise they are disabled, which prevents keyboard navigation. They are disabled when the select is closed.
  */
 const enableCheckboxes = (multiCheckbox) => {
   /*checkboxes*/
@@ -242,7 +250,7 @@ const enableCheckboxes = (multiCheckbox) => {
 };
 
 /**
- * Deshabilita todos los checkboxes de un select (multi-checkbox). Esto impide que se puedan navegar con el teclado. Se usa después que se cerro un select, para evitar que el tab entre en los checkboxes que están ocultos.
+ * Disables all checkboxes of a select (multi-checkbox). This prevents them from being navigated with the keyboard. It is used after a select has been closed, to prevent the tab from entering checkboxes that are hidden.
  */
 const disableCheckboxes = (multiCheckbox) => {
   /*checkboxes*/
@@ -255,21 +263,21 @@ const disableCheckboxes = (multiCheckbox) => {
 };
 
 /**
- * Deshabilita un elemento, agregando el atributo 'disabled'
+ * Disables an element, adding the 'disabled' attribute
  */
 const disableElement = (elementRef) => {
   elementRef.setAttribute("disabled", "");
 };
 
 /**
- * Habilita un elemento, quitando el atributo 'disabled'
+ * Enables an element, removing the 'disabled' attribute
  */
 const enableElement = (elementRef) => {
   elementRef.removeAttribute("disabled");
 };
 
 /**
- * Cierra todos los selects, excepto el actual
+ * Closes all selects except the current one
  */
 const closeOtherSelects = (currentSelect) => {
   multiCheckboxes.forEach((multiSelect) => {
@@ -317,7 +325,7 @@ multiCheckboxesLabel.forEach((multiCheckboxLabel) => {
 });
 
 /**
- * Agrega listeners de mouseleave, y mouseenter en el select (multi-checkbox).
+ * Add mouseleave, and mouseenter listeners in the select (multi-checkbox).
  */
 const addMultiCheckboxListener = (multiCheckbox) => {
   multiCheckbox.addEventListener("mouseleave", multiCheckboxMouseLeaveHandler);

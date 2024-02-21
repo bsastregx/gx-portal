@@ -1,0 +1,13 @@
+/*header filters*/
+#header-filters {
+  position: relative;
+  gap: var(--gx-header-filters-gap);
+  padding: 1px var(--gx-horizontal-padding) 0 var(--gx-horizontal-padding);
+  z-index: 10;
+}
+
+/*row*/
+#header-filter .row {
+  display: flex;
+  justify-content: space-between;
+}
