@@ -1,0 +1,118 @@
+<div id="plans-toggler">
+  <a class="active" id="plans-btn--1">K2btools</a>
+  <a id="plans-btn--2">WorkWithPlus</a>
+  <span class="indicator" style="width: 97px; left: 8px"></span>
+</div>
+<style type="text/css">
+  #plans-toggler {
+    border-radius: 100px;
+    padding: 0.75rem 0.5rem;
+    background-color: #eee;
+    font-family: Rubik;
+    display: inline-block;
+    position: relative;
+  }
+  #plans-toggler a {
+    font-size: 1rem;
+    color: #9698a0;
+    border-radius: 4rem;
+    padding: 0.5rem 1rem;
+    line-height: 1.375rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s color;
+    position: relative;
+    z-index: 1;
+  }
+  #plans-toggler a.active {
+    color: #111;
+  }
+  #plans-toggler .indicator {
+    position: absolute;
+    height: 34px;
+    width: 128px;
+    background-color: #fff;
+    top: 6px;
+    left: 6px;
+    z-index: 0;
+    border-radius: 17px;
+    transition: 0.25s all;
+  }
+
+  /*
+// Cards controller
+*/
+  .I141307,
+  .I141491 {
+    scroll-snap-type: x mandatory;
+  }
+  .I141307 .sector,
+  .I141491 .sector {
+    scroll-snap-align: start;
+    scroll-snap-align: center;
+  }
+
+  /*Scroll bar*/
+  /* width */
+  section::-webkit-scrollbar {
+    width: 20px;
+  }
+  /* Track */
+  section::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  /* Handle */
+  section::-webkit-scrollbar-thumb {
+    background: rgb(212, 212, 212);
+    border-radius: 10px;
+  }
+  /* Handle on hover */
+  section::-webkit-scrollbar-thumb:hover {
+    background: rgb(188, 188, 188);
+  }
+</style>
+<script>
+  /*TOGGLER*/
+  const plansToggler = document.querySelector("#plans-toggler");
+  const indicator = plansToggler.querySelector(".indicator");
+  const togglerButtons = plansToggler.querySelectorAll("a");
+  togglerButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const btnWidth = this.offsetWidth;
+      const btnOffsetLeft = this.offsetLeft;
+      indicator.style.width = btnWidth + "px";
+      indicator.style.left = btnOffsetLeft + "px";
+
+      plansToggler.querySelector(".active").classList.remove("active");
+      this.classList.add("active");
+    });
+  });
+
+  /*PLANS*/
+  document
+    .getElementById("plans-btn--1")
+    .addEventListener("click", function () {
+      document.getElementById("plans-btn--2").classList.remove("active");
+      this.classList.add("active");
+
+      // K2B Tools
+      document.getElementsByClassName("I141307")[0].style.display = "block";
+
+      // Work With Plus
+      document.getElementsByClassName("I141491")[0].style.display = "none";
+    });
+
+  document
+    .getElementById("plans-btn--2")
+    .addEventListener("click", function () {
+      document.getElementById("plans-btn--1").classList.remove("active");
+      this.classList.add("active");
+
+      // K2B Tools
+      document.getElementsByClassName("I141307")[0].style.display = "none";
+
+      // Work With Plus
+      document.getElementsByClassName("I141491")[0].style.display = "block";
+    });
+</script>
