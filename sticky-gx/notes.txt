@@ -1,0 +1,9 @@
+examples: https://gx-sticky-banner.netlify.app/netlify/
+url js: https://gx-sticky-banner.netlify.app/assets/sticky-gx.js
+
+pasos:
+
+1. editar /assets/sticky-gx.js
+2. minifijarlo
+3. copiar la carpeta /assets a /netlify
+4. subir la carpeta /netlify a netlify
