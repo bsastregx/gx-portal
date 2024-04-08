@@ -1,4 +1,4 @@
-<div id="plans-toggler">
+<div id="plans-toggler" style="opacity: 0">
   <a class="active" id="plans-btn--1">K2btools</a>
   <a id="plans-btn--2">WorkWithPlus</a>
   <span class="indicator"></span>
@@ -11,6 +11,10 @@
     font-family: Rubik;
     display: inline-block;
     position: relative;
+    transition: opacity 0.5s;
+  }
+  #plans-toggler.visible {
+    opacity: 1 !important;
   }
   #plans-toggler a {
     font-size: 1rem;
@@ -96,10 +100,8 @@
   plansBtn1.addEventListener("click", function () {
     document.getElementById("plans-btn--2").classList.remove("active");
     this.classList.add("active");
-
     // K2B Tools
     document.getElementsByClassName("I141669")[0].style.display = "block";
-
     // Work With Plus
     document.getElementsByClassName("I141670")[0].style.display = "none";
   });
@@ -107,16 +109,14 @@
   plansBtn2.addEventListener("click", function () {
     document.getElementById("plans-btn--1").classList.remove("active");
     this.classList.add("active");
-
     // K2B Tools
     document.getElementsByClassName("I141669")[0].style.display = "none";
-
     // Work With Plus
     document.getElementsByClassName("I141670")[0].style.display = "block";
   });
 
   //On document loaded...
-  document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("load", function () {
     let btnIndicatorHeight;
     if (plansBtn1 && indicator) {
       btnIndicatorHeight = plansBtn1.offsetHeight;
@@ -129,12 +129,20 @@
       if (plansBtn1 && indicator) {
         indicator.style.width = plansBtn1.width;
         plansBtn1.click();
+        setTimeout(() => {
+          plansToggler.classList.add("visible");
+          //wait for the indicator to translate
+        }, 250);
       }
     } else {
       //Plan 2 selected
       if (plansBtn2 && indicator) {
         indicator.style.width = plansBtn2.width;
         plansBtn2.click();
+        setTimeout(() => {
+          //wait for the indicator to translate
+          plansToggler.classList.add("visible");
+        }, 250);
       }
     }
   });
