@@ -1,0 +1,191 @@
+<div class="accordion" id="modela-diseno">
+  <div class="accordion__item accordion__item--active">
+    <header class="accordion__header">
+      <button class="accordion__button">Design System Object</button>
+      <div class="accordion__plusminus">&nbsp;</div>
+    </header>
+
+    <div class="accordion__collapse">
+      <div class="accordion__body">
+        <p>
+          Modele seu Design System do jeito GeneXus: preparado para o futuro e
+          independente de tecnologia.
+        </p>
+
+        <p>
+          <a
+            class="link"
+            href="https://wiki.genexus.com/commwiki/servlet/wiki?47375,Category%3ADesign+System+Object"
+            target="_blank"
+            >Mais sobre Design System Object.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion__item">
+    <header class="accordion__header">
+      <button class="accordion__button">Stencils</button>
+
+      <div class="accordion__plusminus">&nbsp;</div>
+    </header>
+
+    <div class="accordion__collapse">
+      <div class="accordion__body">
+        <p>
+          Combine controles de interface do usu&aacute;rio para definir unidades
+          de design (sem c&oacute;digo) que podem ser reutilizadas.
+        </p>
+
+        <p>
+          <a
+            class="link"
+            href="https://wiki.genexus.com/commwiki/servlet/wiki?38418,Category%3AStencil+object"
+            target="_blank"
+            >Mais sobre Stencils.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion__item">
+    <header class="accordion__header">
+      <button class="accordion__button">Patterns</button>
+
+      <div class="accordion__plusminus">&nbsp;</div>
+    </header>
+
+    <div class="accordion__collapse">
+      <div class="accordion__body">
+        <p>
+          Descreve problemas e solu&ccedil;&otilde;es para cen&aacute;rios de
+          design recorrentes que podem ser reutilizados in&uacute;meras vezes.
+        </p>
+
+        <p>
+          <a
+            class="link"
+            href="https://wiki.genexus.com/commwiki/servlet/wiki?2814,Category%3APatterns"
+            target="_blank"
+            >Mais sobre Patterns.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion__item">
+    <header class="accordion__header">
+      <button class="accordion__button">Live Editing</button>
+
+      <div class="accordion__plusminus">&nbsp;</div>
+    </header>
+
+    <div class="accordion__collapse">
+      <div class="accordion__body">
+        <p>
+          Modifique o design e o comportamento de aplicativos da Web e
+          m&oacute;veis em tempo real, sem a necessidade de gerar, salvar ou
+          compilar.
+        </p>
+
+        <p>
+          <a
+            class="link"
+            href="https://wiki.genexus.com/commwiki/servlet/wiki?27805,Toc%3ALive+Editing,"
+            target="_blank"
+            >Mais sobre Live Editing.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion__item">
+    <header class="accordion__header">
+      <button class="accordion__button">User Controls</button>
+
+      <div class="accordion__plusminus">&nbsp;</div>
+    </header>
+
+    <div class="accordion__collapse">
+      <div class="accordion__body">
+        <p>
+          Importe facilmente para GeneXus qualquer sistema de web design
+          j&aacute; implementado.
+        </p>
+
+        <p>
+          <a
+            class="link"
+            href="https://wiki.genexus.com/commwiki/servlet/wiki?39356,Category%3AUser+Control+object"
+            target="_blank"
+            >Mais sobre User Controls.</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+  #modela-diseno .link {
+    color: rgb(0, 0, 0);
+  }
+</style>
+<script>
+  let accordion = document.getElementById("modela-diseno");
+  let accordionItems = Array.from(
+    accordion.querySelectorAll(".accordion__item")
+  );
+  console.log(accordion);
+
+  accordionItems.forEach((accordionItem) => {
+    console.log("accordionItem", accordionItem);
+    let button = accordionItem.querySelector(".accordion__button");
+    let collapse = accordionItem.querySelector(".accordion__collapse");
+    let body = accordionItem.querySelector(".accordion__body");
+    //set initial height for the active accordion
+    if (accordionItem.classList.contains("accordion__item--active")) {
+      collapse.style.height = body.offsetHeight + "px";
+    }
+    button.addEventListener("click", function () {
+      //Close previous active accordion, if any.
+      let activeItem = accordion.querySelector(".accordion__item--active");
+      if (activeItem) {
+        let activeItemButton = activeItem.querySelector(".accordion__button");
+        if (activeItemButton !== this) {
+          activeItem.classList.remove("accordion__item--active");
+          activeItem.querySelector(".accordion__collapse").style.height = "0px";
+        }
+      }
+
+      if (accordionItem.classList.contains("accordion__item--active")) {
+        collapse.style.height = "0px";
+        accordionItem.classList.remove("accordion__item--active");
+      } else {
+        collapse.style.height = body.offsetHeight + "px";
+        accordionItem.classList.add("accordion__item--active");
+      }
+    });
+  });
+
+  //Close active accordion if any, on resize.
+  let prevWidth = document.body.clientWidth;
+  const myObserver = new ResizeObserver((entries) => {
+    entries.forEach((entry) => {
+      const width = entry.borderBoxSize?.[0].inlineSize;
+      if (typeof width === "number" && width !== prevWidth) {
+        prevWidth = width;
+        let activeItem = accordion.querySelector(".accordion__item--active");
+        if (activeItem) {
+          activeItem.classList.remove("accordion__item--active");
+          activeItem.querySelector(".accordion__collapse").style.height = "0px";
+        }
+      }
+    });
+  });
+  const body = document.querySelector("body");
+  myObserver.observe(body);
+</script>
