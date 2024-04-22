@@ -1,0 +1,19 @@
+GeneXus Learning Version
+
+FUNCTIONAL CAPABILITIES
+
+It can be installed locally for a single user.
+
+The GeneXus Learning version is fully functional and the available generator (.NET and Smart Devices). However, some restrictions apply to the maximum number of GeneXus objects and attributes that can be created for a given Knowledge Base:
+
+90 attributes
+
+250 objects (*)
+
+(*) The maximum number of objects counts only for the following object types: Business Process Diagram object, Dashboard object, Data Provider object, Data Selector object, Diagram object, Language object, Menu for Smart Devices object, Panel for Smart Devices object , Procedure object, Query object, Stencil object, Transaction object, UI Test for Smart, Devices object, User Control object, Web Panel object (Master Page object, Common & Web Component object), Work With for Smart Devices object
+
+All of these objects are within an “Objects” namespace because they are objects for which code is generated. Structured data type objects and external objects are also included in this namespace, but for the trial version calculation, they are explicitly excluded. In conclusion, for the calculation of the 250 objects, other objects such as Images, Modules, Themes, etc. are not considered. Only explicitly mentioned objects are considered in the calculation.
+
+PROTOTYPING CAPABILITIES
+
+The generated applications have server-side components that in this version can only run on web servers (Cloud Computing) provided by GeneXus International and locally on your computer.
