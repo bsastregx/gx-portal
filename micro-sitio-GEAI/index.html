@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Micro Sitio GEAI</title>
+    <!-- Graphik -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.genexus.com/css/pt/173/20240430183936/master.css?font_face"
+    />
+    <!-- Rubik -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Bree+Serif%7cOpen+Sans%3a400%7cSource+Sans+Pro%3a400i%2c700i%2c300%2c400%2c700%7cRaleway%3a100%2c300%2c400%2c600%2c700%2c900%7cMontserrat%3a400i%2c500i%2c700i%2c100%2c300%2c400%2c500%2c600%2c700%2c800%2c900%7cSource+Serif+Pro%3a100i%2c400i%2c700i%2c100%2c400%2c500%2c700%7cRubik%3a300i%2c400i%2c500i%2c300%2c400%2c500%7cRoboto"
+    />
     <style>
       /*---------------------------------
         Tokens
@@ -12,7 +24,7 @@
         /*primary tokens*/
         --gwds-color-white: #ffffff;
         --gwds-color-accent-green--500: #00a99d;
-        --gwds-color-neutral-dark--300: #00a99d;
+        --gwds-color-neutral-dark--300: #d9d9d9;
         --gwds-color-black: #111111;
 
         /*semantic tokens*/
@@ -23,6 +35,12 @@
         Styles for this example
         ---------------------------------*/
 
+      body {
+        /* background-color: #1f1f1f;
+        color: rgb(221, 221, 221); */
+        margin-block-start: 400px;
+        height: 2000px;
+      }
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -31,18 +49,358 @@
       /*---------------------------------
         Styles for Portal
         ---------------------------------*/
+      .grid-table {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .grid-table__header {
+        position: sticky;
+        top: -1px; /* ➜ the trick */
+        padding: 2px;
+        transition: 0.15s all;
+        font-size: 22px;
+        line-height: 1.4em;
+        font-weight: 600;
+        z-index: 99;
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+      .grid-table__header--is-sticky .group__title {
+        font-size: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+          rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+        background-color: #fff;
+      }
+      .group__title {
+        font-family: Graphik;
+        font-size: 22px;
+        line-height: 1.4em;
+        font-weight: 600;
+        margin-block-start: 0;
+        margin-block-end: 36px;
+        transition: 0.2s all;
+      }
+      .group__title--column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 26px 16px;
+        border: 1px solid var(--gwds-color-neutral-dark--300);
+      }
+      .group__title--column:last-child {
+        border-inline-start: 0;
+      }
+      .group__text {
+        font-family: Rubik;
+        font-size: 17px;
+        line-height: 1.4em;
+        margin: 0;
+      }
+      .group__grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+      .group__check {
+        mask: url(check.svg);
+        mask-position: center center;
+        mask-size: 18px;
+        mask-repeat: no-repeat;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+      }
+      .group__check-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .group__check--green {
+        background-color: var(--gwds-color-accent-green--500);
+      }
+      .group__check--black {
+        background-color: var(--gwds-color-black);
+      }
+      .group__text,
+      .group__check-container,
+      .empty {
+        border-block-end: 1px solid var(--gwds-color-neutral-dark--300);
+        padding: 12px 16px;
+        font-weight: 300;
+      }
+
+      /*---------------------------------
+        Styles for Portal (Responsive)
+        ---------------------------------*/
+      @media (max-width: 992px) {
+        .group__grid {
+          display: grid;
+          grid-template-columns: 2fr 0 1.5fr 1.5fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .group__grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 1fr auto;
+          grid-column-gap: 0px;
+          grid-row-gap: 0px;
+        }
+        .group__text {
+          font-size: 15px;
+        }
+        .group__title {
+          font-size: 18px;
+          margin-block-end: 6px;
+        }
+        .group__grid .empty {
+          display: none;
+        }
+        .group__grid .group__text {
+          grid-area: 1 / 1 / 2 / 3;
+          border-block-end: 0;
+        }
+        .group__grid .group__check-container--1 {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        .group__grid .group__check-container--2 {
+          grid-area: 2 / 2 / 3 / 3;
+        }
+        .grid-table__header .group__title {
+          font-size: 16px;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          box-shadow: none;
+        }
+      }
     </style>
-    <script></script>
+
+    <script>
+      // info
+      const gridInfo1 = {
+        check1Title: "SaaS",
+        check2Title: "On-Premise",
+        items: [
+          {
+            title: "Deploy",
+            rows: [
+              {
+                description: {
+                  en: "Configuration and setup of the environment in your own cloud (AWS, Azure & GCP)",
+                  pt: "Configuração e instalação do ambiente na sua própria nuvem (AWS, Azure & GCP)",
+                  es: "Configuración e instalación del entorno en tu propia nube (AWS, Azure & GCP)",
+                },
+                check1: null,
+                check2: "green",
+              },
+              {
+                description: {
+                  en: "Deploy infrastructure as code with your DevOps team",
+                  pt: "Implantação de infraestrutura como código com sua equipe de DevOps",
+                  es: "Despliegue de infraestructura como código con tu equipo de DevOps",
+                },
+                check1: "green",
+                check2: "green",
+              },
+              {
+                description: {
+                  en: "Setup of LLMs to be provided on the platform",
+                  pt: "Configuração de LLMs para serem fornecidos na plataforma",
+                  es: "Configuración de LLMs a ser proporcionada en la plataforma",
+                },
+                check1: "green",
+                check2: "green",
+              },
+            ],
+          },
+          {
+            title: "Back Office Setup",
+            rows: [
+              {
+                description: {
+                  en: "SaaS configuration in GeneXus’ servers",
+                  pt: "Configuração SaaS nos servidores da GeneXus",
+                  es: "Configuración SaaS en los servidores de GeneXus",
+                },
+                check1: "green",
+                check2: null,
+              },
+              {
+                description: {
+                  en: "Company/project Onboarding",
+                  pt: "Onboarding da empresa/projeto",
+                  es: "Integración de la empresa/proyecto",
+                },
+                check1: "green",
+                check2: "green",
+              },
+              {
+                description: {
+                  en: "Definition of users for back office access",
+                  pt: "Definição de usuários para acesso ao back office",
+                  es: "Definición de usuarios para acceso al back office",
+                },
+                check1: "green",
+                check2: "green",
+              },
+            ],
+          },
+          {
+            title: "Front End Setup",
+            rows: [
+              {
+                description: {
+                  en: "Corporate branding (logo and color palette)",
+                  pt: "Branding corporativo (logo e paleta de cores)",
+                  es: "Branding corporativo (logo y paleta de colores)",
+                },
+                check1: "green",
+                check2: "green",
+              },
+              {
+                description: {
+                  en: "Private URL - Authentication based on your Identity Provider that supports OAuth 2.0. (Azure, Google, Apple, etc)",
+                  pt: "URL privada - Autenticação baseada no seu Provedor de Identidade que suporta OAuth 2.0. (Azure, Google, Apple, etc)",
+                  es: "URL privada - Autenticación basada en su proveedor de identidad que admite OAuth 2.0. (Azure, Google, Apple, etc)",
+                },
+                check1: "black",
+                check2: "black",
+              },
+              {
+                description: {
+                  en: "Private GPT-like experience + Chat with your Documents Assistant, both by default",
+                  pt: "Experiência privada semelhante ao GPT + Chat com seu Assistente de Documentos, ambos por padrão",
+                  es: "Experiencia privada similar a GPT + Chat con su asistente de documentos, ambos por defecto",
+                },
+                check1: "green",
+                check2: "green",
+              },
+            ],
+          },
+          {
+            title: "Support",
+            rows: [
+              {
+                description: {
+                  en: "Upgrades while subscribed",
+                  pt: "Atualizações enquanto inscrito",
+                  es: "Actualizaciones mientras esté suscrito",
+                },
+                check1: "green",
+                check2: "green",
+              },
+            ],
+          },
+        ],
+      };
+    </script>
   </head>
   <body>
     <div class="container">
-      <div class="grid-container">
-        <div class="grid-item">Item 1</div>
-        <div class="grid-item">Item 2</div>
-        <div class="grid-item">Item 3</div>
-        <div class="grid-item">Item 4</div>
-        <div class="grid-item">Item 5</div>
-        <!-- Add more items as needed -->
+      <div class="grid-table" id="grid-table-1">
+        <header class="grid-table__header group__grid" id="grid-table-header-1">
+          <div></div>
+          <div></div>
+          <div class="group__title group__title--column">Sass</div>
+          <div class="group__title group__title--column">On-Premise</div>
+        </header>
+        <!-- dynamically populated-->
+        <script>
+          const gridTable1 = document.getElementById("grid-table-1");
+          const gridTableHeader1 = document.getElementById(
+            "grid-table-header-1"
+          );
+          if (
+            gridTable1 &&
+            gridInfo1 &&
+            gridInfo1.items &&
+            gridInfo1.items.length > 0
+          ) {
+            const lang = document.documentElement.lang;
+
+            if (gridTableHeader1) {
+            }
+
+            gridInfo1.items.forEach((group) => {
+              // Create the main container div
+              const groupDiv = document.createElement("div");
+              groupDiv.classList.add("group");
+
+              // Create the h3 element
+              const titleH3 = document.createElement("h3");
+              titleH3.classList.add("group__title");
+              titleH3.textContent = group.title;
+              groupDiv.appendChild(titleH3);
+
+              group.rows.forEach((row) => {
+                // Create the grid container div
+                const gridDiv = document.createElement("div");
+                gridDiv.classList.add("group__grid");
+
+                // Create the p element
+                const textP = document.createElement("p");
+                textP.classList.add("group__text");
+                textP.textContent = row.description[lang];
+                gridDiv.appendChild(textP);
+
+                // Create the empty div
+                const emptyDiv = document.createElement("div");
+                emptyDiv.classList.add("empty");
+                gridDiv.appendChild(emptyDiv);
+
+                // Create the first check container div
+                const checkContainer1 = document.createElement("div");
+                checkContainer1.classList.add("group__check-container");
+                checkContainer1.classList.add("group__check-container--1");
+
+                // Create the first span inside the check container
+                const checkSpan1 = document.createElement("span");
+                checkSpan1.classList.add("group__check");
+                checkSpan1.classList.add(`group__check--${row.check1}`);
+                checkContainer1.appendChild(checkSpan1);
+                gridDiv.appendChild(checkContainer1);
+
+                // Create the second check container div
+                const checkContainer2 = document.createElement("div");
+                checkContainer2.classList.add("group__check-container");
+                checkContainer1.classList.add("group__check-container--2");
+
+                // Create the second span inside the check container
+                const checkSpan2 = document.createElement("span");
+                checkSpan2.classList.add("group__check");
+                checkSpan2.classList.add(`group__check--${row.check2}`);
+
+                checkContainer2.appendChild(checkSpan2);
+                gridDiv.appendChild(checkContainer2);
+
+                // Append the grid container to the main container
+                groupDiv.appendChild(gridDiv);
+              });
+
+              gridTable1.appendChild(groupDiv);
+            });
+          }
+        </script>
+
+        <script>
+          let timeout;
+          const observer = new IntersectionObserver(
+            ([e]) => {
+              if (timeout) clearTimeout(timeout);
+              timeout = setTimeout(() => {
+                e.target.classList.toggle(
+                  "grid-table__header--is-sticky",
+                  e.intersectionRatio < 1
+                );
+              }, 100); // Adjust the delay as needed (in milliseconds)
+            },
+            { threshold: [1] }
+          );
+
+          observer.observe(gridTableHeader1);
+        </script>
       </div>
     </div>
   </body>
