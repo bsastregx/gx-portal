@@ -1,0 +1,64 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 50px;
+  font-weight: 100;
+  text-align: center;
+  font-family: "Graphik Semibold", Arial, Helvetica, sans-serif;
+}
+body {
+  font-family: Open Sans;
+  font-weight: 100;
+  font-size: 20px;
+  color: rgb(21, 20, 20);
+  background-color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+article {
+  display: block;
+  width: 700px;
+  padding: 50px;
+  margin: 0 auto;
+}
+p {
+  font-family: "Rubik Regular", Arial, Helvetica, sans-serif;
+}
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("./fonts/Rubik-Regular.woff") format("woff"),
+    url("./fonts/Rubik-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Graphik Semibold";
+  src: url("./fonts/Graphik-Semibold.woff") format("woff"),
+    url("./fonts/Graphik-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+  #logo {
+    width: 150px;
+  }
+}

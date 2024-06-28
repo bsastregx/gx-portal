@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeneXus for Students</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <article>
+      <img src="assets/logo.png" alt="GeneXus for Students logo" id="logo" />
+      <h1 id="page-title">We&rsquo;ll be back soon!</h1>
+      <div>
+        <p id="page-description">
+          Sorry for the inconvenience. We&rsquo;re performing some maintenance
+          at the moment. We will be back soon.
+        </p>
+        <p>&mdash; GeneXus for Students</p>
+      </div>
+    </article>
+    <script>
+      const pageLang = document.documentElement.lang;
+
+      const texts = {
+        title: {
+          en: "We'll be back soon!",
+          pt: "Voltaremos em breve!",
+          es: "Estaremos de vuelta pronto!",
+        },
+        description: {
+          en: "Sorry for the inconvenience.\nWe're performing some maintenance at the moment.\nWe will be back soon.",
+          pt: "Desculpe pelo transtorno.\nEstamos realizando manutenção no momento.\nVoltaremos em breve.",
+          es: "Lamentamos los inconvenientes.\nEstamos realizando mantenimiento en este momento.\nVolveremos pronto.",
+        },
+      };
+
+      const titleText = texts.title[pageLang] || texts.title.en;
+      const descriptionText =
+        texts.description[pageLang] || texts.description.en;
+
+      const pageTitle = document.getElementById("page-title");
+      const pageDescription = document.getElementById("page-description");
+
+      pageTitle.innerText = titleText;
+      pageDescription.innerText = descriptionText;
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>

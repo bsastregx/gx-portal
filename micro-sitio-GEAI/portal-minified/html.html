@@ -1,0 +1,207 @@
+<!--
+    Para minificar : https://codebeautify.org/minify-html
+    Para unminificar: https://unminify.com/
+-->
+<script>
+  // info
+  const gridInfo1 = {
+    check1Title: "SaaS",
+    check2Title: "On-Premise",
+    items: [
+      {
+        title: "Deploy",
+        rows: [
+          {
+            description: {
+              en: "Configuration and setup of the environment in your own cloud (AWS, Azure & GCP)",
+              pt: "Configuração e instalação do ambiente na sua própria nuvem (AWS, Azure & GCP)",
+              es: "Configuración e instalación del entorno en tu propia nube (AWS, Azure & GCP)",
+            },
+            check1: null,
+            check2: "green",
+          },
+          {
+            description: {
+              en: "Deploy infrastructure as code with your DevOps team",
+              pt: "Implantação de infraestrutura como código com sua equipe de DevOps",
+              es: "Despliegue de infraestructura como código con tu equipo de DevOps",
+            },
+            check1: "green",
+            check2: "green",
+          },
+          {
+            description: {
+              en: "Setup of LLMs to be provided on the platform",
+              pt: "Configuração de LLMs para serem fornecidos na plataforma",
+              es: "Configuración de LLMs a ser proporcionada en la plataforma",
+            },
+            check1: "green",
+            check2: "green",
+          },
+        ],
+      },
+      {
+        title: "Back Office Setup",
+        rows: [
+          {
+            description: {
+              en: "SaaS configuration in GeneXus’ servers",
+              pt: "Configuração SaaS nos servidores da GeneXus",
+              es: "Configuración SaaS en los servidores de GeneXus",
+            },
+            check1: "green",
+            check2: null,
+          },
+          {
+            description: {
+              en: "Company/project Onboarding",
+              pt: "Onboarding da empresa/projeto",
+              es: "Integración de la empresa/proyecto",
+            },
+            check1: "green",
+            check2: "green",
+          },
+          {
+            description: {
+              en: "Definition of users for back office access",
+              pt: "Definição de usuários para acesso ao back office",
+              es: "Definición de usuarios para acceso al back office",
+            },
+            check1: "green",
+            check2: "green",
+          },
+        ],
+      },
+      {
+        title: "Front End Setup",
+        rows: [
+          {
+            description: {
+              en: "Corporate branding (logo and color palette)",
+              pt: "Branding corporativo (logo e paleta de cores)",
+              es: "Branding corporativo (logo y paleta de colores)",
+            },
+            check1: "green",
+            check2: "green",
+          },
+          {
+            description: {
+              en: "Private URL - Authentication based on your Identity Provider that supports OAuth 2.0. (Azure, Google, Apple, etc)",
+              pt: "URL privada - Autenticação baseada no seu Provedor de Identidade que suporta OAuth 2.0. (Azure, Google, Apple, etc)",
+              es: "URL privada - Autenticación basada en su proveedor de identidad que admite OAuth 2.0. (Azure, Google, Apple, etc)",
+            },
+            check1: "black",
+            check2: "black",
+          },
+          {
+            description: {
+              en: "Private GPT-like experience + Chat with your Documents Assistant, both by default",
+              pt: "Experiência privada semelhante ao GPT + Chat com seu Assistente de Documentos, ambos por padrão",
+              es: "Experiencia privada similar a GPT + Chat con su asistente de documentos, ambos por defecto",
+            },
+            check1: "green",
+            check2: "green",
+          },
+        ],
+      },
+      {
+        title: "Support",
+        rows: [
+          {
+            description: {
+              en: "Upgrades while subscribed",
+              pt: "Atualizações enquanto inscrito",
+              es: "Actualizaciones mientras esté suscrito",
+            },
+            check1: "green",
+            check2: "green",
+          },
+        ],
+      },
+    ],
+  };
+</script>
+
+<div class="grid-table" id="grid-table-1">
+  <header class="grid-table__header group__grid" id="grid-table-header-1">
+    <div></div>
+    <div></div>
+    <div class="group__title group__title--column">Sass</div>
+    <div class="group__title group__title--column">On-Premise</div>
+  </header>
+  <!-- dynamically populated-->
+  <script>
+    const gridTable1 = document.getElementById("grid-table-1");
+    const gridTableHeader1 = document.getElementById("grid-table-header-1");
+    if (
+      gridTable1 &&
+      gridInfo1 &&
+      gridInfo1.items &&
+      gridInfo1.items.length > 0
+    ) {
+      const lang = document.documentElement.lang;
+
+      if (gridTableHeader1) {
+      }
+
+      gridInfo1.items.forEach((group) => {
+        // Create the main container div
+        const groupDiv = document.createElement("div");
+        groupDiv.classList.add("group");
+
+        // Create the h3 element
+        const titleH3 = document.createElement("h3");
+        titleH3.classList.add("group__title");
+        titleH3.textContent = group.title;
+        groupDiv.appendChild(titleH3);
+
+        group.rows.forEach((row) => {
+          // Create the grid container div
+          const gridDiv = document.createElement("div");
+          gridDiv.classList.add("group__grid");
+
+          // Create the p element
+          const textP = document.createElement("p");
+          textP.classList.add("group__text");
+          textP.textContent = row.description[lang];
+          gridDiv.appendChild(textP);
+
+          // Create the empty div
+          const emptyDiv = document.createElement("div");
+          emptyDiv.classList.add("empty");
+          gridDiv.appendChild(emptyDiv);
+
+          // Create the first check container div
+          const checkContainer1 = document.createElement("div");
+          checkContainer1.classList.add("group__check-container");
+          checkContainer1.classList.add("group__check-container--1");
+
+          // Create the first span inside the check container
+          const checkSpan1 = document.createElement("span");
+          checkSpan1.classList.add("group__check");
+          checkSpan1.classList.add(`group__check--${row.check1}`);
+          checkContainer1.appendChild(checkSpan1);
+          gridDiv.appendChild(checkContainer1);
+
+          // Create the second check container div
+          const checkContainer2 = document.createElement("div");
+          checkContainer2.classList.add("group__check-container");
+          checkContainer1.classList.add("group__check-container--2");
+
+          // Create the second span inside the check container
+          const checkSpan2 = document.createElement("span");
+          checkSpan2.classList.add("group__check");
+          checkSpan2.classList.add(`group__check--${row.check2}`);
+
+          checkContainer2.appendChild(checkSpan2);
+          gridDiv.appendChild(checkContainer2);
+
+          // Append the grid container to the main container
+          groupDiv.appendChild(gridDiv);
+        });
+
+        gridTable1.appendChild(groupDiv);
+      });
+    }
+  </script>
+</div>

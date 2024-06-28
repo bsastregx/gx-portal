@@ -56,7 +56,7 @@
       }
       .grid-table__header {
         position: sticky;
-        top: -1px; /* ➜ the trick */
+        top: 183px; /* Adjusted top value */
         padding: 2px;
         transition: 0.15s all;
         font-size: 22px;
@@ -87,7 +87,7 @@
         align-items: center;
         justify-content: center;
         margin: 0;
-        padding: 26px 16px;
+        padding: 16px 16px;
         border: 1px solid var(--gwds-color-neutral-dark--300);
       }
       .group__title--column:last-child {
@@ -138,6 +138,9 @@
         .group__grid {
           display: grid;
           grid-template-columns: 2fr 0 1.5fr 1.5fr;
+        }
+        .grid-table__header {
+          top: 139px;
         }
       }
       @media (max-width: 640px) {
@@ -303,14 +306,26 @@
         <header class="grid-table__header group__grid" id="grid-table-header-1">
           <div></div>
           <div></div>
-          <div class="group__title group__title--column">Sass</div>
-          <div class="group__title group__title--column">On-Premise</div>
+          <div
+            class="group__title group__title--column"
+            id="grid-table-header-1-col-1"
+          ></div>
+          <div
+            class="group__title group__title--column"
+            id="grid-table-header-1-col-2"
+          ></div>
         </header>
         <!-- dynamically populated-->
         <script>
           const gridTable1 = document.getElementById("grid-table-1");
           const gridTableHeader1 = document.getElementById(
             "grid-table-header-1"
+          );
+          const gridTableHeader1Col1 = document.getElementById(
+            "grid-table-header-1-col-1"
+          );
+          const gridTableHeader1Col2 = document.getElementById(
+            "grid-table-header-1-col-2"
           );
           if (
             gridTable1 &&
@@ -320,7 +335,13 @@
           ) {
             const lang = document.documentElement.lang;
 
-            if (gridTableHeader1) {
+            if (
+              gridTableHeader1 &&
+              gridTableHeader1Col1 &&
+              gridTableHeader1Col2
+            ) {
+              gridTableHeader1Col1.innerText = gridInfo1.check1Title;
+              gridTableHeader1Col2.innerText = gridInfo1.check2Title;
             }
 
             gridInfo1.items.forEach((group) => {
@@ -385,21 +406,20 @@
         </script>
 
         <script>
-          let timeout;
-          const observer = new IntersectionObserver(
-            ([e]) => {
-              if (timeout) clearTimeout(timeout);
-              timeout = setTimeout(() => {
-                e.target.classList.toggle(
-                  "grid-table__header--is-sticky",
-                  e.intersectionRatio < 1
-                );
-              }, 100); // Adjust the delay as needed (in milliseconds)
-            },
-            { threshold: [1] }
-          );
-
-          observer.observe(gridTableHeader1);
+          // detect sticky header position to shrink.
+          // function onScroll() {
+          //   const scrollTop =
+          //     window.scrollY || document.documentElement.scrollTop;
+          //   setTimeout(() => {
+          //     gridTableHeader1.classList.toggle(
+          //       "grid-table__header--is-sticky",
+          //       scrollTop >= 183
+          //     );
+          //   }, 200);
+          // }
+          // window.addEventListener("scroll", onScroll);
+          // // Call onScroll initially to set the correct state on page load
+          // onScroll();
         </script>
       </div>
     </div>
