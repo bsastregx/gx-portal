@@ -1,0 +1,3 @@
+Los HTML/CSS se llaman:
+- geai-custom-scripts-scss
+- gwds__geai-grid-table-html-css
