@@ -1,0 +1,2 @@
+--css contiene los estilos del accordion
+--js contiene la lógica del accordion
