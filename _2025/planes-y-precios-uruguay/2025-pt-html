@@ -1,0 +1,3951 @@
+<div class="container container-plans-desktop">
+  <div class="go-to-plans-container">
+    <h2 class="go-to-plans go-to-plans--professional">
+      Comparar Planos
+      <img
+        alt="arrow down"
+        src="https://www.genexus.com/media/images/arrow-down.svg?timestamp=20220519193850"
+      />
+    </h2>
+  </div>
+
+  <div id="features-tables-top">&nbsp;</div>
+
+  <div class="plans-header-container">
+    <div class="plans-header">
+      <div class="plan plan--dinamic-price">
+        <div class="plan__container">
+          <h3 class="plan__title">
+            For Startups <span class="plan__price--sticky">R$ 1.093</span>
+          </h3>
+
+          <div class="plan__price__value">
+            <span class="plan__price">R$ 1.093</span>
+          </div>
+
+          <div class="plan_cp">
+            <span class="plan__price"
+              ><span class="plan__taxes">+ IVA</span>
+              <span class="plan__periodicity">/mes</span></span
+            >
+          </div>
+          <span class="plan__payment-period"
+            >Primeiro ano, pagamento mensal</span
+          >
+        </div>
+      </div>
+
+      <div class="plan plan--dinamic-price">
+        <div class="plan__container">
+          <h3 class="plan__title">
+            For ISV <span class="plan__price--sticky">R$ 1.967</span>
+          </h3>
+
+          <div class="plan__price__value">
+            <span class="plan__price">R$ 1.967</span>
+          </div>
+
+          <div class="plan_cp">
+            <span class="plan__price"
+              ><span class="plan__taxes">+ IVA</span>
+              <span class="plan__periodicity">/mes</span></span
+            >
+          </div>
+          <span class="plan__payment-period"
+            >Plano anual de pagamento mensal</span
+          >
+        </div>
+      </div>
+
+      <div class="plan plan--align-top">
+        <div class="plan__container">
+          <h3 class="plan__title">
+            For Enterprise
+            <span class="plan__price--sticky">&Agrave; medida</span>
+          </h3>
+
+          <div><span class="plan__price">&Agrave; medida</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plans-header-container-bottom-reference">&nbsp;</div>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Tecnologia</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Geradores Web (.NET + JAVA)</div>
+        </td>
+        <td>
+          <div class="td-container">.NET ou Java</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">PWA Gerador (Angular)</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Geradores Apps Nativos (iOS y Android)</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Gerador ChatBot</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="more-info__td more-info__td--hidden">
+          <div class="td-container">
+            All Databases <span class="more-info__i">i</span>
+          </div>
+          <small class="more-info__info"
+            >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+            HANA</small
+          >
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Geradores Cobol/RPG</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Desenvolvimento</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Live Editing</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Debugger</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Monitor de desempenho</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">
+            Seguran&ccedil;a (GeneXus Access Manager)
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Multi-linguagem</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Integra&ccedil;&atilde;o</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Inspetor WSDL</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Web Services SOAP-REST</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Conector para Mercado Livre</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">
+            Integra&ccedil;&atilde;o para SAP Business One
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Conector para SAP ERP</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">AI Module</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Sistemas Legados</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">ODATA Integration</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Design System</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Import from Sketch</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Temas</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">User Controls</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Stencils</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">SAP Fiori Pattern</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Design System Object</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">K2B Tools Design System</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">WW+ Design System</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">IGNIA Design System</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Ciclo de Vida de Desenvolvimento</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Unit Testing</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Automated Testing Suite</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Deploy to the cloud</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Deploy Local / On-premise</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Versionamento</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Collaboration Suite</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">
+            Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">O neg&oacute;cio</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Su&iacute;te BPM</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (5 usu&aacute;rios)
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span> (Ilimitado)
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Suite de Reporting</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (5 usu&aacute;rios)
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span> (Ilimitado)
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Capacidade</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">
+            Aplicativos Web e M&oacute;veis Ilimitados
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">
+            Usu&aacute;rios Ilimitados por Aplicativo
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Aplicativos 100% nativos</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Treinamento</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">
+            Sess&atilde;o de kick-off t&eacute;cnico
+          </div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">In-house training course</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Online training courses</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">
+            Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
+          </div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (1 usu&aacute;rio)
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (5 usu&aacute;rios)
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Suporte</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">F&oacute;rum de suporte</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Suporte assistido</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (12 issues / ano)
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <img
+              alt="check"
+              class="check"
+              src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+            />
+            (Ilimitado)
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-container">Suporte Premium</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="features-table">
+    <thead>
+      <tr>
+        <th class="feature">Parceria</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+        <th class="plan">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-container">Acesso a GeneXus Alliance</div>
+        </td>
+        <td>
+          <div class="td-container">&nbsp;</div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <span class="tag">Custo Adicional</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>
+          <div class="td-container tal">
+            <img
+              alt="arrow up"
+              class="go-top"
+              data-target-class="go-to-plans--professional"
+              src="https://www.genexus.com/media/images/arrow-up.svg?timestamp=20220519193958"
+            />
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <a
+              class="button button--primary"
+              href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-startup"
+              type="button"
+              >Escolher Plano</a
+            >
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <a
+              class="button button--primary"
+              href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-isv"
+              type="button"
+              >Escolher Plano</a
+            >
+          </div>
+        </td>
+        <td>
+          <div class="td-container">
+            <a
+              class="button button--secondary"
+              href="https://www.genexus.com/pt/produtos/genexus/genexus-enterprise#contact-gisela"
+              type="button"
+              >Fale Conosco</a
+            >
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div
+  class="container container-plans-mobile container-plans-mobile--professional"
+>
+  <article class="plan-card plan-card--professional">
+    <h3 class="plan-card__title">GeneXus For Startups</h3>
+
+    <p class="plan-card__description">
+      Projetado para novos neg&oacute;cios<br />
+      com equipes pequenas e grandes ideias.
+    </p>
+
+    <div>
+      <div class="plan-price-container">
+        <div><span class="plan__price">R$ 1.093</span></div>
+
+        <div class="plan_cp">
+          <span class="plan__price"
+            ><span class="plan__taxes">+ IVA</span>
+            <span class="plan__periodicity">/m&ecirc;s</span></span
+          >
+        </div>
+      </div>
+      <span class="plan__payment-period">Primeiro ano, pagamento mensal</span>
+    </div>
+
+    <p class="toggle-plan-features collapsed">
+      <span class="text text--collapsed">+ Mostrar recursos do plano </span
+      ><span class="text text--uncollapsed">- Ocultar recursos do plano</span>
+    </p>
+
+    <div
+      class="plan-card__table-container plan-card__table-container--professional collapsed"
+    >
+      <div class="tip">Toque em qualquer item para comparar planos.</div>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Tecnologia</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Web (.NET + JAVA)</div>
+            </td>
+            <td>
+              <div class="td-container">.NET ou Java</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">PWA Gerador (Angular)</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Geradores Apps Nativos (iOS y Android)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Gerador ChatBot</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td class="more-info__td more-info__td--hidden">
+              <div class="td-container">
+                All Databases <span class="more-info__i">i</span>
+              </div>
+              <small class="more-info__info"
+                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+                HANA</small
+              >
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Cobol/RPG</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Live Editing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Debugger</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Monitor de desempenho</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Seguran&ccedil;a (GeneXus Access Manager)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Multi-linguagem</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Integra&ccedil;&atilde;o</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Inspetor WSDL</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Web Services SOAP-REST</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para Mercado Livre</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Integra&ccedil;&atilde;o para SAP Business One
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para SAP ERP</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">AI Module</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Sistemas Legados</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">ODATA Integration</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Design System</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Import from Sketch</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Temas</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">User Controls</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Stencils</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">SAP Fiori Pattern</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Design System Object</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">K2B Tools Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">WW+ Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">IGNIA Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Ciclo de Vida de Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Unit Testing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Automated Testing Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy to the cloud</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy Local / On-premise</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Versionamento</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Collaboration Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">O neg&oacute;cio</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Su&iacute;te BPM</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suite de Reporting</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Capacidade</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Aplicativos Web e M&oacute;veis Ilimitados
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Usu&aacute;rios Ilimitados por Aplicativo
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Aplicativos 100% nativos</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Treinamento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Sess&atilde;o de kick-off t&eacute;cnico
+              </div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">In-house training course</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Online training courses</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
+              </div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Suporte</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">F&oacute;rum de suporte</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte assistido</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte Premium</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Parceria</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Acesso a GeneXus Alliance</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="hide-plan-features">- Ocultar recursos do plano</p>
+    </div>
+
+    <div class="plan-card__footer">
+      <a
+        class="button button--primary"
+        href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-startup"
+        type="button"
+        >Escolher Plano</a
+      >
+    </div>
+  </article>
+
+  <article class="plan-card plan-card--professional">
+    <h3 class="plan-card__title">GeneXus For ISV</h3>
+
+    <p class="plan-card__description">
+      Um produto para Software Houses que fornecem servi&ccedil;os e criam
+      aplicativos multiplataforma para seus clientes.
+    </p>
+
+    <div>
+      <div class="plan-price-container">
+        <div><span class="plan__price">R$ 1.967</span></div>
+
+        <div class="plan_cp">
+          <span class="plan__price"
+            ><span class="plan__taxes">+ IVA</span>
+            <span class="plan__periodicity">/m&ecirc;s</span></span
+          >
+        </div>
+      </div>
+      <span class="plan__payment-period">Plano anual de pagamento mensal</span>
+    </div>
+
+    <p class="toggle-plan-features collapsed">
+      <span class="text text--collapsed">+ Mostrar recursos do plano </span
+      ><span class="text text--uncollapsed">- Ocultar recursos do plano</span>
+    </p>
+
+    <div
+      class="plan-card__table-container plan-card__table-container--professional collapsed"
+    >
+      <div class="tip">Toque em qualquer item para comparar planos.</div>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Tecnologia</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Web (.NET + JAVA)</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">PWA Gerador (Angular)</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Geradores Apps Nativos (iOS y Android)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Gerador ChatBot</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="more-info__td more-info__td--hidden">
+              <div class="td-container">
+                All Databases <span class="more-info__i">i</span>
+              </div>
+              <small class="more-info__info"
+                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+                HANA</small
+              >
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Cobol/RPG</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Live Editing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Debugger</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Monitor de desempenho</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Seguran&ccedil;a (GeneXus Access Manager)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Multi-linguagem</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Integra&ccedil;&atilde;o</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Inspetor WSDL</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Web Services SOAP-REST</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para Mercado Livre</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Integra&ccedil;&atilde;o para SAP Business One
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para SAP ERP</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">AI Module</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Sistemas Legados</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">ODATA Integration</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Design System</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Import from Sketch</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Temas</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">User Controls</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Stencils</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">SAP Fiori Pattern</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Design System Object</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">K2B Tools Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">WW+ Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">IGNIA Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Ciclo de Vida de Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Unit Testing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Automated Testing Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy to the cloud</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy Local / On-premise</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Versionamento</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Collaboration Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">O neg&oacute;cio</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Su&iacute;te BPM</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (5 usu&aacute;rios)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suite de Reporting</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (5 usu&aacute;rios)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Capacidade</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Aplicativos Web e M&oacute;veis Ilimitados
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Usu&aacute;rios Ilimitados por Aplicativo
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Aplicativos 100% nativos</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Treinamento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Sess&atilde;o de kick-off t&eacute;cnico
+              </div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">In-house training course</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Online training courses</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (1 usu&aacute;rio)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Suporte</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">F&oacute;rum de suporte</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte assistido</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (12 issues / ano)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte Premium</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Parceria</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Acesso a GeneXus Alliance</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="hide-plan-features">- Ocultar recursos do plano</p>
+    </div>
+
+    <div class="plan-card__footer">
+      <a
+        class="button button--primary"
+        href="https://www.genexus.com/pt/developers/compra/comprar-br/comprando-genexus-for-isv"
+        type="button"
+        >Escolher Plano</a
+      >
+    </div>
+  </article>
+
+  <article class="plan-card plan-card--professional">
+    <h3 class="plan-card__title">GeneXus For Enterprise</h3>
+
+    <p class="plan-card__description">
+      Plano para empresas exigentes que buscam a excel&ecirc;ncia e a
+      produtividade no desenvolvimento de software.
+    </p>
+
+    <div class="plan-price-container">
+      <div><span class="plan__price">&Agrave; medida</span></div>
+    </div>
+
+    <p class="toggle-plan-features collapsed">
+      <span class="text text--collapsed">+ Mostrar recursos do plano </span
+      ><span class="text text--uncollapsed">- Ocultar recursos do plano</span>
+    </p>
+
+    <div
+      class="plan-card__table-container plan-card__table-container--professional collapsed"
+    >
+      <div class="tip">Toque em qualquer item para comparar planos.</div>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Tecnologia</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Web (.NET + JAVA)</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">PWA Gerador (Angular)</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Geradores Apps Nativos (iOS y Android)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Gerador ChatBot</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="more-info__td more-info__td--hidden">
+              <div class="td-container">
+                All Databases <span class="more-info__i">i</span>
+              </div>
+              <small class="more-info__info"
+                >SQL Server, Oracle, Informix, DB2, PostgreSQL, MySQL, SQlite,
+                HANA</small
+              >
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Geradores Cobol/RPG</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Live Editing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Debugger</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Monitor de desempenho</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Seguran&ccedil;a (GeneXus Access Manager)
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Multi-linguagem</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Integra&ccedil;&atilde;o</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Inspetor WSDL</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Web Services SOAP-REST</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para Mercado Livre</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Integra&ccedil;&atilde;o para SAP Business One
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Conector para SAP ERP</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">AI Module</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Sistemas Legados</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">ODATA Integration</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Design System</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Import from Sketch</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Temas</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">User Controls</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Stencils</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">SAP Fiori Pattern</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Design System Object</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">K2B Tools Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">WW+ Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">IGNIA Design System</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Ciclo de Vida de Desenvolvimento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Unit Testing</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Automated Testing Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy to the cloud</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Deploy Local / On-premise</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Versionamento</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Collaboration Suite</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Suporte de integra&ccedil;&atilde;o cont&iacute;nua - Jenkins
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">O neg&oacute;cio</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Su&iacute;te BPM</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span> (Ilimitado)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suite de Reporting</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span> (Ilimitado)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Capacidade</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Aplicativos Web e M&oacute;veis Ilimitados
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Usu&aacute;rios Ilimitados por Aplicativo
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Aplicativos 100% nativos</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Tempo de execu&ccedil;&atilde;o</div>
+            </td>
+            <td>
+              <div class="td-container">&nbsp;</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Treinamento</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">
+                Sess&atilde;o de kick-off t&eacute;cnico
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">In-house training course</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Online training courses</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">
+                Certifica&ccedil;&atilde;o GeneXus J&uacute;nior
+              </div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (5 usu&aacute;rios)
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Suporte</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">F&oacute;rum de suporte</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte assistido</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <img
+                  alt="check"
+                  class="check"
+                  src="https://www.genexus.com/media/images/check-1.svg?timestamp=20220519143225"
+                />
+                (Ilimitado)
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-container">Suporte Premium</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="plan-card__table">
+        <thead>
+          <tr>
+            <th class="feature">Parceria</th>
+            <th class="check-col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-container">Access to GeneXus Alliance</div>
+            </td>
+            <td>
+              <div class="td-container">
+                <span class="tag">Custo Adicional</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="hide-plan-features">- Ocultar recursos do plano</p>
+    </div>
+
+    <div class="plan-card__footer">
+      <a
+        class="button button--secondary"
+        href="https://www.genexus.com/pt/produtos/genexus/genexus-enterprise#contact-gisela"
+        type="button"
+        >Fale Conosco</a
+      >
+    </div>
+  </article>
+</div>
