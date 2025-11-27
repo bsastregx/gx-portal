@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Banner | Converge</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <button id="toggle-mobile">Toggle mobile version</button>
+
+    <a href="www.google.com" id="sticky-converge">
+      <article class="sticky-converge__article">
+        <header class="sticky-converge__header">
+          <div class="sticky-converge__header-top">
+            <button class="sticky-converge__close">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="12" cy="12" r="12" fill="white" />
+                <path
+                  d="M16.2352 7.76471L7.76465 16.2353M7.76465 7.76471L16.2352 16.2353"
+                  stroke="#111111"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="sticky-converge__header-bottom">
+            <img
+              class="sticky-converge__logo"
+              src="./assets/globant-converge-logo.svg"
+              alt="Globant Converge logo"
+            />
+          </div>
+        </header>
+        <main class="sticky-converge__main">
+          <h2 class="sticky-converge__title">
+            Discover how to execute AI at scale
+          </h2>
+          <footer class="sticky-converge__footer">
+            <div class="sticky-converge__footer-top">
+              <p class="sticky-converge__caption">
+                December 10 and 11 | Online
+              </p>
+            </div>
+            <div class="sticky-converge__footer-bottom">
+              Register Now
+              <svg
+                class="sticky-converge__arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.11959e-07 9L12.17 9L6.58 14.59L8 16L16 8L8 -6.99382e-07L6.59 1.41L12.17 7L7.86805e-07 7L6.11959e-07 9Z"
+                  fill="#71E69A"
+                />
+              </svg>
+            </div>
+          </footer>
+        </main>
+      </article>
+    </a>
+
+    <script>
+      /*Sticky banner scripts*/
+      const stickyConverge = document.getElementById("sticky-converge");
+      /*detect is mobilde*/
+      const isMobile =
+        /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      if (isMobile) {
+        stickyConverge.classList.add("is-mobile");
+      }
+      /*close button action*/
+      const closeButton = document.querySelector(".sticky-converge__close");
+      if (closeButton) {
+        closeButton.addEventListener("mouseenter", function (e) {
+          stickyConverge.classList.add("hover-close");
+        });
+        closeButton.addEventListener("mouseout", function (e) {
+          stickyConverge.classList.remove("hover-close");
+        });
+        closeButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          stickyConverge.classList.add("hidden");
+        });
+      }
+    </script>
+
+    <script>
+      /*Toggle button scripts*/
+      const toggleMobileBtn = document.getElementById("toggle-mobile");
+      if (toggleMobileBtn && stickyConverge) {
+        toggleMobileBtn.addEventListener("click", () => {
+          stickyConverge.classList.toggle("is-mobile");
+        });
+      }
+    </script>
+  </body>
+</html>
