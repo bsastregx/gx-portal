@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const gx = {
     url: {
       en: "https://converge.globant.com/?utm_source=web&utm_medium=org&utm_campaign=a-glx-st-glx-cn-converge2025-id-500224-r-all-bo-gnx-ac-tl-s-web-me-org-o-esu-bi-nap-f-ban-y-2025-m-11-t-genexuscampaign",
-      es: "https://converge.globant.com/?utm_source=web&utm_medium=org&utm_campaign=a-glx-st-glx-cn-converge2025-id-500224-r-all-bo-gnx-ac-tl-s-web-me-org-o-esu-bi-nap-f-ban-y-2025-m-11-t-genexuscampaign",
-      pt: "https://converge.globant.com/?utm_source=web&utm_medium=org&utm_campaign=a-glx-st-glx-cn-converge2025-id-500224-r-all-bo-gnx-ac-tl-s-web-me-org-o-esu-bi-nap-f-ban-y-2025-m-11-t-genexuscampaign",
+      es: "https://converge.globant.com/es/?utm_source=web&utm_medium=org&utm_campaign=a-glx-st-glx-cn-converge2025-id-500224-r-all-bo-gnx-ac-tl-s-web-me-org-o-esu-bi-nap-f-ban-y-2025-m-11-t-genexuscampaign",
+      pt: "https://converge.globant.com/pt-br/?utm_source=web&utm_medium=org&utm_campaign=a-glx-st-glx-cn-converge2025-id-500224-r-all-bo-gnx-ac-tl-s-web-me-org-o-esu-bi-nap-f-ban-y-2025-m-11-t-genexuscampaign",
     },
     title: {
       en: "Discover how to execute AI at scale",
