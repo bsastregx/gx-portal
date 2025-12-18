@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /*=== Detect is mobile ====*/
   const isMobile =
-    /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
+    /iPhone|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     );
   let isMobileClass = "is-not-mobile";
@@ -255,9 +255,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* === Mobile Version === */
     #sticky-converge.is-mobile {
-      max-width: var(--max-width-mobile);
+      max-width: 100%;
       bottom: 8px;
-      right: 8px;
+      right: 0;
+      padding-inline: 26px;
+      box-sizing: border-box;
     }
 
     #sticky-converge.is-mobile .sticky-converge__article {
